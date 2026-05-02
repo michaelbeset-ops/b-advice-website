@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B-Advice — Hero Richtingen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="design-canvas.jsx"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #111; font-family: 'DM Sans', sans-serif; }
+
+    /* ── shared nav ── */
+    .nav {
+      position: absolute; top: 0; left: 0; right: 0; z-index: 10;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 48px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo-mark {
+      width: 36px; height: 36px; background: #4CAF72; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo-mark span { color: #fff; font-weight: 700; font-size: 15px; letter-spacing: -0.5px; }
+    .nav-wordmark { font-size: 17px; font-weight: 600; letter-spacing: -0.3px; }
+    .nav-links { display: flex; gap: 32px; align-items: center; font-size: 14px; font-weight: 500; }
+    .nav-links a { text-decoration: none; }
+    .nav-cta {
+      padding: 9px 20px; border-radius: 6px; font-size: 14px; font-weight: 600;
+      cursor: pointer; border: none; transition: opacity .15s; background: #4CAF72; color: #fff;
+    }
+    .nav-cta:hover { opacity: .85; }
+
+    /* scroll hint */
+    .scroll-hint {
+      position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+    }
+    .scroll-hint span { font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
+    .scroll-arrow {
+      width: 20px; height: 20px; border-right: 2px solid; border-bottom: 2px solid;
+      transform: rotate(45deg); animation: bounce 1.6s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: rotate(45deg) translateY(0); }
+      50% { transform: rotate(45deg) translateY(5px); }
+    }
+
+    /* tag pill */
+    .tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500;
+      letter-spacing: .06em; text-transform: uppercase;
+      border-radius: 4px; padding: 5px 10px;
+    }
+    .tag-dot { width: 6px; height: 6px; border-radius: 50%; background: #4CAF72; }
+
+    /* stats */
+    .stat { display: flex; flex-direction: column; gap: 2px; }
+    .stat-num { font-size: 28px; font-weight: 700; letter-spacing: -1px; line-height: 1; }
+    .stat-label { font-size: 12px; font-weight: 400; opacity: .6; }
+    .stats-row { display: flex; gap: 40px; align-items: center; }
+    .stat-divider { width: 1px; height: 36px; background: currentColor; opacity: .15; }
+
+    /* buttons */
+    .btn-primary {
+      padding: 13px 28px; background: #4CAF72; color: #fff;
+      border: none; border-radius: 7px; font-size: 15px; font-weight: 600;
+      cursor: pointer; font-family: inherit; transition: background .15s;
+    }
+    .btn-primary:hover { background: #3d9f63; }
+    .btn-ghost {
+      padding: 13px 22px; background: transparent;
+      border: 1.5px solid rgba(26,40,32,.18); border-radius: 7px;
+      font-size: 15px; font-weight: 500; cursor: pointer; font-family: inherit;
+      transition: border-color .15s;
+    }
+    .btn-ghost:hover { border-color: rgba(26,40,32,.4); }
+
+    /* ── 3D model embed ── */
+    .model-container {
+      position: relative; width: 100%; height: 100%;
+    }
+    .model-loader {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 14px;
+      transition: opacity .4s ease; z-index: 2; pointer-events: none;
+    }
+    .model-loader.hidden { opacity: 0; }
+    .loader-ring {
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 3px solid rgba(76,175,114,.15);
+      border-top-color: #4CAF72;
+      animation: spin .9s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loader-label {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      letter-spacing: .1em; text-transform: uppercase;
+      animation: pulse-text 1.4s ease-in-out infinite;
+    }
+    @keyframes pulse-text { 0%,100%{opacity:.5} 50%{opacity:1} }
+    .model-iframe {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      border: none; display: block; pointer-events: all;
+      opacity: 0; transition: opacity .5s ease;
+    }
+    .model-iframe.loaded { opacity: 1; }
+    .model-badge {
+      position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+      background: rgba(255,255,255,.12); backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 20px; padding: 6px 14px;
+      font-size: 11px; font-weight: 500; letter-spacing: .06em;
+      white-space: nowrap; z-index: 3; pointer-events: none;
+    }
+
+    /* ══════════════════════════
+       HERO 1 — SPLIT SCREEN
+    ══════════════════════════ */
+    .h1 {
+      width: 1440px; height: 820px; background: #FAFAF9;
+      position: relative; overflow: hidden;
+    }
+    .h1-left {
+      position: absolute; left: 0; top: 0; bottom: 0; width: 52%;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 0 64px 0 80px;
+    }
+    .h1-right {
+      position: absolute; right: 0; top: 0; bottom: 0; width: 48%;
+      background: #fff; overflow: hidden;
+    }
+    .h1-right::before { display: none; }
+    .h1-right .model-container { position: absolute; inset: 0; }
+    .h1-right .model-loader { background: #F0F4F2; }
+    .h1-right .loader-label { color: #4CAF72; }
+    .h1 .nav-wordmark { color: #1a2820; }
+    .h1 .nav-links a { color: #1a2820; }
+    .h1-tag { margin-bottom: 24px; }
+    .h1-tag .tag { background: rgba(76,175,114,.1); color: #2d7a52; }
+    .h1-headline {
+      font-size: 52px; font-weight: 700; line-height: 1.1; letter-spacing: -2px;
+      color: #111f18; text-wrap: pretty;
+    }
+    .h1-headline em { font-style: normal; color: #4CAF72; }
+    .h1-sub {
+      margin-top: 20px; font-size: 17px; line-height: 1.65; color: #4a5e52;
+      max-width: 400px; font-weight: 400;
+    }
+    .h1-actions { margin-top: 36px; display: flex; gap: 12px; align-items: center; }
+    .h1 .btn-ghost { color: #1a2820; }
+    .h1-stats { margin-top: 56px; }
+    .h1 .stats-row { color: #1a2820; }
+    .h1 .scroll-hint { color: #4a5e52; }
+    .h1 .scroll-arrow { border-color: #4a5e52; }
+
+    /* ══════════════════════════
+       HERO 2 — TECHNICAL GRID
+    ══════════════════════════ */
+    .h2 {
+      width: 1440px; height: 820px; background: #0d1a14;
+      position: relative; overflow: hidden;
+    }
+    .h2-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(76,175,114,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(76,175,114,.07) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .h2-glow {
+      position: absolute; top: -10%; right: -5%;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(76,175,114,.14) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .h2-glow2 {
+      position: absolute; bottom: -20%; left: 15%;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(76,175,114,.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .h2-content {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 0 80px;
+    }
+    .h2-tag .tag { background: rgba(76,175,114,.12); color: #7dd4a0; border: 1px solid rgba(76,175,114,.2); }
+    .h2-headline {
+      margin-top: 20px;
+      font-size: 62px; font-weight: 700; line-height: 1.05; letter-spacing: -2.5px;
+      color: #f0f7f3; max-width: 860px; text-wrap: pretty;
+    }
+    .h2-headline em { font-style: normal; color: #4CAF72; }
+    .h2-sub {
+      margin-top: 20px; font-size: 17px; line-height: 1.6; color: #8aab96;
+      max-width: 560px; font-weight: 400;
+    }
+    .h2-actions { margin-top: 36px; display: flex; gap: 12px; }
+    .h2 .btn-ghost { color: #c8dfd0; border-color: rgba(200,223,208,.25); }
+    .h2 .btn-ghost:hover { border-color: rgba(200,223,208,.5); }
+    .h2-model { margin-top: 48px; position: relative; }
+    .h2-model .model-container {
+      width: 560px; height: 340px; border-radius: 12px; overflow: hidden;
+      box-shadow: 0 0 80px rgba(76,175,114,.18), 0 32px 80px rgba(0,0,0,.5);
+      border: 1px solid rgba(76,175,114,.15);
+    }
+    .h2-model .model-loader { background: #0d1a14; }
+    .h2-model .loader-label { color: #4CAF72; }
+    .h2-scanline {
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, #4CAF72, transparent);
+      animation: scan 3s linear infinite; z-index: 4; pointer-events: none;
+    }
+    @keyframes scan {
+      0% { top: 0; opacity: 1; } 90% { top: 100%; opacity: .5; } 100% { top: 100%; opacity: 0; }
+    }
+    .h2-corner {
+      position: absolute; width: 16px; height: 16px;
+      border-color: #4CAF72; border-style: solid; z-index: 4; pointer-events: none;
+    }
+    .h2-corner-tl { top: -4px; left: -4px; border-width: 2px 0 0 2px; }
+    .h2-corner-tr { top: -4px; right: -4px; border-width: 2px 2px 0 0; }
+    .h2-corner-bl { bottom: -4px; left: -4px; border-width: 0 0 2px 2px; }
+    .h2-corner-br { bottom: -4px; right: -4px; border-width: 0 2px 2px 0; }
+    .h2 .stats-row { color: #8aab96; }
+    .h2 .stat-num { color: #4CAF72; }
+    .h2-stats-bar {
+      position: absolute; bottom: 40px; left: 80px; right: 80px;
+      display: flex; align-items: center; gap: 40px;
+      padding: 18px 32px;
+      background: rgba(255,255,255,.04); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.07); border-radius: 10px;
+    }
+    .h2 .stat-divider { background: rgba(255,255,255,.15); }
+    .h2 .nav-wordmark { color: #e8f5ee; }
+    .h2 .nav-links a { color: #8aab96; }
+    .h2 .scroll-hint { color: #4a6855; }
+    .h2 .scroll-arrow { border-color: #4a6855; }
+
+    /* ══════════════════════════
+       HERO 3 — TERRAIN
+    ══════════════════════════ */
+    .h3 {
+      width: 1440px; height: 820px; background: #f8faf8;
+      position: relative; overflow: hidden;
+    }
+    .h3-terrain { position: absolute; bottom: 0; left: 0; right: 0; height: 360px; }
+    .h3-terrain svg { width: 100%; height: 100%; }
+    .h3-left {
+      position: absolute; top: 0; left: 0; bottom: 0; width: 50%;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 0 56px 60px 80px; z-index: 2;
+    }
+    .h3-right {
+      position: absolute; right: 64px; top: 50%; transform: translateY(-54%);
+      z-index: 3;
+    }
+    .h3-model-wrap { position: relative; }
+    .h3-model-wrap .model-container {
+      width: 500px; height: 420px; border-radius: 16px; overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0,0,0,.18);
+    }
+    .h3-model-wrap .model-loader { background: #f8faf8; }
+    .h3-model-wrap .loader-label { color: #4CAF72; }
+    .h3-depth-label {
+      position: absolute; left: -60px; top: 50%;
+      transform: translateY(-50%) rotate(-90deg);
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      letter-spacing: .12em; color: #4CAF72;
+      text-transform: uppercase; white-space: nowrap;
+    }
+    .h3-depth-line {
+      position: absolute; left: -44px; top: 0; bottom: 0; width: 1px;
+      background: linear-gradient(to bottom, transparent, #4CAF72 30%, #4CAF72 70%, transparent);
+    }
+    .h3 .nav-wordmark { color: #1a2820; }
+    .h3 .nav-links a { color: #3d5246; }
+    .h3-tag .tag { background: rgba(76,175,114,.1); color: #2d7a52; }
+    .h3-headline {
+      font-size: 50px; font-weight: 700; line-height: 1.08; letter-spacing: -2px;
+      color: #0f1e16; text-wrap: pretty;
+    }
+    .h3-headline em { font-style: normal; color: #4CAF72; }
+    .h3-sub {
+      margin-top: 18px; font-size: 16px; line-height: 1.65;
+      color: #4a5e52; max-width: 380px;
+    }
+    .h3-actions { margin-top: 32px; display: flex; gap: 12px; }
+    .h3 .btn-ghost { color: #1a2820; border-color: rgba(26,40,32,.18); }
+    .h3-stats { margin-top: 48px; }
+    .h3 .stats-row { color: #1a2820; }
+    .h3 .scroll-hint { color: #8aab96; }
+    .h3 .scroll-arrow { border-color: #8aab96; }
+    .h3-underground-label {
+      position: absolute; bottom: 120px; left: 80px;
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(255,255,255,.5); z-index: 5;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .h3-underground-label::before {
+      content: ''; display: block; width: 20px; height: 1px;
+      background: rgba(255,255,255,.4);
+    }
+  </style>
+</head>
+<body>
+<script type="text/babel">
+const { useState } = React;
+
+const SKETCHFAB_URL = "https://sketchfab.com/models/a03bde422cb0483daccc351e78808eec/embed?autostart=1&autospin=0.2&ui_theme=dark&ui_infos=0&ui_controls=1&ui_watermark=0&ui_watermark_link=0&ui_animations=0&ui_inspector=0&ui_stop=0&ui_help=0&ui_settings=0&ui_vr=0&ui_fullscreen=1&ui_annotations=0";
+
+function Model3D({ showBadge = false }) {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <div className="model-container">
+      <div className={`model-loader${loaded ? ' hidden' : ''}`}>
+        <div className="loader-ring" />
+        <span className="loader-label">Model laden…</span>
+      </div>
+      <iframe
+        className={`model-iframe${loaded ? ' loaded' : ''}`}
+        title="Dutch Underground Residual Waste Container"
+        frameBorder="0"
+        allowFullScreen
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        src={SKETCHFAB_URL}
+        onLoad={() => setLoaded(true)}
+      />
+      {showBadge && loaded && (
+        <div className="model-badge">↔ Versleep om te roteren</div>
+      )}
+    </div>
+  );
+}
+
+function Nav({ active = '' }) {
+  return (
+    <nav className="nav" id="sitenav">
+      <a className="nav-logo" href="B-Advice Hero Directions.html">
+        <div className="nav-logo-mark"><span>B</span></div>
+        <span className="nav-wordmark">B-Advice</span>
+      </a>
+      <div className="nav-links" style={{ display:'flex', gap:28, alignItems:'center', fontSize:14, fontWeight:500, color:'#3d5246' }}>
+        {[
+          { label:'Diensten', href:'Diensten.html' },
+          { label:'B-Organized', href:'B-Organized.html' },
+          { label:'Producten', href:'#' },
+          { label:'Nieuws', href:'#' },
+          { label:'Over ons', href:'#' },
+        ].map(l => (
+          <a key={l.label} href={l.href} style={{ color: active===l.label ? '#0f1e16' : '#3d5246', transition:'color .15s' }}>{l.label}</a>
+        ))}
+      </div>
+      <div style={{ display:'flex', alignItems:'center', gap:16 }}>
+        <a href="#" style={{ fontSize:13, color:'#7a9585', fontWeight:400, transition:'color .15s' }}>Contact</a>
+        <button className="nav-cta">Login B-Organized</button>
+      </div>
+    </nav>
+  );
+}
+
+function ScrollHint() {
+  return (
+    <div className="scroll-hint">
+      <span>Scroll</span>
+      <div className="scroll-arrow" />
+    </div>
+  );
+}
+
+function Stats({ color }) {
+  const items = [
+    { num: '200+', label: 'Gemeentes bediend' },
+    { num: '15.000+', label: 'Containers beheerd' },
+    { num: '98%', label: 'Klanttevredenheid' },
+  ];
+  return (
+    <div className="stats-row">
+      {items.map((s, i) => (
+        <React.Fragment key={i}>
+          {i > 0 && <div className="stat-divider" />}
+          <div className="stat">
+            <span className="stat-num" style={color ? { color } : {}}>{s.num}</span>
+            <span className="stat-label">{s.label}</span>
+          </div>
+        </React.Fragment>
+      ))}
+    </div>
+  );
+}
+
+/* ══════════ HERO 1 — SPLIT SCREEN ══════════ */
+function Hero1() {
+  return (
+    <div className="h1">
+      <Nav />
+      <div className="h1-left">
+        <div className="h1-tag">
+          <span className="tag"><span className="tag-dot"/>Infrastructuur &amp; Beheer</span>
+        </div>
+        <h1 className="h1-headline">
+          Ondergrondse containers.<br/>
+          <em>Bovengronds</em> gemanaged.
+        </h1>
+        <p className="h1-sub">
+          Van plaatsing tot digitaal beheer — B-Advice levert complete
+          oplossingen voor ondergrondse afvalinfrastructuur in Nederland.
+        </p>
+        <div className="h1-actions">
+          <button className="btn-primary">Bekijk onze diensten</button>
+          <button className="btn-ghost">B-Organized ontdekken →</button>
+        </div>
+        <div className="h1-stats"><Stats /></div>
+      </div>
+      <div className="h1-right">
+        <img
+          src="uploads/pasted-1777751743951-0.png"
+          alt="B-Organized dashboard op MacBook"
+          style={{
+            position: 'absolute', inset: 0,
+            width: '100%', height: '100%',
+            objectFit: 'contain',
+            objectPosition: 'center',
+            display: 'block',
+          }}
+        />
+      </div>
+      <ScrollHint />
+    </div>
+  );
+}
+
+/* ══════════ HERO 2 — TECHNICAL GRID ══════════ */
+function Hero2() {
+  return (
+    <div className="h2">
+      <div className="h2-grid" />
+      <div className="h2-glow" />
+      <div className="h2-glow2" />
+      <Nav />
+      <div className="h2-content">
+        <div className="h2-tag">
+          <span className="tag"><span className="tag-dot" style={{ background: '#4CAF72' }}/>Ondergrondse Infrastructuur</span>
+        </div>
+        <h1 className="h2-headline">
+          Slimme infrastructuur,<br/><em>diep</em> onder de grond
+        </h1>
+        <p className="h2-sub">
+          B-Advice ontwerpt, plaatst en beheert ondergrondse
+          afvalcontainers — volledig digitaal via het B-Organized platform.
+        </p>
+        <div className="h2-actions">
+          <button className="btn-primary">Plan een intake</button>
+          <button className="btn-ghost">Bekijk B-Organized</button>
+        </div>
+        <div className="h2-model">
+          <div className="h2-scanline" />
+          <div className="h2-corner h2-corner-tl" />
+          <div className="h2-corner h2-corner-tr" />
+          <div className="h2-corner h2-corner-bl" />
+          <div className="h2-corner h2-corner-br" />
+          <Model3D />
+        </div>
+      </div>
+      <div className="h2-stats-bar">
+        <Stats color="#4CAF72" />
+        <div style={{ marginLeft: 'auto', display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <span style={{ fontFamily: 'DM Mono', fontSize: 10, color: '#4CAF72', letterSpacing: '.08em', textTransform: 'uppercase' }}>Live status</span>
+          <span style={{ fontSize: 13, color: '#8aab96' }}>Alle systemen operationeel</span>
+        </div>
+      </div>
+      <ScrollHint />
+    </div>
+  );
+}
+
+/* ══════════ HERO 3 — TERRAIN ══════════ */
+function Hero3() {
+  return (
+    <div className="h3">
+      <div className="h3-terrain">
+        <svg viewBox="0 0 1440 360" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="tg1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#e8f2eb" stopOpacity="0"/>
+              <stop offset="100%" stopColor="#c8dfd0" stopOpacity="1"/>
+            </linearGradient>
+            <linearGradient id="tg2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#4CAF72" stopOpacity=".22"/>
+              <stop offset="100%" stopColor="#1e5c36" stopOpacity=".9"/>
+            </linearGradient>
+          </defs>
+          <path d="M0,120 C200,80 400,160 600,100 C800,40 1100,140 1440,90 L1440,360 L0,360 Z" fill="url(#tg1)"/>
+          <path d="M0,180 C300,140 600,200 900,150 C1100,120 1300,180 1440,160 L1440,360 L0,360 Z" fill="url(#tg2)"/>
+          <path d="M0,180 C300,140 600,200 900,150 C1100,120 1300,180 1440,160" fill="none" stroke="#4CAF72" strokeWidth="2" strokeOpacity=".6"/>
+          {[180, 240, 300].map((y, i) => (
+            <g key={i}>
+              <line x1="80" y1={y} x2="200" y2={y} stroke="rgba(76,175,114,.3)" strokeWidth="1" strokeDasharray="4 6"/>
+              <text x="88" y={y - 6} fontSize="9" fill="rgba(76,175,114,.5)" fontFamily="DM Mono">{(i+1) * 50}cm</text>
+            </g>
+          ))}
+        </svg>
+      </div>
+      <Nav />
+      <div className="h3-left">
+        <div className="h3-tag">
+          <span className="tag"><span className="tag-dot"/>Plaatsing &amp; Beheer</span>
+        </div>
+        <h1 className="h3-headline">
+          Wat er boven staat,<br/>
+          beheers je <em>van onderaf</em>
+        </h1>
+        <p className="h3-sub">
+          B-Advice is specialist in ondergrondse afvalcontainer-infrastructuur.
+          Wij leveren slimme plaatsing, onderhoud en het B-Organized SaaS-platform.
+        </p>
+        <div className="h3-actions">
+          <button className="btn-primary">Onze aanpak</button>
+          <button className="btn-ghost">B-Organized →</button>
+        </div>
+        <div className="h3-stats"><Stats /></div>
+      </div>
+      <div className="h3-right">
+        <div className="h3-model-wrap">
+          <div className="h3-depth-line" />
+          <div className="h3-depth-label">diepte installatie</div>
+          <Model3D showBadge={true} />
+        </div>
+      </div>
+      <div className="h3-underground-label">Ondergronds installatiepunt</div>
+      <ScrollHint />
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <DesignCanvas title="B-Advice — Hero Richtingen">
+      <DCSection id="heroes" title="Hero — drie richtingen">
+        <DCArtboard id="h1" label="Richting 1 · Split Screen" width={1440} height={820}>
+          <Hero1 />
+        </DCArtboard>
+        <DCArtboard id="h2" label="Richting 2 · Technical Grid (donker)" width={1440} height={820}>
+          <Hero2 />
+        </DCArtboard>
+        <DCArtboard id="h3" label="Richting 3 · Terrain (aards)" width={1440} height={820}>
+          <Hero3 />
+        </DCArtboard>
+      </DCSection>
+    </DesignCanvas>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+<div id="root"></div>
+</body>
+</html>

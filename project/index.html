@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B-Advice — Ondergrondse afvalinfrastructuur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    /* ── Hero ── */
+    .hero {
+      height: 100vh; min-height: 700px;
+      display: grid; grid-template-columns: 52% 48%;
+      padding-top: 64px;
+      background: #FAFAF9;
+      overflow: hidden;
+    }
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 80px 64px 60px 80px;
+    }
+    .hero-right {
+      background: #fff;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .hero-right img {
+      width: 100%; height: 100%;
+      object-fit: contain; object-position: center;
+      display: block;
+    }
+    .hero-tag { margin-bottom: 24px; }
+    .hero-headline {
+      font-size: 52px; font-weight: 700; line-height: 1.1;
+      letter-spacing: -2px; color: #111f18; text-wrap: pretty;
+    }
+    .hero-headline em { font-style: normal; color: #4CAF72; }
+    .hero-sub {
+      margin-top: 20px; font-size: 17px; line-height: 1.65;
+      color: #4a5e52; max-width: 400px;
+    }
+    .hero-actions { margin-top: 36px; display: flex; gap: 12px; align-items: center; }
+    .hero-stats { margin-top: 56px; }
+    .stats-row { display: flex; gap: 0; align-items: center; }
+    .stat { display: flex; flex-direction: column; gap: 2px; padding-right: 36px; }
+    .stat + .stat { padding-left: 36px; border-left: 1px solid rgba(26,40,32,.12); }
+    .stat-num { font-size: 28px; font-weight: 700; letter-spacing: -1px; line-height: 1; color: #111f18; }
+    .stat-label { font-size: 12px; color: #7a9585; }
+
+    /* scroll hint */
+    .hero-scroll {
+      position: absolute; bottom: 32px; left: 0; right: 0;
+      display: flex; justify-content: center;
+      pointer-events: none;
+    }
+    .scroll-hint { color: #9ab5a4; }
+
+    /* ── Diensten preview ── */
+    .diensten-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
+      background: var(--border); border-radius: 12px; overflow: hidden;
+      border: 1px solid var(--border); margin-top: 48px;
+    }
+    .dienst-card {
+      background: #fff; padding: 32px 28px;
+      display: flex; flex-direction: column; gap: 12px;
+      transition: background .15s; text-decoration: none; color: inherit;
+    }
+    .dienst-card:hover { background: #f6faf7; }
+    .dienst-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
+    .dienst-icon svg { width: 24px; height: 24px; stroke: #4CAF72; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .dienst-title { font-size: 16px; font-weight: 700; letter-spacing: -.2px; color: #111f18; }
+    .dienst-desc { font-size: 13px; line-height: 1.6; color: #4a5e52; flex: 1; }
+    .dienst-link { font-size: 12px; font-weight: 600; color: #4CAF72; }
+
+    /* ── B-Organized highlight ── */
+    .bo-section {
+      background: #0f1e16;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+      padding: 96px 80px;
+    }
+    .bo-section .section-label { color: rgba(76,175,114,.7); }
+    .bo-section .section-title { color: #f0f7f3; font-size: 40px; }
+    .bo-section .section-sub { color: #8aab96; }
+    .bo-features {
+      margin-top: 32px; display: flex; flex-direction: column; gap: 12px;
+    }
+    .bo-feature {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 14px; color: #b0cbbf; font-weight: 500;
+    }
+    .bo-check {
+      width: 20px; height: 20px; background: rgba(76,175,114,.15);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .bo-check svg { width: 10px; height: 10px; stroke: #4CAF72; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .bo-actions { margin-top: 36px; display: flex; gap: 12px; }
+    .bo-img-wrap {
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,.45);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .bo-img-wrap img { width: 100%; display: block; }
+  </style>
+</head>
+<body data-page="Home">
+
+<div id="nav-placeholder"></div>
+
+<!-- HERO -->
+<section class="hero" style="position:relative;">
+  <div class="hero-left">
+    <div class="hero-tag">
+      <span class="tag"><span class="tag-dot"></span>Infrastructuur &amp; Beheer</span>
+    </div>
+    <h1 class="hero-headline">
+      Ondergrondse containers.<br/>
+      <em>Bovengronds</em> gemanaged.
+    </h1>
+    <p class="hero-sub">
+      Van plaatsing tot digitaal beheer — B-Advice levert complete
+      oplossingen voor ondergrondse afvalinfrastructuur in Nederland.
+    </p>
+    <div class="hero-actions">
+      <a href="Diensten.html" class="btn-primary">Bekijk onze diensten</a>
+      <a href="B-Organized.html" class="btn-ghost">B-Organized ontdekken →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stats-row">
+        <div class="stat">
+          <span class="stat-num">200+</span>
+          <span class="stat-label">Gemeentes bediend</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">15.000+</span>
+          <span class="stat-label">Containers beheerd</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">98%</span>
+          <span class="stat-label">Klanttevredenheid</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img
+      src="uploads/pasted-1777751743951-0.png"
+      alt="B-Organized dashboard op MacBook"
+    />
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </div>
+</section>
+
+<!-- DIENSTEN PREVIEW -->
+<section class="section">
+  <div class="section-label">Wat we doen</div>
+  <h2 class="section-title">Drie <em>kerngebieden</em>,<br/>één partner</h2>
+  <p class="section-sub">Van strategisch advies tot civieltechnische uitvoering en digitaal platformbeheer.</p>
+
+  <div class="diensten-grid">
+    <a href="Diensten.html" class="dienst-card">
+      <div class="dienst-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      </div>
+      <div class="dienst-title">Plaatsing &amp; Infrastructuur</div>
+      <p class="dienst-desc">Civieltechnische plaatsing van ondergrondse containersystemen, inclusief projectmanagement en bewonersparticipatie.</p>
+      <span class="dienst-link">Alle diensten →</span>
+    </a>
+    <a href="Diensten.html" class="dienst-card">
+      <div class="dienst-icon">
+        <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3-3a1 1 0 000-1.4l-1.6-1.6a1 1 0 00-1.4 0l-3 3z"/><path d="M20 20L8.5 8.5M10.5 6.5l-7 7a2 2 0 000 2.8l1.2 1.2a2 2 0 002.8 0l7-7"/></svg>
+      </div>
+      <div class="dienst-title">Beheer &amp; Onderhoud</div>
+      <p class="dienst-desc">Levensduur verlengen van bestaande inzamelmiddelen via professioneel onderhoud, refurbishment en meerjaren-investeringsplannen.</p>
+      <span class="dienst-link">Meer over beheer →</span>
+    </a>
+    <a href="B-Organized.html" class="dienst-card">
+      <div class="dienst-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      </div>
+      <div class="dienst-title">B-Organized Platform</div>
+      <p class="dienst-desc">SaaS-platform voor volledig digitaal containerbeheer. Van werkvoorbereiding tot lediging, alles inzichtelijk in één dashboard.</p>
+      <span class="dienst-link">Ontdek B-Organized →</span>
+    </a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- B-ORGANIZED HIGHLIGHT -->
+<section class="bo-section">
+  <div>
+    <div class="section-label">Ons platform</div>
+    <h2 class="section-title">B-Organized —<br/>digitaal containerbeheer</h2>
+    <p class="section-sub" style="margin-top:16px;">
+      Gemeentes en afvalverwerkers beheren hun volledige containerpark via één platform.
+      Overzichtelijk, snel en schaalbaar.
+    </p>
+    <div class="bo-features">
+      <div class="bo-feature">
+        <div class="bo-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        Kanban-overzicht per gemeente en wijk
+      </div>
+      <div class="bo-feature">
+        <div class="bo-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        Containerregistratie met kaartweergave
+      </div>
+      <div class="bo-feature">
+        <div class="bo-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        Takenbeheer en gebruikersrollen
+      </div>
+      <div class="bo-feature">
+        <div class="bo-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        Bijlages en notities per container
+      </div>
+    </div>
+    <div class="bo-actions">
+      <a href="B-Organized.html" class="btn-primary">Meer over B-Organized</a>
+      <button class="btn-outline-white" style="display:inline-flex;align-items:center;gap:6px;padding:13px 22px;background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.25);border-radius:7px;font-size:15px;font-weight:500;cursor:pointer;font-family:inherit;transition:border-color .15s;">Login →</button>
+    </div>
+  </div>
+  <div class="bo-img-wrap">
+    <img src="uploads/pasted-1777751743951-0.png" alt="B-Organized dashboard" />
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div>
+    <div class="cta-band-title">Benieuwd wat B-Advice voor uw gemeente kan betekenen?</div>
+    <p class="cta-band-sub">Plan een vrijblijvende kennismaking van 30 minuten.</p>
+  </div>
+  <button class="btn-white">Plan een kennismaking</button>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="shared-footer.js"></script>
+</body>
+</html>

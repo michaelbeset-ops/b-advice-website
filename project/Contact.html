@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — B-Advice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    .contact-layout {
+      display: grid; grid-template-columns: 1fr 420px;
+      gap: 80px; padding: 64px 80px 96px; align-items: start;
+    }
+
+    /* form */
+    .contact-form { display: flex; flex-direction: column; gap: 20px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-label { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+    .form-label span { color: var(--green); }
+    .form-input, .form-select, .form-textarea {
+      font-family: var(--font); font-size: 14px; color: var(--ink);
+      padding: 11px 14px; border: 1.5px solid var(--border);
+      border-radius: 7px; background: #fff; transition: border-color .15s;
+      width: 100%;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none; border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(76,175,114,.08);
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--ink-4); }
+    .form-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%237a9585'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center;
+      cursor: pointer;
+    }
+    .form-textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
+    .form-privacy { font-size: 12px; color: var(--ink-4); line-height: 1.6; }
+    .form-privacy a { color: var(--green); }
+    .form-submit { align-self: flex-start; }
+
+    /* success state */
+    .form-success {
+      display: none; background: rgba(76,175,114,.08);
+      border: 1.5px solid rgba(76,175,114,.25); border-radius: 10px;
+      padding: 24px; text-align: center;
+    }
+    .form-success.visible { display: block; }
+    .form-success-icon { font-size: 32px; margin-bottom: 8px; }
+    .form-success-title { font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .form-success-text { font-size: 14px; color: var(--ink-3); }
+
+    /* sidebar info */
+    .contact-info { display: flex; flex-direction: column; gap: 32px; position: sticky; top: 88px; }
+    .info-card {
+      background: var(--bg-2); border: 1px solid var(--border);
+      border-radius: 12px; padding: 28px; display: flex; flex-direction: column; gap: 20px;
+    }
+    .info-title { font-size: 15px; font-weight: 700; color: var(--ink); }
+    .info-item { display: flex; align-items: flex-start; gap: 12px; }
+    .info-icon { width: 36px; height: 36px; background: rgba(76,175,114,.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .info-icon svg { width: 16px; height: 16px; stroke: var(--green); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .info-label { font-size: 11px; font-weight: 500; color: var(--ink-4); text-transform: uppercase; letter-spacing: .06em; font-family: var(--mono); margin-bottom: 2px; }
+    .info-value { font-size: 14px; font-weight: 500; color: var(--ink-2); }
+    .info-value a { color: var(--ink-2); transition: color .15s; }
+    .info-value a:hover { color: var(--green); }
+
+    /* map placeholder */
+    .map-placeholder {
+      width: 100%; aspect-ratio: 4/3; background: var(--bg-2);
+      border-radius: 12px; border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 10px; color: var(--ink-4);
+      position: relative; overflow: hidden;
+    }
+    .map-placeholder::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    .map-pin {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+    }
+    .map-pin svg { width: 32px; height: 32px; fill: var(--green); opacity: .7; }
+    .map-pin span { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; opacity: .5; }
+    .map-address {
+      position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+      background: rgba(255,255,255,.9); backdrop-filter: blur(8px);
+      border: 1px solid var(--border); border-radius: 8px;
+      padding: 8px 14px; font-size: 12px; font-weight: 600; color: var(--ink-2);
+      white-space: nowrap; z-index: 2;
+    }
+
+    /* response time badge */
+    .response-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(76,175,114,.08); border: 1px solid rgba(76,175,114,.15);
+      border-radius: 20px; padding: 6px 14px;
+      font-size: 12px; color: #2d7a52; font-weight: 500;
+    }
+    .response-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.2)} }
+  </style>
+</head>
+<body data-page="Contact">
+<div id="nav-placeholder"></div>
+
+<section class="page-hero" style="padding-bottom:48px;">
+  <div class="page-hero-tag"><span class="tag"><span class="tag-dot"></span>Bereikbaar</span></div>
+  <h1 class="page-hero-title"><em>Contact</em></h1>
+  <p class="page-hero-sub">Heeft u een vraag, een project of wilt u kennismaken? Wij reageren doorgaans binnen één werkdag.</p>
+  <div style="margin-top:20px;">
+    <span class="response-badge"><span class="response-dot"></span>Gemiddelde reactietijd: &lt; 1 werkdag</span>
+  </div>
+</section>
+
+<div class="contact-layout">
+
+  <!-- form -->
+  <div>
+    <h2 style="font-size:22px;font-weight:700;letter-spacing:-.4px;color:var(--ink);margin-bottom:28px;">Stuur ons een bericht</h2>
+
+    <form class="contact-form" id="contactForm" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="naam">Naam <span>*</span></label>
+          <input class="form-input" id="naam" type="text" placeholder="Uw volledige naam" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="bedrijf">Bedrijf / Gemeente</label>
+          <input class="form-input" id="bedrijf" type="text" placeholder="Naam organisatie" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="email">E-mailadres <span>*</span></label>
+          <input class="form-input" id="email" type="email" placeholder="u@organisatie.nl" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="telefoon">Telefoonnummer</label>
+          <input class="form-input" id="telefoon" type="tel" placeholder="+31 6 ..." />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="onderwerp">Onderwerp <span>*</span></label>
+        <select class="form-select" id="onderwerp" required>
+          <option value="">Kies een onderwerp</option>
+          <option>Afvalinzameling &amp; Management</option>
+          <option>Plaatsen van inzamelmiddelen</option>
+          <option>Projectmanagement</option>
+          <option>Meerjaren Investeringsplan (MIP)</option>
+          <option>Beheer, onderhoud &amp; refurbish</option>
+          <option>Aanbesteding &amp; bestek</option>
+          <option>Bewonersparticipatie &amp; Communicatie</option>
+          <option>B-Organized platform</option>
+          <option>Demo aanvragen</option>
+          <option>Overig</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="bericht">Bericht <span>*</span></label>
+        <textarea class="form-textarea" id="bericht" placeholder="Beschrijf uw vraag of project..." required></textarea>
+      </div>
+      <p class="form-privacy">
+        Door dit formulier te versturen gaat u akkoord met ons
+        <a href="#">privacybeleid</a>. Wij gebruiken uw gegevens uitsluitend om uw vraag te beantwoorden.
+      </p>
+      <button type="submit" class="btn-primary form-submit">Verstuur bericht</button>
+    </form>
+
+    <div class="form-success" id="formSuccess">
+      <div class="form-success-icon">✓</div>
+      <div class="form-success-title">Bericht verzonden!</div>
+      <p class="form-success-text">Bedankt voor uw bericht. Wij nemen zo spoedig mogelijk contact met u op, uiterlijk binnen één werkdag.</p>
+    </div>
+  </div>
+
+  <!-- info sidebar -->
+  <div class="contact-info">
+
+    <div class="map-placeholder">
+      <div class="map-pin">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <span>Kaart laden…</span>
+      </div>
+      <div class="map-address">Achterdijk 26, Nieuwland (UT)</div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-title">Contactgegevens</div>
+
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="info-label">E-mail</div>
+          <div class="info-value"><a href="mailto:info@b-advice.info">info@b-advice.info</a></div>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div>
+          <div class="info-label">Telefoon</div>
+          <div class="info-value"><a href="tel:+31643125245">+31 (6) 431 25 245</a></div>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="info-label">Adres</div>
+          <div class="info-value">Achterdijk 26<br/>Nieuwland (UT)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-card" style="background:var(--ink);border-color:transparent;">
+      <div class="info-title" style="color:#fff;">Direct een demo plannen?</div>
+      <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;">Vraag een gratis demo aan van B-Organized en zie in 30 minuten wat het platform voor uw organisatie kan doen.</p>
+      <a href="B-Organized.html" class="btn-primary" style="align-self:flex-start;margin-top:4px;">Plan een demo</a>
+    </div>
+
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="shared-footer.js"></script>
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('formSuccess').classList.add('visible');
+  });
+</script>
+</body>
+</html>
