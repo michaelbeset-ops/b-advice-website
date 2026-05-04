@@ -81,7 +81,7 @@
   </div>
   <div class="nav-right">
     <a href="Contact.html" class="nav-contact">Contact</a>
-    <button class="nav-cta" onclick="window.location.href='https://app.b-organized.nl'">Login B-Organized</button>
+    <a href="http://b-organized.info" target="_blank" class="nav-cta">Login B-Organized</a>
   </div>
   <button class="nav-hamburger" id="navHamburger" aria-label="Menu" style="display:none;">
     <span></span><span></span><span></span>
@@ -96,7 +96,7 @@
     <a href="Over-ons.html" data-page="Over-ons">Over ons</a>
     <a href="Contact.html" class="nav-mobile-contact" style="font-size:15px;color:var(--ink-4);font-weight:400;">Contact</a>
   </div>
-  <button class="nav-mobile-cta" onclick="window.location.href='https://app.b-organized.nl'">Login B-Organized</button>
+  <a href="http://b-organized.info" target="_blank" class="nav-mobile-cta" style="display:block;text-align:center;text-decoration:none;">Login B-Organized</a>
 </div>`;
 
   // inject nav if placeholder exists
