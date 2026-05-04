@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B-Organized — B-Advice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    /* ── B-Organized page specific ── */
+
+    /* Hero override — split layout met grote laptop */
+    .bo-hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 64px;
+      background: var(--bg);
+      overflow: hidden;
+    }
+    .bo-hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 80px 64px 80px 80px;
+    }
+    .bo-hero-right {
+      background: #F0F6F2;
+      display: flex; align-items: center; justify-content: center;
+      padding: 40px;
+      position: relative;
+    }
+    .bo-hero-right::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 55% 50%, rgba(76,175,114,.07) 0%, transparent 70%);
+    }
+    .bo-hero-right img {
+      position: relative; z-index: 1;
+      width: 100%; max-width: 580px;
+      object-fit: contain;
+      filter: drop-shadow(0 32px 64px rgba(0,0,0,.14));
+    }
+    .bo-hero-title {
+      font-size: 50px; font-weight: 700; letter-spacing: -2px;
+      color: var(--ink); line-height: 1.08; text-wrap: pretty;
+      margin-top: 20px; margin-bottom: 20px;
+    }
+    .bo-hero-title em { font-style: normal; color: var(--green); }
+    .bo-hero-sub {
+      font-size: 17px; line-height: 1.65; color: var(--ink-3);
+      max-width: 460px; margin-bottom: 36px;
+    }
+    .bo-hero-actions { display: flex; gap: 12px; align-items: center; }
+
+    /* Pijlers */
+    .pillars-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
+      margin-top: 48px;
+    }
+    .pillar-card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 12px; padding: 36px 32px;
+      display: flex; flex-direction: column; gap: 14px;
+      transition: box-shadow .18s, border-color .18s;
+    }
+    .pillar-card:hover {
+      box-shadow: 0 8px 32px rgba(76,175,114,.08);
+      border-color: rgba(76,175,114,.3);
+    }
+    .pillar-icon {
+      width: 48px; height: 48px; background: rgba(76,175,114,.1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pillar-icon svg { width: 22px; height: 22px; stroke: var(--green); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .pillar-title { font-size: 18px; font-weight: 700; letter-spacing: -.3px; color: var(--ink); }
+    .pillar-desc { font-size: 14px; line-height: 1.65; color: var(--ink-3); }
+
+    /* Features */
+    .features-section { background: var(--bg-2); }
+    .features-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      margin-top: 48px;
+    }
+    .feature-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .feature-item:nth-child(odd) { padding-right: 48px; }
+    .feature-item:nth-child(even) { padding-left: 48px; border-left: 1px solid var(--border); }
+    .feature-check {
+      width: 22px; height: 22px; background: rgba(76,175,114,.12);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .feature-check svg { width: 11px; height: 11px; stroke: var(--green); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .feature-text { font-size: 15px; color: var(--ink-2); font-weight: 500; line-height: 1.4; }
+
+    /* Doelgroepen */
+    .audience-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+      background: var(--border); border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden; margin-top: 48px;
+    }
+    .audience-card {
+      background: #fff; padding: 44px 40px;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .audience-num {
+      font-family: var(--mono); font-size: 10px; color: var(--green);
+      letter-spacing: .1em; text-transform: uppercase;
+    }
+    .audience-title { font-size: 24px; font-weight: 700; letter-spacing: -.5px; color: var(--ink); }
+    .audience-desc { font-size: 14px; line-height: 1.7; color: var(--ink-3); }
+    .audience-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+    .audience-list li {
+      font-size: 13px; color: var(--ink-3);
+      display: flex; align-items: flex-start; gap: 8px;
+    }
+    .audience-list li::before {
+      content: ''; width: 5px; height: 5px; border-radius: 50%;
+      background: var(--green); margin-top: 5px; flex-shrink: 0;
+    }
+
+    /* Screenshot section */
+    .screenshot-section {
+      padding: 96px 80px; background: var(--ink);
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .screenshot-section .section-label { color: rgba(76,175,114,.7); }
+    .screenshot-section .section-title { color: #f0f7f3; }
+    .screenshot-section .section-sub { color: #8aab96; }
+    .screenshot-frame {
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,.4);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .screenshot-frame img { width: 100%; display: block; }
+
+    /* Login CTA override */
+    .btn-outline-white {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 13px 22px; background: transparent; color: #fff;
+      border: 1.5px solid rgba(255,255,255,.3); border-radius: 7px;
+      font-size: 15px; font-weight: 500; cursor: pointer; font-family: inherit;
+      transition: border-color .15s, background .15s;
+    }
+    .btn-outline-white:hover { border-color: rgba(255,255,255,.6); background: rgba(255,255,255,.05); }
+  </style>
+</head>
+<body data-page="B-Organized">
+
+<div id="nav-placeholder"></div>
+
+<!-- HERO -->
+<section class="bo-hero">
+  <div class="bo-hero-left">
+    <span class="tag"><span class="tag-dot"></span>Ons platform</span>
+    <h1 class="bo-hero-title">
+      B-Organized —<br/>
+      Uw afvalinfrastructuur<br/>
+      in <em>één overzicht</em>
+    </h1>
+    <p class="bo-hero-sub">
+      Het platform waarmee gemeentes en afvalverwerkers hun containerpark beheren.
+      Van werkvoorbereiding tot lediging, alles op één plek.
+    </p>
+    <div class="bo-hero-actions">
+      <button class="btn-primary">Plan een demo</button>
+      <button class="btn-ghost">Login →</button>
+    </div>
+  </div>
+  <div class="bo-hero-right">
+    <img
+      src="uploads/pasted-1777751743951-0.png"
+      alt="B-Organized dashboard — containerbeheer op MacBook"
+    />
+  </div>
+</section>
+
+<!-- WAT DOET B-ORGANIZED -->
+<section class="section">
+  <div class="section-label">Kernfunctionaliteit</div>
+  <h2 class="section-title">Wat doet B-Organized?</h2>
+  <p class="section-sub">Drie pijlers vormen de kern van het platform.</p>
+
+  <div class="pillars-grid">
+    <div class="pillar-card">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      </div>
+      <div class="pillar-title">Werkvoorbereiding</div>
+      <p class="pillar-desc">Plan en organiseer plaatsingsprojecten in een overzichtelijk kanban-bord. Verdeel werk over lanes, ken taken toe en houd voortgang bij — per gemeente, per wijk.</p>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="pillar-title">Containerbeheer</div>
+      <p class="pillar-desc">Volledig overzicht van alle containers, locaties en status. Met kaartweergave, bijlages, notities en registratie van elk inzamelpunt in uw beheersgebied.</p>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      </div>
+      <div class="pillar-title">Communicatie</div>
+      <p class="pillar-desc">Meldingen, taken en gebruikersbeheer in één omgeving. Meerdere gebruikersrollen, groepen per gemeente en een helder audit-trail van alle activiteiten.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FUNCTIES -->
+<section class="section features-section">
+  <div class="section-label">Overzicht</div>
+  <h2 class="section-title">Belangrijkste functies</h2>
+  <p class="section-sub">Alles wat u nodig heeft voor professioneel containerbeheer, zonder overbodige complexiteit.</p>
+
+  <div class="features-grid">
+    <div class="feature-item">
+      <div class="feature-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+      <span class="feature-text">Kanban-style projectoverzicht per gemeente</span>
+    </div>
+    <div class="feature-item">
+      <div class="feature-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+      <span class="feature-text">Containerregistratie met locatiegegevens</span>
+    </div>
+    <div class="feature-item">
+      <div class="feature-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+      <span class="feature-text">Takenbeheer en lane-structuur</span>
+    </div>
+    <div class="feature-item">
+      <div class="feature-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+      <span class="feature-text">Gebruikers en groepen</span>
+    </div>
+    <div class="feature-item">
+      <div class="feature-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+      <span class="feature-text">Map-weergave van containerlocaties</span>
+    </div>
+    <div class="feature-item">
+      <div class="feature-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+      <span class="feature-text">Bijlages en notities per container</span>
+    </div>
+    <div class="feature-item">
+      <div class="feature-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+      <span class="feature-text">Zoekfunctie door projecten</span>
+    </div>
+    <div class="feature-item">
+      <div class="feature-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+      <span class="feature-text">Meerdere gebruikersrollen</span>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENSHOT DARK SECTION -->
+<section class="screenshot-section">
+  <div>
+    <div class="section-label">Live in gebruik</div>
+    <h2 class="section-title" style="font-size:36px;margin-bottom:16px;">Zo werkt het<br/>in de praktijk</h2>
+    <p class="section-sub" style="margin-bottom:32px;">
+      Het dashboard toont direct de werkvoorraad per gemeente. Elke lane is een fase,
+      elke kaart een container of locatie. Uw team ziet altijd wat er gedaan moet worden.
+    </p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <button class="btn-primary">Plan een demo</button>
+      <button class="btn-outline-white">Login B-Organized</button>
+    </div>
+  </div>
+  <div class="screenshot-frame">
+    <img src="uploads/pasted-1777751743951-0.png" alt="B-Organized dashboard screenshot" />
+  </div>
+</section>
+
+<!-- VOOR WIE -->
+<section class="section">
+  <div class="section-label">Doelgroepen</div>
+  <h2 class="section-title">Voor wie is B-Organized?</h2>
+  <p class="section-sub">Het platform is ontworpen voor drie typen gebruikers die dagelijks werken met afvalinfrastructuur.</p>
+
+  <div class="audience-grid">
+    <div class="audience-card">
+      <div class="audience-num">01</div>
+      <div class="audience-title">Gemeentes</div>
+      <p class="audience-desc">Gemeentelijke teams die verantwoordelijk zijn voor de afvalinzameling en het beheer van de openbare ruimte.</p>
+      <ul class="audience-list">
+        <li>Overzicht van alle containerpunten in de gemeente</li>
+        <li>Voortgang van plaatsings- en vervangingsprojecten</li>
+        <li>Communicatie met uitvoerende partijen</li>
+        <li>Rapportages voor beleid en verantwoording</li>
+      </ul>
+    </div>
+    <div class="audience-card">
+      <div class="audience-num">02</div>
+      <div class="audience-title">Afvalverwerkers</div>
+      <p class="audience-desc">Operationele teams bij afvalinzamelaars die dagelijks werken met de containersystemen in het veld.</p>
+      <ul class="audience-list">
+        <li>Werkvoorbereiding en planning van routes</li>
+        <li>Registratie van meldingen en storingen</li>
+        <li>Bijhouden van onderhoud en refurbishment</li>
+        <li>Afstemming met gemeentelijke opdrachtgevers</li>
+      </ul>
+    </div>
+    <div class="audience-card">
+      <div class="audience-num">03</div>
+      <div class="audience-title">Projectmanagers</div>
+      <p class="audience-desc">Professionals die infrastructuurprojecten begeleiden van initiatieffase tot oplevering en overdracht.</p>
+      <ul class="audience-list">
+        <li>Volledig projectoverzicht per fase en locatie</li>
+        <li>Takenbeheer over meerdere uitvoeringspartners</li>
+        <li>Documentbeheer en verslaglegging</li>
+        <li>Statusupdates richting opdrachtgever</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div>
+    <div class="cta-band-title">Klaar om uw containerbeheer te professionaliseren?</div>
+    <p class="cta-band-sub">Vraag een gratis demo aan — we laten het u zien in 30 minuten.</p>
+  </div>
+  <button class="btn-white">Plan een demo</button>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="shared-footer.js"></script>
+</body>
+</html>

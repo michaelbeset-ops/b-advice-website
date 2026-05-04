@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Producten — B-Advice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    /* filters bar */
+    .filters-bar {
+      display: flex; align-items: center; gap: 12px;
+      padding: 24px 80px; background: #fff;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .filter-label { font-size: 13px; color: var(--ink-4); font-weight: 500; margin-right: 4px; }
+    .filter-select {
+      padding: 8px 36px 8px 14px; font-family: var(--font);
+      font-size: 13px; color: var(--ink-2); font-weight: 500;
+      border: 1.5px solid var(--border); border-radius: 7px;
+      background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%237a9585'/%3E%3C/svg%3E") no-repeat right 12px center;
+      appearance: none; cursor: pointer; transition: border-color .15s;
+    }
+    .filter-select:focus { outline: none; border-color: var(--green); }
+    .filter-divider { width: 1px; height: 24px; background: var(--border); margin: 0 4px; }
+    .filter-count { margin-left: auto; font-size: 13px; color: var(--ink-4); }
+
+    /* product grid */
+    .product-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
+      margin-top: 48px;
+    }
+    .product-card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden;
+      transition: box-shadow .18s, border-color .18s;
+      text-decoration: none; color: inherit;
+      display: flex; flex-direction: column;
+    }
+    .product-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,.08);
+      border-color: rgba(76,175,114,.25);
+    }
+    .product-image {
+      aspect-ratio: 4/3; background: var(--bg-2);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .product-image-placeholder {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: var(--ink-4);
+    }
+    .product-image-placeholder svg { width: 32px; height: 32px; opacity: .3; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .product-image-placeholder span { font-family: var(--mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; opacity: .5; }
+    /* subtle stripe pattern */
+    .product-image::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 8px,
+        rgba(0,0,0,.025) 8px,
+        rgba(0,0,0,.025) 9px
+      );
+    }
+    .product-body { padding: 24px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .product-name { font-size: 16px; font-weight: 700; letter-spacing: -.2px; color: var(--ink); }
+    .product-desc { font-size: 13px; line-height: 1.6; color: var(--ink-3); flex: 1; }
+    .product-link { font-size: 13px; font-weight: 600; color: var(--green); margin-top: 8px; display: flex; align-items: center; gap: 4px; transition: gap .15s; }
+    .product-card:hover .product-link { gap: 8px; }
+  </style>
+</head>
+<body data-page="Producten">
+<div id="nav-placeholder"></div>
+
+<!-- page hero -->
+<section class="page-hero">
+  <div class="page-hero-tag">
+    <span class="tag"><span class="tag-dot"></span>Assortiment</span>
+  </div>
+  <h1 class="page-hero-title">Onze <em>producten</em></h1>
+  <p class="page-hero-sub">
+    Een selectie van inzamelmiddelen en accessoires die wij leveren en plaatsen voor onze opdrachtgevers.
+  </p>
+</section>
+
+<!-- filters -->
+<div class="filters-bar">
+  <span class="filter-label">Filter:</span>
+  <select class="filter-select">
+    <option>Alle categorieën</option>
+    <option>Ondergrondse containers</option>
+    <option>Bovengrondse containers</option>
+    <option>Accessoires</option>
+  </select>
+  <select class="filter-select">
+    <option>Alle types</option>
+    <option>Restafval</option>
+    <option>GFT</option>
+    <option>Papier</option>
+    <option>Glas</option>
+  </select>
+  <div class="filter-divider"></div>
+  <select class="filter-select">
+    <option>Sortering: Standaard</option>
+    <option>Naam A–Z</option>
+    <option>Naam Z–A</option>
+    <option>Nieuwste eerst</option>
+  </select>
+  <span class="filter-count">6 producten</span>
+</div>
+
+<!-- product grid -->
+<section class="section" style="padding-top:48px;">
+  <div class="product-grid">
+
+    <a href="product-detail.html" class="product-card">
+      <div class="product-image">
+        <div class="product-image-placeholder">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+          <span>Productfoto</span>
+        </div>
+      </div>
+      <div class="product-body">
+        <div class="product-name">Productnaam</div>
+        <p class="product-desc">Korte productomschrijving. Voeg hier een beknopte beschrijving toe van het product en de toepassing.</p>
+        <span class="product-link">Bekijk product →</span>
+      </div>
+    </a>
+
+    <a href="product-detail.html" class="product-card">
+      <div class="product-image">
+        <div class="product-image-placeholder">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+          <span>Productfoto</span>
+        </div>
+      </div>
+      <div class="product-body">
+        <div class="product-name">Productnaam</div>
+        <p class="product-desc">Korte productomschrijving. Voeg hier een beknopte beschrijving toe van het product en de toepassing.</p>
+        <span class="product-link">Bekijk product →</span>
+      </div>
+    </a>
+
+    <a href="product-detail.html" class="product-card">
+      <div class="product-image">
+        <div class="product-image-placeholder">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+          <span>Productfoto</span>
+        </div>
+      </div>
+      <div class="product-body">
+        <div class="product-name">Productnaam</div>
+        <p class="product-desc">Korte productomschrijving. Voeg hier een beknopte beschrijving toe van het product en de toepassing.</p>
+        <span class="product-link">Bekijk product →</span>
+      </div>
+    </a>
+
+    <a href="product-detail.html" class="product-card">
+      <div class="product-image">
+        <div class="product-image-placeholder">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+          <span>Productfoto</span>
+        </div>
+      </div>
+      <div class="product-body">
+        <div class="product-name">Productnaam</div>
+        <p class="product-desc">Korte productomschrijving. Voeg hier een beknopte beschrijving toe van het product en de toepassing.</p>
+        <span class="product-link">Bekijk product →</span>
+      </div>
+    </a>
+
+    <a href="product-detail.html" class="product-card">
+      <div class="product-image">
+        <div class="product-image-placeholder">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+          <span>Productfoto</span>
+        </div>
+      </div>
+      <div class="product-body">
+        <div class="product-name">Productnaam</div>
+        <p class="product-desc">Korte productomschrijving. Voeg hier een beknopte beschrijving toe van het product en de toepassing.</p>
+        <span class="product-link">Bekijk product →</span>
+      </div>
+    </a>
+
+    <a href="product-detail.html" class="product-card">
+      <div class="product-image">
+        <div class="product-image-placeholder">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+          <span>Productfoto</span>
+        </div>
+      </div>
+      <div class="product-body">
+        <div class="product-name">Productnaam</div>
+        <p class="product-desc">Korte productomschrijving. Voeg hier een beknopte beschrijving toe van het product en de toepassing.</p>
+        <span class="product-link">Bekijk product →</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="shared-footer.js"></script>
+</body>
+</html>

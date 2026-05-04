@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diensten — B-Advice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    /* ── page-specific ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 56px;
+    }
+    .service-card {
+      background: #fff;
+      padding: 40px 36px;
+      display: flex; flex-direction: column; gap: 16px;
+      transition: background .18s;
+      cursor: pointer;
+      text-decoration: none; color: inherit;
+    }
+    .service-card:hover { background: #f6faf7; }
+    .service-icon {
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .service-icon svg { width: 28px; height: 28px; stroke: var(--green); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .service-num {
+      font-family: var(--mono); font-size: 10px; letter-spacing: .1em;
+      color: var(--green); text-transform: uppercase; margin-bottom: -8px;
+    }
+    .service-title { font-size: 18px; font-weight: 700; letter-spacing: -.3px; color: var(--ink); }
+    .service-desc { font-size: 14px; line-height: 1.65; color: var(--ink-3); flex: 1; }
+    .service-link {
+      font-size: 13px; font-weight: 600; color: var(--green);
+      display: flex; align-items: center; gap: 4px; margin-top: auto;
+      transition: gap .15s;
+    }
+    .service-card:hover .service-link { gap: 8px; }
+
+    /* detail pages nav strip */
+    .detail-pages {
+      background: var(--bg-2); padding: 64px 80px;
+      border-top: 1px solid var(--border);
+    }
+    .detail-pages-title {
+      font-size: 13px; font-weight: 600; color: var(--ink-4);
+      letter-spacing: .06em; text-transform: uppercase;
+      margin-bottom: 24px; font-family: var(--mono);
+    }
+    .detail-pages-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+    }
+    .detail-page-link {
+      padding: 18px 20px; background: #fff;
+      border: 1px solid var(--border); border-radius: 8px;
+      font-size: 14px; font-weight: 500; color: var(--ink-2);
+      display: flex; align-items: center; justify-content: space-between;
+      transition: border-color .15s, background .15s;
+    }
+    .detail-page-link:hover { border-color: var(--green); background: #f6faf7; color: var(--green); }
+    .detail-page-link span { font-size: 16px; }
+
+    /* two-col content */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .two-col p { font-size: 16px; line-height: 1.75; color: var(--ink-3); }
+    .two-col p + p { margin-top: 16px; }
+
+    /* stats strip */
+    .stats-strip {
+      display: flex; gap: 0;
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stat-block {
+      flex: 1; padding: 36px 48px;
+      display: flex; flex-direction: column; gap: 4px;
+      border-right: 1px solid var(--border);
+    }
+    .stat-block:last-child { border-right: none; }
+    .stat-block-num { font-size: 36px; font-weight: 700; letter-spacing: -1.5px; color: var(--ink); }
+    .stat-block-num span { color: var(--green); }
+    .stat-block-label { font-size: 13px; color: var(--ink-4); }
+  </style>
+</head>
+<body data-page="Diensten">
+
+<div id="nav-placeholder"></div>
+
+<!-- page hero -->
+<section class="page-hero">
+  <div class="page-hero-tag">
+    <span class="tag"><span class="tag-dot"></span>Wat wij doen</span>
+  </div>
+  <h1 class="page-hero-title">Onze <em>diensten</em></h1>
+  <p class="page-hero-sub">
+    Thuis in de markt en van alle markten thuis. Van advies tot uitvoering — wij ontzorgen
+    gemeentes en afvalverwerkers in het volledige traject van ondergrondse afvalinzameling.
+  </p>
+</section>
+
+<!-- stats strip -->
+<div class="stats-strip">
+  <div class="stat-block">
+    <span class="stat-block-num">200<span>+</span></span>
+    <span class="stat-block-label">Gemeentes bediend</span>
+  </div>
+  <div class="stat-block">
+    <span class="stat-block-num">15.000<span>+</span></span>
+    <span class="stat-block-label">Containers beheerd</span>
+  </div>
+  <div class="stat-block">
+    <span class="stat-block-num">98<span>%</span></span>
+    <span class="stat-block-label">Klanttevredenheid</span>
+  </div>
+  <div class="stat-block">
+    <span class="stat-block-num">20<span>+</span></span>
+    <span class="stat-block-label">Jaar ervaring</span>
+  </div>
+</div>
+
+<!-- services grid -->
+<section class="section">
+  <div class="section-label">Alle diensten</div>
+  <h2 class="section-title">Zeven specialisaties,<br/>één partner</h2>
+
+  <div class="services-grid">
+
+    <!-- 1 -->
+    <a href="dienst-afvalinzameling.html" class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+      </div>
+      <div class="service-title">Afvalinzameling &amp; Management</div>
+      <p class="service-desc">Strategisch advies en uitvoering voor efficiënte afvalinzameling op gemeentelijk niveau.</p>
+      <span class="service-link">Lees meer →</span>
+    </a>
+
+    <!-- 2 -->
+    <a href="dienst-plaatsing.html" class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="14" width="20" height="7" rx="1"/><path d="M6 14V8a2 2 0 012-2h8a2 2 0 012 2v6M12 3v3"/></svg>
+      </div>
+      <div class="service-title">Plaatsen van inzamelmiddelen</div>
+      <p class="service-desc">Civieltechnische plaatsing van ondergrondse en bovengrondse containersystemen.</p>
+      <span class="service-link">Lees meer →</span>
+    </a>
+
+    <!-- 3 -->
+    <a href="dienst-projectmanagement.html" class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>
+      </div>
+      <div class="service-title">Projectmanagement</div>
+      <p class="service-desc">Volledige begeleiding van uw afvalinfrastructuurproject, van initiatief tot oplevering.</p>
+      <span class="service-link">Lees meer →</span>
+    </a>
+
+    <!-- 4 -->
+    <a href="dienst-mip.html" class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-6"/></svg>
+      </div>
+      <div class="service-title">Meerjaren Investeringsplan (MIP)</div>
+      <p class="service-desc">Strategische planning voor vervanging, uitbreiding en onderhoud van uw containerpark.</p>
+      <span class="service-link">Lees meer →</span>
+    </a>
+
+    <!-- 5 -->
+    <a href="dienst-beheer.html" class="service-card">
+      <div class="service-num">05</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3-3a1 1 0 000-1.4l-1.6-1.6a1 1 0 00-1.4 0l-3 3z"/><path d="M20 20L8.5 8.5M10.5 6.5l-7 7a2 2 0 000 2.8l1.2 1.2a2 2 0 002.8 0l7-7"/></svg>
+      </div>
+      <div class="service-title">Beheer, onderhoud &amp; refurbish</div>
+      <p class="service-desc">Levensduur verlengen van bestaande inzamelmiddelen door professioneel onderhoud en refurbishment.</p>
+      <span class="service-link">Lees meer →</span>
+    </a>
+
+    <!-- 6 -->
+    <a href="dienst-aanbesteding.html" class="service-card">
+      <div class="service-num">06</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </div>
+      <div class="service-title">Aanbesteding &amp; bestek</div>
+      <p class="service-desc">Specialistische ondersteuning bij aanbestedingstrajecten en het opstellen van technische bestekken.</p>
+      <span class="service-link">Lees meer →</span>
+    </a>
+
+    <!-- 7 — spans last slot, center it -->
+    <a href="dienst-communicatie.html" class="service-card" style="grid-column: 2;">
+      <div class="service-num">07</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <div class="service-title">Bewonersparticipatie &amp; Communicatie</div>
+      <p class="service-desc">Begeleiding van het communicatietraject richting bewoners bij invoering van nieuwe inzamelsystemen.</p>
+      <span class="service-link">Lees meer →</span>
+    </a>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- two-col intro -->
+<section class="section">
+  <div class="section-label">Onze aanpak</div>
+  <h2 class="section-title" style="margin-bottom:48px;">Van strategie<br/>tot uitvoering</h2>
+  <div class="two-col">
+    <div>
+      <p>B-Advice is geen gewone aannemer. Wij denken mee vanaf de strategische fase: welke systemen passen bij uw gemeente, welke planning is haalbaar, hoe communiceert u richting bewoners? Die integrale blik maakt het verschil.</p>
+      <p>Onze adviseurs combineren technische expertise met kennis van gemeentelijke processen en aanbestedingsregels. Zo worden projecten niet alleen goed uitgevoerd, maar ook goed voorbereid.</p>
+    </div>
+    <div>
+      <p>We werken voor kleine gemeentes en grote steden, voor aannemers en afvalverwerkers. Onze projecten variëren van één locatie tot programma's met honderden containers verspreid over meerdere kernen.</p>
+      <p>Alle kennis die we in het veld opdoen, verwerken we direct in B-Organized — ons eigen platform voor containerbeheer. Zo profiteren onze klanten van continue verbetering.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA band -->
+<div class="cta-band">
+  <div>
+    <div class="cta-band-title">Benieuwd wat we voor u kunnen betekenen?</div>
+    <p class="cta-band-sub">We plannen graag een vrijblijvende kennismaking van 30 minuten.</p>
+  </div>
+  <button class="btn-white">Plan een kennismaking</button>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="shared-footer.js"></script>
+
+</body>
+</html>
