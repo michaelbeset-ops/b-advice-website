@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proefsleuven — B-Advice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    .coming-soon-wrap {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 64px 24px;
+      text-align: center;
+      background: var(--bg);
+    }
+    .coming-soon-tag { margin-bottom: 32px; }
+    .coming-soon-title {
+      font-size: 64px;
+      font-weight: 700;
+      letter-spacing: -3px;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+    .coming-soon-title em { font-style: normal; color: var(--green); }
+    .coming-soon-sub {
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--ink-3);
+      max-width: 480px;
+      margin: 0 auto 40px;
+    }
+    .coming-soon-divider {
+      width: 48px;
+      height: 3px;
+      background: var(--green);
+      border-radius: 2px;
+      margin: 0 auto 40px;
+    }
+    .coming-soon-back {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink-4);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color .15s;
+      margin-top: 16px;
+    }
+    .coming-soon-back:hover { color: var(--green); }
+
+    @media (max-width: 768px) {
+      .coming-soon-title { font-size: 40px; letter-spacing: -2px; }
+      .coming-soon-sub { font-size: 16px; }
+    }
+  </style>
+</head>
+<body data-page="Proefsleuven">
+<div id="nav-placeholder"></div>
+
+<div class="coming-soon-wrap">
+  <div class="coming-soon-tag">
+    <span class="tag"><span class="tag-dot"></span>Binnenkort</span>
+  </div>
+  <h1 class="coming-soon-title">Proef<em>sleuven</em></h1>
+  <div class="coming-soon-divider"></div>
+  <p class="coming-soon-sub">
+    We werken aan deze pagina. Binnenkort vindt u hier meer informatie over onze proefsleuvenservice.
+  </p>
+  <a href="Contact.html" class="btn-primary">Neem alvast contact op</a>
+  <a href="index.html" class="coming-soon-back">← Terug naar home</a>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="shared-footer.js"></script>
+</body>
+</html>
