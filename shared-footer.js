@@ -58,7 +58,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 B-Advice. Alle rechten voorbehouden. KvK: <span class="footer-kvk">—</span></span>
+    <span>© 2025 B-Advice. Alle rechten voorbehouden. KvK: <span class="footer-kvk">82797811</span></span>
     <div class="footer-bottom-links">
       <a href="Privacy.html">Privacy</a>
       <a href="Cookies.html">Cookies</a>
@@ -75,7 +75,7 @@
   <div class="nav-center">
     <a href="Diensten.html" data-page="Diensten">Diensten</a>
     <a href="B-Organized.html" data-page="B-Organized">B-Organized</a>
-    <a href="Proefsleuven.html" data-page="Proefsleuven">Proefsleuven</a>
+    <a href="Proefsleuven.html" data-page="Proefsleuven">B-Informed</a>
     <a href="Producten.html" data-page="Producten">Producten</a>
     <a href="Nieuws.html" data-page="Nieuws">Nieuws</a>
     <a href="Over-ons.html" data-page="Over-ons">Over ons</a>
@@ -92,7 +92,7 @@
   <div class="nav-mobile-links">
     <a href="Diensten.html" data-page="Diensten">Diensten</a>
     <a href="B-Organized.html" data-page="B-Organized">B-Organized</a>
-    <a href="Proefsleuven.html" data-page="Proefsleuven">Proefsleuven</a>
+    <a href="Proefsleuven.html" data-page="Proefsleuven">B-Informed</a>
     <a href="Producten.html" data-page="Producten">Producten</a>
     <a href="Nieuws.html" data-page="Nieuws">Nieuws</a>
     <a href="Over-ons.html" data-page="Over-ons">Over ons</a>
