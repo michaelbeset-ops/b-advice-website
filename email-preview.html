@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-mail sjabloon preview — B-Advice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: #f0f4f2; color: #0f1e16; padding: 40px 24px 80px; }
+
+    .page-header { max-width: 860px; margin: 0 auto 48px; }
+    .page-header h1 { font-size: 28px; font-weight: 700; letter-spacing: -.6px; margin-bottom: 8px; }
+    .page-header p { font-size: 15px; color: #4a5e52; line-height: 1.6; }
+
+    .section-label {
+      font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase; color: #4CAF72;
+      margin-bottom: 12px;
+    }
+
+    .email-group { max-width: 860px; margin: 0 auto 64px; }
+    .email-group-title {
+      font-size: 20px; font-weight: 700; letter-spacing: -.3px;
+      margin-bottom: 24px; display: flex; align-items: center; gap: 12px;
+    }
+    .badge {
+      font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 4px;
+      font-family: 'DM Mono', monospace; letter-spacing: .04em;
+    }
+    .badge-intern { background: #1a2820; color: rgba(255,255,255,.7); }
+    .badge-klant  { background: rgba(76,175,114,.15); color: #1e6640; }
+
+    .email-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media (max-width: 700px) { .email-pair { grid-template-columns: 1fr; } }
+
+    /* Email window chrome */
+    .email-window {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px rgba(0,0,0,.08), 0 0 0 1px rgba(0,0,0,.06);
+      overflow: hidden;
+    }
+    .email-chrome {
+      background: #f5f5f5;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 10px 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .chrome-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .chrome-dot:nth-child(1) { background: #ff5f57; }
+    .chrome-dot:nth-child(2) { background: #ffbd2e; }
+    .chrome-dot:nth-child(3) { background: #28c840; }
+    .chrome-title { font-size: 11px; color: #888; margin-left: auto; margin-right: auto; font-family: 'DM Mono', monospace; }
+
+    .email-meta {
+      padding: 16px 24px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 12px; color: #666;
+      display: flex; flex-direction: column; gap: 5px;
+    }
+    .email-meta-row { display: flex; gap: 8px; }
+    .email-meta-label { color: #999; min-width: 52px; font-family: 'DM Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: .05em; padding-top: 1px; }
+    .email-meta-value { color: #333; font-size: 12px; }
+
+    .email-body { padding: 0; }
+
+    /* ── Intern e-mail stijl ── */
+    .tpl-intern {
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #1a2820;
+      padding: 24px;
+      background: #fafafa;
+    }
+    .tpl-intern .tpl-subject {
+      font-weight: 700; font-size: 14px;
+      border-bottom: 2px solid #4CAF72;
+      padding-bottom: 12px; margin-bottom: 20px;
+      color: #0f1e16;
+    }
+    .tpl-intern .tpl-section {
+      font-weight: 700; font-size: 11px; letter-spacing: .12em;
+      text-transform: uppercase; color: #4CAF72;
+      margin: 20px 0 8px;
+    }
+    .tpl-intern .tpl-row { display: flex; gap: 8px; }
+    .tpl-intern .tpl-key { color: #7a9585; min-width: 130px; }
+    .tpl-intern .tpl-val { color: #0f1e16; font-weight: 600; }
+    .tpl-intern .tpl-block {
+      background: #fff; border: 1px solid #e0e8e4;
+      border-left: 3px solid #4CAF72;
+      padding: 12px 16px; border-radius: 0 6px 6px 0;
+      margin-top: 8px; color: #333; font-family: 'DM Sans', sans-serif;
+      font-size: 13px; line-height: 1.7;
+    }
+    .tpl-intern .tpl-footer {
+      margin-top: 24px; padding-top: 16px;
+      border-top: 1px solid #e0e0e0;
+      font-size: 11px; color: #999;
+    }
+
+    /* ── Klant e-mail stijl ── */
+    .tpl-klant { font-family: 'DM Sans', sans-serif; }
+    .tpl-klant-header {
+      background: #0f1e16;
+      padding: 28px 32px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .tpl-klant-logo {
+      font-size: 18px; font-weight: 700; color: #fff; letter-spacing: -.3px;
+    }
+    .tpl-klant-logo span { color: #4CAF72; }
+    .tpl-klant-accent { height: 3px; background: #4CAF72; }
+    .tpl-klant-body { padding: 32px; }
+    .tpl-klant-greeting { font-size: 22px; font-weight: 700; color: #0f1e16; margin-bottom: 16px; letter-spacing: -.3px; }
+    .tpl-klant-text { font-size: 14px; color: #4a5e52; line-height: 1.75; margin-bottom: 14px; }
+    .tpl-klant-box {
+      background: #f3f8f5; border-radius: 8px;
+      border-left: 3px solid #4CAF72;
+      padding: 16px 20px; margin: 24px 0;
+    }
+    .tpl-klant-box-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #4CAF72; margin-bottom: 10px; font-family: 'DM Mono', monospace; }
+    .tpl-klant-box-row { display: flex; gap: 8px; font-size: 13px; margin-bottom: 6px; }
+    .tpl-klant-box-label { color: #7a9585; min-width: 110px; }
+    .tpl-klant-box-val { color: #1a2820; font-weight: 500; }
+    .tpl-klant-sign { margin-top: 28px; padding-top: 24px; border-top: 1px solid #e8ede9; }
+    .tpl-klant-sign-name { font-size: 14px; font-weight: 700; color: #0f1e16; }
+    .tpl-klant-sign-sub { font-size: 12px; color: #7a9585; margin-top: 2px; }
+    .tpl-klant-sign-contact { margin-top: 10px; font-size: 12px; color: #4a5e52; line-height: 1.7; }
+    .tpl-klant-sign-contact a { color: #4CAF72; text-decoration: none; }
+    .tpl-klant-footer {
+      background: #f7faf8; padding: 16px 32px;
+      border-top: 1px solid #e8ede9;
+      font-size: 11px; color: #aaa; line-height: 1.6;
+    }
+
+    .divider-row { max-width: 860px; margin: 0 auto 48px; height: 1px; background: rgba(26,40,32,.09); }
+
+    .label-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 600; padding: 4px 12px;
+      border-radius: 20px; margin-bottom: 8px;
+    }
+    .label-intern { background: #1a2820; color: rgba(255,255,255,.8); }
+    .label-klant  { background: rgba(76,175,114,.12); color: #1e6640; border: 1px solid rgba(76,175,114,.25); }
+  </style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="section-label">EmailJS sjablonen</div>
+  <h1>E-mail preview — B-Advice</h1>
+  <p>Zo zien de e-mails eruit die automatisch worden verstuurd na het invullen van een formulier.<br>
+  Gebruik de teksten hieronder als basis voor uw EmailJS-sjablonen.</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     CONTACTFORMULIER
+════════════════════════════════════════════════ -->
+<div class="email-group">
+  <div class="section-label">Contactformulier</div>
+  <div class="email-group-title">
+    Contactformulier e-mails
+  </div>
+
+  <div class="email-pair">
+
+    <!-- INTERN -->
+    <div>
+      <div class="label-tag label-intern">● Intern — naar B-Advice</div>
+      <div class="email-window">
+        <div class="email-chrome">
+          <div class="chrome-dot"></div><div class="chrome-dot"></div><div class="chrome-dot"></div>
+          <div class="chrome-title">template_contact_intern</div>
+        </div>
+        <div class="email-meta">
+          <div class="email-meta-row"><span class="email-meta-label">Van</span><span class="email-meta-value">B-Advice Website &lt;noreply@emailjs.com&gt;</span></div>
+          <div class="email-meta-row"><span class="email-meta-label">Aan</span><span class="email-meta-value">info@b-advice.info</span></div>
+          <div class="email-meta-row"><span class="email-meta-label">Beantw.</span><span class="email-meta-value">j.devries@amersfoort.nl</span></div>
+          <div class="email-meta-row"><span class="email-meta-label">Onderw.</span><span class="email-meta-value" style="font-weight:600;">Website contact: Jan de Vries — Afvalinzameling &amp; Management</span></div>
+        </div>
+        <div class="email-body">
+          <div class="tpl-intern">
+            <div class="tpl-subject">Nieuw contactbericht via b-advice.info</div>
+
+            <div class="tpl-section">Afzender</div>
+            <div class="tpl-row"><span class="tpl-key">Naam</span><span class="tpl-val">Jan de Vries</span></div>
+            <div class="tpl-row"><span class="tpl-key">Bedrijf</span><span class="tpl-val">Gemeente Amersfoort</span></div>
+            <div class="tpl-row"><span class="tpl-key">E-mail</span><span class="tpl-val">j.devries@amersfoort.nl</span></div>
+            <div class="tpl-row"><span class="tpl-key">Telefoon</span><span class="tpl-val">+31 6 12 34 56 78</span></div>
+            <div class="tpl-row"><span class="tpl-key">Onderwerp</span><span class="tpl-val">Afvalinzameling &amp; Management</span></div>
+
+            <div class="tpl-section">Bericht</div>
+            <div class="tpl-block">Wij zijn op zoek naar een partner voor het beheer van onze ondergrondse containers in de wijk Vathorst. Kunt u ons meer informatie sturen over uw werkwijze en tarieven?</div>
+
+            <div class="tpl-footer">Verstuurd via b-advice.info · {{datum}} · {{tijd}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KLANT -->
+    <div>
+      <div class="label-tag label-klant">✓ Klant — naar de afzender</div>
+      <div class="email-window">
+        <div class="email-chrome">
+          <div class="chrome-dot"></div><div class="chrome-dot"></div><div class="chrome-dot"></div>
+          <div class="chrome-title">template_contact_klant</div>
+        </div>
+        <div class="email-meta">
+          <div class="email-meta-row"><span class="email-meta-label">Van</span><span class="email-meta-value">B-Advice &lt;info@b-advice.info&gt;</span></div>
+          <div class="email-meta-row"><span class="email-meta-label">Aan</span><span class="email-meta-value">j.devries@amersfoort.nl</span></div>
+          <div class="email-meta-row"><span class="email-meta-label">Onderw.</span><span class="email-meta-value" style="font-weight:600;">Bevestiging van uw bericht — B-Advice</span></div>
+        </div>
+        <div class="email-body">
+          <div class="tpl-klant">
+            <div class="tpl-klant-header">
+              <div class="tpl-klant-logo">B-<span>ADVICE</span></div>
+            </div>
+            <div class="tpl-klant-accent"></div>
+            <div class="tpl-klant-body">
+              <div class="tpl-klant-greeting">Beste Jan,</div>
+              <p class="tpl-klant-text">Bedankt voor uw bericht. Wij hebben uw vraag in goede orde ontvangen en nemen <strong>zo spoedig mogelijk contact met u op, uiterlijk binnen 1 werkdag</strong>.</p>
+
+              <div class="tpl-klant-box">
+                <div class="tpl-klant-box-title">Uw bericht</div>
+                <div class="tpl-klant-box-row"><span class="tpl-klant-box-label">Onderwerp</span><span class="tpl-klant-box-val">Afvalinzameling &amp; Management</span></div>
+                <div style="margin-top:10px;font-size:13px;color:#4a5e52;line-height:1.65;">Wij zijn op zoek naar een partner voor het beheer van onze ondergrondse containers in de wijk Vathorst…</div>
+              </div>
+
+              <p class="tpl-klant-text">Heeft u een dringende vraag? Neem dan direct contact op via onderstaande gegevens.</p>
+
+              <div class="tpl-klant-sign">
+                <div class="tpl-klant-sign-name">Team B-Advice</div>
+                <div class="tpl-klant-sign-sub">Specialist in ondergrondse afvalinfrastructuur</div>
+                <div class="tpl-klant-sign-contact">
+                  <a href="mailto:info@b-advice.info">info@b-advice.info</a><br>
+                  +31 (6) 431 25 245<br>
+                  Achterdijk 26, Nieuwland (UT)
+                </div>
+              </div>
+            </div>
+            <div class="tpl-klant-footer">
+              U ontvangt dit bericht omdat u het contactformulier op b-advice.info heeft ingevuld.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider-row"></div>
+
+<!-- ═══════════════════════════════════════════════
+     LOCATIEAANVRAAG
+════════════════════════════════════════════════ -->
+<div class="email-group">
+  <div class="section-label">Locatieaanvraag</div>
+  <div class="email-group-title">
+    Locatieaanvraag e-mails
+  </div>
+
+  <div class="email-pair">
+
+    <!-- INTERN -->
+    <div>
+      <div class="label-tag label-intern">● Intern — naar B-Advice</div>
+      <div class="email-window">
+        <div class="email-chrome">
+          <div class="chrome-dot"></div><div class="chrome-dot"></div><div class="chrome-dot"></div>
+          <div class="chrome-title">template_loc_intern</div>
+        </div>
+        <div class="email-meta">
+          <div class="email-meta-row"><span class="email-meta-label">Van</span><span class="email-meta-value">B-Advice Website &lt;noreply@emailjs.com&gt;</span></div>
+          <div class="email-meta-row"><span class="email-meta-label">Aan</span><span class="email-meta-value">info@b-advice.info</span></div>
+          <div class="email-meta-row"><span class="email-meta-label">Beantw.</span><span class="email-meta-value">m.jansen@nieuwegein.nl</span></div>
+          <div class="email-meta-row"><span class="email-meta-label">Onderw.</span><span class="email-meta-value" style="font-weight:600;">Locatieaanvraag: Gemeente Nieuwegein — LOC-2025-047</span></div>
+        </div>
+        <div class="email-body">
+          <div class="tpl-intern">
+            <div class="tpl-subject">Nieuwe locatieaanvraag via b-advice.info</div>
+
+            <div class="tpl-section">Contactgegevens</div>
+            <div class="tpl-row"><span class="tpl-key">Naam</span><span class="tpl-val">Maria Jansen</span></div>
+            <div class="tpl-row"><span class="tpl-key">Gemeente</span><span class="tpl-val">Gemeente Nieuwegein</span></div>
+            <div class="tpl-row"><span class="tpl-key">E-mail</span><span class="tpl-val">m.jansen@nieuwegein.nl</span></div>
+            <div class="tpl-row"><span class="tpl-key">Telefoon</span><span class="tpl-val">+31 30 123 45 67</span></div>
+
+            <div class="tpl-section">Locatiegegevens</div>
+            <div class="tpl-row"><span class="tpl-key">Adres</span><span class="tpl-val">Koningin Julianaplein 3</span></div>
+            <div class="tpl-row"><span class="tpl-key">Plaats</span><span class="tpl-val">3431 AC Nieuwegein</span></div>
+            <div class="tpl-row"><span class="tpl-key">Kenmerk</span><span class="tpl-val">LOC-2025-047</span></div>
+            <div class="tpl-row"><span class="tpl-key">Coördinaat X</span><span class="tpl-val">136542</span></div>
+            <div class="tpl-row"><span class="tpl-key">Coördinaat Y</span><span class="tpl-val">455123</span></div>
+
+            <div class="tpl-section">Locatiekenmerken</div>
+            <div class="tpl-row"><span class="tpl-key">Proefsleuven</span><span class="tpl-val">Ja</span></div>
+            <div class="tpl-row"><span class="tpl-key">Ingemeten</span><span class="tpl-val">Nee</span></div>
+            <div class="tpl-row"><span class="tpl-key">Voertuig bezocht</span><span class="tpl-val">Ja</span></div>
+            <div class="tpl-row"><span class="tpl-key">Plaatsing</span><span class="tpl-val">Openbaar terrein</span></div>
+            <div class="tpl-row"><span class="tpl-key">Inrichting</span><span class="tpl-val">Standaardinrichting</span></div>
+
+            <div class="tpl-section">Aanvullend</div>
+            <div class="tpl-row"><span class="tpl-key">Containers</span><span class="tpl-val">4</span></div>
+            <div class="tpl-row"><span class="tpl-key">Type</span><span class="tpl-val">Ondergronds</span></div>
+            <div class="tpl-block">Let op: kabels en leidingen aanwezig op 1,2m diepte. Rioolaansluiting aan westzijde beschikbaar.</div>
+
+            <div class="tpl-footer">Verstuurd via b-advice.info · {{datum}} · {{tijd}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KLANT -->
+    <div>
+      <div class="label-tag label-klant">✓ Klant — naar de aanvrager</div>
+      <div class="email-window">
+        <div class="email-chrome">
+          <div class="chrome-dot"></div><div class="chrome-dot"></div><div class="chrome-dot"></div>
+          <div class="chrome-title">template_loc_klant</div>
+        </div>
+        <div class="email-meta">
+          <div class="email-meta-row"><span class="email-meta-label">Van</span><span class="email-meta-value">B-Advice &lt;info@b-advice.info&gt;</span></div>
+          <div class="email-meta-row"><span class="email-meta-label">Aan</span><span class="email-meta-value">m.jansen@nieuwegein.nl</span></div>
+          <div class="email-meta-row"><span class="email-meta-label">Onderw.</span><span class="email-meta-value" style="font-weight:600;">Bevestiging locatieaanvraag LOC-2025-047 — B-Advice</span></div>
+        </div>
+        <div class="email-body">
+          <div class="tpl-klant">
+            <div class="tpl-klant-header">
+              <div class="tpl-klant-logo">B-<span>ADVICE</span></div>
+            </div>
+            <div class="tpl-klant-accent"></div>
+            <div class="tpl-klant-body">
+              <div class="tpl-klant-greeting">Beste Maria,</div>
+              <p class="tpl-klant-text">Bedankt voor uw locatieaanvraag bij B-Advice. Wij hebben uw aanvraag in goede orde ontvangen en nemen <strong>binnen 3 werkdagen contact met u op</strong> met de uitkomst van onze beoordeling.</p>
+
+              <div class="tpl-klant-box">
+                <div class="tpl-klant-box-title">Uw aanvraag</div>
+                <div class="tpl-klant-box-row"><span class="tpl-klant-box-label">Kenmerk</span><span class="tpl-klant-box-val">LOC-2025-047</span></div>
+                <div class="tpl-klant-box-row"><span class="tpl-klant-box-label">Locatie</span><span class="tpl-klant-box-val">Koningin Julianaplein 3, Nieuwegein</span></div>
+                <div class="tpl-klant-box-row"><span class="tpl-klant-box-label">Gemeente</span><span class="tpl-klant-box-val">Gemeente Nieuwegein</span></div>
+                <div class="tpl-klant-box-row"><span class="tpl-klant-box-label">Containers</span><span class="tpl-klant-box-val">4 × ondergronds</span></div>
+              </div>
+
+              <p class="tpl-klant-text">Tijdens de beoordeling kijken wij naar technische haalbaarheid, ondergrondse infrastructuur en eventuele vergunningsvereisten. Wij nemen contact op zodra wij een uitkomst hebben.</p>
+
+              <div class="tpl-klant-sign">
+                <div class="tpl-klant-sign-name">Team B-Advice</div>
+                <div class="tpl-klant-sign-sub">Specialist in ondergrondse afvalinfrastructuur</div>
+                <div class="tpl-klant-sign-contact">
+                  <a href="mailto:info@b-advice.info">info@b-advice.info</a><br>
+                  +31 (6) 431 25 245<br>
+                  Achterdijk 26, Nieuwland (UT)
+                </div>
+              </div>
+            </div>
+            <div class="tpl-klant-footer">
+              U ontvangt dit bericht omdat u een locatieaanvraag heeft ingediend via b-advice.info.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
