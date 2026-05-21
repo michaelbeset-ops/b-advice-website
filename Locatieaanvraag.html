@@ -466,12 +466,72 @@
 
 <div id="footer-placeholder"></div>
 <script src="shared-footer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-  document.getElementById('locForm').addEventListener('submit', function(e) {
+  // ── EmailJS instellingen ───────────────────────────────────────────────
+  const EJS_KEY     = 'JOUW_PUBLIC_KEY';   // ← vervangen
+  const EJS_SERVICE = 'JOUW_SERVICE_ID';   // ← vervangen
+  const EJS_INTERN  = 'template_loc_intern'; // ← vervangen (interne notificatie)
+  const EJS_KLANT   = 'template_loc_klant';  // ← vervangen (klantbevestiging)
+  // ─────────────────────────────────────────────────────────────────────
+
+  emailjs.init({ publicKey: EJS_KEY });
+
+  function getRadio(name) {
+    const el = document.querySelector(`input[name="${name}"]:checked`);
+    return el ? el.value : 'Niet ingevuld';
+  }
+
+  document.getElementById('locForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-    this.style.display = 'none';
-    document.getElementById('locSuccess').classList.add('visible');
-    window.scrollTo({ top: document.getElementById('locSuccess').offsetTop - 100, behavior: 'smooth' });
+
+    const btn = this.querySelector('[type="submit"]');
+    const origText = btn.textContent;
+    btn.textContent = 'Indienen…';
+    btn.disabled = true;
+
+    const params = {
+      naam:         document.getElementById('naam').value.trim(),
+      gemeente:     document.getElementById('gemeente').value.trim(),
+      email:        document.getElementById('email').value.trim(),
+      telefoon:     document.getElementById('telefoon').value.trim() || '—',
+      straat:       document.getElementById('straat').value.trim() || '—',
+      plaats:       document.getElementById('plaats').value.trim() || '—',
+      kenmerk:      document.getElementById('kenmerk').value.trim() || '—',
+      coord_x:      document.getElementById('coord-x').value.trim() || '—',
+      coord_y:      document.getElementById('coord-y').value.trim() || '—',
+      proefsleuven: getRadio('proefsleuven'),
+      ingemeten:    getRadio('ingemeten'),
+      voertuig:     getRadio('voertuig'),
+      plaatsing:    getRadio('plaatsing'),
+      inrichting:   getRadio('inrichting'),
+      containers:   document.getElementById('containers').value || '—',
+      type:         document.getElementById('type').value || '—',
+      opmerkingen:  document.getElementById('opmerkingen').value.trim() || '—',
+    };
+
+    try {
+      // 1. Interne notificatie naar B-Advice
+      await emailjs.send(EJS_SERVICE, EJS_INTERN, {
+        ...params,
+        to_email: 'info@b-advice.info',
+      });
+      // 2. Bevestiging naar de klant
+      await emailjs.send(EJS_SERVICE, EJS_KLANT, {
+        ...params,
+        to_email: params.email,
+      });
+
+      this.style.display = 'none';
+      const success = document.getElementById('locSuccess');
+      success.classList.add('visible');
+      window.scrollTo({ top: success.offsetTop - 100, behavior: 'smooth' });
+    } catch (err) {
+      console.error('EmailJS fout:', err);
+      btn.textContent = origText;
+      btn.disabled = false;
+      alert('Indienen mislukt. Stuur uw aanvraag rechtstreeks naar info@b-advice.info.');
+    }
   });
 </script>
 </body>

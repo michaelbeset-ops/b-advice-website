@@ -237,11 +237,58 @@
 
 <div id="footer-placeholder"></div>
 <script src="shared-footer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
+  // ── EmailJS instellingen ───────────────────────────────────────────────
+  // Stap 1: Maak account op emailjs.com
+  // Stap 2: Voeg e-mailservice toe (Gmail / Outlook) → kopieer Service ID
+  // Stap 3: Maak 2 templates aan → kopieer Template IDs
+  // Stap 4: Plak hier uw Public Key (Account → General → Public Key)
+  const EJS_KEY     = 'JOUW_PUBLIC_KEY';   // ← vervangen
+  const EJS_SERVICE = 'JOUW_SERVICE_ID';   // ← vervangen
+  const EJS_INTERN  = 'template_contact_intern'; // ← vervangen (interne notificatie)
+  const EJS_KLANT   = 'template_contact_klant';  // ← vervangen (klantbevestiging)
+  // ─────────────────────────────────────────────────────────────────────
+
+  emailjs.init({ publicKey: EJS_KEY });
+
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-    this.style.display = 'none';
-    document.getElementById('formSuccess').classList.add('visible');
+
+    const btn = this.querySelector('[type="submit"]');
+    const origText = btn.textContent;
+    btn.textContent = 'Verzenden…';
+    btn.disabled = true;
+
+    const params = {
+      naam:      document.getElementById('naam').value.trim(),
+      bedrijf:   document.getElementById('bedrijf').value.trim() || '—',
+      email:     document.getElementById('email').value.trim(),
+      telefoon:  document.getElementById('telefoon').value.trim() || '—',
+      onderwerp: document.getElementById('onderwerp').value,
+      bericht:   document.getElementById('bericht').value.trim(),
+    };
+
+    try {
+      // 1. Interne notificatie naar B-Advice
+      await emailjs.send(EJS_SERVICE, EJS_INTERN, {
+        ...params,
+        to_email: 'info@b-advice.info',
+      });
+      // 2. Bevestiging naar de klant
+      await emailjs.send(EJS_SERVICE, EJS_KLANT, {
+        ...params,
+        to_email: params.email,
+      });
+
+      this.style.display = 'none';
+      document.getElementById('formSuccess').classList.add('visible');
+    } catch (err) {
+      console.error('EmailJS fout:', err);
+      btn.textContent = origText;
+      btn.disabled = false;
+      alert('Verzenden mislukt. Stuur uw bericht rechtstreeks naar info@b-advice.info.');
+    }
   });
 </script>
 </body>
