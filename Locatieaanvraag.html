@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Locatieaanvraag — B-Advice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    /* ── Layout ── */
+    .loc-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 72px;
+      padding: 56px 80px 96px;
+      align-items: start;
+    }
+
+    /* ── Form sections ── */
+    .loc-form { display: flex; flex-direction: column; gap: 40px; }
+
+    .form-section { display: flex; flex-direction: column; gap: 20px; }
+    .form-section-header {
+      display: flex; align-items: center; gap: 14px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .form-section-num {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--green); color: #fff;
+      font-family: var(--mono); font-size: 11px; font-weight: 500;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .form-section-title {
+      font-size: 15px; font-weight: 700; color: var(--ink); letter-spacing: -.2px;
+    }
+    .form-section-sub {
+      font-size: 12px; color: var(--ink-4); margin-top: 1px;
+    }
+
+    /* ── Field base (reused from contact) ── */
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-label { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+    .form-label span { color: var(--green); }
+    .form-label-hint { font-size: 11px; font-weight: 400; color: var(--ink-4); margin-left: 4px; }
+    .form-input, .form-select, .form-textarea {
+      font-family: var(--font); font-size: 14px; color: var(--ink);
+      padding: 11px 14px; border: 1.5px solid var(--border);
+      border-radius: 7px; background: #fff; transition: border-color .15s;
+      width: 100%;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none; border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(76,175,114,.08);
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--ink-4); }
+    .form-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%237a9585'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center;
+      cursor: pointer;
+    }
+    .form-textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
+
+    /* ── Toggle (Ja / Nee / Onbekend) ── */
+    .toggle-group { display: flex; gap: 8px; flex-wrap: wrap; }
+    .toggle-option { cursor: pointer; }
+    .toggle-option input[type="radio"] { display: none; }
+    .toggle-option span {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 20px;
+      border: 1.5px solid var(--border);
+      border-radius: 7px;
+      font-size: 14px; font-weight: 500; color: var(--ink-3);
+      background: #fff;
+      transition: border-color .15s, background .15s, color .15s;
+      cursor: pointer; user-select: none;
+    }
+    .toggle-option span::before {
+      content: '';
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--border);
+      transition: background .15s;
+      flex-shrink: 0;
+    }
+    .toggle-option input:checked + span {
+      border-color: var(--green);
+      background: rgba(76,175,114,.07);
+      color: #1e6640;
+      font-weight: 600;
+    }
+    .toggle-option input:checked + span::before { background: var(--green); }
+    .toggle-option span:hover { border-color: rgba(76,175,114,.45); color: var(--ink-2); }
+
+    /* ── Coordinates ── */
+    .coord-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .coord-hint {
+      font-size: 11px; color: var(--ink-4); line-height: 1.5; margin-top: 6px;
+      font-family: var(--mono); letter-spacing: .02em;
+    }
+
+    /* ── Privacy + submit ── */
+    .form-privacy { font-size: 12px; color: var(--ink-4); line-height: 1.6; }
+    .form-privacy a { color: var(--green); }
+
+    /* ── Success state ── */
+    .form-success {
+      display: none; background: rgba(76,175,114,.07);
+      border: 1.5px solid rgba(76,175,114,.22); border-radius: 12px;
+      padding: 40px 32px; text-align: center;
+    }
+    .form-success.visible { display: block; }
+    .form-success-icon {
+      width: 56px; height: 56px; background: rgba(76,175,114,.12);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .form-success-icon svg { width: 28px; height: 28px; stroke: var(--green); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .form-success-title { font-size: 20px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+    .form-success-text { font-size: 14px; color: var(--ink-3); line-height: 1.7; max-width: 380px; margin: 0 auto; }
+
+    /* ── Sidebar ── */
+    .loc-sidebar { display: flex; flex-direction: column; gap: 24px; position: sticky; top: 88px; }
+
+    .info-card {
+      background: var(--bg-2); border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px;
+    }
+    .info-card-title { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+
+    .process-steps { display: flex; flex-direction: column; gap: 16px; }
+    .process-step { display: flex; gap: 14px; align-items: flex-start; }
+    .step-num {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--green-light); border: 1.5px solid rgba(76,175,114,.25);
+      font-size: 11px; font-weight: 700; color: var(--green);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      font-family: var(--mono);
+    }
+    .step-text { font-size: 13px; color: var(--ink-3); line-height: 1.55; }
+    .step-text strong { display: block; color: var(--ink-2); font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+
+    .info-item { display: flex; align-items: flex-start; gap: 12px; }
+    .info-icon { width: 34px; height: 34px; background: rgba(76,175,114,.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .info-icon svg { width: 15px; height: 15px; stroke: var(--green); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .info-label { font-size: 10px; font-weight: 500; color: var(--ink-4); text-transform: uppercase; letter-spacing: .06em; font-family: var(--mono); margin-bottom: 2px; }
+    .info-value { font-size: 13px; font-weight: 500; color: var(--ink-2); }
+    .info-value a { color: var(--ink-2); transition: color .15s; }
+    .info-value a:hover { color: var(--green); }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .loc-layout { grid-template-columns: 1fr 320px; gap: 48px; padding: 48px 48px 80px; }
+    }
+    @media (max-width: 768px) {
+      .loc-layout { grid-template-columns: 1fr; gap: 40px; padding: 32px 20px 64px; }
+      .loc-sidebar { position: static; }
+      .form-row, .form-row-3, .coord-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body data-page="Locatieaanvraag">
+<div id="nav-placeholder"></div>
+
+<!-- PAGE HERO -->
+<section class="page-hero" style="padding-bottom:48px;">
+  <div class="page-hero-tag"><span class="tag"><span class="tag-dot"></span>Locatiebeheer</span></div>
+  <h1 class="page-hero-title">Locatie<em>aanvraag</em></h1>
+  <p class="page-hero-sub">Vul onderstaand formulier in voor de beoordeling van een nieuwe containerlocatie. Wij verwerken uw aanvraag binnen 3 werkdagen.</p>
+</section>
+
+<div class="loc-layout">
+
+  <!-- FORM -->
+  <div>
+    <form class="loc-form" id="locForm" novalidate>
+
+      <!-- 01 Contactgegevens -->
+      <div class="form-section">
+        <div class="form-section-header">
+          <div class="form-section-num">01</div>
+          <div>
+            <div class="form-section-title">Contactgegevens</div>
+            <div class="form-section-sub">Wie dient de aanvraag in?</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="naam">Naam <span>*</span></label>
+            <input class="form-input" id="naam" type="text" placeholder="Uw volledige naam" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="gemeente">Gemeente / Organisatie <span>*</span></label>
+            <input class="form-input" id="gemeente" type="text" placeholder="Naam gemeente of organisatie" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="email">E-mailadres <span>*</span></label>
+            <input class="form-input" id="email" type="email" placeholder="u@gemeente.nl" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="telefoon">Telefoonnummer</label>
+            <input class="form-input" id="telefoon" type="tel" placeholder="+31 6 ..." />
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 Locatiegegevens -->
+      <div class="form-section">
+        <div class="form-section-header">
+          <div class="form-section-num">02</div>
+          <div>
+            <div class="form-section-title">Locatiegegevens</div>
+            <div class="form-section-sub">Waar bevindt de gewenste locatie zich?</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="straat">Straat + huisnummer</label>
+            <input class="form-input" id="straat" type="text" placeholder="Bijv. Dorpsstraat 12" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="plaats">Postcode + Plaatsnaam</label>
+            <input class="form-input" id="plaats" type="text" placeholder="1234 AB Plaatsnaam" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="kenmerk">Kenmerk / Referentie</label>
+          <input class="form-input" id="kenmerk" type="text" placeholder="Bijv. projectnummer, wijknaam of interne code" />
+        </div>
+        <div class="coord-row">
+          <div class="form-group">
+            <label class="form-label" for="coord-x">Coördinaat X <span class="form-label-hint">(RD / Easting)</span></label>
+            <input class="form-input" id="coord-x" type="text" placeholder="Bijv. 125000" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="coord-y">Coördinaat Y <span class="form-label-hint">(RD / Northing)</span></label>
+            <input class="form-input" id="coord-y" type="text" placeholder="Bijv. 455000" />
+          </div>
+        </div>
+        <p class="coord-hint">Coördinaten in Rijksdriehoekstelsel (RD New / EPSG:28992) of WGS84 (lat/lon). Beide worden geaccepteerd.</p>
+      </div>
+
+      <!-- 03 Locatiekenmerken -->
+      <div class="form-section">
+        <div class="form-section-header">
+          <div class="form-section-num">03</div>
+          <div>
+            <div class="form-section-title">Locatiekenmerken</div>
+            <div class="form-section-sub">Status en eigenschappen van de locatie</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Proefsleuven uitgevoerd?</label>
+          <div class="toggle-group">
+            <label class="toggle-option">
+              <input type="radio" name="proefsleuven" value="ja" />
+              <span>Ja</span>
+            </label>
+            <label class="toggle-option">
+              <input type="radio" name="proefsleuven" value="nee" />
+              <span>Nee</span>
+            </label>
+            <label class="toggle-option">
+              <input type="radio" name="proefsleuven" value="onbekend" />
+              <span>Onbekend</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Ingemeten?</label>
+          <div class="toggle-group">
+            <label class="toggle-option">
+              <input type="radio" name="ingemeten" value="ja" />
+              <span>Ja</span>
+            </label>
+            <label class="toggle-option">
+              <input type="radio" name="ingemeten" value="nee" />
+              <span>Nee</span>
+            </label>
+            <label class="toggle-option">
+              <input type="radio" name="ingemeten" value="onbekend" />
+              <span>Onbekend</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Locatie bezocht met inzamelvoertuig?</label>
+          <div class="toggle-group">
+            <label class="toggle-option">
+              <input type="radio" name="voertuig" value="ja" />
+              <span>Ja</span>
+            </label>
+            <label class="toggle-option">
+              <input type="radio" name="voertuig" value="nee" />
+              <span>Nee</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Plaatsing</label>
+          <div class="toggle-group">
+            <label class="toggle-option">
+              <input type="radio" name="plaatsing" value="eigen-grond" />
+              <span>Eigen grond</span>
+            </label>
+            <label class="toggle-option">
+              <input type="radio" name="plaatsing" value="openbaar" />
+              <span>Openbaar terrein</span>
+            </label>
+            <label class="toggle-option">
+              <input type="radio" name="plaatsing" value="onbekend" />
+              <span>Onbekend</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Standaardinrichting</label>
+          <div class="toggle-group">
+            <label class="toggle-option">
+              <input type="radio" name="inrichting" value="standaard" />
+              <span>Standaardinrichting</span>
+            </label>
+            <label class="toggle-option">
+              <input type="radio" name="inrichting" value="geen" />
+              <span>Geen</span>
+            </label>
+            <label class="toggle-option">
+              <input type="radio" name="inrichting" value="afwijkend" />
+              <span>Afwijkend</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 Aanvullende informatie -->
+      <div class="form-section">
+        <div class="form-section-header">
+          <div class="form-section-num">04</div>
+          <div>
+            <div class="form-section-title">Aanvullende informatie</div>
+            <div class="form-section-sub">Overige details over de aanvraag</div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="containers">Aantal containerplaatsen</label>
+            <input class="form-input" id="containers" type="number" min="1" placeholder="Bijv. 3" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="type">Type inzamelvoorziening</label>
+            <select class="form-select" id="type">
+              <option value="">Kies een type</option>
+              <option value="ondergronds">Ondergronds</option>
+              <option value="semi-ondergronds">Semi-ondergronds</option>
+              <option value="bovengronds">Bovengronds</option>
+              <option value="onbekend">Nog niet bepaald</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="opmerkingen">Opmerkingen / bijzonderheden</label>
+          <textarea class="form-textarea" id="opmerkingen" placeholder="Beschrijf eventuele bijzonderheden zoals kabels en leidingen, bereikbaarheidsbeperkingen, rioolaansluiting, omgevingsvergunning, etc."></textarea>
+        </div>
+
+        <p class="form-privacy">
+          Door dit formulier te versturen gaat u akkoord met ons
+          <a href="Privacy.html">privacybeleid</a>. Uw gegevens worden uitsluitend gebruikt voor de verwerking van deze locatieaanvraag.
+        </p>
+        <button type="submit" class="btn-primary" style="align-self:flex-start;">Aanvraag indienen</button>
+      </div>
+
+    </form>
+
+    <!-- Success -->
+    <div class="form-success" id="locSuccess">
+      <div class="form-success-icon">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="form-success-title">Aanvraag ontvangen!</div>
+      <p class="form-success-text">Bedankt voor uw locatieaanvraag. Wij beoordelen de ingediende informatie en nemen binnen 3 werkdagen contact met u op.</p>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="loc-sidebar">
+
+    <div class="info-card">
+      <div class="info-card-title">Hoe werkt het?</div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            <strong>Aanvraag indienen</strong>
+            Vul het formulier in met alle bekende locatiegegevens.
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <strong>Beoordeling</strong>
+            B-Advice beoordeelt de locatie op technische haalbaarheid en regelgeving.
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <strong>Terugkoppeling</strong>
+            U ontvangt binnen 3 werkdagen een reactie met de uitkomst en vervolgstappen.
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">4</div>
+          <div class="step-text">
+            <strong>Uitvoering</strong>
+            Bij akkoord plannen wij samen de verdere voorbereiding en plaatsing.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">Vragen?</div>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="info-label">E-mail</div>
+          <div class="info-value"><a href="mailto:info@b-advice.info">info@b-advice.info</a></div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div>
+          <div class="info-label">Telefoon</div>
+          <div class="info-value"><a href="tel:+31643125245">+31 (6) 431 25 245</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-card" style="background:var(--ink);border-color:transparent;">
+      <div class="info-card-title" style="color:#fff;">Meer weten over B-Covered?</div>
+      <p style="font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;">Bekijk hoe wij inmeten, proefsleuven uitvoeren en locaties beoordelen voor ondergrondse plaatsing.</p>
+      <a href="Proefsleuven.html" class="btn-primary" style="align-self:flex-start;margin-top:4px;font-size:13px;padding:9px 18px;">Meer over B-Covered →</a>
+    </div>
+
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="shared-footer.js"></script>
+<script>
+  document.getElementById('locForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('locSuccess').classList.add('visible');
+    window.scrollTo({ top: document.getElementById('locSuccess').offsetTop - 100, behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>

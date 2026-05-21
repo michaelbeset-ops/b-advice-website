@@ -78,6 +78,7 @@
     <a href="Proefsleuven.html" data-page="Proefsleuven">B-Covered</a>
     <a href="Producten.html" data-page="Producten">Producten</a>
     <a href="Nieuws.html" data-page="Nieuws">Nieuws</a>
+    <a href="Locatieaanvraag.html" data-page="Locatieaanvraag">Locatieaanvraag</a>
     <a href="Over-ons.html" data-page="Over-ons">Over ons</a>
   </div>
   <div class="nav-right">
@@ -95,6 +96,7 @@
     <a href="Proefsleuven.html" data-page="Proefsleuven">B-Covered</a>
     <a href="Producten.html" data-page="Producten">Producten</a>
     <a href="Nieuws.html" data-page="Nieuws">Nieuws</a>
+    <a href="Locatieaanvraag.html" data-page="Locatieaanvraag">Locatieaanvraag</a>
     <a href="Over-ons.html" data-page="Over-ons">Over ons</a>
     <a href="Contact.html" class="nav-mobile-contact" style="font-size:15px;color:var(--ink-4);font-weight:400;">Contact</a>
   </div>
