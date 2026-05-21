@@ -75,7 +75,7 @@
   <div class="nav-center">
     <a href="Diensten.html" data-page="Diensten">Diensten</a>
     <a href="B-Organized.html" data-page="B-Organized">B-Organized</a>
-    <a href="Proefsleuven.html" data-page="Proefsleuven">B-Informed</a>
+    <a href="Proefsleuven.html" data-page="Proefsleuven">B-Covered</a>
     <a href="Producten.html" data-page="Producten">Producten</a>
     <a href="Nieuws.html" data-page="Nieuws">Nieuws</a>
     <a href="Over-ons.html" data-page="Over-ons">Over ons</a>
@@ -92,7 +92,7 @@
   <div class="nav-mobile-links">
     <a href="Diensten.html" data-page="Diensten">Diensten</a>
     <a href="B-Organized.html" data-page="B-Organized">B-Organized</a>
-    <a href="Proefsleuven.html" data-page="Proefsleuven">B-Informed</a>
+    <a href="Proefsleuven.html" data-page="Proefsleuven">B-Covered</a>
     <a href="Producten.html" data-page="Producten">Producten</a>
     <a href="Nieuws.html" data-page="Nieuws">Nieuws</a>
     <a href="Over-ons.html" data-page="Over-ons">Over ons</a>
