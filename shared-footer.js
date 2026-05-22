@@ -3,11 +3,11 @@
   // Inject favicon
   const favicon = document.createElement('link');
   favicon.rel = 'icon';
-  favicon.type = 'image/svg+xml';
-  favicon.href = 'uploads/b-advice-logo.svg';
+  favicon.type = 'image/png';
+  favicon.href = 'uploads/b-advice-logo.png';
   document.head.appendChild(favicon);
 
-  const LOGO_IMG_FOOTER = `<img src="uploads/b-advice-logo.svg" alt="B-Advice" style="height:52px;display:block;filter:brightness(0) invert(1);" />`;
+  const LOGO_IMG_FOOTER = `<img src="uploads/b-advice-logo.png" alt="B-Advice" style="height:52px;display:block;filter:brightness(0) invert(1);" />`;
 
   const FOOTER_HTML = `
 <footer>
@@ -70,7 +70,7 @@
   const NAV_HTML = `
 <nav class="nav" id="sitenav">
   <a class="nav-logo" href="index.html" style="display:flex;align-items:center;">
-    <img src="uploads/b-advice-logo.svg" alt="B-Advice" style="height:40px;display:block;" />
+    <img src="uploads/b-advice-logo.png" alt="B-Advice" style="height:40px;display:block;" />
   </a>
   <div class="nav-center">
     <a href="Diensten.html" data-page="Diensten">Diensten</a>
