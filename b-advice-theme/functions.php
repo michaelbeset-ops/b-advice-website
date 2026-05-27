@@ -26,3 +26,14 @@ remove_action('wp_print_styles', 'print_emoji_styles');
 
 // Verwijder WordPress versienummer uit head
 remove_action('wp_head', 'wp_generator');
+
+// Forceer front-page.php voor de voorpagina, ongeacht WordPress template-selectie
+add_filter('template_include', function($template) {
+    if (is_front_page() || (is_page() && 'home' === get_post_field('post_name', get_queried_object_id()))) {
+        $fp = get_template_directory() . '/front-page.php';
+        if (file_exists($fp)) {
+            return $fp;
+        }
+    }
+    return $template;
+}, 99);
