@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php
+/* Template Name: Startpagina */
+get_header(); ?>
 
 <!-- HERO -->
 <section class="hero">
