@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locatieaanvraag | B-Advice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/b-advice-logo.png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<nav class="nav" id="sitenav">
+  <a class="nav-logo" href="/" style="display:flex;align-items:center;">
+    <img src="/assets/b-advice-logo.png" alt="B-Advice" style="height:40px;display:block;" />
+  </a>
+  <div class="nav-center">
+    <a href="/diensten/">Diensten</a>
+    <a href="/b-organized/">B-Organized</a>
+    <a href="/b-covered/">B-Covered</a>
+    <a href="/producten/">Producten</a>
+    <a href="/nieuws/">Nieuws</a>
+    <a href="/locatieaanvraag/" class="active">Locatieaanvraag</a>
+    <a href="/over-ons/">Over ons</a>
+  </div>
+  <div class="nav-right">
+    <a href="/contact/" class="nav-contact">Contact</a>
+    <a href="http://b-organized.info" target="_blank" class="nav-cta">Login B-Organized</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile-overlay" id="navMobileOverlay">
+  <div class="nav-mobile-links">
+    <a href="/diensten/">Diensten</a>
+    <a href="/b-organized/">B-Organized</a>
+    <a href="/b-covered/">B-Covered</a>
+    <a href="/producten/">Producten</a>
+    <a href="/nieuws/">Nieuws</a>
+    <a href="/locatieaanvraag/" class="active">Locatieaanvraag</a>
+    <a href="/over-ons/">Over ons</a>
+    <a href="/contact/" class="nav-mobile-contact" style="font-size:15px;color:var(--ink-4);font-weight:400;">Contact</a>
+  </div>
+  <a href="http://b-organized.info" target="_blank" class="nav-mobile-cta" style="display:block;text-align:center;text-decoration:none;">Login B-Organized</a>
+</div>
+
+<section class="page-hero" style="padding-bottom:48px;">
+  <div class="page-hero-tag"><span class="tag"><span class="tag-dot"></span>B-Covered</span></div>
+  <h1 class="page-hero-title">Locatie<em>aanvraag</em></h1>
+  <p class="page-hero-sub">Vul het formulier in zodat wij uw locatie kunnen beoordelen en een passend voorstel kunnen maken.</p>
+</section>
+
+<div class="loc-layout">
+  <div>
+    <div class="form-success" id="locSuccess">
+      <div class="form-success-icon">✅</div>
+      <div class="form-success-title">Aanvraag ontvangen!</div>
+      <p class="form-success-text">Bedankt voor uw locatieaanvraag. U ontvangt een bevestiging per e-mail. Wij nemen zo spoedig mogelijk contact met u op.</p>
+    </div>
+
+    <form class="loc-form" id="locForm">
+      <!-- 1. Contactgegevens -->
+      <div class="form-section">
+        <div class="form-section-header">
+          <div class="form-section-num">1</div>
+          <div><div class="form-section-title">Contactgegevens</div><div class="form-section-sub">Uw persoonlijke informatie</div></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label" for="l_naam">Naam <span>*</span></label><input type="text" id="l_naam" name="naam" class="form-input" placeholder="Uw volledige naam" required></div>
+          <div class="form-group"><label class="form-label" for="l_email">E-mailadres <span>*</span></label><input type="email" id="l_email" name="email" class="form-input" placeholder="uw@email.nl" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label" for="l_telefoon">Telefoonnummer</label><input type="tel" id="l_telefoon" name="telefoon" class="form-input" placeholder="+31 6 12 34 56 78"></div>
+          <div class="form-group"><label class="form-label" for="l_organisatie">Organisatie <span>*</span></label><input type="text" id="l_organisatie" name="organisatie" class="form-input" placeholder="Gemeente / bedrijfsnaam" required></div>
+        </div>
+      </div>
+
+      <!-- 2. Locatiegegevens -->
+      <div class="form-section">
+        <div class="form-section-header">
+          <div class="form-section-num">2</div>
+          <div><div class="form-section-title">Locatiegegevens</div><div class="form-section-sub">Technische informatie over de locatie</div></div>
+        </div>
+        <div class="form-group"><label class="form-label" for="l_adres">Adres / omschrijving locatie <span>*</span></label><input type="text" id="l_adres" name="adres" class="form-input" placeholder="Straatnaam, plaatsnaam" required></div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label" for="l_x">X-coördinaat <span class="form-label-hint">(RD)</span></label><input type="text" id="l_x" name="coord_x" class="form-input" placeholder="bijv. 125000"></div>
+          <div class="form-group"><label class="form-label" for="l_y">Y-coördinaat <span class="form-label-hint">(RD)</span></label><input type="text" id="l_y" name="coord_y" class="form-input" placeholder="bijv. 483000"></div>
+        </div>
+        <div class="form-group"><label class="form-label" for="l_kenmerk">Kenmerk / referentie</label><input type="text" id="l_kenmerk" name="kenmerk" class="form-input" placeholder="Interne projectcode of locatienaam"></div>
+        <div class="form-group">
+          <label class="form-label">Plaatsing</label>
+          <div class="toggle-group">
+            <label class="toggle-option"><input type="radio" name="plaatsing" value="Eigen grond"><span>Eigen grond</span></label>
+            <label class="toggle-option"><input type="radio" name="plaatsing" value="Openbaar terrein"><span>Openbaar terrein</span></label>
+            <label class="toggle-option"><input type="radio" name="plaatsing" value="Onbekend"><span>Onbekend</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Locatiekenmerken -->
+      <div class="form-section">
+        <div class="form-section-header">
+          <div class="form-section-num">3</div>
+          <div><div class="form-section-title">Locatiekenmerken</div><div class="form-section-sub">Huidige situatie en werkzaamheden</div></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Proefsleuven gewenst?</label>
+          <div class="toggle-group">
+            <label class="toggle-option"><input type="radio" name="proefsleuven" value="Ja"><span>Ja</span></label>
+            <label class="toggle-option"><input type="radio" name="proefsleuven" value="Nee"><span>Nee</span></label>
+            <label class="toggle-option"><input type="radio" name="proefsleuven" value="Onbekend"><span>Onbekend</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Locatie al ingemeten?</label>
+          <div class="toggle-group">
+            <label class="toggle-option"><input type="radio" name="ingemeten" value="Ja"><span>Ja</span></label>
+            <label class="toggle-option"><input type="radio" name="ingemeten" value="Nee"><span>Nee</span></label>
+            <label class="toggle-option"><input type="radio" name="ingemeten" value="Onbekend"><span>Onbekend</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Bezocht met inzamelvoertuig?</label>
+          <div class="toggle-group">
+            <label class="toggle-option"><input type="radio" name="voertuig" value="Ja"><span>Ja</span></label>
+            <label class="toggle-option"><input type="radio" name="voertuig" value="Nee"><span>Nee</span></label>
+            <label class="toggle-option"><input type="radio" name="voertuig" value="Onbekend"><span>Onbekend</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Aanvullende informatie -->
+      <div class="form-section">
+        <div class="form-section-header">
+          <div class="form-section-num">4</div>
+          <div><div class="form-section-title">Aanvullende informatie</div><div class="form-section-sub">Type container en opmerkingen</div></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Standaardinrichting</label>
+          <div class="toggle-group">
+            <label class="toggle-option"><input type="radio" name="inrichting" value="Standaard"><span>Standaard</span></label>
+            <label class="toggle-option"><input type="radio" name="inrichting" value="Geen voorkeur"><span>Geen voorkeur</span></label>
+            <label class="toggle-option"><input type="radio" name="inrichting" value="Afwijkend"><span>Afwijkend</span></label>
+          </div>
+        </div>
+        <div class="form-group"><label class="form-label" for="l_opmerkingen">Opmerkingen / aanvullende informatie</label><textarea id="l_opmerkingen" name="opmerkingen" class="form-textarea" placeholder="Beschrijf eventuele bijzonderheden, obstakels of andere relevante informatie…"></textarea></div>
+        <p class="form-privacy" style="font-size:12px;color:var(--ink-4);">Door te verzenden gaat u akkoord met onze <a href="/privacy/" style="color:var(--green);">privacyverklaring</a>.</p>
+        <button type="submit" class="btn-primary" id="locSubmitBtn">Aanvraag versturen</button>
+      </div>
+    </form>
+  </div>
+
+  <aside class="loc-sidebar">
+    <div style="background:var(--bg-2);border:1px solid var(--border);border-radius:12px;padding:28px;">
+      <div class="form-section-title" style="margin-bottom:20px;">Hoe werkt het?</div>
+      <div class="loc-steps">
+        <div class="loc-step"><div class="loc-step-num">1</div><div class="loc-step-text"><strong>Aanvraag indienen</strong>Vul het formulier in met locatiegegevens en uw contactinformatie.</div></div>
+        <div class="loc-step"><div class="loc-step-num">2</div><div class="loc-step-text"><strong>Beoordeling</strong>Wij beoordelen de locatie op haalbaarheid en logistiek.</div></div>
+        <div class="loc-step"><div class="loc-step-num">3</div><div class="loc-step-text"><strong>Terugkoppeling</strong>U ontvangt binnen 2 werkdagen een reactie met ons advies.</div></div>
+        <div class="loc-step"><div class="loc-step-num">4</div><div class="loc-step-text"><strong>Offerte op maat</strong>Bij akkoord stellen wij een offerte op maat op.</div></div>
+      </div>
+    </div>
+    <div style="background:var(--ink);border-radius:12px;padding:28px;">
+      <div class="form-section-title" style="color:#fff;margin-bottom:12px;">Direct contact?</div>
+      <p style="font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:16px;">Liever telefonisch overleggen? Bel ons direct.</p>
+      <a href="tel:+31643125245" style="display:block;background:var(--green);color:#fff;text-align:center;padding:11px 16px;border-radius:7px;font-size:14px;font-weight:600;text-decoration:none;">+31 (6) 431 25 245</a>
+    </div>
+    <div style="background:rgba(76,175,114,.08);border:1px solid rgba(76,175,114,.2);border-radius:12px;padding:24px;">
+      <div class="form-section-title" style="color:var(--green);margin-bottom:8px;">B-Covered meten</div>
+      <p style="font-size:13px;color:var(--ink-3);line-height:1.6;margin-bottom:14px;">Wij meten locaties professioneel in met GPS-apparatuur voor nauwkeurige coördinaten.</p>
+      <a href="/b-covered/" style="font-size:13px;font-weight:600;color:var(--green);">Meer over B-Covered →</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-brand">
+        <a href="/"><img src="/assets/b-advice-logo.png" alt="B-Advice" style="height:52px;display:block;filter:brightness(0) invert(1);" /></a>
+      </div>
+      <p class="footer-tagline">Specialist in ondergrondse afvalinfrastructuur en digitaal containerbeheer.</p>
+      <p class="footer-address">Achterdijk 26<br>Nieuwland (UT)</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Diensten</div>
+      <div class="footer-col-links">
+        <a href="/diensten/afvalinzameling/">Afvalinzameling &amp; Management</a>
+        <a href="/diensten/plaatsing/">Plaatsen van inzamelmiddelen</a>
+        <a href="/diensten/projectmanagement/">Projectmanagement</a>
+        <a href="/diensten/meerjaren-investeringsplan/">Meerjaren Investeringsplan</a>
+        <a href="/diensten/beheer-onderhoud/">Beheer, onderhoud &amp; refurbish</a>
+        <a href="/diensten/aanbesteding/">Aanbesteding &amp; bestek</a>
+        <a href="/diensten/bewonersparticipatie/">Bewonersparticipatie</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Bedrijf</div>
+      <div class="footer-col-links">
+        <a href="/over-ons/">Over ons</a>
+        <a href="/nieuws/">Nieuws</a>
+        <a href="/contact/">Contact</a>
+        <a href="/b-organized/">B-Organized</a>
+        <a href="/privacy/">Privacy &amp; Cookies</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:info@b-advice.info" style="color:rgba(255,255,255,.5);">info@b-advice.info</a>
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <a href="tel:+31643125245" style="color:rgba(255,255,255,.5);">+31 (6) 431 25 245</a>
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Achterdijk 26, Nieuwland (UT)</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 B-Advice. Alle rechten voorbehouden. KvK: <span class="footer-kvk">82797811</span></span>
+    <div class="footer-bottom-links">
+      <a href="/privacy/">Privacy</a>
+      <a href="/cookies/">Cookies</a>
+      <a href="#">Disclaimer</a>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+(function() {
+  var EJS_KEY = 'JOUW_PUBLIC_KEY';
+  var EJS_SERVICE = 'JOUW_SERVICE_ID';
+  var EJS_INTERN = 'template_loc_intern';
+  var EJS_KLANT = 'template_loc_klant';
+  emailjs.init({ publicKey: EJS_KEY });
+  function getRadio(name) {
+    var el = document.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : '—';
+  }
+  document.getElementById('locForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var btn = document.getElementById('locSubmitBtn');
+    btn.disabled = true; btn.textContent = 'Verzenden…';
+    var data = {
+      naam: document.getElementById('l_naam').value,
+      email: document.getElementById('l_email').value,
+      telefoon: document.getElementById('l_telefoon').value || '—',
+      organisatie: document.getElementById('l_organisatie').value,
+      adres: document.getElementById('l_adres').value,
+      coord_x: document.getElementById('l_x').value || '—',
+      coord_y: document.getElementById('l_y').value || '—',
+      kenmerk: document.getElementById('l_kenmerk').value || '—',
+      plaatsing: getRadio('plaatsing'),
+      proefsleuven: getRadio('proefsleuven'),
+      ingemeten: getRadio('ingemeten'),
+      voertuig: getRadio('voertuig'),
+      inrichting: getRadio('inrichting'),
+      opmerkingen: document.getElementById('l_opmerkingen').value || '—',
+    };
+    try {
+      await emailjs.send(EJS_SERVICE, EJS_INTERN, { ...data, to_email: 'info@b-advice.info' });
+      await emailjs.send(EJS_SERVICE, EJS_KLANT, data);
+      document.getElementById('locForm').style.display = 'none';
+      document.getElementById('locSuccess').classList.add('visible');
+    } catch(err) {
+      alert('Er is een fout opgetreden. Stuur uw aanvraag naar info@b-advice.info');
+      btn.disabled = false; btn.textContent = 'Aanvraag versturen';
+    }
+  });
+})();
+</script>
+<script>
+(function(){
+  var nav=document.getElementById('sitenav');
+  if(nav){window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>20);},{passive:true});}
+  var btn=document.getElementById('navHamburger');
+  var overlay=document.getElementById('navMobileOverlay');
+  if(btn&&overlay){
+    function checkMobile(){btn.style.display=window.innerWidth<=768?'flex':'none';}
+    checkMobile();window.addEventListener('resize',checkMobile);
+    btn.addEventListener('click',function(){var isOpen=overlay.classList.toggle('open');btn.classList.toggle('open',isOpen);document.body.style.overflow=isOpen?'hidden':'';});
+    overlay.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){overlay.classList.remove('open');btn.classList.remove('open');document.body.style.overflow='';});});
+  }
+  document.querySelectorAll('.faq-q').forEach(function(b){b.addEventListener('click',function(){var a=this.nextElementSibling,ic=this.querySelector('.faq-icon'),op=a.classList.contains('open');document.querySelectorAll('.faq-a.open').forEach(function(x){x.classList.remove('open');});document.querySelectorAll('.faq-icon.open').forEach(function(x){x.classList.remove('open');});if(!op){a.classList.add('open');if(ic)ic.classList.add('open');}});});
+  (function initCookieBanner(){
+    if(localStorage.getItem('b_advice_consent'))return;
+    var s=document.createElement('style');
+    s.textContent='#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9998;background:#0f1e16;border-top:3px solid #4CAF72;padding:20px 80px;transform:translateY(110%);transition:transform .45s cubic-bezier(.4,0,.2,1);box-shadow:0 -8px 40px rgba(0,0,0,.3)}.ck-visible{transform:translateY(0)!important}.ck-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:24px}.ck-text{flex:1}.ck-title{display:block;font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}.ck-desc{font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;margin:0}.ck-desc a{color:#4CAF72;text-decoration:underline}.ck-actions{display:flex;gap:10px;flex-shrink:0}#ck-accept{padding:10px 22px;background:#4CAF72;color:#fff;border:none;border-radius:7px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}#ck-accept:hover{background:#3d9f63}#ck-necessary{padding:10px 18px;background:transparent;color:rgba(255,255,255,.7);border:1.5px solid rgba(255,255,255,.2);border-radius:7px;font-size:14px;font-weight:500;cursor:pointer;font-family:inherit;white-space:nowrap}@media(max-width:768px){#cookie-banner{padding:20px}.ck-inner{flex-direction:column;gap:16px}.ck-icon{display:none}.ck-actions{width:100%;flex-direction:column}#ck-accept,#ck-necessary{width:100%;text-align:center;padding:13px 20px;font-size:15px}}';
+    document.head.appendChild(s);
+    var banner=document.createElement('div');banner.id='cookie-banner';
+    banner.innerHTML='<div class="ck-inner"><div class="ck-icon">🍪</div><div class="ck-text"><strong class="ck-title">Wij gebruiken cookies</strong><p class="ck-desc">Wij gebruiken functionele cookies voor een goede werking van de website. Met uw toestemming plaatsen wij ook analytische cookies. Lees meer in ons <a href="/cookies/">cookiebeleid</a>.</p></div><div class="ck-actions"><button id="ck-necessary">Alleen noodzakelijk</button><button id="ck-accept">Alles accepteren</button></div></div>';
+    document.body.appendChild(banner);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){banner.classList.add('ck-visible');});});
+    function dismiss(val){localStorage.setItem('b_advice_consent',val);banner.classList.remove('ck-visible');banner.addEventListener('transitionend',function(){if(banner.parentNode)banner.parentNode.removeChild(banner);},{once:true});}
+    document.getElementById('ck-accept').addEventListener('click',function(){dismiss('all');});
+    document.getElementById('ck-necessary').addEventListener('click',function(){dismiss('necessary');});
+    window.resetCookieConsent=function(){localStorage.removeItem('b_advice_consent');initCookieBanner();};
+  })();
+})();
+</script>
+</body>
+</html>
