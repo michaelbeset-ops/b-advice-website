@@ -234,7 +234,8 @@
 </footer>
 <script>
 (function() {
-  var ACCESS_KEY = '28c0f073-516d-4fe1-a111-8d987ee1bbb6';
+  var W3F_KEY   = '28c0f073-516d-4fe1-a111-8d987ee1bbb6';
+  var BREVO_KEY = 'BREVO_API_KEY'; // Vervang met jouw Brevo API key
   function getRadio(name) {
     var el = document.querySelector('input[name="' + name + '"]:checked');
     return el ? el.value : '—';
@@ -257,62 +258,57 @@
     var voertuig    = getRadio('voertuig');
     var inrichting  = getRadio('inrichting');
     var opmerkingen = document.getElementById('l_opmerkingen').value || '—';
+
+    var bevestigingHtml = '<div style="font-family:Arial,Helvetica,sans-serif;background:#f5f5f5;padding:32px 16px;">'
+      + '<div style="max-width:580px;margin:0 auto;background:#fff;border-radius:10px;overflow:hidden;">'
+      + '<div style="background:#0f1e16;padding:24px 28px;">'
+      + '<div style="font-size:20px;font-weight:700;color:#fff;letter-spacing:-.5px;">B-Advice</div>'
+      + '<div style="font-size:11px;color:#4CAF72;margin-top:3px;">b-advice.info</div>'
+      + '</div>'
+      + '<div style="padding:28px 28px 20px;border-bottom:3px solid #4CAF72;">'
+      + '<div style="font-size:17px;font-weight:700;color:#0f1e16;margin-bottom:8px;">Bedankt voor uw locatieaanvraag, ' + naam.split(' ')[0] + '!</div>'
+      + '<div style="font-size:14px;color:#555;line-height:1.7;">Wij hebben uw aanvraag ontvangen en nemen doorgaans binnen <strong>2 werkdagen</strong> contact met u op.</div>'
+      + '</div>'
+      + '<table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">'
+      + '<tr><td style="padding:11px 28px;font-size:13px;font-weight:600;color:#666;width:130px;vertical-align:top;border-bottom:1px solid #f0f0f0;background:#fafafa;">Locatie</td><td style="padding:11px 28px;font-size:13px;color:#222;border-bottom:1px solid #f0f0f0;">' + adres + '</td></tr>'
+      + (kenmerk !== '—' ? '<tr><td style="padding:11px 28px;font-size:13px;font-weight:600;color:#666;vertical-align:top;border-bottom:1px solid #f0f0f0;background:#fafafa;">Kenmerk</td><td style="padding:11px 28px;font-size:13px;color:#222;border-bottom:1px solid #f0f0f0;">' + kenmerk + '</td></tr>' : '')
+      + (opmerkingen !== '—' ? '<tr><td style="padding:11px 28px;font-size:13px;font-weight:600;color:#666;vertical-align:top;border-bottom:1px solid #f0f0f0;background:#fafafa;">Opmerkingen</td><td style="padding:11px 28px;font-size:13px;color:#222;line-height:1.6;border-bottom:1px solid #f0f0f0;">' + opmerkingen.replace(/\n/g,'<br>') + '</td></tr>' : '')
+      + '</table>'
+      + '<div style="padding:20px 28px;background:#fafafa;">'
+      + '<div style="font-size:12px;color:#888;line-height:1.8;">Dringende vraag? Bel <a href="tel:+31643125245" style="color:#4CAF72;text-decoration:none;">+31 (6) 431 25 245</a> of mail <a href="mailto:info@b-advice.info" style="color:#4CAF72;text-decoration:none;">info@b-advice.info</a><br>B-Advice &nbsp;·&nbsp; Achterdijk 26, Nieuwland (UT)</div>'
+      + '</div>'
+      + '</div></div>';
+
     try {
       await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
         body: JSON.stringify({
-          access_key: ACCESS_KEY,
+          access_key: W3F_KEY,
           subject: 'Nieuwe locatieaanvraag — ' + naam,
           from_name: 'B-Advice Website',
           replyto: email,
-          Naam: naam,
-          'E-mail': email,
-          Telefoon: telefoon,
-          Organisatie: organisatie,
-          Adres: adres,
-          'X-coördinaat': coord_x,
-          'Y-coördinaat': coord_y,
-          Kenmerk: kenmerk,
-          Plaatsing: plaatsing,
-          Proefsleuven: proefsleuven,
-          Ingemeten: ingemeten,
-          Voertuig: voertuig,
-          Inrichting: inrichting,
-          Opmerkingen: opmerkingen
+          Naam: naam, 'E-mail': email, Telefoon: telefoon,
+          Organisatie: organisatie, Adres: adres,
+          'X-coördinaat': coord_x, 'Y-coördinaat': coord_y,
+          Kenmerk: kenmerk, Plaatsing: plaatsing,
+          Proefsleuven: proefsleuven, Ingemeten: ingemeten,
+          Voertuig: voertuig, Inrichting: inrichting, Opmerkingen: opmerkingen
         })
       });
-      var html = '<div style="font-family:Arial,Helvetica,sans-serif;background:#f5f5f5;padding:32px 16px;">'
-        + '<div style="max-width:580px;margin:0 auto;background:#fff;border-radius:10px;overflow:hidden;">'
-        + '<div style="background:#0f1e16;padding:24px 28px;">'
-        + '<div style="font-size:20px;font-weight:700;color:#fff;letter-spacing:-.5px;">B-Advice</div>'
-        + '<div style="font-size:11px;color:#4CAF72;margin-top:3px;">b-advice.info</div>'
-        + '</div>'
-        + '<div style="padding:28px 28px 20px;border-bottom:3px solid #4CAF72;">'
-        + '<div style="font-size:17px;font-weight:700;color:#0f1e16;margin-bottom:8px;">Bedankt voor uw locatieaanvraag, ' + naam.split(' ')[0] + '!</div>'
-        + '<div style="font-size:14px;color:#555;line-height:1.7;">Wij hebben uw aanvraag ontvangen en nemen doorgaans binnen <strong>2 werkdagen</strong> contact met u op.</div>'
-        + '</div>'
-        + '<table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">'
-        + '<tr><td style="padding:11px 28px;font-size:13px;font-weight:600;color:#666;width:130px;vertical-align:top;border-bottom:1px solid #f0f0f0;background:#fafafa;">Locatie</td><td style="padding:11px 28px;font-size:13px;color:#222;border-bottom:1px solid #f0f0f0;">' + adres + '</td></tr>'
-        + (kenmerk !== '—' ? '<tr><td style="padding:11px 28px;font-size:13px;font-weight:600;color:#666;vertical-align:top;border-bottom:1px solid #f0f0f0;background:#fafafa;">Kenmerk</td><td style="padding:11px 28px;font-size:13px;color:#222;border-bottom:1px solid #f0f0f0;">' + kenmerk + '</td></tr>' : '')
-        + (opmerkingen !== '—' ? '<tr><td style="padding:11px 28px;font-size:13px;font-weight:600;color:#666;vertical-align:top;border-bottom:1px solid #f0f0f0;background:#fafafa;">Opmerkingen</td><td style="padding:11px 28px;font-size:13px;color:#222;line-height:1.6;border-bottom:1px solid #f0f0f0;">' + opmerkingen.replace(/\n/g,'<br>') + '</td></tr>' : '')
-        + '</table>'
-        + '<div style="padding:20px 28px;background:#fafafa;">'
-        + '<div style="font-size:12px;color:#888;line-height:1.8;">Dringende vraag? Bel <a href="tel:+31643125245" style="color:#4CAF72;text-decoration:none;">+31 (6) 431 25 245</a> of mail <a href="mailto:info@b-advice.info" style="color:#4CAF72;text-decoration:none;">info@b-advice.info</a><br>B-Advice &nbsp;·&nbsp; Achterdijk 26, Nieuwland (UT)</div>'
-        + '</div>'
-        + '</div></div>';
-      await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          access_key: ACCESS_KEY,
-          subject: 'Uw locatieaanvraag is ontvangen — B-Advice',
-          from_name: 'B-Advice',
-          replyto: 'info@b-advice.info',
-          email: email,
-          message: html
-        })
-      });
+      if (BREVO_KEY !== 'BREVO_API_KEY') {
+        await fetch('https://api.brevo.com/v3/smtp/email', {
+          method: 'POST',
+          headers: {'api-key': BREVO_KEY, 'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            sender: {name: 'B-Advice', email: 'info@b-advice.info'},
+            to: [{email: email, name: naam}],
+            replyTo: {email: 'info@b-advice.info'},
+            subject: 'Uw locatieaanvraag is ontvangen — B-Advice',
+            htmlContent: bevestigingHtml
+          })
+        });
+      }
       document.getElementById('locForm').style.display = 'none';
       document.getElementById('locSuccess').classList.add('visible');
     } catch(err) {
