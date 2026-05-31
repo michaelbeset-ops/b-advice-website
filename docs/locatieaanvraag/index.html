@@ -282,6 +282,25 @@
           Opmerkingen: opmerkingen
         })
       });
+      var html = '<div style="font-family:Arial,Helvetica,sans-serif;background:#f5f5f5;padding:32px 16px;">'
+        + '<div style="max-width:580px;margin:0 auto;background:#fff;border-radius:10px;overflow:hidden;">'
+        + '<div style="background:#0f1e16;padding:24px 28px;">'
+        + '<div style="font-size:20px;font-weight:700;color:#fff;letter-spacing:-.5px;">B-Advice</div>'
+        + '<div style="font-size:11px;color:#4CAF72;margin-top:3px;">b-advice.info</div>'
+        + '</div>'
+        + '<div style="padding:28px 28px 20px;border-bottom:3px solid #4CAF72;">'
+        + '<div style="font-size:17px;font-weight:700;color:#0f1e16;margin-bottom:8px;">Bedankt voor uw locatieaanvraag, ' + naam.split(' ')[0] + '!</div>'
+        + '<div style="font-size:14px;color:#555;line-height:1.7;">Wij hebben uw aanvraag ontvangen en nemen doorgaans binnen <strong>2 werkdagen</strong> contact met u op.</div>'
+        + '</div>'
+        + '<table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">'
+        + '<tr><td style="padding:11px 28px;font-size:13px;font-weight:600;color:#666;width:130px;vertical-align:top;border-bottom:1px solid #f0f0f0;background:#fafafa;">Locatie</td><td style="padding:11px 28px;font-size:13px;color:#222;border-bottom:1px solid #f0f0f0;">' + adres + '</td></tr>'
+        + (kenmerk !== '—' ? '<tr><td style="padding:11px 28px;font-size:13px;font-weight:600;color:#666;vertical-align:top;border-bottom:1px solid #f0f0f0;background:#fafafa;">Kenmerk</td><td style="padding:11px 28px;font-size:13px;color:#222;border-bottom:1px solid #f0f0f0;">' + kenmerk + '</td></tr>' : '')
+        + (opmerkingen !== '—' ? '<tr><td style="padding:11px 28px;font-size:13px;font-weight:600;color:#666;vertical-align:top;border-bottom:1px solid #f0f0f0;background:#fafafa;">Opmerkingen</td><td style="padding:11px 28px;font-size:13px;color:#222;line-height:1.6;border-bottom:1px solid #f0f0f0;">' + opmerkingen.replace(/\n/g,'<br>') + '</td></tr>' : '')
+        + '</table>'
+        + '<div style="padding:20px 28px;background:#fafafa;">'
+        + '<div style="font-size:12px;color:#888;line-height:1.8;">Dringende vraag? Bel <a href="tel:+31643125245" style="color:#4CAF72;text-decoration:none;">+31 (6) 431 25 245</a> of mail <a href="mailto:info@b-advice.info" style="color:#4CAF72;text-decoration:none;">info@b-advice.info</a><br>B-Advice &nbsp;·&nbsp; Achterdijk 26, Nieuwland (UT)</div>'
+        + '</div>'
+        + '</div></div>';
       await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -291,7 +310,7 @@
           from_name: 'B-Advice',
           replyto: 'info@b-advice.info',
           email: email,
-          message: 'Beste ' + naam.split(' ')[0] + ',\n\nBedankt voor uw locatieaanvraag! Wij hebben uw aanvraag ontvangen en nemen doorgaans binnen 2 werkdagen contact met u op.\n\nLocatie: ' + adres + '\nKenmerk: ' + kenmerk + '\n\n' + (opmerkingen !== '—' ? 'Opmerkingen: ' + opmerkingen + '\n\n' : '') + '—\nHeeft u een dringende vraag?\nBel: +31 (6) 431 25 245\nMail: info@b-advice.info\n\nMet vriendelijke groet,\nTeam B-Advice\nAchterdijk 26, Nieuwland (UT)\nb-advice.info'
+          message: html
         })
       });
       document.getElementById('locForm').style.display = 'none';
