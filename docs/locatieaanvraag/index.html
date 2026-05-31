@@ -232,14 +232,9 @@
     </div>
   </div>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
 (function() {
-  var EJS_KEY = 'JOUW_PUBLIC_KEY';
-  var EJS_SERVICE = 'JOUW_SERVICE_ID';
-  var EJS_INTERN = 'template_loc_intern';
-  var EJS_KLANT = 'template_loc_klant';
-  emailjs.init({ publicKey: EJS_KEY });
+  var ACCESS_KEY = 'JOUW_ACCESS_KEY';
   function getRadio(name) {
     var el = document.querySelector('input[name="' + name + '"]:checked');
     return el ? el.value : '—';
@@ -248,27 +243,36 @@
     e.preventDefault();
     var btn = document.getElementById('locSubmitBtn');
     btn.disabled = true; btn.textContent = 'Verzenden…';
-    var data = {
-      naam: document.getElementById('l_naam').value,
-      email: document.getElementById('l_email').value,
-      telefoon: document.getElementById('l_telefoon').value || '—',
-      organisatie: document.getElementById('l_organisatie').value,
-      adres: document.getElementById('l_adres').value,
-      coord_x: document.getElementById('l_x').value || '—',
-      coord_y: document.getElementById('l_y').value || '—',
-      kenmerk: document.getElementById('l_kenmerk').value || '—',
-      plaatsing: getRadio('plaatsing'),
-      proefsleuven: getRadio('proefsleuven'),
-      ingemeten: getRadio('ingemeten'),
-      voertuig: getRadio('voertuig'),
-      inrichting: getRadio('inrichting'),
-      opmerkingen: document.getElementById('l_opmerkingen').value || '—',
-    };
     try {
-      await emailjs.send(EJS_SERVICE, EJS_INTERN, { ...data, to_email: 'info@b-advice.info' });
-      await emailjs.send(EJS_SERVICE, EJS_KLANT, data);
-      document.getElementById('locForm').style.display = 'none';
-      document.getElementById('locSuccess').classList.add('visible');
+      var res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: ACCESS_KEY,
+          subject: 'Nieuwe locatieaanvraag — B-Advice',
+          from_name: 'B-Advice Website',
+          replyto: document.getElementById('l_email').value,
+          naam: document.getElementById('l_naam').value,
+          email: document.getElementById('l_email').value,
+          telefoon: document.getElementById('l_telefoon').value || '—',
+          organisatie: document.getElementById('l_organisatie').value,
+          adres: document.getElementById('l_adres').value,
+          coord_x: document.getElementById('l_x').value || '—',
+          coord_y: document.getElementById('l_y').value || '—',
+          kenmerk: document.getElementById('l_kenmerk').value || '—',
+          plaatsing: getRadio('plaatsing'),
+          proefsleuven: getRadio('proefsleuven'),
+          ingemeten: getRadio('ingemeten'),
+          voertuig: getRadio('voertuig'),
+          inrichting: getRadio('inrichting'),
+          opmerkingen: document.getElementById('l_opmerkingen').value || '—',
+        })
+      });
+      var result = await res.json();
+      if (result.success) {
+        document.getElementById('locForm').style.display = 'none';
+        document.getElementById('locSuccess').classList.add('visible');
+      } else { throw new Error(result.message); }
     } catch(err) {
       alert('Er is een fout opgetreden. Stuur uw aanvraag naar info@b-advice.info');
       btn.disabled = false; btn.textContent = 'Aanvraag versturen';

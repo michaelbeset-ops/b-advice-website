@@ -193,31 +193,35 @@
     </div>
   </div>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
 (function() {
-  var EJS_KEY = 'JOUW_PUBLIC_KEY';
-  var EJS_SERVICE = 'JOUW_SERVICE_ID';
-  var EJS_INTERN = 'template_contact_intern';
-  var EJS_KLANT = 'template_contact_klant';
-  emailjs.init({ publicKey: EJS_KEY });
+  var ACCESS_KEY = 'JOUW_ACCESS_KEY';
   document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     var btn = document.getElementById('submitBtn');
     btn.disabled = true; btn.textContent = 'Verzenden…';
-    var data = {
-      naam: document.getElementById('naam').value,
-      email: document.getElementById('email').value,
-      telefoon: document.getElementById('telefoon').value || '—',
-      organisatie: document.getElementById('organisatie').value || '—',
-      onderwerp: document.getElementById('onderwerp').value,
-      bericht: document.getElementById('bericht').value,
-    };
     try {
-      await emailjs.send(EJS_SERVICE, EJS_INTERN, { ...data, to_email: 'info@b-advice.info' });
-      await emailjs.send(EJS_SERVICE, EJS_KLANT, data);
-      document.getElementById('contactForm').style.display = 'none';
-      document.getElementById('formSuccess').classList.add('visible');
+      var res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: ACCESS_KEY,
+          subject: 'Nieuw contactformulier — B-Advice',
+          from_name: 'B-Advice Website',
+          replyto: document.getElementById('email').value,
+          naam: document.getElementById('naam').value,
+          email: document.getElementById('email').value,
+          telefoon: document.getElementById('telefoon').value || '—',
+          organisatie: document.getElementById('organisatie').value || '—',
+          onderwerp: document.getElementById('onderwerp').value,
+          bericht: document.getElementById('bericht').value,
+        })
+      });
+      var result = await res.json();
+      if (result.success) {
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('formSuccess').classList.add('visible');
+      } else { throw new Error(result.message); }
     } catch(err) {
       alert('Er is een fout opgetreden. Stuur uw bericht naar info@b-advice.info');
       btn.disabled = false; btn.textContent = 'Bericht versturen';
