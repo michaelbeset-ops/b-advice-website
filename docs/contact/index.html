@@ -196,65 +196,44 @@
 <script>
 (function() {
   var ACCESS_KEY = '28c0f073-516d-4fe1-a111-8d987ee1bbb6';
-
-  function htmlEmail(titel, intro, rows, afsluiting) {
-    var rowsHtml = rows.map(function(r) {
-      return '<tr><td style="padding:10px 16px;font-size:13px;font-weight:600;color:#555;width:160px;vertical-align:top;border-bottom:1px solid #f0f0f0;">' + r[0] + '</td><td style="padding:10px 16px;font-size:13px;color:#222;border-bottom:1px solid #f0f0f0;">' + r[1] + '</td></tr>';
-    }).join('');
-    return '<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body style="margin:0;padding:0;background:#f5f5f5;font-family:Arial,sans-serif;">'
-      + '<table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f5f5;padding:40px 0;"><tr><td align="center">'
-      + '<table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);">'
-      + '<tr><td style="background:#0f1e16;padding:28px 32px;">'
-      + '<div style="font-size:20px;font-weight:700;color:#ffffff;letter-spacing:-0.5px;">B-Advice</div>'
-      + '<div style="font-size:12px;color:#4CAF72;margin-top:4px;">b-advice.info</div>'
-      + '</td></tr>'
-      + '<tr><td style="padding:32px;border-bottom:3px solid #4CAF72;">'
-      + '<div style="font-size:18px;font-weight:700;color:#0f1e16;margin-bottom:8px;">' + titel + '</div>'
-      + '<div style="font-size:14px;color:#666;line-height:1.6;">' + intro + '</div>'
-      + '</td></tr>'
-      + '<tr><td style="padding:0;"><table width="100%" cellpadding="0" cellspacing="0">' + rowsHtml + '</table></td></tr>'
-      + '<tr><td style="padding:24px 32px;background:#fafafa;border-top:1px solid #eee;">'
-      + '<div style="font-size:12px;color:#999;line-height:1.6;">' + afsluiting + '</div>'
-      + '</td></tr>'
-      + '</table></td></tr></table></body></html>';
-  }
-
   document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     var btn = document.getElementById('submitBtn');
     btn.disabled = true; btn.textContent = 'Verzenden…';
-
-    var naam      = document.getElementById('naam').value;
-    var email     = document.getElementById('email').value;
-    var telefoon  = document.getElementById('telefoon').value || '—';
+    var naam        = document.getElementById('naam').value;
+    var email       = document.getElementById('email').value;
+    var telefoon    = document.getElementById('telefoon').value || '—';
     var organisatie = document.getElementById('organisatie').value || '—';
-    var onderwerp = document.getElementById('onderwerp').value;
-    var bericht   = document.getElementById('bericht').value;
-
-    var notificatie = htmlEmail(
-      'Nieuw contactformulier',
-      'Er is een nieuw bericht binnengekomen via het contactformulier op b-advice.info.',
-      [['Naam', naam], ['E-mail', email], ['Telefoon', telefoon], ['Organisatie', organisatie], ['Onderwerp', onderwerp], ['Bericht', bericht.replace(/\n/g,'<br>')]],
-      'Dit bericht is automatisch verzonden via b-advice.info &nbsp;|&nbsp; <a href="mailto:' + email + '" style="color:#4CAF72;">Beantwoord ' + naam + '</a>'
-    );
-
-    var bevestiging = htmlEmail(
-      'Bedankt voor uw bericht, ' + naam.split(' ')[0] + '!',
-      'Wij hebben uw bericht goed ontvangen en nemen doorgaans binnen één werkdag contact met u op.',
-      [['Onderwerp', onderwerp], ['Uw bericht', bericht.replace(/\n/g,'<br>')]],
-      'Heeft u een dringende vraag? Bel ons op <a href="tel:+31643125245" style="color:#4CAF72;">+31 (6) 431 25 245</a><br>B-Advice &nbsp;·&nbsp; Achterdijk 26, Nieuwland (UT) &nbsp;·&nbsp; info@b-advice.info'
-    );
-
+    var onderwerp   = document.getElementById('onderwerp').value;
+    var bericht     = document.getElementById('bericht').value;
     try {
       await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ access_key: ACCESS_KEY, subject: 'Nieuw contactformulier — ' + naam, from_name: 'B-Advice Website', replyto: email, message: notificatie })
+        body: JSON.stringify({
+          access_key: ACCESS_KEY,
+          subject: 'Nieuw contactformulier — ' + naam,
+          from_name: 'B-Advice Website',
+          replyto: email,
+          Naam: naam,
+          'E-mail': email,
+          Telefoon: telefoon,
+          Organisatie: organisatie,
+          Onderwerp: onderwerp,
+          Bericht: bericht
+        })
       });
       await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ access_key: ACCESS_KEY, subject: 'Uw bericht is ontvangen — B-Advice', from_name: 'B-Advice', replyto: 'info@b-advice.info', email: email, message: bevestiging })
+        body: JSON.stringify({
+          access_key: ACCESS_KEY,
+          subject: 'Uw bericht is ontvangen — B-Advice',
+          from_name: 'B-Advice',
+          replyto: 'info@b-advice.info',
+          email: email,
+          message: 'Beste ' + naam.split(' ')[0] + ',\n\nBedankt voor uw bericht! Wij hebben uw contactformulier ontvangen en nemen doorgaans binnen één werkdag contact met u op.\n\nOnderwerp: ' + onderwerp + '\n\n' + bericht + '\n\n—\nHeeft u een dringende vraag?\nBel: +31 (6) 431 25 245\nMail: info@b-advice.info\n\nMet vriendelijke groet,\nTeam B-Advice\nAchterdijk 26, Nieuwland (UT)\nb-advice.info'
+        })
       });
       document.getElementById('contactForm').style.display = 'none';
       document.getElementById('formSuccess').classList.add('visible');
