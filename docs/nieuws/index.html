@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nieuws | B-Advice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/b-advice-logo.png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<nav class="nav" id="sitenav">
+  <a class="nav-logo" href="/" style="display:flex;align-items:center;">
+    <img src="/assets/b-advice-logo.png" alt="B-Advice" style="height:40px;display:block;" />
+  </a>
+  <div class="nav-center">
+    <a href="/diensten/">Diensten</a>
+    <a href="/b-organized/">B-Organized</a>
+    <a href="/b-covered/">B-Covered</a>
+    <a href="/producten/">Producten</a>
+    <a href="/nieuws/" class="active">Nieuws</a>
+    <a href="/locatieaanvraag/">Locatieaanvraag</a>
+    <a href="/over-ons/">Over ons</a>
+  </div>
+  <div class="nav-right">
+    <a href="/contact/" class="nav-contact">Contact</a>
+    <a href="http://b-organized.info" target="_blank" class="nav-cta">Login B-Organized</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile-overlay" id="navMobileOverlay">
+  <div class="nav-mobile-links">
+    <a href="/diensten/">Diensten</a>
+    <a href="/b-organized/">B-Organized</a>
+    <a href="/b-covered/">B-Covered</a>
+    <a href="/producten/">Producten</a>
+    <a href="/nieuws/" class="active">Nieuws</a>
+    <a href="/locatieaanvraag/">Locatieaanvraag</a>
+    <a href="/over-ons/">Over ons</a>
+    <a href="/contact/" class="nav-mobile-contact" style="font-size:15px;color:var(--ink-4);font-weight:400;">Contact</a>
+  </div>
+  <a href="http://b-organized.info" target="_blank" class="nav-mobile-cta" style="display:block;text-align:center;text-decoration:none;">Login B-Organized</a>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-tag"><span class="tag"><span class="tag-dot"></span>Nieuws</span></div>
+  <h1 class="page-hero-title">Laatste <em>nieuws</em></h1>
+  <p class="page-hero-sub">Actuele berichten over afvalinfrastructuur, projecten en B-Advice.</p>
+</section>
+<section class="section" style="max-width:1100px;margin:0 auto;padding:48px 24px 80px;">
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px;">
+
+    <!-- Artikel 1 -->
+    <a href="/nieuws/omgekeerd-inzamelen/" style="text-decoration:none;display:block;background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:box-shadow .2s,transform .2s;" onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.1)';this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='';this.style.transform='';">
+      <div style="background:var(--ink);padding:28px 28px 24px;position:relative;overflow:hidden;">
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 0%, rgba(76,175,114,.2) 0%, transparent 60%);pointer-events:none;"></div>
+        <div style="display:inline-flex;align-items:center;gap:7px;background:rgba(76,175,114,.15);border:1px solid rgba(76,175,114,.25);color:#4CAF72;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:4px 10px;border-radius:100px;margin-bottom:16px;">
+          <span style="width:5px;height:5px;background:#4CAF72;border-radius:50%;display:inline-block;"></span>
+          Artikel
+        </div>
+        <div style="font-size:18px;font-weight:700;color:#fff;line-height:1.3;letter-spacing:-.3px;">Omgekeerd inzamelen: wat verandert er voor gemeenten?</div>
+      </div>
+      <div style="padding:20px 28px 24px;">
+        <p style="font-size:14px;color:var(--ink-3);line-height:1.65;margin:0 0 16px;">Steeds meer gemeenten draaien hun afvalinzameling letterlijk om. Wat betekent dit in de praktijk en waar gaat het mis?</p>
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-size:12px;color:var(--ink-4);">Juni 2026</span>
+          <span style="font-size:13px;font-weight:600;color:#4CAF72;">Lees artikel →</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-brand">
+        <a href="/"><img src="/assets/b-advice-logo.png" alt="B-Advice" style="height:52px;display:block;filter:brightness(0) invert(1);" /></a>
+      </div>
+      <p class="footer-tagline">Specialist in ondergrondse afvalinfrastructuur en digitaal containerbeheer.</p>
+      <p class="footer-address">Achterdijk 26<br>Nieuwland (UT)</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Diensten</div>
+      <div class="footer-col-links">
+        <a href="/diensten/afvalinzameling/">Afvalinzameling &amp; Management</a>
+        <a href="/diensten/plaatsing/">Plaatsen van inzamelmiddelen</a>
+        <a href="/diensten/projectmanagement/">Projectmanagement</a>
+        <a href="/diensten/meerjaren-investeringsplan/">Meerjaren Investeringsplan</a>
+        <a href="/diensten/beheer-onderhoud/">Beheer, onderhoud &amp; refurbish</a>
+        <a href="/diensten/aanbesteding/">Aanbesteding &amp; bestek</a>
+        <a href="/diensten/bewonersparticipatie/">Bewonersparticipatie</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Bedrijf</div>
+      <div class="footer-col-links">
+        <a href="/over-ons/">Over ons</a>
+        <a href="/nieuws/">Nieuws</a>
+        <a href="/contact/">Contact</a>
+        <a href="/b-organized/">B-Organized</a>
+        <a href="/privacy/">Privacy &amp; Cookies</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:info@b-advice.info" style="color:rgba(255,255,255,.5);">info@b-advice.info</a>
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <a href="tel:+31643125245" style="color:rgba(255,255,255,.5);">+31 (6) 431 25 245</a>
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Achterdijk 26, Nieuwland (UT)</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 B-Advice. Alle rechten voorbehouden. KvK: <span class="footer-kvk">82797811</span></span>
+    <div class="footer-bottom-links">
+      <a href="/privacy/">Privacy</a>
+      <a href="/cookies/">Cookies</a>
+      <a href="#">Disclaimer</a>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var nav=document.getElementById('sitenav');
+  if(nav){window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>20);},{passive:true});}
+  var btn=document.getElementById('navHamburger');
+  var overlay=document.getElementById('navMobileOverlay');
+  if(btn&&overlay){
+    function checkMobile(){btn.style.display=window.innerWidth<=768?'flex':'none';}
+    checkMobile();window.addEventListener('resize',checkMobile);
+    btn.addEventListener('click',function(){var isOpen=overlay.classList.toggle('open');btn.classList.toggle('open',isOpen);document.body.style.overflow=isOpen?'hidden':'';});
+    overlay.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){overlay.classList.remove('open');btn.classList.remove('open');document.body.style.overflow='';});});
+  }
+  document.querySelectorAll('.faq-q').forEach(function(b){b.addEventListener('click',function(){var a=this.nextElementSibling,ic=this.querySelector('.faq-icon'),op=a.classList.contains('open');document.querySelectorAll('.faq-a.open').forEach(function(x){x.classList.remove('open');});document.querySelectorAll('.faq-icon.open').forEach(function(x){x.classList.remove('open');});if(!op){a.classList.add('open');if(ic)ic.classList.add('open');}});});
+  (function initCookieBanner(){
+    if(localStorage.getItem('b_advice_consent'))return;
+    var s=document.createElement('style');
+    s.textContent='#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9998;background:#0f1e16;border-top:3px solid #4CAF72;padding:20px 80px;transform:translateY(110%);transition:transform .45s cubic-bezier(.4,0,.2,1);box-shadow:0 -8px 40px rgba(0,0,0,.3)}.ck-visible{transform:translateY(0)!important}.ck-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:24px}.ck-text{flex:1}.ck-title{display:block;font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}.ck-desc{font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;margin:0}.ck-desc a{color:#4CAF72;text-decoration:underline}.ck-actions{display:flex;gap:10px;flex-shrink:0}#ck-accept{padding:10px 22px;background:#4CAF72;color:#fff;border:none;border-radius:7px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}#ck-accept:hover{background:#3d9f63}#ck-necessary{padding:10px 18px;background:transparent;color:rgba(255,255,255,.7);border:1.5px solid rgba(255,255,255,.2);border-radius:7px;font-size:14px;font-weight:500;cursor:pointer;font-family:inherit;white-space:nowrap}@media(max-width:768px){#cookie-banner{padding:20px}.ck-inner{flex-direction:column;gap:16px}.ck-icon{display:none}.ck-actions{width:100%;flex-direction:column}#ck-accept,#ck-necessary{width:100%;text-align:center;padding:13px 20px;font-size:15px}}';
+    document.head.appendChild(s);
+    var banner=document.createElement('div');banner.id='cookie-banner';
+    banner.innerHTML='<div class="ck-inner"><div class="ck-icon">🍪</div><div class="ck-text"><strong class="ck-title">Wij gebruiken cookies</strong><p class="ck-desc">Wij gebruiken functionele cookies voor een goede werking van de website. Met uw toestemming plaatsen wij ook analytische cookies. Lees meer in ons <a href="/cookies/">cookiebeleid</a>.</p></div><div class="ck-actions"><button id="ck-necessary">Alleen noodzakelijk</button><button id="ck-accept">Alles accepteren</button></div></div>';
+    document.body.appendChild(banner);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){banner.classList.add('ck-visible');});});
+    function dismiss(val){localStorage.setItem('b_advice_consent',val);banner.classList.remove('ck-visible');banner.addEventListener('transitionend',function(){if(banner.parentNode)banner.parentNode.removeChild(banner);},{once:true});}
+    document.getElementById('ck-accept').addEventListener('click',function(){dismiss('all');});
+    document.getElementById('ck-necessary').addEventListener('click',function(){dismiss('necessary');});
+    window.resetCookieConsent=function(){localStorage.removeItem('b_advice_consent');initCookieBanner();};
+  })();
+})();
+</script>
+</body>
+</html>
