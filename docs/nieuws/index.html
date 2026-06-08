@@ -52,7 +52,128 @@
   <h1 class="page-hero-title">Laatste <em>nieuws</em></h1>
   <p class="page-hero-sub">Actuele berichten over afvalinfrastructuur, projecten en B-Advice.</p>
 </section>
-<section class="section" style="max-width:1100px;margin:0 auto;padding:48px 24px 80px;">
+<style>
+@keyframes pulse-ring {
+  0%   { transform: scale(1);   opacity: .7; }
+  70%  { transform: scale(2.2); opacity: 0;  }
+  100% { transform: scale(2.2); opacity: 0;  }
+}
+.featured-pulse {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 8px; height: 8px;
+}
+.featured-pulse::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #4CAF72;
+  animation: pulse-ring 1.8s ease-out infinite;
+}
+.featured-pulse-dot {
+  width: 8px; height: 8px;
+  background: #4CAF72;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+.featured-card {
+  display: flex;
+  background: var(--ink);
+  border-radius: 18px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: box-shadow .25s, transform .25s;
+  position: relative;
+}
+.featured-card:hover { box-shadow: 0 16px 56px rgba(0,0,0,.22); transform: translateY(-3px); }
+.featured-card-body {
+  flex: 1;
+  padding: 40px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+.featured-card-visual {
+  width: 45%;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+}
+.featured-card-visual img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: .85;
+  transition: opacity .25s, transform .4s;
+}
+.featured-card:hover .featured-card-visual img { opacity: 1; transform: scale(1.03); }
+.featured-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.25);
+  transition: background .25s;
+}
+.featured-card:hover .featured-play { background: rgba(0,0,0,.15); }
+.featured-play-btn {
+  width: 64px; height: 64px;
+  background: rgba(255,255,255,.95);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 24px rgba(0,0,0,.3);
+  transition: transform .2s;
+}
+.featured-card:hover .featured-play-btn { transform: scale(1.1); }
+.featured-play-btn svg { width: 26px; height: 26px; fill: #0f1e16; margin-left: 3px; }
+@media (max-width: 768px) {
+  .featured-card { flex-direction: column; }
+  .featured-card-visual { width: 100%; min-height: 200px; }
+  .featured-card-body { padding: 28px 24px; }
+}
+</style>
+
+<!-- Uitgelicht artikel -->
+<section style="max-width:1100px;margin:0 auto;padding:48px 24px 0;">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
+    <span class="featured-pulse"><span class="featured-pulse-dot"></span></span>
+    <span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#4CAF72;">Uitgelicht</span>
+  </div>
+  <a href="/nieuws/qr-code-pilot/" class="featured-card">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%, rgba(76,175,114,.18) 0%, transparent 55%);pointer-events:none;z-index:0;"></div>
+    <div class="featured-card-body">
+      <div style="display:inline-flex;align-items:center;gap:7px;background:rgba(76,175,114,.15);border:1px solid rgba(76,175,114,.3);color:#4CAF72;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:5px 12px;border-radius:100px;margin-bottom:20px;width:fit-content;">
+        Innovatie &nbsp;·&nbsp; Juni 2026
+      </div>
+      <div style="font-size:26px;font-weight:700;color:#fff;line-height:1.25;letter-spacing:-.5px;margin-bottom:14px;">QR-codes op ondergrondse containers: de toekomst van containerbeheer</div>
+      <p style="font-size:15px;color:rgba(255,255,255,.65);line-height:1.7;margin:0 0 28px;">B-Advice en B-Organized lanceren een QR-code pilot die onderhoud en reparaties aan ondergrondse containers slimmer, sneller en inzichtelijker maakt. Bekijk de video en lees hoe het werkt.</p>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:#4CAF72;color:#fff;font-size:14px;font-weight:700;padding:12px 22px;border-radius:8px;width:fit-content;">
+        Lees artikel &amp; bekijk video
+        <svg viewBox="0 0 20 20" fill="currentColor" style="width:16px;height:16px;"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+      </div>
+    </div>
+    <div class="featured-card-visual">
+      <img src="https://img.youtube.com/vi/K96sWdnlCEc/maxresdefault.jpg" alt="QR-code pilot video thumbnail" />
+      <div class="featured-play">
+        <div class="featured-play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+    </div>
+  </a>
+</section>
+
+<!-- Meer nieuws -->
+<section class="section" style="max-width:1100px;margin:0 auto;padding:40px 24px 80px;">
+  <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);margin-bottom:20px;">Meer nieuws</div>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px;">
 
     <!-- Artikel 1 -->
@@ -67,25 +188,6 @@
       </div>
       <div style="padding:20px 28px 24px;">
         <p style="font-size:14px;color:var(--ink-3);line-height:1.65;margin:0 0 16px;">Steeds meer gemeenten draaien hun afvalinzameling letterlijk om. Wat betekent dit in de praktijk en waar gaat het mis?</p>
-        <div style="display:flex;align-items:center;justify-content:space-between;">
-          <span style="font-size:12px;color:var(--ink-4);">Juni 2026</span>
-          <span style="font-size:13px;font-weight:600;color:#4CAF72;">Lees artikel →</span>
-        </div>
-      </div>
-    </a>
-
-    <!-- Artikel 2 -->
-    <a href="/nieuws/qr-code-pilot/" style="text-decoration:none;display:block;background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:box-shadow .2s,transform .2s;" onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.1)';this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='';this.style.transform='';">
-      <div style="background:var(--ink);padding:28px 28px 24px;position:relative;overflow:hidden;">
-        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 0%, rgba(76,175,114,.2) 0%, transparent 60%);pointer-events:none;"></div>
-        <div style="display:inline-flex;align-items:center;gap:7px;background:rgba(76,175,114,.15);border:1px solid rgba(76,175,114,.25);color:#4CAF72;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:4px 10px;border-radius:100px;margin-bottom:16px;">
-          <span style="width:5px;height:5px;background:#4CAF72;border-radius:50%;display:inline-block;"></span>
-          Innovatie
-        </div>
-        <div style="font-size:18px;font-weight:700;color:#fff;line-height:1.3;letter-spacing:-.3px;">QR-codes op ondergrondse containers: de toekomst van containerbeheer</div>
-      </div>
-      <div style="padding:20px 28px 24px;">
-        <p style="font-size:14px;color:var(--ink-3);line-height:1.65;margin:0 0 16px;">B-Advice en B-Organized lanceren een QR-code pilot die onderhoud en reparaties aan ondergrondse containers slimmer, sneller en inzichtelijker maakt.</p>
         <div style="display:flex;align-items:center;justify-content:space-between;">
           <span style="font-size:12px;color:var(--ink-4);">Juni 2026</span>
           <span style="font-size:13px;font-weight:600;color:#4CAF72;">Lees artikel →</span>
