@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <title>Omleiden...</title>
     <script type="text/javascript">
-        // Dit script kijkt welke QR-code is gescand en stuurt de bezoeker door
+        // Dit script haalt de link op, haalt 'www.' en mappen weg, en maakt er kleine letters van
         var path = window.location.pathname.toLowerCase().replace(/^\/|\/$/g, '');
         
+        // Mocht de link per ongeluk nog een submap bevatten, pak alleen het rmn-gedeelte
+        if (path.includes('/')) {
+            path = path.split('/').pop();
+        }
+
         var redirects = {
             "rmn-7045": "https://b-organized.info/board/houten/tasks/6353-rest-container-bammens-rmn-7045",
             "rmn-7046": "https://b-organized.info/board/houten/tasks/6354-rest-container-bammens-rmn-7046",
@@ -34,12 +39,12 @@
         if (redirects[path]) {
             window.location.href = redirects[path];
         } else {
-            // Als de pagina écht niet bestaat, stuur ze naar de homepagina
+            // Als de QR-code echt niet bestaat, stuur ze naar de homepage
             window.location.href = "https://b-advice.info";
         }
     </script>
 </head>
 <body>
-    <p>Je wordt doorgestuurd...</p>
+    <p>Je wordt doorgestuurd naar de containerstatus...</p>
 </body>
 </html>
