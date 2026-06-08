@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Omleiden...</title>
+    <script type="text/javascript">
+        // Dit script kijkt welke QR-code is gescand en stuurt de bezoeker door
+        var path = window.location.pathname.toLowerCase().replace(/^\/|\/$/g, '');
+        
+        var redirects = {
+            "rmn-7045": "https://b-organized.info/board/houten/tasks/6353-rest-container-bammens-rmn-7045",
+            "rmn-7046": "https://b-organized.info/board/houten/tasks/6354-rest-container-bammens-rmn-7046",
+            "rmn-7028": "https://b-organized.info/board/houten/tasks/6650-rest-container-rmn-7028",
+            "rmn-7029": "https://b-organized.info/board/houten/tasks/6651-rest-container-rmn-7029",
+            "rmn-7033": "https://b-organized.info/board/houten/tasks/6342-rest-container-bammens-rmn-7033",
+            "rmn-7034": "https://b-organized.info/board/houten/tasks/6343-rest-container-bammens-rmn-7034",
+            "rmn-7037": "https://b-organized.info/board/houten/tasks/6346-rest-container-bammens-rmn-7037",
+            "rmn-7038": "https://b-organized.info/board/houten/tasks/6347-rest-container-bammens-rmn-7038",
+            "rmn-7047": "https://b-organized.info/board/houten/tasks/6355-rest-container-bammens-rmn-7047",
+            "rmn-7048": "https://b-organized.info/board/houten/tasks/6356-rest-container-bammens-rmn-7048",
+            "rmn-7049": "https://b-organized.info/board/houten/tasks/6357-rest-container-bammens-rmn-7049",
+            "rmn-7050": "https://b-organized.info/board/houten/tasks/6358-rest-container-bammens-rmn-7050",
+            "rmn-7035": "https://b-organized.info/board/houten/tasks/6344-rest-container-bammens-rmn-7035",
+            "rmn-7036": "https://b-organized.info/board/houten/tasks/6345-rest-container-bammens-rmn-7036",
+            "rmn-7039": "https://b-organized.info/board/houten/tasks/6348-rest-container-bammens-rmn-7039",
+            "rmn-7040": "https://b-organized.info/board/houten/tasks/6349-rest-container-bammens-rmn-7040",
+            "rmn-7041": "https://b-organized.info/board/houten/tasks/6350-rest-container-bammens-rmn-7041",
+            "rmn-7042": "https://b-organized.info/board/houten/tasks/6351-rest-container-bammens-rmn-7042",
+            "rmn-7043": "https://b-organized.info/board/houten/tasks/6352-rest-container-bammens-rmn-7043",
+            "rmn-7051": "https://b-organized.info/board/houten/tasks/6359-rest-container-bammens-rmn-7051",
+            "rmn-7052": "https://b-organized.info/board/houten/tasks/6360-rest-container-bammens-rmn-7052"
+        };
+
+        if (redirects[path]) {
+            window.location.href = redirects[path];
+        } else {
+            // Als de pagina écht niet bestaat, stuur ze naar de homepagina
+            window.location.href = "https://b-advice.info";
+        }
+    </script>
+</head>
+<body>
+    <p>Je wordt doorgestuurd...</p>
+</body>
+</html>
