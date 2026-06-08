@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR-code pilot: efficiënter containerbeheer via B-Organized | B-Advice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/b-advice-logo.png">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .article-hero {
+      background: var(--ink);
+      padding: 100px 24px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .article-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(76,175,114,.15) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .article-hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .article-category {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(76,175,114,.15);
+      border: 1px solid rgba(76,175,114,.3);
+      color: #4CAF72;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 100px;
+    }
+    .article-date {
+      font-size: 13px;
+      color: rgba(255,255,255,.4);
+    }
+    .article-hero-title {
+      font-size: clamp(26px, 4.5vw, 44px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin: 0 0 24px;
+    }
+    .article-hero-title em {
+      color: #4CAF72;
+      font-style: normal;
+    }
+    .article-hero-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,.6);
+      line-height: 1.7;
+      max-width: 640px;
+      margin: 0;
+    }
+    .article-body {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 24px 80px;
+    }
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--ink-2, #2a3d30);
+      margin: 0 0 24px;
+    }
+    .article-h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -.4px;
+      margin: 52px 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .article-h2::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 24px;
+      background: #4CAF72;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .article-pullquote {
+      background: rgba(76,175,114,.06);
+      border-left: 4px solid #4CAF72;
+      border-radius: 0 10px 10px 0;
+      padding: 24px 28px;
+      margin: 40px 0;
+    }
+    .article-pullquote p {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.6;
+      font-style: italic;
+      margin: 0;
+    }
+    .article-video-wrap {
+      margin: 40px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000;
+      position: relative;
+      aspect-ratio: 16/9;
+      box-shadow: 0 12px 40px rgba(0,0,0,.15);
+    }
+    .article-video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .article-checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+    }
+    .article-checklist li {
+      font-size: 16px;
+      color: var(--ink-2, #2a3d30);
+      line-height: 1.65;
+      padding: 10px 0 10px 32px;
+      position: relative;
+      border-bottom: 1px solid var(--border, #e4ebe5);
+    }
+    .article-checklist li:last-child { border-bottom: none; }
+    .article-checklist li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #4CAF72;
+      font-weight: 700;
+    }
+    .article-steps {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+      counter-reset: steps;
+    }
+    .article-steps li {
+      font-size: 16px;
+      color: var(--ink-2, #2a3d30);
+      line-height: 1.65;
+      padding: 16px 0 16px 56px;
+      position: relative;
+      border-bottom: 1px solid var(--border, #e4ebe5);
+      counter-increment: steps;
+    }
+    .article-steps li:last-child { border-bottom: none; }
+    .article-steps li::before {
+      content: counter(steps);
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 32px;
+      height: 32px;
+      background: #4CAF72;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 32px;
+      text-align: center;
+    }
+    .article-steps li strong {
+      display: block;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .article-infobox {
+      background: #fafaf9;
+      border: 1px solid var(--border, #e4ebe5);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin: 40px 0;
+    }
+    .article-infobox-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #4CAF72;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 16px;
+    }
+    .article-divider {
+      border: none;
+      border-top: 1px solid var(--border, #e4ebe5);
+      margin: 52px 0;
+    }
+    .article-cta {
+      background: var(--ink);
+      border-radius: 16px;
+      padding: 40px 36px;
+      margin: 56px 0 0;
+    }
+    .article-cta-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #4CAF72;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 12px;
+    }
+    .article-cta h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 10px;
+      letter-spacing: -.3px;
+    }
+    .article-cta p {
+      font-size: 14px;
+      color: rgba(255,255,255,.55);
+      margin: 0 0 24px;
+      line-height: 1.65;
+    }
+    .article-cta-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+    .article-cta-link-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 14px;
+      color: rgba(255,255,255,.6);
+      text-decoration: none;
+      transition: color .15s;
+    }
+    .article-cta-link-ghost:hover { color: #fff; }
+    .article-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--ink-3, #5a6e60);
+      text-decoration: none;
+      margin-bottom: 48px;
+      transition: color .2s;
+    }
+    .article-back:hover { color: #4CAF72; }
+    @media (max-width: 600px) {
+      .article-cta { padding: 24px 20px; }
+      .article-steps li { padding-left: 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="sitenav">
+  <a class="nav-logo" href="/" style="display:flex;align-items:center;">
+    <img src="/assets/b-advice-logo.png" alt="B-Advice" style="height:40px;display:block;" />
+  </a>
+  <div class="nav-center">
+    <a href="/diensten/">Diensten</a>
+    <a href="/b-organized/">B-Organized</a>
+    <a href="/b-covered/">B-Covered</a>
+    <a href="/producten/">Producten</a>
+    <a href="/nieuws/" class="active">Nieuws</a>
+    <a href="/locatieaanvraag/">Locatieaanvraag</a>
+    <a href="/over-ons/">Over ons</a>
+  </div>
+  <div class="nav-right">
+    <a href="/contact/" class="nav-contact">Contact</a>
+    <a href="http://b-organized.info" target="_blank" class="nav-cta">Login B-Organized</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile-overlay" id="navMobileOverlay">
+  <div class="nav-mobile-links">
+    <a href="/diensten/">Diensten</a>
+    <a href="/b-organized/">B-Organized</a>
+    <a href="/b-covered/">B-Covered</a>
+    <a href="/producten/">Producten</a>
+    <a href="/nieuws/" class="active">Nieuws</a>
+    <a href="/locatieaanvraag/">Locatieaanvraag</a>
+    <a href="/over-ons/">Over ons</a>
+    <a href="/contact/" class="nav-mobile-contact" style="font-size:15px;color:var(--ink-4);font-weight:400;">Contact</a>
+  </div>
+  <a href="http://b-organized.info" target="_blank" class="nav-mobile-cta" style="display:block;text-align:center;text-decoration:none;">Login B-Organized</a>
+</div>
+
+<!-- Hero -->
+<div class="article-hero">
+  <div class="article-hero-inner">
+    <div class="article-meta">
+      <span class="article-category">
+        <span style="width:6px;height:6px;background:#4CAF72;border-radius:50%;display:inline-block;"></span>
+        Innovatie
+      </span>
+      <span class="article-date">2026 &nbsp;·&nbsp; B-Advice</span>
+    </div>
+    <h1 class="article-hero-title">Efficiënter containerbeheer:<br><em>de QR-code pilot via B-Organized</em></h1>
+    <p class="article-hero-sub">Definitief afscheid van Excel-lijsten. B-Advice start met slimme QR-codes op ondergrondse containers, gekoppeld aan het B-Organized platform.</p>
+  </div>
+</div>
+
+<!-- Article Body -->
+<div class="article-body">
+
+  <a href="/nieuws/" class="article-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Terug naar nieuws
+  </a>
+
+  <p>Bij B-Advice zitten we nooit stil als het gaat om procesverbetering en innovatie. Achter de schermen hebben we hard gewerkt aan een gloednieuwe oplossing om ons containerbeheer naar een hoger niveau te tillen. Met trots presenteren we de allereerste fase van ons nieuwste project: de introductie van <strong>slimme QR-codes op ondergrondse containers</strong>, gekoppeld aan ons centrale platform B-Organized.</p>
+
+  <p>We staan aan het begin van deze digitale transformatie en zijn inmiddels officieel gestart met de uitrol op de eerste pilotlocaties. Het doel? Definitief afscheid nemen van onoverzichtelijke Excel-lijsten en overstappen op een volledig realtime, digitaal overzicht.</p>
+
+  <p>Benieuwd hoe deze nieuwe werkwijze er in de praktijk uitziet? Bekijk onze korte introductievideo:</p>
+
+  <!-- YouTube video -->
+  <div class="article-video-wrap">
+    <iframe src="https://www.youtube.com/embed/K96sWdnlCEc" title="b-organized: Slim containerbeheer met QR-codes" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <hr class="article-divider">
+
+  <h2 class="article-h2">Waarom deze vernieuwing? Het einde van de Excel-frustratie</h2>
+
+  <p>Tot voor kort was het bijhouden van containerdata een flinke administratieve klus. Monteurs en logistiek medewerkers moesten op locatie handmatig zoeken, scrollen en filteren in grote Excel-bestanden om de juiste status of onderhoudshistorie van een ondergrondse container te vinden. Dat kostte veel tijd en verhoogde de kans op fouten.</p>
+
+  <p>Hoewel het project nog in de startblokken staat, zijn de voordelen op de eerste geselecteerde locaties nu al duidelijk merkbaar:</p>
+
+  <ul class="article-checklist">
+    <li><strong>Directe tijdwinst</strong> — Geen eindeloos gescroll meer in bestanden, maar direct de juiste containergegevens bij de hand.</li>
+    <li><strong>Hogere nauwkeurigheid</strong> — Fouten door handmatige invoer in een verkeerde Excel-regel behoren tot het verleden.</li>
+    <li><strong>Fijner werken</strong> — Monteurs kunnen zich focussen op hun vakwerk in plaats van op ingewikkelde administratie.</li>
+  </ul>
+
+  <h2 class="article-h2">Hoe werkt het in de praktijk met B-Organized?</h2>
+
+  <p>Het systeem is even simpel als doeltreffend. Het proces op de eerste locaties bestaat uit drie eenvoudige stappen:</p>
+
+  <ol class="article-steps">
+    <li>
+      <strong>Scannen</strong>
+      De monteur opent het serviceluik van de ondergrondse container. Aan de binnenkant bevindt zich een unieke QR-code, die simpelweg wordt gescand met een tablet of smartphone.
+    </li>
+    <li>
+      <strong>Inzien via B-Organized</strong>
+      De monteur wordt direct doorgeleid naar het B-Organized platform. Hier is in één oogopslag de complete historie, actuele status en alle eerdere opmerkingen of storingen van die specifieke container zichtbaar.
+    </li>
+    <li>
+      <strong>Bijwerken</strong>
+      Is er onderhoud gepleegd of een controle uitgevoerd? De monteur voert dit direct in op de tablet. B-Organized verwerkt dit realtime, zodat het hele team meteen over de juiste informatie beschikt.
+    </li>
+  </ol>
+
+  <div class="article-pullquote">
+    <p>"Hoewel we het systeem de komende tijd op de eerste locaties nog volop aan het finetunen en testen zijn, zien we nu al dat de combinatie van QR-codes en B-Organized zorgt voor meer werkplezier én een veel strakkere grip op het logistieke proces."</p>
+  </div>
+
+  <hr class="article-divider">
+
+  <h2 class="article-h2">Wil jij jouw processen ook 'B-Organized' hebben?</h2>
+
+  <p>Nu de eerste locaties succesvol zijn opgestart, kijken we alweer vooruit naar de toekomst. Loop jij binnen jouw organisatie of gemeente ook aan tegen rondslingerende data, zoekgeraakte inspectierapporten of inefficiënt containerbeheer?</p>
+
+  <p>Omdat we dit project vanaf de grond hebben opgebouwd, kunnen we flexibel meedenken. Ons platform B-Organized is schaalbaar en kan in een later stadium ook voor de specifieke processen van andere partijen worden ingericht.</p>
+
+  <div class="article-cta">
+    <div class="article-cta-label">Interesse? Plan een demo</div>
+    <h3>Laat ons jouw logistieke proces slimmer maken</h3>
+    <p>Neem vandaag nog contact met ons op voor een vrijblijvende demonstratie. We laten je graag zien wat onze plannen zijn en hoe B-Organized voor jou kan werken.</p>
+    <div class="article-cta-links">
+      <a href="/contact/" class="btn-primary">Neem contact op</a>
+      <a href="mailto:info@b-advice.info" class="article-cta-link-ghost">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        info@b-advice.info
+      </a>
+      <a href="tel:+31643125245" class="article-cta-link-ghost">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        +31 (6) 431 25 245
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-brand">
+        <a href="/"><img src="/assets/b-advice-logo.png" alt="B-Advice" style="height:52px;display:block;filter:brightness(0) invert(1);" /></a>
+      </div>
+      <p class="footer-tagline">Specialist in ondergrondse afvalinfrastructuur en digitaal containerbeheer.</p>
+      <p class="footer-address">Achterdijk 26<br>Nieuwland (UT)</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Diensten</div>
+      <div class="footer-col-links">
+        <a href="/diensten/afvalinzameling/">Afvalinzameling &amp; Management</a>
+        <a href="/diensten/plaatsing/">Plaatsen van inzamelmiddelen</a>
+        <a href="/diensten/projectmanagement/">Projectmanagement</a>
+        <a href="/diensten/meerjaren-investeringsplan/">Meerjaren Investeringsplan</a>
+        <a href="/diensten/beheer-onderhoud/">Beheer, onderhoud &amp; refurbish</a>
+        <a href="/diensten/aanbesteding/">Aanbesteding &amp; bestek</a>
+        <a href="/diensten/bewonersparticipatie/">Bewonersparticipatie</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Bedrijf</div>
+      <div class="footer-col-links">
+        <a href="/over-ons/">Over ons</a>
+        <a href="/nieuws/">Nieuws</a>
+        <a href="/contact/">Contact</a>
+        <a href="/b-organized/">B-Organized</a>
+        <a href="/privacy/">Privacy &amp; Cookies</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:info@b-advice.info" style="color:rgba(255,255,255,.5);">info@b-advice.info</a>
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <a href="tel:+31643125245" style="color:rgba(255,255,255,.5);">+31 (6) 431 25 245</a>
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Achterdijk 26, Nieuwland (UT)</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 B-Advice. Alle rechten voorbehouden. KvK: <span class="footer-kvk">82797811</span></span>
+    <div class="footer-bottom-links">
+      <a href="/privacy/">Privacy</a>
+      <a href="/cookies/">Cookies</a>
+      <a href="#">Disclaimer</a>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var nav=document.getElementById('sitenav');
+  if(nav){window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>20);},{passive:true});}
+  var btn=document.getElementById('navHamburger');
+  var overlay=document.getElementById('navMobileOverlay');
+  if(btn&&overlay){
+    function checkMobile(){btn.style.display=window.innerWidth<=768?'flex':'none';}
+    checkMobile();window.addEventListener('resize',checkMobile);
+    btn.addEventListener('click',function(){var isOpen=overlay.classList.toggle('open');btn.classList.toggle('open',isOpen);document.body.style.overflow=isOpen?'hidden':'';});
+    overlay.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){overlay.classList.remove('open');btn.classList.remove('open');document.body.style.overflow='';});});
+  }
+  (function initCookieBanner(){
+    if(localStorage.getItem('b_advice_consent'))return;
+    var s=document.createElement('style');
+    s.textContent='#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9998;background:#0f1e16;border-top:3px solid #4CAF72;padding:20px 80px;transform:translateY(110%);transition:transform .45s cubic-bezier(.4,0,.2,1);box-shadow:0 -8px 40px rgba(0,0,0,.3)}.ck-visible{transform:translateY(0)!important}.ck-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:24px}.ck-text{flex:1}.ck-title{display:block;font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}.ck-desc{font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;margin:0}.ck-desc a{color:#4CAF72;text-decoration:underline}.ck-actions{display:flex;gap:10px;flex-shrink:0}#ck-accept{padding:10px 22px;background:#4CAF72;color:#fff;border:none;border-radius:7px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}#ck-accept:hover{background:#3d9f63}#ck-necessary{padding:10px 18px;background:transparent;color:rgba(255,255,255,.7);border:1.5px solid rgba(255,255,255,.2);border-radius:7px;font-size:14px;font-weight:500;cursor:pointer;font-family:inherit;white-space:nowrap}@media(max-width:768px){#cookie-banner{padding:20px}.ck-inner{flex-direction:column;gap:16px}.ck-icon{display:none}.ck-actions{width:100%;flex-direction:column}#ck-accept,#ck-necessary{width:100%;text-align:center;padding:13px 20px;font-size:15px}}';
+    document.head.appendChild(s);
+    var banner=document.createElement('div');banner.id='cookie-banner';
+    banner.innerHTML='<div class="ck-inner"><div class="ck-icon">🍪</div><div class="ck-text"><strong class="ck-title">Wij gebruiken cookies</strong><p class="ck-desc">Wij gebruiken functionele cookies voor een goede werking van de website. Met uw toestemming plaatsen wij ook analytische cookies. Lees meer in ons <a href="/cookies/">cookiebeleid</a>.</p></div><div class="ck-actions"><button id="ck-necessary">Alleen noodzakelijk</button><button id="ck-accept">Alles accepteren</button></div></div>';
+    document.body.appendChild(banner);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){banner.classList.add('ck-visible');});});
+    function dismiss(val){localStorage.setItem('b_advice_consent',val);banner.classList.remove('ck-visible');banner.addEventListener('transitionend',function(){if(banner.parentNode)banner.parentNode.removeChild(banner);},{once:true});}
+    document.getElementById('ck-accept').addEventListener('click',function(){dismiss('all');});
+    document.getElementById('ck-necessary').addEventListener('click',function(){dismiss('necessary');});
+    window.resetCookieConsent=function(){localStorage.removeItem('b_advice_consent');initCookieBanner();};
+  })();
+})();
+</script>
+</body>
+</html>
