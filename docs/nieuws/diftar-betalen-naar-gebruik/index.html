@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diftar uitgelegd: zo werkt betalen naar gebruik | B-Advice</title>
+  <meta name="description" content="Wat is diftar en hoe werkt betalen naar gebruik? Lees over tarieven, resultaten, nadelen en de rol van ondergrondse containers in de afvalinzameling.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/b-advice-logo.png">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .article-hero {
+      background: var(--ink);
+      padding: 100px 24px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .article-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(76,175,114,.15) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .article-hero-inner { max-width: 760px; margin: 0 auto; position: relative; }
+    .article-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; flex-wrap: wrap; }
+    .article-category {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(76,175,114,.15); border: 1px solid rgba(76,175,114,.3);
+      color: #4CAF72; font-size: 12px; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 100px;
+    }
+    .article-date { font-size: 13px; color: rgba(255,255,255,.4); }
+    .article-hero-title {
+      font-size: clamp(28px, 5vw, 48px); font-weight: 700;
+      color: #fff; line-height: 1.15; letter-spacing: -1px; margin: 0 0 24px;
+    }
+    .article-hero-title em { color: #4CAF72; font-style: normal; }
+    .article-hero-sub {
+      font-size: 18px; color: rgba(255,255,255,.6); line-height: 1.7; max-width: 640px; margin: 0;
+    }
+    .article-body { max-width: 760px; margin: 0 auto; padding: 64px 24px 80px; }
+    .article-body p { font-size: 17px; line-height: 1.8; color: var(--ink-2, #2a3d30); margin: 0 0 24px; }
+    .article-h2 {
+      font-size: 22px; font-weight: 700; color: var(--ink);
+      letter-spacing: -.4px; margin: 56px 0 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .article-h2::before {
+      content: ''; display: block; width: 4px; height: 24px;
+      background: #4CAF72; border-radius: 2px; flex-shrink: 0;
+    }
+    .article-pullquote {
+      background: var(--ink); border-left: 4px solid #4CAF72;
+      border-radius: 0 10px 10px 0; padding: 28px 32px; margin: 40px 0;
+    }
+    .article-pullquote p {
+      font-size: 20px; font-weight: 600; color: #fff;
+      line-height: 1.5; letter-spacing: -.3px; margin: 0;
+    }
+    .article-pullquote span { color: #4CAF72; }
+    .article-infobox {
+      background: #fafaf9; border: 1px solid var(--border, #e4ebe5);
+      border-radius: 12px; padding: 28px 32px; margin: 40px 0;
+    }
+    .article-infobox-title {
+      font-size: 13px; font-weight: 700; color: #4CAF72;
+      text-transform: uppercase; letter-spacing: .08em; margin-bottom: 16px;
+    }
+    .article-checklist { list-style: none; padding: 0; margin: 0; }
+    .article-checklist li {
+      font-size: 15px; color: var(--ink-2, #2a3d30); line-height: 1.6;
+      padding: 8px 0 8px 32px; position: relative;
+      border-bottom: 1px solid var(--border, #e4ebe5);
+    }
+    .article-checklist li:last-child { border-bottom: none; }
+    .article-checklist li::before { content: '→'; position: absolute; left: 0; color: #4CAF72; font-weight: 700; }
+    .article-warning {
+      background: #fff8f0; border: 1px solid #f0d5a0;
+      border-left: 4px solid #e8a020; border-radius: 0 10px 10px 0;
+      padding: 20px 24px; margin: 40px 0;
+    }
+    .article-warning-label {
+      font-size: 11px; font-weight: 700; color: #b87020;
+      text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px;
+    }
+    .article-warning p { font-size: 15px; color: #6b4010; margin: 0; line-height: 1.7; }
+    .article-cta {
+      background: var(--ink); border-radius: 16px; padding: 40px 36px;
+      margin: 56px 0 0; display: flex; align-items: center;
+      justify-content: space-between; gap: 24px; flex-wrap: wrap;
+    }
+    .article-cta-text {
+      font-size: 13px; font-weight: 700; color: #4CAF72;
+      text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px;
+    }
+    .article-cta h3 { font-size: 22px; font-weight: 700; color: #fff; margin: 0 0 8px; letter-spacing: -.3px; }
+    .article-cta p { font-size: 14px; color: rgba(255,255,255,.55); margin: 0; line-height: 1.6; }
+    .article-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 14px; color: var(--ink-3, #5a6e60);
+      text-decoration: none; margin-bottom: 48px; transition: color .2s;
+    }
+    .article-back:hover { color: #4CAF72; }
+    .article-divider { border: none; border-top: 1px solid var(--border, #e4ebe5); margin: 48px 0; }
+
+    /* Numbered steps */
+    .article-steps { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px; }
+    .article-steps li {
+      display: flex; gap: 20px; align-items: flex-start;
+      background: #fafaf9; border: 1px solid var(--border, #e4ebe5);
+      border-radius: 12px; padding: 20px 24px;
+    }
+    .article-steps-num {
+      width: 32px; height: 32px; border-radius: 50%; background: #4CAF72;
+      color: #fff; font-size: 14px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .article-steps-body { flex: 1; }
+    .article-steps-title { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+    .article-steps-desc { font-size: 14px; color: var(--ink-3, #5a6e60); line-height: 1.6; margin: 0; }
+
+    /* Stat block */
+    .diftar-stat-block {
+      background: #0F2117; border-radius: 16px; padding: 30px 30px 22px; margin: 40px 0;
+    }
+
+    /* FAQ */
+    .article-faq { display: flex; flex-direction: column; gap: 12px; margin: 0; }
+    .article-faq-item {
+      border: 1px solid var(--border, #e4ebe5); border-radius: 12px; overflow: hidden;
+    }
+    .article-faq-q {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 18px 22px; cursor: pointer; background: #fff; border: none;
+      width: 100%; text-align: left; font-family: inherit;
+      font-size: 15px; font-weight: 600; color: var(--ink); transition: background .15s;
+    }
+    .article-faq-q:hover { background: #fafaf9; }
+    .article-faq-icon {
+      width: 24px; height: 24px; border-radius: 50%; background: rgba(76,175,114,.1);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      transition: transform .2s, background .15s;
+    }
+    .article-faq-icon svg { width: 14px; height: 14px; stroke: #4CAF72; stroke-width: 2; fill: none; transition: transform .2s; }
+    .article-faq-a { display: none; padding: 0 22px 18px; font-size: 15px; color: var(--ink-3, #5a6e60); line-height: 1.7; }
+    .article-faq-item.open .article-faq-a { display: block; }
+    .article-faq-item.open .article-faq-icon { background: rgba(76,175,114,.2); transform: rotate(45deg); }
+
+    @media (max-width: 600px) {
+      .article-cta { flex-direction: column; }
+      .article-pullquote { padding: 20px 20px; }
+      .article-pullquote p { font-size: 17px; }
+      .diftar-stat-block .stat-row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="sitenav">
+  <a class="nav-logo" href="/" style="display:flex;align-items:center;">
+    <img src="/assets/b-advice-logo.png" alt="B-Advice" style="height:40px;display:block;" />
+  </a>
+  <div class="nav-center">
+    <a href="/diensten/">Diensten</a>
+    <a href="/b-organized/">B-Organized</a>
+    <a href="/b-covered/">B-Covered</a>
+    <a href="/producten/">Producten</a>
+    <a href="/nieuws/" class="active">Nieuws</a>
+    <a href="/locatieaanvraag/">Locatieaanvraag</a>
+    <a href="/over-ons/">Over ons</a>
+  </div>
+  <div class="nav-right">
+    <a href="/contact/" class="nav-contact">Contact</a>
+    <a href="http://b-organized.info" target="_blank" class="nav-cta">Login B-Organized</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile-overlay" id="navMobileOverlay">
+  <div class="nav-mobile-links">
+    <a href="/diensten/">Diensten</a>
+    <a href="/b-organized/">B-Organized</a>
+    <a href="/b-covered/">B-Covered</a>
+    <a href="/producten/">Producten</a>
+    <a href="/nieuws/" class="active">Nieuws</a>
+    <a href="/locatieaanvraag/">Locatieaanvraag</a>
+    <a href="/over-ons/">Over ons</a>
+    <a href="/contact/" class="nav-mobile-contact" style="font-size:15px;color:var(--ink-4);font-weight:400;">Contact</a>
+  </div>
+  <a href="http://b-organized.info" target="_blank" class="nav-mobile-cta" style="display:block;text-align:center;text-decoration:none;">Login B-Organized</a>
+</div>
+
+<!-- Article Hero -->
+<div class="article-hero">
+  <div class="article-hero-inner">
+    <div class="article-meta">
+      <span class="article-category">
+        <span style="width:6px;height:6px;background:#4CAF72;border-radius:50%;display:inline-block;"></span>
+        Uitleg
+      </span>
+      <span class="article-date">Juni 2026 &nbsp;·&nbsp; B-Advice</span>
+    </div>
+    <h1 class="article-hero-title">Diftar uitgelegd: <em>betalen naar gebruik</em> en de rol van ondergrondse containers</h1>
+    <p class="article-hero-sub">Ruim vier op de tien Nederlanders woont al in een diftar-gemeente. Wat is het precies, hoe werkt het en waarom wordt de ondergrondse container steeds bepalender?</p>
+  </div>
+</div>
+
+<!-- Article Content -->
+<div class="article-body">
+
+  <a href="/nieuws/" class="article-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Terug naar nieuws
+  </a>
+
+  <p>Diftar is in Nederland bezig aan een stevige opmars. Steeds meer gemeenten stappen over op een afvalstoffenheffing die afhangt van het eigen gedrag van inwoners. Waar een paar jaar geleden nog ongeveer een derde van de Nederlanders in een diftar-gemeente woonde, is dat inmiddels opgelopen tot <strong>ruim vier op de tien</strong>. In dit artikel leggen we uit wat diftar is, hoe het werkt en waarom de techniek achter de ondergrondse container daarbij steeds belangrijker wordt.</p>
+
+  <h2 class="article-h2">Wat is diftar?</h2>
+
+  <p>Diftar staat voor <strong>gedifferentieerd tarief</strong>. Het is een afvalsysteem waarbij je rekening niet langer voor iedereen gelijk is, maar deels afhangt van hoeveel restafval je zelf aanbiedt. In sommige regio's heet dit ook wel het recycletarief. De gedachte erachter is eenvoudig: <strong>de vervuiler betaalt</strong>. Wie minder restafval overhoudt en beter scheidt, betaalt minder.</p>
+
+  <h2 class="article-h2">Hoe werkt diftar?</h2>
+
+  <p>Bij diftar bestaat de afvalstoffenheffing uit twee delen. Het eerste deel is een <strong>vast bedrag</strong> dat ieder huishouden betaalt voor de basis van het afvalbeheer. Het tweede deel is <strong>variabel</strong> en hangt af van je eigen gedrag. Hoe minder restafval je weggooit, hoe lager dat tweede deel uitvalt. Het principe is vergelijkbaar met water en energie: je betaalt voor wat je daadwerkelijk verbruikt.</p>
+
+  <h2 class="article-h2">Diftar, diftar+ en de verschillende tarieven</h2>
+
+  <p>Gemeenten rekenen het variabele deel op verschillende manieren af. De drie meest voorkomende vormen:</p>
+
+  <ol class="article-steps">
+    <li>
+      <span class="article-steps-num">1</span>
+      <div class="article-steps-body">
+        <div class="article-steps-title">Volume-frequentie</div>
+        <p class="article-steps-desc">Je betaalt per keer dat de container aan de straat staat of per zak die je in een verzamelcontainer gooit.</p>
+      </div>
+    </li>
+    <li>
+      <span class="article-steps-num">2</span>
+      <div class="article-steps-body">
+        <div class="article-steps-title">Gewicht</div>
+        <p class="article-steps-desc">De inzamelwagen weegt de container voor en na het legen, zodat je alleen voor het nettogewicht restafval betaalt.</p>
+      </div>
+    </li>
+    <li>
+      <span class="article-steps-num">3</span>
+      <div class="article-steps-body">
+        <div class="article-steps-title">Per inworp of klepbeweging</div>
+        <p class="article-steps-desc">Bij een ondergrondse container betaal je elke keer dat je de klep opent. Deze variant heet vaak <strong>diftar+</strong> en wint duidelijk terrein — vooral in gemeenten met veel hoogbouw.</p>
+      </div>
+    </li>
+  </ol>
+
+  <h2 class="article-h2">Wat levert diftar op?</h2>
+
+  <p>De resultaten van diftar zijn opvallend consistent. Waar het systeem wordt ingevoerd, daalt de hoeveelheid fijn huishoudelijk restafval vrijwel direct en fors. In gemeenten die net zijn overgestapt, halveert die hoeveelheid soms al binnen één kwartaal. Tegelijk stijgt de gescheiden inzameling van gft en van plastic, blik en drinkpakken.</p>
+
+  <div class="diftar-stat-block">
+    <div style="display:flex;align-items:center;gap:9px;margin-bottom:14px;">
+      <span style="width:8px;height:8px;border-radius:50%;background:#3FB36E;display:inline-block;flex-shrink:0;"></span>
+      <span style="color:#3FB36E;font-size:13px;font-weight:500;">Diftar in cijfers</span>
+    </div>
+    <div style="color:#ffffff;font-size:21px;font-weight:500;margin:0 0 4px;">Effect van gedifferentieerd tarief</div>
+    <div style="color:#9DB3A6;font-size:14px;margin:0 0 24px;line-height:1.5;">Diftar-gemeenten vergeleken met gemeenten zonder financiële prikkel</div>
+    <div class="stat-row" style="display:flex;flex-wrap:wrap;gap:14px;">
+      <div style="flex:1;min-width:140px;background:#13291D;border-radius:12px;padding:18px 20px;">
+        <div style="color:#3FB36E;font-size:36px;font-weight:700;line-height:1;">4 op 10</div>
+        <div style="color:#C8D6CD;font-size:14px;margin-top:9px;line-height:1.4;">Nederlanders wonen al in een diftar-gemeente</div>
+      </div>
+      <div style="flex:1;min-width:140px;background:#13291D;border-radius:12px;padding:18px 20px;">
+        <div style="color:#3FB36E;font-size:36px;font-weight:700;line-height:1;">~50%</div>
+        <div style="color:#C8D6CD;font-size:14px;margin-top:9px;line-height:1.4;">minder restafval ten opzichte van gemeenten zonder diftar</div>
+      </div>
+      <div style="flex:1;min-width:140px;background:#13291D;border-radius:12px;padding:18px 20px;">
+        <div style="color:#3FB36E;font-size:36px;font-weight:700;line-height:1;">↓</div>
+        <div style="color:#C8D6CD;font-size:14px;margin-top:9px;line-height:1.4;">Lagere afvalbeheerkosten door minder te verbranden restafval</div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,.12);margin-top:22px;padding-top:13px;">
+      <span style="color:#7E938A;font-size:12px;">Bron: NVRD Benchmark Huishoudelijk Afval, 2026</span>
+    </div>
+  </div>
+
+  <p>Voor inwoners die goed scheiden valt de rekening uiteindelijk lager uit. En doordat verbranden door de oplopende verbrandingsbelasting steeds duurder wordt, leidt minder restafval ook tot lagere totale afvalbeheerkosten voor de gemeente.</p>
+
+  <h2 class="article-h2">Wat zijn de nadelen van diftar?</h2>
+
+  <div class="article-warning">
+    <div class="article-warning-label">Aandachtspunt</div>
+    <p>Vrijwel overal waar diftar wordt ingevoerd, neemt in de eerste periode de overlast toe: zakken naast de container, dumpingen in het buitengebied en volle bakken. Een deel van de inwoners zoekt naar manieren om de variabele kosten te ontwijken. Dat tast zowel het straatbeeld als het draagvlak aan.</p>
+  </div>
+
+  <p>Daarom kiezen veel gemeenten voor flankerende maatregelen: compensatie voor inwoners die om medische redenen onvermijdbaar meer afval hebben, gratis keukenbakjes om etensresten beter te scheiden en een aparte regeling voor vrijwilligers die zwerfafval opruimen. Zo blijft de eerlijke gedachte achter het systeem ook overeind voor wie er buiten zijn schuld nadeel van zou ondervinden.</p>
+
+  <h2 class="article-h2">Diftar en ondergrondse containers: het sleutelstuk</h2>
+
+  <p>Een diftar-systeem staat of valt met <strong>betrouwbare registratie</strong>. Zonder dat de inzameling precies weet wie wat aanbiedt, valt er niets eerlijk af te rekenen. Bij minicontainers gebeurt dat via een chip die het adres uitleest. Bij ondergrondse en verzamelcontainers werkt het met toegangscontrole via een afvalpas en registratie van iedere klepbeweging.</p>
+
+  <div class="article-pullquote">
+    <p>In een diftar-gemeente is een ondergrondse container <span>niet langer alleen een opslagplek</span>, maar een meetpunt.</p>
+  </div>
+
+  <p>Toegangscontrole, vulgraadmeting en een sluitend registratiesysteem bepalen of inwoners correct worden afgerekend en of de gemeente grip houdt op overlast. Naarmate diftar verder oprukt, wordt de kwaliteit van die ondergrondse infrastructuur dus steeds bepalender voor het succes van het hele systeem.</p>
+
+  <div class="article-infobox">
+    <div class="article-infobox-title">Wat een diftar-ready container vereist</div>
+    <ul class="article-checklist">
+      <li>Toegangscontrole via afvalpas of app</li>
+      <li>Registratie van elke klepbeweging per adres</li>
+      <li>Vulgraadsensor voor efficiënte leegroutes</li>
+      <li>Koppeling met het gemeentelijke registratiesysteem</li>
+      <li>Betrouwbare stroomvoorziening en onderhoud op afstand</li>
+    </ul>
+  </div>
+
+  <h2 class="article-h2">De toekomst van diftar</h2>
+
+  <p>Alles wijst erop dat het aandeel diftar-gemeenten de komende jaren blijft groeien. De combinatie van milieudruk, stijgende verbrandingskosten en strengere recyclingdoelen maakt betalen naar gebruik voor steeds meer gemeenten een logische keuze. De vraag is daarmee niet langer <em>of</em> een gemeente overstapt, maar <em>wanneer</em> en op welke manier. Wie die overstap goed wil laten verlopen, doet er verstandig aan de ondergrondse inzameling vanaf het begin op orde te hebben.</p>
+
+  <hr class="article-divider">
+
+  <h2 class="article-h2">Veelgestelde vragen over diftar</h2>
+
+  <div class="article-faq">
+    <div class="article-faq-item">
+      <button class="article-faq-q">
+        Wat betekent diftar?
+        <span class="article-faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="article-faq-a">Diftar is de afkorting van gedifferentieerd tarief. Je afvalstoffenheffing hangt deels af van hoeveel restafval je aanbiedt.</div>
+    </div>
+    <div class="article-faq-item">
+      <button class="article-faq-q">
+        Is diftar duurder?
+        <span class="article-faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="article-faq-a">Voor wie goed scheidt is diftar meestal juist voordeliger. Gemeenten met diftar hebben gemiddeld lagere afvalbeheerkosten doordat er minder restafval verbrand hoeft te worden.</div>
+    </div>
+    <div class="article-faq-item">
+      <button class="article-faq-q">
+        Wat is het verschil tussen diftar en diftar+?
+        <span class="article-faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="article-faq-a">Diftar is de overkoepelende term. Diftar+ verwijst vaak naar een variant waarbij je bij een verzamelcontainer per klepbeweging betaalt, of waarbij naast frequentie ook het gewicht meetelt.</div>
+    </div>
+    <div class="article-faq-item">
+      <button class="article-faq-q">
+        Hoe wordt restafval bij een ondergrondse container geregistreerd?
+        <span class="article-faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="article-faq-a">Via toegangscontrole met een afvalpas. De container leest bij het openen van de klep het adres uit, zodat de aanbieding correct wordt geteld en verrekend in de afvalstoffenheffing.</div>
+    </div>
+  </div>
+
+  <div class="article-cta" style="margin-top:56px;">
+    <div>
+      <div class="article-cta-text">Hoe B-Advice helpt</div>
+      <h3>Klaar voor diftar? Begin bij de infrastructuur.</h3>
+      <p>Wij adviseren gemeenten over de juiste containeropstelling, toegangssystemen en registratie voor een werkend diftar-systeem.</p>
+    </div>
+    <a href="/contact/" class="btn-primary" style="white-space:nowrap;flex-shrink:0;">Neem contact op</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-brand">
+        <a href="/"><img src="/assets/b-advice-logo.png" alt="B-Advice" style="height:52px;display:block;filter:brightness(0) invert(1);" /></a>
+      </div>
+      <p class="footer-tagline">Specialist in ondergrondse afvalinfrastructuur en digitaal containerbeheer.</p>
+      <p class="footer-address">Achterdijk 26<br>Nieuwland (UT)</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Diensten</div>
+      <div class="footer-col-links">
+        <a href="/diensten/afvalinzameling/">Afvalinzameling &amp; Management</a>
+        <a href="/diensten/plaatsing/">Plaatsen van inzamelmiddelen</a>
+        <a href="/diensten/projectmanagement/">Projectmanagement</a>
+        <a href="/diensten/meerjaren-investeringsplan/">Meerjaren Investeringsplan</a>
+        <a href="/diensten/beheer-onderhoud/">Beheer, onderhoud &amp; refurbish</a>
+        <a href="/diensten/aanbesteding/">Aanbesteding &amp; bestek</a>
+        <a href="/diensten/bewonersparticipatie/">Bewonersparticipatie</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Bedrijf</div>
+      <div class="footer-col-links">
+        <a href="/over-ons/">Over ons</a>
+        <a href="/nieuws/">Nieuws</a>
+        <a href="/contact/">Contact</a>
+        <a href="/b-organized/">B-Organized</a>
+        <a href="/privacy/">Privacy &amp; Cookies</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:info@b-advice.info" style="color:rgba(255,255,255,.5);">info@b-advice.info</a>
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <a href="tel:+31643125245" style="color:rgba(255,255,255,.5);">+31 (6) 431 25 245</a>
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Achterdijk 26, Nieuwland (UT)</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 B-Advice. Alle rechten voorbehouden. KvK: <span class="footer-kvk">82797811</span></span>
+    <div class="footer-bottom-links">
+      <a href="/privacy/">Privacy</a>
+      <a href="/cookies/">Cookies</a>
+      <a href="#">Disclaimer</a>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var nav=document.getElementById('sitenav');
+  if(nav){window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>20);},{passive:true});}
+  var btn=document.getElementById('navHamburger');
+  var overlay=document.getElementById('navMobileOverlay');
+  if(btn&&overlay){
+    function checkMobile(){btn.style.display=window.innerWidth<=768?'flex':'none';}
+    checkMobile();window.addEventListener('resize',checkMobile);
+    btn.addEventListener('click',function(){var isOpen=overlay.classList.toggle('open');btn.classList.toggle('open',isOpen);document.body.style.overflow=isOpen?'hidden':'';});
+    overlay.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){overlay.classList.remove('open');btn.classList.remove('open');document.body.style.overflow='';});});
+  }
+  document.querySelectorAll('.article-faq-q').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=this.closest('.article-faq-item');
+      var isOpen=item.classList.contains('open');
+      document.querySelectorAll('.article-faq-item.open').forEach(function(x){x.classList.remove('open');});
+      if(!isOpen)item.classList.add('open');
+    });
+  });
+  (function initCookieBanner(){
+    if(localStorage.getItem('b_advice_consent'))return;
+    var s=document.createElement('style');
+    s.textContent='#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9998;background:#0f1e16;border-top:3px solid #4CAF72;padding:20px 80px;transform:translateY(110%);transition:transform .45s cubic-bezier(.4,0,.2,1);box-shadow:0 -8px 40px rgba(0,0,0,.3)}.ck-visible{transform:translateY(0)!important}.ck-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:24px}.ck-text{flex:1}.ck-title{display:block;font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}.ck-desc{font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;margin:0}.ck-desc a{color:#4CAF72;text-decoration:underline}.ck-actions{display:flex;gap:10px;flex-shrink:0}#ck-accept{padding:10px 22px;background:#4CAF72;color:#fff;border:none;border-radius:7px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}#ck-accept:hover{background:#3d9f63}#ck-necessary{padding:10px 18px;background:transparent;color:rgba(255,255,255,.7);border:1.5px solid rgba(255,255,255,.2);border-radius:7px;font-size:14px;font-weight:500;cursor:pointer;font-family:inherit;white-space:nowrap}@media(max-width:768px){#cookie-banner{padding:20px}.ck-inner{flex-direction:column;gap:16px}.ck-icon{display:none}.ck-actions{width:100%;flex-direction:column}#ck-accept,#ck-necessary{width:100%;text-align:center;padding:13px 20px;font-size:15px}}';
+    document.head.appendChild(s);
+    var banner=document.createElement('div');banner.id='cookie-banner';
+    banner.innerHTML='<div class="ck-inner"><div class="ck-icon">🍪</div><div class="ck-text"><strong class="ck-title">Wij gebruiken cookies</strong><p class="ck-desc">Wij gebruiken functionele cookies voor een goede werking van de website. Met uw toestemming plaatsen wij ook analytische cookies. Lees meer in ons <a href="/cookies/">cookiebeleid</a>.</p></div><div class="ck-actions"><button id="ck-necessary">Alleen noodzakelijk</button><button id="ck-accept">Alles accepteren</button></div></div>';
+    document.body.appendChild(banner);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){banner.classList.add('ck-visible');});});
+    function dismiss(val){localStorage.setItem('b_advice_consent',val);banner.classList.remove('ck-visible');banner.addEventListener('transitionend',function(){if(banner.parentNode)banner.parentNode.removeChild(banner);},{once:true});}
+    document.getElementById('ck-accept').addEventListener('click',function(){dismiss('all');});
+    document.getElementById('ck-necessary').addEventListener('click',function(){dismiss('necessary');});
+    window.resetCookieConsent=function(){localStorage.removeItem('b_advice_consent');initCookieBanner();};
+  })();
+})();
+</script>
+</body>
+</html>
