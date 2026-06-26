@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Niet indexeren: RMN-kortlinks (interne redirects) en technische pagina's
+Disallow: /rmn-*/
+
+Sitemap: https://b-advice.info/sitemap.xml
