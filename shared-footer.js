@@ -1,11 +1,18 @@
 /* shared-footer.js — inject footer + nav scroll on every page */
 (function() {
   // Inject favicon
-  const favicon = document.createElement('link');
-  favicon.rel = 'icon';
-  favicon.type = 'image/png';
-  favicon.href = 'uploads/b-advice-logo.png';
-  document.head.appendChild(favicon);
+  const faviconLinks = [
+    { rel: 'icon', href: 'uploads/favicon.ico', sizes: 'any' },
+    { rel: 'icon', type: 'image/svg+xml', href: 'uploads/favicon.svg' },
+    { rel: 'icon', type: 'image/png', sizes: '32x32', href: 'uploads/favicon-32x32.png' },
+    { rel: 'icon', type: 'image/png', sizes: '16x16', href: 'uploads/favicon-16x16.png' },
+    { rel: 'apple-touch-icon', href: 'uploads/apple-touch-icon.png' },
+  ];
+  faviconLinks.forEach(attrs => {
+    const link = document.createElement('link');
+    Object.entries(attrs).forEach(([key, value]) => link.setAttribute(key, value));
+    document.head.appendChild(link);
+  });
 
   const LOGO_IMG_FOOTER = `<img src="uploads/b-advice-logo.png" alt="B-Advice" style="height:52px;display:block;filter:brightness(0) invert(1);" />`;
 
