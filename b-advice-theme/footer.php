@@ -53,6 +53,7 @@
       <a href="<?php echo home_url('/privacy/'); ?>">Privacy</a>
       <a href="<?php echo home_url('/cookies/'); ?>">Cookies</a>
       <a href="#">Disclaimer</a>
+      <a href="https://sitefront.nl" target="_blank" rel="noopener">Powered by Sitefront</a>
     </div>
   </div>
 </footer>

@@ -63,6 +63,7 @@
       <a href="Privacy.html">Privacy</a>
       <a href="Cookies.html">Cookies</a>
       <a href="#">Disclaimer</a>
+      <a href="https://sitefront.nl" target="_blank" rel="noopener">Powered by Sitefront</a>
     </div>
   </div>
 </footer>`;
