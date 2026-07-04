@@ -11,7 +11,7 @@ Text Domain: b-advice
 /* ══════════════════════════════════════════
    B-Advice — Gedeelde stijlen
 ══════════════════════════════════════════ */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap');
+@import url('/fonts/fonts.css');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -23,7 +23,7 @@ Text Domain: b-advice
   --ink: #0f1e16;
   --ink-2: #1a2820;
   --ink-3: #4a5e52;
-  --ink-4: #7a9585;
+  --ink-4: #587263;
   --bg: #FAFAF9;
   --bg-2: #F3F6F4;
   --border: rgba(26,40,32,.09);
@@ -129,7 +129,7 @@ img { display: block; max-width: 100%; }
 
 /* ── Footer ── */
 footer {
-  background: var(--ink); color: rgba(255,255,255,.45);
+  background: var(--ink); color: rgba(255,255,255,.6);
   padding: 72px 80px 0;
   font-size: 13px;
 }
@@ -273,7 +273,7 @@ footer {
   width: 100%;
 }
 .form-input:focus, .form-select:focus, .form-textarea:focus {
-  outline: none; border-color: var(--green);
+  outline: none; border-color: var(--green); box-shadow: 0 0 0 3px var(--green-mid);
   box-shadow: 0 0 0 3px rgba(76,175,114,.08);
 }
 .form-input::placeholder, .form-textarea::placeholder { color: var(--ink-4); }
@@ -427,7 +427,7 @@ footer {
 .team-body { padding:28px 28px 32px; display:flex; flex-direction:column; gap:6px; flex:1; }
 .team-name { font-size:20px; font-weight:700; letter-spacing:-.4px; color:#f0f7f3; }
 .team-role { font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--green); }
-.team-bio { font-size:14px; line-height:1.7; color:rgba(255,255,255,.45); margin-top:10px; flex:1; }
+.team-bio { font-size:14px; line-height:1.7; color:rgba(255,255,255,.6); margin-top:10px; flex:1; }
 .team-linkedin { display:inline-flex; align-items:center; gap:7px; font-size:12px; font-weight:600; color:rgba(255,255,255,.3); margin-top:16px; text-decoration:none; transition:color .15s; }
 .team-linkedin:hover { color:var(--green); }
 .team-linkedin svg { width:14px; height:14px; fill:currentColor; flex-shrink:0; }
@@ -593,3 +593,5 @@ footer {
   .dienst-layout { grid-template-columns: 1fr !important; padding: 32px 20px 64px !important; }
   .dienst-sidebar { position: static; }
 }
+
+a:focus-visible, button:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; border-radius: 2px; }
