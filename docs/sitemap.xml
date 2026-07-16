@@ -111,6 +111,13 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://b-advice.info/nieuws/batterijbranden-afvalinzameling/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://b-advice.info/nieuws/pmd-ketenovereenkomst-2026-gemeenten/</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
