@@ -356,6 +356,13 @@ footer {
 }
 .form-textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
 
+/* ── Bronvermelding onder een nieuwsartikel ── */
+.article-bron {
+  margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border);
+  font-size: 13.5px; color: var(--ink-4);
+}
+.article-bron a { color: var(--green); text-decoration: underline; text-underline-offset: 2px; }
+
 /* ── Legal pages ── */
 .legal-wrap { max-width: 800px; margin: 0 auto; padding: 64px 80px 96px; }
 .legal-wrap h2 { font-size: 22px; font-weight: 700; letter-spacing: -.4px; color: var(--ink); margin: 40px 0 12px; }
