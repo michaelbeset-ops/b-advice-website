@@ -222,6 +222,8 @@ export const homeSecties = {
   },
 
 
+  werkwijzeLink: { url: "/over-ons/", label: "Wie het werk doet" },
+
   cta: {
     kop: "Een project in voorbereiding of uitvoering?",
     tekst: "Wij denken vrijblijvend mee en reageren binnen \u00e9\u00e9n werkdag.",
@@ -363,7 +365,7 @@ export const diensten: readonly Dienst[] = [
     intro:
       "Van het beoordelen van containerlocaties tot inrichtingstekeningen en voorbereiding van de uitvoering.",
     meta: {
-      titel: "Locatieonderzoek en werkvoorbereiding ondergrondse containers | B-Advice",
+      titel: "Locatieonderzoek ondergrondse containers | B-Advice",
       omschrijving:
         "Locatieonderzoek ondergrondse containers: locatiebezoek, kabels en leidingen, inmeten en inrichtingstekeningen. Werkvoorbereiding voor gemeenten.",
     },
@@ -415,6 +417,8 @@ export const diensten: readonly Dienst[] = [
     ],
     verwant: [
       { label: "Projectleiding en projectbegeleiding", url: "/diensten/projectleiding/" },
+      { label: "Plaatsen van inzamelmiddelen", url: "/diensten/plaatsing/" },
+      { label: "Een locatie indienen", url: "/locatieaanvraag/" },
     ],
     faq: [
       {
@@ -450,7 +454,7 @@ export const diensten: readonly Dienst[] = [
     actie: "Bespreek uw project met B-Advice",
     soort: "Plaatsing ondergrondse inzamelmiddelen",
     blokken: [
-      { type: "p", tekst: "Civieltechnische plaatsing van ondergrondse en halfondergrondse containers, inclusief grondwerk, fundering en inbedrijfstelling. Wij coördineren het volledige plaatsingsproces, van vergunningaanvraag tot oplevering." },
+      { type: "p", tekst: "Wij coördineren het volledige plaatsingsproces, van vergunningaanvraag tot oplevering." },
       { type: "p", tekst: "Onze ervaring met tientallen plaatsingsprojecten per jaar maakt ons tot een betrouwbare partner voor gemeentes en woningcorporaties. Wij werken met gecertificeerde uitvoerders en bewaken kwaliteit en planning gedurende het hele project." },
       { type: "h2", tekst: "Wat wij regelen" },
       { type: "ul", items: [
@@ -459,6 +463,34 @@ export const diensten: readonly Dienst[] = [
         "Montage en inbedrijfstelling",
         "Oplevering en documentatie",
       ] },
+      { type: "h2", tekst: "Van vergunning tot oplevering" },
+      { type: "p", tekst: "Een plaatsing begint niet bij de graafmachine. Eerst moet vaststaan dat de locatie kan: genoeg ruimte voor de betonput, een ondergrond zonder kabels en leidingen op de verkeerde plek, en een aanrijroute waarop het inzamelvoertuig kan ledigen. Loopt dat traject nog, dan hoort het bij locatieonderzoek en werkvoorbereiding." },
+      { type: "p", tekst: "Daarna volgt de vergunningaanvraag en de administratie eromheen. Bij het grondwerk bepaalt de bodem het tempo: grondsoort, grondwaterstand en de ligging van kabels en leidingen beslissen hoe de put wordt aangebracht en welke maatregelen nodig zijn." },
+      { type: "p", tekst: "Als de put staat, volgen montage en inbedrijfstelling van de container en de inworpzuil. De oplevering sluit af met documentatie, zodat bij later onderhoud bekend is wat er is geplaatst en hoe." },
+      { type: "h2", tekst: "Waar het in de uitvoering misgaat" },
+      { type: "p", tekst: "De meeste vertraging bij plaatsingen ontstaat in de ondergrond en in de besluitvorming: een obstakel dat niet op tekening stond, of bezwaren van omwonenden die pas tijdens de uitvoering boven tafel komen. Beide zijn in de voorbereiding op te vangen, niet tijdens het graven." },
+    ],
+    verwant: [
+      { label: "Locatieonderzoek en werkvoorbereiding", url: "/diensten/locatieonderzoek/" },
+      { label: "Projectleiding en projectbegeleiding", url: "/diensten/projectleiding/" },
+      { label: "Een locatie indienen", url: "/locatieaanvraag/" },
+    ],
+    faq: [
+      {
+        vraag: "Wat regelt B-Advice bij het plaatsen van een ondergrondse container?",
+        antwoord:
+          "Wij coördineren het volledige plaatsingsproces: de vergunningaanvraag en administratie, het grondwerk en de fundering, de montage en inbedrijfstelling, en de oplevering met bijbehorende documentatie.",
+      },
+      {
+        vraag: "Kunnen wij alleen de plaatsing uitbesteden?",
+        antwoord:
+          "Ja. Onze werkzaamheden kunnen afzonderlijk of als onderdeel van een groter project worden uitgevoerd. U kunt dus ook alleen de plaatsing bij ons beleggen.",
+      },
+      {
+        vraag: "Wat bepaalt of een locatie geschikt is voor plaatsing?",
+        antwoord:
+          "De beschikbare ruimte voor de betonput, wat er in de ondergrond ligt aan kabels en leidingen, en de bereikbaarheid voor het inzamelvoertuig. Die punten komen uit het locatieonderzoek en de werkvoorbereiding.",
+      },
     ],
   },
   {
@@ -472,7 +504,7 @@ export const diensten: readonly Dienst[] = [
     actie: "Bespreek uw project met B-Advice",
     soort: "Beheer en onderhoud inzamelmiddelen",
     blokken: [
-      { type: "p", tekst: "Preventief en correctief onderhoud verlengt de levensduur van uw inzamelmiddelen aanzienlijk en bespaart vervangingskosten. Wij verzorgen reguliere inspecties, reinigingen en reparaties, maar ook complete refurbishment van verouderde containers." },
+      { type: "p", tekst: "Wij verzorgen reguliere inspecties, reinigingen en reparaties, maar ook complete refurbishment van verouderde containers." },
       { type: "p", tekst: "Na refurbishment presteren containers als nieuw: nieuwe bekleding, mechanische revisie en indien gewenst een update naar de nieuwste veiligheidsstandaarden. Dit is een duurzame en kostenefficiënte keuze voor gemeentes met grote containerparken." },
       { type: "h2", tekst: "Onderhoud en refurbishment" },
       { type: "ul", items: [
@@ -481,6 +513,32 @@ export const diensten: readonly Dienst[] = [
         "Complete mechanische revisie",
         "Update naar actuele veiligheidsstandaarden",
       ] },
+      { type: "h2", tekst: "Waarom onderhoud zich terugverdient" },
+      { type: "p", tekst: "Een ondergrondse container is een machine in de openbare ruimte. Het hefsysteem, de inworpzuil en de vulgraadmeting slijten, en dat gebeurt buiten het zicht: onder het maaiveld is een beginnend mankement niet te zien. Periodieke inspectie haalt die slijtage naar boven voordat de container uitvalt." },
+      { type: "p", tekst: "Uitval kost meer dan de reparatie. Een container die niet opengaat of vol zit, levert voorspelbaar afval ernaast op. Dat moet opgeruimd worden, het geeft ergernis in de buurt en het beeld van een verwaarloosde plek nodigt uit om er nog meer bij te zetten." },
+      { type: "p", tekst: "Refurbishment is het alternatief voor vervangen. Nieuwe bekleding, een mechanische revisie en waar gewenst een update naar de actuele veiligheidsstandaarden leveren een container op die weer meekan, zonder de kosten en het straatwerk van een nieuwe plaatsing." },
+    ],
+    verwant: [
+      { label: "B-Organized: containerbeheer", url: "/b-organized/" },
+      { label: "Plaatsen van inzamelmiddelen", url: "/diensten/plaatsing/" },
+      { label: "QR-codes op containers via B-Organized", url: "/nieuws/qr-code-pilot/" },
+    ],
+    faq: [
+      {
+        vraag: "Wat houdt refurbishment van een ondergrondse container in?",
+        antwoord:
+          "Een complete opknapbeurt: nieuwe bekleding, een mechanische revisie en indien gewenst een update naar de actuele veiligheidsstandaarden. De container presteert daarna als nieuw.",
+      },
+      {
+        vraag: "Wat valt er onder periodiek onderhoud?",
+        antwoord:
+          "Periodieke inspecties en reinigingen, reparaties en vervanging van onderdelen, en waar nodig een complete mechanische revisie.",
+      },
+      {
+        vraag: "Helpt onderhoud tegen afval naast de container?",
+        antwoord:
+          "Voor een deel. Een container die vol zit of niet opengaat, levert voorspelbaar bijplaatsingen op. Dat is met onderhoud en een goede ledigingsfrequentie te voorkomen. Bijplaatsing die voortkomt uit de inrichting van de locatie zelf, is dat niet.",
+      },
     ],
   },
   {
@@ -494,7 +552,7 @@ export const diensten: readonly Dienst[] = [
     actie: "Bespreek uw project met B-Advice",
     soort: "Advies afvalinzameling",
     blokken: [
-      { type: "p", tekst: "Strategisch advies en operationeel management van het volledige afvalinzamelingsproces. Van wijkanalyse en routeoptimalisatie tot het selecteren van de juiste inzamelmiddelen voor elke locatie. B-Advice begeleidt gemeentes bij het opzetten en verbeteren van hun afvalinzamelingsinfrastructuur." },
+      { type: "p", tekst: "ot het selecteren van de juiste inzamelmiddelen voor elke locatie. B-Advice begeleidt gemeentes bij het opzetten en verbeteren van hun afvalinzamelingsinfrastructuur." },
       { type: "p", tekst: "Wij analyseren uw huidige situatie en stellen een verbeterplan op dat aansluit bij uw doelstellingen op het gebied van afvalscheiding, kosten en klanttevredenheid. Met onze ervaring bij 40+ gemeentes brengen wij bewezen methodieken naar uw project." },
       { type: "h2", tekst: "Wat wij bieden" },
       { type: "ul", items: [
@@ -503,6 +561,32 @@ export const diensten: readonly Dienst[] = [
         "Selectie van passende inzamelmiddelen",
         "Implementatiebegeleiding en evaluatie",
       ] },
+      { type: "h2", tekst: "Van wijkanalyse tot inzamelroute" },
+      { type: "p", tekst: "Een inzamelsysteem begint bij de wijk. Hoeveel huishoudens horen bij een containerpunt, hoe ver is de loopafstand, wat bieden bewoners daar aan en hoe vaak moet er geleegd worden. Die verhouding tussen capaciteit en ledigingsfrequentie bepaalt of een locatie werkt of structureel overloopt." },
+      { type: "p", tekst: "Daarna komt de route. De volgorde waarin containers worden geleegd, de bereikbaarheid van elk punt en de inzet van de voertuigen bepalen een groot deel van de inzamelkosten. Vulgraadgegevens maken het mogelijk te rijden op basis van wat er werkelijk in zit in plaats van op een vaste kalender." },
+      { type: "p", tekst: "De keuze van het inzamelmiddel volgt uit die twee. Een hoogbouwlocatie vraagt iets anders dan een rij eengezinswoningen, en de inworpopening moet passen bij wat mensen daadwerkelijk aanbieden." },
+    ],
+    verwant: [
+      { label: "Omgekeerd inzamelen: wat verandert er", url: "/nieuws/omgekeerd-inzamelen/" },
+      { label: "Diftar uitgelegd", url: "/nieuws/diftar-betalen-naar-gebruik/" },
+      { label: "Meerjaren Investeringsplan", url: "/diensten/meerjaren-investeringsplan/" },
+    ],
+    faq: [
+      {
+        vraag: "Wat houdt een wijkanalyse in?",
+        antwoord:
+          "Een analyse van het aantal huishoudens per containerpunt, de loopafstanden, de aangeboden hoeveelheid afval en de benodigde ledigingsfrequentie. Daaruit volgt de capaciteit die een wijk nodig heeft.",
+      },
+      {
+        vraag: "Wat levert routeoptimalisatie op?",
+        antwoord:
+          "Minder ritten voor hetzelfde resultaat. Door te rijden op basis van vulgraad in plaats van een vaste kalender rijden voertuigen minder vaak naar containers die nog niet vol zijn.",
+      },
+      {
+        vraag: "Adviseert B-Advice ook over de keuze van inzamelmiddelen?",
+        antwoord:
+          "Ja. De selectie van passende inzamelmiddelen en de implementatiebegeleiding horen bij onze werkzaamheden rondom afvalinzameling en management.",
+      },
     ],
   },
   {
@@ -525,6 +609,32 @@ export const diensten: readonly Dienst[] = [
         "Budget- en kwaliteitsbewaking",
         "Rapportage en opleverdocumentatie",
       ] },
+      { type: "h2", tekst: "Grip op planning, budget en kwaliteit" },
+      { type: "p", tekst: "Bij een containerproject zitten al snel vijf partijen aan tafel: de gemeente, de leverancier van de inzamelmiddelen, de aannemer voor het civiele werk, de netbeheerders en de inzamelaar die straks de route rijdt. Projectmanagement is het werk dat die partijen op één planning houdt." },
+      { type: "p", tekst: "De grootste risico's zitten in de ondergrond en in de besluitvorming. Kabels, leidingen en in oude stadskernen soms archeologische resten bepalen mee of een plek geschikt is, en wie daar vooraf niet goed naar kijkt, loopt tijdens de uitvoering tegen vertraging en extra kosten aan." },
+      { type: "p", tekst: "Daarom leggen wij de voortgang vast en rapporteren wij erover: wat is af, wat loopt, waar zit het risico en welke beslissing is wanneer nodig. Bij de overdracht en oplevering hoort de documentatie die de beheerorganisatie daarna nodig heeft." },
+    ],
+    verwant: [
+      { label: "Projectleiding en projectbegeleiding", url: "/diensten/projectleiding/" },
+      { label: "Aanbesteding en bestek", url: "/diensten/aanbesteding/" },
+      { label: "Locatieonderzoek en werkvoorbereiding", url: "/diensten/locatieonderzoek/" },
+    ],
+    faq: [
+      {
+        vraag: "In welke fase kan B-Advice instappen?",
+        antwoord:
+          "Wij kunnen ondersteuning bieden vanaf de eerste voorbereidingen tot en met de oplevering. Onze werkzaamheden zijn afzonderlijk of als onderdeel van een groter project in te zetten.",
+      },
+      {
+        vraag: "Welke partijen coördineert B-Advice tijdens een project?",
+        antwoord:
+          "De gemeente of opdrachtgever, leveranciers van inzamelmiddelen, aannemers voor het civiele werk, netbeheerders en de partij die de inzameling uitvoert.",
+      },
+      {
+        vraag: "Wat gebeurt er bij de oplevering?",
+        antwoord:
+          "De overdracht van het project aan de beheerorganisatie, inclusief de documentatie van wat er is geplaatst en hoe. Dat is de basis voor het latere beheer en onderhoud.",
+      },
     ],
   },
   {
@@ -547,6 +657,32 @@ export const diensten: readonly Dienst[] = [
         "Enkelvoudige en meervoudige uitvragen",
         "Beoordeling van inschrijvingen en gunningsadvies",
       ] },
+      { type: "h2", tekst: "Wat er in een bestek hoort" },
+      { type: "p", tekst: "Een bestek voor ondergrondse inzamelvoorzieningen beschrijft wat er precies geleverd en aangelegd moet worden: het type container en inworpzuil, de betonput en de fundering, het toegangssysteem, de vulgraadmeting en de eisen aan montage en oplevering. Hoe scherper die omschrijving, hoe minder ruimte er later is voor discussie over meerwerk." },
+      { type: "p", tekst: "Daarnaast bepaalt het programma van eisen waarop u inschrijvingen beoordeelt. Prijs is er één van, maar levensduur, onderhoudbaarheid, beschikbaarheid van onderdelen en de veiligheid van het systeem wegen mee in wat een voorziening over de hele looptijd kost." },
+      { type: "p", tekst: "Of een opdracht enkelvoudig, meervoudig of Europees moet worden uitgevraagd, hangt af van de omvang en de drempelbedragen die op dat moment gelden. Wij stellen de documenten op en begeleiden de procedure." },
+    ],
+    verwant: [
+      { label: "Meerjaren Investeringsplan", url: "/diensten/meerjaren-investeringsplan/" },
+      { label: "Projectmanagement", url: "/diensten/projectmanagement/" },
+      { label: "Plaatsen van inzamelmiddelen", url: "/diensten/plaatsing/" },
+    ],
+    faq: [
+      {
+        vraag: "Wat staat er in een technisch bestek voor ondergrondse containers?",
+        antwoord:
+          "Een technische omschrijving van de te leveren en aan te leggen onderdelen: container en inworpzuil, betonput en fundering, toegangssysteem en meting, plus de eisen aan montage, oplevering en documentatie.",
+      },
+      {
+        vraag: "Begeleidt B-Advice ook Europese aanbestedingen?",
+        antwoord:
+          "Ja. Wij begeleiden Europese aanbestedingsprocedures en ook enkelvoudige en meervoudige uitvragen.",
+      },
+      {
+        vraag: "Waarom is het programma van eisen belangrijker dan de laagste prijs?",
+        antwoord:
+          "Omdat levensduur, onderhoudbaarheid en beschikbaarheid van onderdelen bepalen wat een voorziening over de hele looptijd kost. Die punten legt u vast in het programma van eisen.",
+      },
     ],
   },
   {
@@ -569,6 +705,32 @@ export const diensten: readonly Dienst[] = [
         "Meerjarenplanning voor vervanging en onderhoud",
         "Kostenraming en budgetadvies",
       ] },
+      { type: "h2", tekst: "Wat een MIP oplevert" },
+      { type: "p", tekst: "Een meerjaren investeringsplan begint met een inventarisatie: welke voorzieningen staan er, waar, van welk type, hoe oud en in welke staat. Zonder dat overzicht is elke vervangingsplanning een schatting." },
+      { type: "p", tekst: "Daarna volgt de technische beoordeling per locatie. Een container die er slecht aan toe is, hoeft niet altijd vervangen te worden; soms is refurbishment de goedkopere route. Die afweging maakt u per locatie, niet per containerpark." },
+      { type: "p", tekst: "Het resultaat is een planning met een kostenraming per jaar. Dat maakt de vervangingsopgave begrootbaar in plaats van een post die pas opvalt wanneer een container uitvalt. Met de oplopende belasting op afvalverbranding wordt die voorspelbaarheid alleen maar belangrijker." },
+    ],
+    verwant: [
+      { label: "Beheer, onderhoud en refurbish", url: "/diensten/beheer-onderhoud/" },
+      { label: "B-Organized: containerbeheer", url: "/b-organized/" },
+      { label: "Afvalstoffenbelasting fors omhoog vanaf 2028", url: "/nieuws/afvalstoffenbelasting-verhoging-2028-gemeenten/" },
+    ],
+    faq: [
+      {
+        vraag: "Wat is een meerjaren investeringsplan voor een containerpark?",
+        antwoord:
+          "Een plan dat per locatie vastlegt wat er staat, in welke staat het is en wanneer vervanging of groot onderhoud nodig is, met een kostenraming per jaar.",
+      },
+      {
+        vraag: "Welke gegevens zijn nodig voor een MIP?",
+        antwoord:
+          "Een compleet overzicht van de bestaande voorzieningen: locatie, type, plaatsingsjaar en onderhoudshistorie. Ontbreekt dat, dan begint het MIP met een inventarisatie in het veld.",
+      },
+      {
+        vraag: "Is vervangen altijd nodig?",
+        antwoord:
+          "Nee. Een deel van de voorzieningen is met refurbishment weer jaren mee te laten gaan. De technische beoordeling per locatie bepaalt welke route de goedkoopste is.",
+      },
     ],
   },
   {
@@ -591,6 +753,32 @@ export const diensten: readonly Dienst[] = [
         "Digitale updates en websitecontent",
         "Directe bewonerscontacten en vraagbeantwoording",
       ] },
+      { type: "h2", tekst: "Waarom communicatie het verschil maakt" },
+      { type: "p", tekst: "Een nieuwe containerlocatie raakt de mensen die er wonen. Wie pas na het besluit hoort dat er voor de deur een put komt, reageert anders dan wie vooraf de afweging heeft kunnen volgen. Bezwaren die laat binnenkomen, kosten tijd in de besluitvorming en soms een nieuwe locatiekeuze." },
+      { type: "p", tekst: "Daarom halen wij bezwaren en vragen vroeg op, in de fase waarin de locatie nog kan schuiven. Informatieavonden, brieven en digitale updates zijn daarvoor de middelen; welke combinatie past, hangt af van de wijk en de omvang van de wijziging." },
+      { type: "p", tekst: "Communicatie stopt niet bij de plaatsing. Bewoners moeten weten wat te doen als een container vol of defect is, want juist op die momenten ontstaan de meeste bijplaatsingen. Een verzorgde locatie met duidelijke uitleg nodigt minder uit om afval ernaast te zetten." },
+    ],
+    verwant: [
+      { label: "Locatieonderzoek en werkvoorbereiding", url: "/diensten/locatieonderzoek/" },
+      { label: "Afval naast ondergrondse containers", url: "/nieuws/afval-naast-ondergrondse-containers/" },
+      { label: "Omgekeerd inzamelen: wat verandert er", url: "/nieuws/omgekeerd-inzamelen/" },
+    ],
+    faq: [
+      {
+        vraag: "Wanneer betrekt u bewoners bij een locatiekeuze?",
+        antwoord:
+          "Zo vroeg mogelijk, in de fase waarin de locatie nog kan schuiven. Bezwaren die pas tijdens de uitvoering binnenkomen, leiden tot vertraging in de besluitvorming.",
+      },
+      {
+        vraag: "Welke communicatiemiddelen zet B-Advice in?",
+        antwoord:
+          "Informatieavonden en bewonersbijeenkomsten, nieuwsbrieven en huis-aan-huisbrieven, digitale updates en websitecontent, en directe bewonerscommunicatie.",
+      },
+      {
+        vraag: "Helpt communicatie tegen afval naast de container?",
+        antwoord:
+          "Het helpt, maar het lost niet alles op. Uitleg over wat te doen bij een volle of defecte container scheelt bijplaatsingen. Bijplaatsing die voortkomt uit te weinig capaciteit of een te kleine inworpopening, is een kwestie van inrichting.",
+      },
     ],
   },
 ] as const;
@@ -614,6 +802,8 @@ export type TekstBlok =
   | { type: "tabel"; koppen: readonly string[]; rijen: readonly (readonly string[])[] };
 
 export interface TekstPagina {
+  /** Links onderaan de pagina, bijvoorbeeld naar de andere juridische tekst. */
+  verwant?: readonly { label: string; url: string }[];
   slug: string;
   h1: string;
   intro: string;
@@ -624,9 +814,10 @@ export interface TekstPagina {
 export const tekstPaginas: readonly TekstPagina[] = [
   {
     slug: "privacy",
+    verwant: [{ label: "Cookiebeleid", url: "/cookies/" }],
     h1: "Privacyverklaring",
     intro: "Hoe B-Advice omgaat met uw persoonsgegevens conform de AVG.",
-    meta: { titel: "Privacyverklaring | B-Advice", omschrijving: "Lees hoe B-Advice omgaat met persoonsgegevens conform de AVG. Privacyverklaring voor bezoekers van b-advice.info." },
+    meta: { titel: "Privacyverklaring en gegevensverwerking | B-Advice", omschrijving: "Lees hoe B-Advice omgaat met persoonsgegevens conform de AVG. Privacyverklaring voor bezoekers van b-advice.info." },
     blokken: [
         { type: "p", tekst: "Versie 1.0 · Mei 2025  |  KvK 82797811" },
         { type: "p", tekst: "Samenvatting: B-Advice verwerkt alleen gegevens die u zelf verstrekt (contactformulier, e-mail) en gegevens voor websiteanalyse. Wij verkopen uw gegevens nooit aan derden en bewaren ze niet langer dan noodzakelijk." },
@@ -688,9 +879,10 @@ export const tekstPaginas: readonly TekstPagina[] = [
   },
   {
     slug: "cookies",
+    verwant: [{ label: "Privacyverklaring", url: "/privacy/" }],
     h1: "Cookiebeleid",
     intro: "Welke cookies B-Advice gebruikt en hoe u uw voorkeuren beheert.",
-    meta: { titel: "Cookiebeleid | B-Advice", omschrijving: "Het cookiebeleid van B-Advice: welke cookies we gebruiken op b-advice.info en hoe u uw voorkeuren kunt instellen." },
+    meta: { titel: "Cookiebeleid en cookie-instellingen | B-Advice", omschrijving: "Het cookiebeleid van B-Advice: welke cookies we gebruiken op b-advice.info en hoe u uw voorkeuren kunt instellen." },
     blokken: [
         { type: "p", tekst: "Versie 1.0 · Mei 2025" },
         { type: "h2", tekst: "Wat zijn cookies?" },
@@ -730,7 +922,7 @@ export const tekstPaginas: readonly TekstPagina[] = [
    ══════════════════════════════════════════════════════════════════════════ */
 export const contact = {
   meta: {
-    titel: "Contact | B-Advice",
+    titel: "Contact opnemen met B-Advice | Ondergrondse containers",
     omschrijving:
       "Neem contact op met B-Advice over projectleiding, locatieonderzoek of " +
       "werkvoorbereiding rondom ondergrondse afvalcontainers.",
@@ -813,8 +1005,8 @@ export const binnenkortPaginas = [
     meta: {
       titel: "B-Covered: locatiemeting containers | B-Advice",
       omschrijving:
-        "B-Covered biedt professionele locatiemeting voor containerplaatsingen. " +
-        "Binnenkort beschikbaar via B-Advice.",
+        "B-Covered meet containerlocaties in met GPS-apparatuur, voor nauwkeurige " +
+        "coördinaten bij de voorbereiding van een plaatsing. Binnenkort via B-Advice.",
     },
     h1: "B-Covered",
     intro: "Uw partner voor inmeten op maat.",
@@ -1026,7 +1218,9 @@ export const locatieaanvraag = {
 export const nietGevonden = {
   meta: {
     titel: "Pagina niet gevonden | B-Advice",
-    omschrijving: "Deze pagina bestaat niet of is verplaatst.",
+    omschrijving:
+      "Deze pagina bestaat niet of is verplaatst. Bekijk de diensten, het " +
+      "nieuws of neem rechtstreeks contact op met B-Advice over uw project.",
   },
   h1: "Deze pagina bestaat niet",
   tekst:

@@ -9,6 +9,26 @@ import CtaBand from "../components/CtaBand.astro";
 import { overOns } from "../data/site";
 
 const { tijdlijn, geschiedenis, team, aanpak } = overOns;
+
+const overSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "https://b-advice.info/over-ons/#pagina",
+  name: overOns.h1,
+  description: overOns.meta.omschrijving,
+  inLanguage: "nl-NL",
+  mainEntity: {
+    "@id": "https://b-advice.info/#organisatie",
+    foundingDate: "2013",
+    employee: team.leden.map((lid) => ({
+      "@type": "Person",
+      name: lid.naam,
+      jobTitle: lid.rol,
+      image: `https://b-advice.info${lid.foto}`,
+      worksFor: { "@id": "https://b-advice.info/#organisatie" },
+    })),
+  },
+};
 ---
 
 <Base titel={overOns.meta.titel} omschrijving={overOns.meta.omschrijving}>
@@ -122,4 +142,6 @@ const { tijdlijn, geschiedenis, team, aanpak } = overOns;
   </Kader>
 
   <CtaBand />
+
+  <script type="application/ld+json" set:html={JSON.stringify(overSchema)} is:inline />
 </Base>

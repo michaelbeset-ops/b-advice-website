@@ -4,7 +4,7 @@ import Kop from "./Kop.astro";
 import Veegrij from "./Veegrij.astro";
 import { homeSecties } from "../data/site";
 
-const { werkwijze } = homeSecties;
+const { werkwijze, werkwijzeLink } = homeSecties;
 ---
 
 <!-- Vier stappen op een lijn, met de fasenamen erboven. Het beantwoordt de
@@ -45,6 +45,15 @@ const { werkwijze } = homeSecties;
 
     <p class="mt-12 max-w-[60ch] border-l-2 border-accent pl-5 text-base font-medium text-ink-2">
       {werkwijze.slot}
+    </p>
+
+    <p class="mt-6">
+      <a
+        href={werkwijzeLink.url}
+        class="text-base font-medium text-accent underline decoration-accent/30 underline-offset-2 transition-colors hover:decoration-current"
+      >
+        {werkwijzeLink.label}
+      </a>
     </p>
   </Kader>
 </section>

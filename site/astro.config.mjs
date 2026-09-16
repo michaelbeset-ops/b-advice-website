@@ -3,6 +3,7 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import vue from "@astrojs/vue";
+import { artikelen } from "./src/data/nieuws";
 
 export default defineConfig({
   site: "https://b-advice.info",
@@ -40,6 +41,19 @@ export default defineConfig({
   // Vue draait alleen op de pagina's met een island. Dat is nu het
   // contactformulier: verzendstatus, foutafhandeling en een bevestiging in
   // beeld. Pagina's zonder island laden geen enkel scriptbestand.
-  integrations: [sitemap(), vue()],
+  integrations: [
+    sitemap({
+      // Een artikel krijgt zijn publicatiedatum mee, de overige pagina's de
+      // datum van de build. Zonder lastmod weet een zoekmachine niet of het
+      // zin heeft om opnieuw te komen kijken.
+      serialize(item) {
+        const slug = item.url.match(/\/nieuws\/([^/]+)\//)?.[1];
+        const artikel = artikelen.find((a) => a.slug === slug);
+        item.lastmod = artikel ? `${artikel.datum}T00:00:00+00:00` : new Date().toISOString();
+        return item;
+      },
+    }),
+    vue(),
+  ],
   vite: { plugins: [tailwindcss()] },
 });

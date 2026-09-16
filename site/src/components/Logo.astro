@@ -7,8 +7,10 @@ interface Props {
   /** Op donkere vlakken wordt het logo naar wit gekeerd. */
   omgekeerd?: boolean;
   klasse?: string;
+  /** Het logo in de voettekst staat onder de vouw en mag later laden. */
+  lui?: boolean;
 }
-const { omgekeerd = false, klasse = "" } = Astro.props;
+const { omgekeerd = false, klasse = "", lui = false } = Astro.props;
 ---
 
 <img
@@ -17,5 +19,6 @@ const { omgekeerd = false, klasse = "" } = Astro.props;
   width="137"
   height="40"
   decoding="async"
+  loading={lui ? "lazy" : "eager"}
   class:list={["block h-10 w-auto", omgekeerd && "brightness-0 invert", klasse]}
 />

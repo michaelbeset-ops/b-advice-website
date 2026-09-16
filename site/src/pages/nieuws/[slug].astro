@@ -36,7 +36,15 @@ const schema: Record<string, unknown>[] = [
     headline: artikel.h1,
     description: artikel.lead,
     datePublished: artikel.datum,
-    mainEntityOfPage: url,
+    // Zonder dateModified gaat Google uit van de publicatiedatum. Zolang een
+    // artikel niet is herzien zijn die gelijk.
+    dateModified: artikel.datum,
+    // Google vraagt om een afbeelding bij een artikel. Er is nog geen beeld
+    // per artikel, dus staat hier het algemene deelplaatje.
+    image: ["https://b-advice.info/assets/og-image.png"],
+    articleSection: artikel.categorie,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    isPartOf: { "@id": "https://b-advice.info/nieuws/#blog" },
     author: { "@id": "https://b-advice.info/#organisatie" },
     publisher: { "@id": "https://b-advice.info/#organisatie" },
     inLanguage: "nl-NL",
@@ -56,7 +64,12 @@ if (vragen.length) {
 }
 ---
 
-<Base titel={`${artikel.meta.titel} | ${bedrijf.naam}`} omschrijving={artikel.meta.omschrijving}>
+<Base
+  titel={`${artikel.meta.titel} | ${bedrijf.naam}`}
+  omschrijving={artikel.meta.omschrijving}
+  soort="article"
+  gepubliceerd={artikel.datum}
+>
   <Kader>
     <Kruimels
       spoor={[

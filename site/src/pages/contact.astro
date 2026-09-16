@@ -11,6 +11,18 @@ const gegevens = [
   { label: "Adres", waarde: `${bedrijf.adres.straat}, ${bedrijf.adres.plaats}` },
   { label: "KvK", waarde: bedrijf.kvk },
 ];
+
+// ContactPage vertelt Google dat dit de contactpagina van de organisatie is.
+// De gegevens zelf staan al in het organisatieblok in de layout.
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": "https://b-advice.info/contact/#pagina",
+  name: contact.h1,
+  description: contact.meta.omschrijving,
+  inLanguage: "nl-NL",
+  mainEntity: { "@id": "https://b-advice.info/#organisatie" },
+};
 ---
 
 <Base titel={contact.meta.titel} omschrijving={contact.meta.omschrijving}>
@@ -68,4 +80,6 @@ const gegevens = [
       </aside>
     </div>
   </Kader>
+
+  <script type="application/ld+json" set:html={JSON.stringify(contactSchema)} is:inline />
 </Base>

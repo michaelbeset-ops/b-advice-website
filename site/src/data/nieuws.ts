@@ -42,7 +42,7 @@ export interface Artikel {
 
 export const nieuwsPagina = {
   meta: {
-    titel: "Nieuws over afvalinzameling en ondergrondse containers | B-Advice",
+    titel: "Nieuws over ondergrondse afvalcontainers | B-Advice",
     omschrijving:
       "Analyses en uitleg over ondergrondse afvalcontainers, diftar, PMD, textiel en containerbeheer, geschreven voor gemeenten en afvalinzamelaars.",
   },
@@ -491,7 +491,7 @@ export const artikelen: Artikel[] = [
     h1: "Textielinzameling in 2026: de verplichting, de knelpunten en de rol van ondergrondse containers",
     lead: "Sinds 2025 moet textiel in de hele EU gescheiden worden ingezameld. Wat betekent dit voor gemeenten en welke plek verdient de textielcontainer in de ondergrondse infrastructuur?",
     meta: {
-      titel: "Textielinzameling 2026: verplichting & ondergrondse containers",
+      titel: "Textielinzameling 2026 en ondergrondse containers",
       omschrijving: "Gescheiden textielinzameling is sinds 2025 EU-breed verplicht. Wat betekent dit voor gemeenten in 2026 en welke rol spelen ondergrondse textielcontainers?",
     },
     blokken: [

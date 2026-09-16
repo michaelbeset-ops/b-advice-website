@@ -6,6 +6,32 @@ import Kop from "../components/Kop.astro";
 import Bovenregel from "../components/Bovenregel.astro";
 import LocatieFormulier from "../components/LocatieFormulier.vue";
 import { locatieaanvraag, contact, bedrijf } from "../data/site";
+
+// Een aanvraagformulier is voor Google een contactpagina. De stappen eronder
+// zijn een HowTo: wat er gebeurt nadat iemand het formulier verstuurt.
+const aanvraagSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": "https://b-advice.info/locatieaanvraag/#pagina",
+    name: locatieaanvraag.h1,
+    description: locatieaanvraag.meta.omschrijving,
+    inLanguage: "nl-NL",
+    mainEntity: { "@id": "https://b-advice.info/#organisatie" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "Een locatie indienen bij B-Advice",
+    description: locatieaanvraag.lead,
+    step: locatieaanvraag.stappen.map((stap, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: stap.titel,
+      text: stap.tekst,
+    })),
+  },
+];
 ---
 
 <Base titel={locatieaanvraag.meta.titel} omschrijving={locatieaanvraag.meta.omschrijving}>
@@ -88,4 +114,8 @@ import { locatieaanvraag, contact, bedrijf } from "../data/site";
       </aside>
     </div>
   </Kader>
+
+  {aanvraagSchema.map((blok) => (
+    <script type="application/ld+json" set:html={JSON.stringify(blok)} is:inline />
+  ))}
 </Base>

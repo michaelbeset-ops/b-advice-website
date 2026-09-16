@@ -10,6 +10,25 @@ import { datumNL } from "../../lib/datum";
 
 const [nieuwste, ...rest] = artikelen;
 
+// Blog-blok met alle artikelen. Zo ziet Google het overzicht als één
+// verzameling in plaats van als losse links.
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": "https://b-advice.info/nieuws/#blog",
+  name: nieuwsPagina.h1,
+  description: nieuwsPagina.meta.omschrijving,
+  inLanguage: "nl-NL",
+  publisher: { "@id": "https://b-advice.info/#organisatie" },
+  blogPost: artikelen.map((artikel) => ({
+    "@type": "NewsArticle",
+    headline: artikel.h1,
+    description: artikel.samenvatting,
+    datePublished: artikel.datum,
+    url: `https://b-advice.info/nieuws/${artikel.slug}/`,
+  })),
+};
+
 // Het jaar wordt alleen getoond zodra het wisselt. Dat geeft de lijst een
 // ritme zonder dat er bij elk artikel een datum in beeld schreeuwt.
 const metJaar = rest.map((artikel, i) => ({
@@ -127,4 +146,6 @@ const metJaar = rest.map((artikel, i) => ({
   </Kader>
 
   <CtaBand />
+
+  <script type="application/ld+json" set:html={JSON.stringify(blogSchema)} is:inline />
 </Base>

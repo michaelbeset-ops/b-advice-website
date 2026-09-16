@@ -1,0 +1,48 @@
+---
+import Kader from "./Kader.astro";
+import { artikelen } from "../data/nieuws";
+import { datumNL } from "../lib/datum";
+
+/**
+ * Drie recente artikelen op de homepage. Dit is er niet om de pagina langer
+ * te maken: het is de enige plek waar de homepage doorlinkt naar de
+ * inhoudelijke artikelen. Zonder die links staan de artikelen alleen achter
+ * het menu, en dat is voor een zoekmachine de zwakste plek om ze te vinden.
+ *
+ * Bewust compact: kop en datum, geen samenvatting, geen kaartjes.
+ */
+const laatste = artikelen.slice(0, 3);
+---
+
+<section class="border-t border-line bg-paper py-10 lg:py-16">
+  <Kader>
+    <div class="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3">
+      <h2 class="text-xs font-semibold uppercase tracking-[0.1em] text-accent">
+        Uit ons nieuws
+      </h2>
+      <a
+        href="/nieuws/"
+        class="text-sm font-medium text-ink-3 underline decoration-line-strong underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+      >
+        Alle artikelen
+      </a>
+    </div>
+
+    <ul class="mt-5 grid gap-x-10 border-t border-line-strong sm:grid-cols-3 sm:border-t-0">
+      {
+        laatste.map((artikel) => (
+          <li class="border-b border-line sm:border-b-0 sm:border-t-2 sm:border-accent/25">
+            <a href={`/nieuws/${artikel.slug}/`} class="group block py-3.5 sm:py-5">
+              <span class="text-xs text-ink-4">
+                <time datetime={artikel.datum}>{datumNL(artikel.datum)}</time>
+              </span>
+              <span class="mt-1.5 block font-display text-base font-bold leading-snug tracking-tight text-ink transition-colors group-hover:text-accent-deep">
+                {artikel.h1}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </Kader>
+</section>

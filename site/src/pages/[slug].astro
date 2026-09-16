@@ -124,6 +124,24 @@ const url = `/${pagina.slug}/`;
                 );
               return <p class="mt-4 text-base text-ink-3">{blok.tekst}</p>;
             })}
+
+            {(pagina as TekstPagina).verwant && (
+              <div class="mt-12 border-t border-line-strong pt-6">
+                <h2 class="text-xs font-bold uppercase tracking-[0.1em] text-ink-4">Lees ook</h2>
+                <ul class="mt-4 space-y-2">
+                  {(pagina as TekstPagina).verwant!.map((v) => (
+                    <li>
+                      <a
+                        href={v.url}
+                        class="text-base font-medium text-accent underline decoration-accent/30 underline-offset-2 transition-colors hover:decoration-current"
+                      >
+                        {v.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </Kader>
       </>
