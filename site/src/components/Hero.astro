@@ -1,5 +1,6 @@
 ---
 import Kader from "./Kader.astro";
+import Kop from "./Kop.astro";
 import { home, hoofdactie } from "../data/site";
 
 const { hero } = home;
@@ -15,9 +16,12 @@ const { hero } = home;
           {hero.bovenregel}
         </p>
 
-        <h1 class="mt-6 max-w-[15ch] text-display font-extrabold text-ink">
-          {hero.kop}
-        </h1>
+        <Kop
+          als="h1"
+          tekst={hero.kop}
+          accent={hero.kopAccent}
+          klasse="mt-6 max-w-[15ch] text-display font-extrabold text-ink"
+        />
 
         <p class="mt-6 max-w-[38ch] text-xl font-medium text-ink-2">
           {hero.lead}

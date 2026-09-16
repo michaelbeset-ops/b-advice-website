@@ -1,26 +1,42 @@
 ---
 import Kader from "./Kader.astro";
+import Kop from "./Kop.astro";
 import DienstIcoon from "./DienstIcoon.astro";
 import { homeSecties } from "../data/site";
 
 const { diensten } = homeSecties;
 ---
 
-<Kader als="section" id="diensten" klasse="py-20 lg:py-24">
-  <p class="text-xs font-semibold uppercase tracking-[0.1em] text-accent">{diensten.bovenregel}</p>
-  <h2 class="mt-4 max-w-[22ch] text-2xl font-extrabold text-ink">{diensten.kop}</h2>
-  <p class="mt-4 max-w-[54ch] text-base text-ink-3">{diensten.lead}</p>
+<section id="diensten" class="py-20 lg:py-24">
+  <Kader>
+    <p class="text-xs font-semibold uppercase tracking-[0.1em] text-accent">{diensten.bovenregel}</p>
+    <Kop
+      tekst={diensten.kop}
+      accent={diensten.kopAccent}
+      klasse="mt-4 max-w-[22ch] text-2xl font-extrabold text-ink"
+    />
+    <p class="mt-4 max-w-[54ch] text-base text-ink-3">{diensten.lead}</p>
+  </Kader>
 
-  <!-- Kaarten in een raster, zoals op de huidige site. Drie op een rij, de
-       laatste twee vullen de onderste rij. Structuur uit randen, niet uit
-       slagschaduwen, zodat het rustig blijft. -->
-  <ul class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+  <!-- Op een telefoon is vijf kaarten onder elkaar een lange scroll. Daar
+       staan ze daarom naast elkaar en veeg je erdoorheen; scroll-snap laat
+       elke kaart netjes op zijn plek vallen. Vanaf 640px is er ruimte genoeg
+       voor een gewoon raster en vervalt het vegen.
+
+       Dit is CSS, geen carousel-script: geen bibliotheek, werkt zonder
+       JavaScript en respecteert vanzelf de instelling voor minder beweging. -->
+  <ul
+    class="veegrij mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-gutter pb-2 sm:mt-12 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:pb-0 lg:grid-cols-3"
+    tabindex="0"
+    role="region"
+    aria-label="Onze diensten, horizontaal schuifbaar"
+  >
     {
       diensten.items.map((item) => (
-        <li class="flex">
+        <li class="flex w-[78vw] max-w-[20rem] shrink-0 snap-start sm:w-auto sm:max-w-none">
           <a
             href={item.url}
-            class="group flex w-full flex-col gap-4 rounded-kaart border border-line bg-wit p-7 transition-colors hover:border-accent/40"
+            class="group flex w-full flex-col gap-4 rounded-kaart border border-line bg-wit p-6 transition-colors hover:border-accent/40 sm:p-7"
           >
             <DienstIcoon soort={item.icoon} />
             <span class="font-display text-lg font-bold leading-snug tracking-tight text-ink">
@@ -38,4 +54,17 @@ const { diensten } = homeSecties;
       ))
     }
   </ul>
-</Kader>
+
+  <p class="mt-4 px-gutter text-sm text-ink-4 sm:hidden">Veeg voor meer diensten</p>
+</section>
+
+<style>
+  /* De schuifbalk hoort hier niet thuis: de kaarten die half in beeld staan
+     laten al zien dat er meer is. */
+  .veegrij {
+    scrollbar-width: none;
+  }
+  .veegrij::-webkit-scrollbar {
+    display: none;
+  }
+</style>

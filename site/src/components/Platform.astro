@@ -1,5 +1,6 @@
 ---
 import Kader from "./Kader.astro";
+import Kop from "./Kop.astro";
 import { homeSecties } from "../data/site";
 
 const { platform } = homeSecties;
@@ -15,7 +16,7 @@ const { platform } = homeSecties;
         <p class="text-xs font-semibold uppercase tracking-[0.1em] text-merk">
           {platform.bovenregel}
         </p>
-        <h2 class="mt-4 max-w-[16ch] text-2xl font-extrabold text-wit">{platform.kop}</h2>
+        <Kop tekst={platform.kop} accent={platform.kopAccent} opDonker klasse="mt-4 max-w-[16ch] text-2xl font-extrabold text-wit" />
         <p class="mt-5 max-w-[46ch] text-base text-op-donker-sterk">{platform.lead}</p>
 
         <ul class="mt-8 space-y-3.5">

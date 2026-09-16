@@ -63,6 +63,7 @@ export const home = {
     // Aangeleverde positioneringstekst, ongewijzigd.
     bovenregel: "Ondergrondse inzamelvoorzieningen",
     kop: "Specialist in ondergrondse afvalcontainers",
+    kopAccent: "Specialist",
     lead: "Advies, projectleiding en werkvoorbereiding voor gemeenten en afvalinzamelaars.",
     alineas: [
       "B-Advice ondersteunt gemeenten en afvalinzamelaars bij de voorbereiding, " +
@@ -95,6 +96,7 @@ export const homeSecties = {
   diensten: {
     bovenregel: "Onze diensten",
     kop: "Waarmee wij gemeenten en afvalinzamelaars ondersteunen",
+    kopAccent: "afvalinzamelaars",
     lead:
       "Afzonderlijk in te zetten of als samenhangend pakket, van eerste " +
       "locatieonderzoek tot oplevering van de uitvoering.",
@@ -146,6 +148,7 @@ export const homeSecties = {
   platform: {
     bovenregel: "Ons platform",
     kop: "B-Organized: digitaal containerbeheer",
+    kopAccent: "digitaal containerbeheer",
     lead:
       "Gemeenten en afvalinzamelaars beheren hun volledige containerpark via " +
       "\u00e9\u00e9n platform. Overzichtelijk, snel en schaalbaar.",
