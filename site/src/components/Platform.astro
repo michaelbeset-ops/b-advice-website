@@ -5,44 +5,73 @@ import { homeSecties } from "../data/site";
 const { platform } = homeSecties;
 ---
 
-<!-- Donkere band. Hier geldt het logogroen: op dit vlak haalt het 6,3:1,
-     terwijl het accentgroen juist te donker zou zijn. -->
+<!-- Donkere band met het dashboard ernaast, zoals op de huidige site.
+     Hier geldt het logogroen: op dit vlak haalt het 6,3:1, terwijl het
+     accentgroen juist te donker zou zijn. -->
 <section class="bg-ink text-op-donker">
-  <Kader klasse="py-20 lg:py-28">
-    <div class="grid gap-x-16 gap-y-10 lg:grid-cols-12">
-      <div class="lg:col-span-6">
-        <p class="flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.1em] text-op-donker">
-          <span aria-hidden="true" class="h-px w-6 bg-merk"></span>
+  <Kader klasse="py-20 lg:py-24">
+    <div class="grid items-center gap-x-16 gap-y-12 lg:grid-cols-2">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.1em] text-merk">
           {platform.bovenregel}
         </p>
-        <h2 class="mt-6 max-w-[16ch] text-2xl font-extrabold text-wit">{platform.kop}</h2>
+        <h2 class="mt-4 max-w-[16ch] text-2xl font-extrabold text-wit">{platform.kop}</h2>
         <p class="mt-5 max-w-[46ch] text-base text-op-donker-sterk">{platform.lead}</p>
+
+        <ul class="mt-8 space-y-3.5">
+          {
+            platform.kenmerken.map((kenmerk) => (
+              <li class="flex items-start gap-3 text-base text-op-donker-sterk">
+                {/* Zelfgetekend vinkje in een rondje, zoals de huidige site. */}
+                <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-merk/20">
+                  <svg viewBox="0 0 12 12" class="h-2.5 w-2.5 text-merk" aria-hidden="true">
+                    <polyline
+                      points="2,6 5,9 10,3"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                {kenmerk}
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+          {
+            platform.acties.map((actie, i) => (
+              <a
+                href={actie.url}
+                target={"extern" in actie && actie.extern ? "_blank" : undefined}
+                rel={"extern" in actie && actie.extern ? "noopener" : undefined}
+                class:list={[
+                  "rounded-base px-7 py-4 text-center text-base transition-colors sm:py-3.5",
+                  i === 0
+                    ? "bg-merk font-semibold text-ink hover:bg-wit"
+                    : "border border-wit/25 font-medium text-wit hover:border-wit/60",
+                ]}
+              >
+                {actie.label}
+              </a>
+            ))
+          }
+        </div>
       </div>
 
-      <ul class="lg:col-span-5 lg:col-start-8 lg:mt-14">
-        {platform.kenmerken.map((kenmerk, i) => (
-          <li class:list={["py-3.5 text-base text-op-donker-sterk", i > 0 && "border-t border-wit/10"]}>
-            {kenmerk}
-          </li>
-        ))}
-      </ul>
-
-      <div class="flex flex-col gap-3 sm:flex-row lg:col-span-12">
-        {platform.acties.map((actie, i) => (
-          <a
-            href={actie.url}
-            target={"extern" in actie && actie.extern ? "_blank" : undefined}
-            rel={"extern" in actie && actie.extern ? "noopener" : undefined}
-            class:list={[
-              "rounded-base px-7 py-4 text-center text-base transition-colors sm:py-3.5",
-              i === 0
-                ? "bg-merk font-semibold text-ink hover:bg-wit"
-                : "border border-wit/25 font-medium text-wit hover:border-wit/60",
-            ]}
-          >
-            {actie.label}
-          </a>
-        ))}
+      <div>
+        <img
+          src="/assets/dashboard.webp"
+          alt="Kanban-overzicht in B-Organized met containers per wijk"
+          width="1400"
+          height="1050"
+          loading="lazy"
+          decoding="async"
+          class="w-full rounded-kaart border border-wit/10"
+        />
       </div>
     </div>
   </Kader>

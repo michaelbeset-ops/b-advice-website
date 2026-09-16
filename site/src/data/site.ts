@@ -102,6 +102,7 @@ export const homeSecties = {
     items: [
       {
         url: "/diensten/projectleiding/",
+        icoon: "put",
         titel: "Projectleiding en projectbegeleiding",
         tekst:
           "Tijdelijke projectleiding en interim-ondersteuning, van de eerste " +
@@ -109,6 +110,7 @@ export const homeSecties = {
       },
       {
         url: "/diensten/locatieonderzoek/",
+        icoon: "meten",
         titel: "Locatieonderzoek en werkvoorbereiding",
         tekst:
           "Onderzoeken, beoordelen en uitwerken van geschikte containerlocaties, " +
@@ -116,6 +118,7 @@ export const homeSecties = {
       },
       {
         url: "/diensten/locatieonderzoek/#kabels-en-leidingen",
+        icoon: "leidingen",
         titel: "Onderzoek naar kabels en leidingen",
         tekst:
           "Beoordelen van de beschikbare informatie en het voorbereiden en " +
@@ -123,6 +126,7 @@ export const homeSecties = {
       },
       {
         url: "/diensten/locatieonderzoek/#inrichtingstekeningen",
+        icoon: "tekening",
         titel: "Inrichtingstekeningen en uitvoeringsvoorbereiding",
         tekst:
           "Opstellen en uitwerken van inrichtingstekeningen en het voorbereiden " +
@@ -130,6 +134,7 @@ export const homeSecties = {
       },
       {
         url: "/diensten/",
+        icoon: "advies",
         titel: "Advies over ondergrondse inzamelvoorzieningen",
         tekst:
           "Specialistisch advies over inzamelstructuur, inzamelmiddelen, beheer " +
@@ -157,7 +162,7 @@ export const homeSecties = {
   },
 
   projecten: {
-    bovenregel: "Projecten en referenties",
+    bovenregel: "Referenties",
     kop: "Projecten en referenties",
     lead:
       "Projecten waarin B-Advice de voorbereiding, werkvoorbereiding of " +

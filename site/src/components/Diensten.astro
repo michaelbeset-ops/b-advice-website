@@ -1,32 +1,41 @@
 ---
 import Kader from "./Kader.astro";
-import Bovenregel from "./Bovenregel.astro";
+import DienstIcoon from "./DienstIcoon.astro";
 import { homeSecties } from "../data/site";
 
 const { diensten } = homeSecties;
 ---
 
-<Kader als="section" id="diensten" klasse="py-20 lg:py-28">
-  <Bovenregel tekst={diensten.bovenregel} />
-  <h2 class="mt-6 max-w-[22ch] text-2xl font-extrabold text-ink">{diensten.kop}</h2>
-  <p class="mt-5 max-w-[52ch] text-base text-ink-3">{diensten.lead}</p>
+<Kader als="section" id="diensten" klasse="py-20 lg:py-24">
+  <p class="text-xs font-semibold uppercase tracking-[0.1em] text-accent">{diensten.bovenregel}</p>
+  <h2 class="mt-4 max-w-[22ch] text-2xl font-extrabold text-ink">{diensten.kop}</h2>
+  <p class="mt-4 max-w-[54ch] text-base text-ink-3">{diensten.lead}</p>
 
-  <!-- Definitie-opmaak in plaats van kaarten met pictogrammen: titel links,
-       toelichting rechts, gescheiden door haarlijnen. Werkt met vijf items
-       net zo goed als met negen, en leest als een inhoudsopgave. -->
-  <ul class="mt-12 border-t border-line-strong">
-    {diensten.items.map((item) => (
-      <li class="border-b border-line">
-        <a
-          href={item.url}
-          class="group grid gap-x-8 gap-y-1.5 py-6 transition-colors hover:bg-accent/[0.035] lg:grid-cols-[minmax(0,38%)_minmax(0,1fr)]"
-        >
-          <span class="font-display text-lg font-bold tracking-tight text-ink transition-colors group-hover:text-accent">
-            {item.titel}
-          </span>
-          <span class="text-sm text-ink-3">{item.tekst}</span>
-        </a>
-      </li>
-    ))}
+  <!-- Kaarten in een raster, zoals op de huidige site. Drie op een rij, de
+       laatste twee vullen de onderste rij. Structuur uit randen, niet uit
+       slagschaduwen, zodat het rustig blijft. -->
+  <ul class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      diensten.items.map((item) => (
+        <li class="flex">
+          <a
+            href={item.url}
+            class="group flex w-full flex-col gap-4 rounded-kaart border border-line bg-wit p-7 transition-colors hover:border-accent/40"
+          >
+            <DienstIcoon soort={item.icoon} />
+            <span class="font-display text-lg font-bold leading-snug tracking-tight text-ink">
+              {item.titel}
+            </span>
+            <span class="flex-1 text-sm text-ink-3">{item.tekst}</span>
+            <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+              Meer informatie
+              <svg viewBox="0 0 16 16" class="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden="true">
+                <path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </a>
+        </li>
+      ))
+    }
   </ul>
 </Kader>
