@@ -6,13 +6,23 @@ import { home, hoofdactie } from "../data/site";
 const { hero } = home;
 ---
 
-<!-- Zelfde opzet als de huidige site: tekst links, beeld rechts, cijfers
-     eronder. De verhouding 52/48 komt daar ook vandaan. -->
-<section id="inhoud" class="border-b border-line bg-paper">
-  <Kader klasse="pt-14 pb-16 lg:pt-20 lg:pb-20">
-    <div class="grid items-center gap-x-14 gap-y-12 lg:grid-cols-[52fr_48fr]">
-      <div>
-        <p class="inline-flex items-center gap-2 rounded-full bg-accent/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.08em] text-accent">
+<!-- Tekst links, beeld rechts, cijfers eronder, net als op de huidige site.
+     Het beeld staat in een vlak dat op brede schermen doorloopt tot de
+     rechterrand; zo hangt het niet los in het wit maar sluit het de hero af. -->
+<section id="inhoud" class="relative border-b border-line bg-paper">
+  <!-- Het vlak achter het beeld, alleen vanaf lg en alleen op de rechterhelft. -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-y-0 right-0 hidden w-[46%] bg-wit lg:block"
+  >
+  </div>
+
+  <Kader klasse="relative pt-14 pb-16 lg:pt-16 lg:pb-16">
+    <div class="grid items-center gap-x-14 gap-y-10 lg:grid-cols-[54fr_46fr]">
+      <div class="lg:pr-6">
+        <p
+          class="inline-flex items-center rounded-full bg-accent/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.08em] text-accent"
+        >
           {hero.bovenregel}
         </p>
 
@@ -23,15 +33,15 @@ const { hero } = home;
           klasse="mt-6 max-w-[15ch] text-display font-extrabold text-ink"
         />
 
-        <p class="mt-6 max-w-[38ch] text-xl font-medium text-ink-2">
+        <p class="mt-6 max-w-[40ch] text-xl font-medium text-ink-2">
           {hero.lead}
         </p>
 
-        <div class="mt-6 max-w-[54ch] space-y-4">
+        <div class="mt-5 max-w-[54ch] space-y-4">
           {hero.alineas.map((alinea) => <p class="text-base text-ink-3">{alinea}</p>)}
         </div>
 
-        <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
           <a
             href={hoofdactie.url}
             class="rounded-base bg-accent px-7 py-4 text-center text-base font-semibold text-wit transition-colors hover:bg-accent-deep sm:py-3.5"
@@ -46,17 +56,23 @@ const { hero } = home;
           </a>
         </div>
 
-        <!-- Cijfers onder de tekst, gescheiden door verticale lijnen, net als nu. -->
-        <dl class="mt-12 grid gap-x-6 sm:grid-cols-3">
+        <dl class="mt-10 grid gap-x-6 sm:grid-cols-3">
           {
             hero.feiten.map((feit, i) => (
               <div
                 class:list={[
-                  i > 0 && "border-t border-line pt-4 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0",
-                  i > 0 && "mt-4 sm:mt-0",
+                  i > 0 && "mt-4 border-t border-line pt-4",
+                  i > 0 && "sm:mt-0 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0",
                 ]}
               >
-                <dd class="font-display text-xl font-extrabold leading-tight tracking-tight text-ink lg:text-2xl">
+                <dd
+                  class:list={[
+                    "font-display leading-tight tracking-tight text-ink",
+                    "tekstwaarde" in feit && feit.tekstwaarde
+                      ? "text-lg font-bold"
+                      : "text-xl font-extrabold lg:text-2xl",
+                  ]}
+                >
                   {feit.waarde}
                 </dd>
                 <dt class="mt-1.5 text-sm leading-snug text-ink-4">{feit.label}</dt>
@@ -66,7 +82,7 @@ const { hero } = home;
         </dl>
       </div>
 
-      <div class="lg:justify-self-end">
+      <div class="lg:-mr-gutter lg:pl-8">
         <img
           src="/assets/dashboard.webp"
           alt="Het B-Organized dashboard met een containeroverzicht per gemeente"
@@ -74,7 +90,7 @@ const { hero } = home;
           height="1050"
           fetchpriority="high"
           decoding="async"
-          class="w-full rounded-kaart border border-line"
+          class="w-full rounded-kaart border border-line lg:rounded-none lg:border-0"
         />
       </div>
     </div>

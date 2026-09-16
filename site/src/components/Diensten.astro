@@ -2,6 +2,7 @@
 import Kader from "./Kader.astro";
 import Kop from "./Kop.astro";
 import DienstIcoon from "./DienstIcoon.astro";
+import Veegrij from "./Veegrij.astro";
 import { homeSecties } from "../data/site";
 
 const { diensten } = homeSecties;
@@ -25,12 +26,7 @@ const { diensten } = homeSecties;
 
        Dit is CSS, geen carousel-script: geen bibliotheek, werkt zonder
        JavaScript en respecteert vanzelf de instelling voor minder beweging. -->
-  <ul
-    class="veegrij mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-gutter pb-2 sm:mt-12 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:pb-0 lg:grid-cols-3"
-    tabindex="0"
-    role="region"
-    aria-label="Onze diensten, horizontaal schuifbaar"
-  >
+  <Veegrij label="Onze diensten" klasse="mt-10 sm:mt-12 sm:gap-5">
     {
       diensten.items.map((item) => (
         <li class="flex w-[78vw] max-w-[20rem] shrink-0 snap-start sm:w-auto sm:max-w-none">
@@ -53,18 +49,8 @@ const { diensten } = homeSecties;
         </li>
       ))
     }
-  </ul>
+  </Veegrij>
 
   <p class="mt-4 px-gutter text-sm text-ink-4 sm:hidden">Veeg voor meer diensten</p>
 </section>
 
-<style>
-  /* De schuifbalk hoort hier niet thuis: de kaarten die half in beeld staan
-     laten al zien dat er meer is. */
-  .veegrij {
-    scrollbar-width: none;
-  }
-  .veegrij::-webkit-scrollbar {
-    display: none;
-  }
-</style>

@@ -57,9 +57,9 @@
   --color-merk: #4caf72;
   /* Accentwoord in grote koppen. Het logogroen haalt op papier 2,6:1 en zakt
      daarmee zelfs door de soepelere norm van 3:1 voor grote tekst. Dit is de
-     dichtstbijzijnde tint die wel 3,1:1 haalt; het verschil is met het blote
-     oog nauwelijks te zien. Alleen gebruiken op koppen van 24px en groter. */
-  --color-accent-kop: #3fa263;
+     dichtstbijzijnde tint die 3:1 haalt op alle achtergronden die op de site
+     voorkomen; het verschil is met het blote oog nauwelijks te zien. Alleen gebruiken op koppen van 24px en groter. */
+  --color-accent-kop: #3c9d60;
   --color-line: rgb(18 33 26 / 0.14);
   --color-line-strong: rgb(18 33 26 / 0.26);
   --color-op-donker: #9aa7a0;

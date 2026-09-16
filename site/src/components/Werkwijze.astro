@@ -1,0 +1,50 @@
+---
+import Kader from "./Kader.astro";
+import Kop from "./Kop.astro";
+import Veegrij from "./Veegrij.astro";
+import { homeSecties } from "../data/site";
+
+const { werkwijze } = homeSecties;
+---
+
+<!-- Vier stappen op een lijn, met de fasenamen erboven. Het beantwoordt de
+     vraag die een gemeente als eerste stelt: hoe loopt zo'n traject, en waar
+     stap ik in. Alle tekst komt uit de aangeleverde stukken; hier staat niets
+     dat B-Advice niet zelf heeft opgeschreven. -->
+<section class="bg-paper-2 py-20 lg:py-24">
+  <Kader>
+    <p class="text-xs font-semibold uppercase tracking-[0.1em] text-accent">
+      {werkwijze.bovenregel}
+    </p>
+    <Kop
+      tekst={werkwijze.kop}
+      accent={werkwijze.kopAccent}
+      klasse="mt-4 max-w-[20ch] text-2xl font-extrabold text-ink"
+    />
+    <p class="mt-4 max-w-[52ch] text-base text-ink-3">{werkwijze.lead}</p>
+
+  </Kader>
+
+  <Veegrij als="ol" label="Onze werkwijze in vier stappen" kolommen={4} klasse="mt-12">
+      {
+        werkwijze.stappen.map((stap, i) => (
+          <li class="w-[78vw] max-w-[20rem] shrink-0 snap-start border-t-2 border-accent/25 pt-5 sm:w-auto sm:max-w-none">
+            <span class="font-display text-sm font-bold text-accent">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <h3 class="mt-2 font-display text-lg font-bold tracking-tight text-ink">
+              {stap.titel}
+            </h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink-3">{stap.tekst}</p>
+          </li>
+        ))
+      }
+  </Veegrij>
+
+  <Kader>
+
+    <p class="mt-12 max-w-[60ch] border-l-2 border-accent pl-5 text-base font-medium text-ink-2">
+      {werkwijze.slot}
+    </p>
+  </Kader>
+</section>

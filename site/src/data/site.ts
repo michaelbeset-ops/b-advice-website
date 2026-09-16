@@ -70,8 +70,6 @@ export const home = {
         "organisatie en uitvoering van projecten rondom ondergrondse " +
         "inzamelvoorzieningen. Van locatieonderzoek en technische voorbereiding " +
         "tot projectleiding en begeleiding van de uitvoering.",
-      "Wij zijn landelijk inzetbaar voor tijdelijke projectleiding, " +
-        "specialistische adviesopdrachten en projectmatige ondersteuning.",
     ],
     tweedeActie: { label: "Bekijk onze diensten", url: "/diensten/" },
     /** Feiten uit de huidige site. Het percentage klanttevredenheid dat er
@@ -79,7 +77,9 @@ export const home = {
     feiten: [
       { label: "Gemeenten bediend", waarde: "40+" },
       { label: "Containers in beheer", waarde: "7.000+" },
-      { label: "Werkgebied", waarde: "Heel Nederland" },
+      // Geen getal, dus kleiner gezet: anders schreeuwt "Heel Nederland"
+      // net zo hard als de cijfers ernaast.
+      { label: "Werkgebied", waarde: "Heel Nederland", tekstwaarde: true },
     ],
   },
 } as const;
@@ -143,6 +143,47 @@ export const homeSecties = {
           "en vervanging.",
       },
     ],
+  },
+
+  werkwijze: {
+    bovenregel: "Werkwijze",
+    kop: "Van locatieonderzoek tot oplevering",
+    kopAccent: "locatieonderzoek",
+    lead:
+      "Wij kunnen het hele traject verzorgen of alleen het deel waar u " +
+      "ondersteuning bij nodig heeft.",
+    stappen: [
+      {
+        titel: "Locatieonderzoek",
+        tekst:
+          "Onderzoeken en beoordelen van potentiële containerlocaties, met " +
+          "locatiebezoek en een beoordeling van de beschikbare informatie over " +
+          "kabels en leidingen.",
+      },
+      {
+        titel: "Werkvoorbereiding",
+        tekst:
+          "Inmeten van de locatie, opstellen en uitwerken van de " +
+          "inrichtingstekeningen en het voorbereiden van de werkzaamheden voor " +
+          "de uitvoering.",
+      },
+      {
+        titel: "Uitvoering",
+        tekst:
+          "Begeleiden van de levering en plaatsing, bewaken van planning en " +
+          "voortgang, en afstemmen met gemeenten, leveranciers en aannemers.",
+      },
+      {
+        titel: "Oplevering",
+        tekst:
+          "Voortgangsrapportages en ondersteuning bij de overdracht en " +
+          "oplevering van het project.",
+      },
+    ],
+    // De tweede alinea uit de aangeleverde hero-tekst, ongewijzigd.
+    slot:
+      "Wij zijn landelijk inzetbaar voor tijdelijke projectleiding, " +
+      "specialistische adviesopdrachten en projectmatige ondersteuning.",
   },
 
   platform: {
