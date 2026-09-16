@@ -82,14 +82,17 @@ const { tijdlijn, geschiedenis, team, aanpak } = overOns;
       {
         team.leden.map((lid) => (
           <li class="w-[78vw] max-w-[20rem] shrink-0 snap-start sm:w-auto sm:max-w-none">
+            {/* De bronfoto's zijn staand met veel zwart onder de persoon. Ze
+                zijn bijgesneden naar 4:5 hoofd-en-schouders, zodat de drie
+                portretten even groot in beeld staan. */}
             <img
               src={lid.foto}
               alt={`Portret van ${lid.naam}`}
-              width="640"
-              height="640"
+              width="800"
+              height="1000"
               loading="lazy"
               decoding="async"
-              class="aspect-square w-full rounded-kaart border border-line object-cover"
+              class="aspect-[4/5] w-full rounded-kaart border border-line object-cover"
             />
             <h3 class="mt-5 font-display text-lg font-bold tracking-tight text-ink">{lid.naam}</h3>
             <p class="mt-1 text-sm font-semibold text-accent">{lid.rol}</p>

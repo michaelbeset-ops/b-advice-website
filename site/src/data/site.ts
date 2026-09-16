@@ -34,7 +34,6 @@ export const navigatie = {
   ],
   /** Hoofdmenu naast Diensten, in dezelfde volgorde als op de huidige site. */
   hoofd: [
-    { url: "/projecten/", label: "Projecten" },
     { url: "/b-organized/", label: "B-Organized" },
     { url: "/b-covered/", label: "B-Covered" },
     { url: "/producten/", label: "Producten" },
@@ -47,6 +46,15 @@ export const navigatie = {
 } as const;
 
 /** De ene actie die een bezoeker moet doen. Overal dezelfde woorden. */
+/** Kop en intro van het dienstenoverzicht, letterlijk van de huidige site. */
+export const dienstenPagina = {
+  h1: "Onze diensten",
+  lead:
+    "B-Advice ondersteunt gemeenten en afvalinzamelaars bij projecten rondom " +
+    "ondergrondse inzamelvoorzieningen. Onze werkzaamheden kunnen afzonderlijk " +
+    "of als onderdeel van een groter project worden uitgevoerd.",
+} as const;
+
 export const hoofdactie = {
   label: "Bespreek uw project met B-Advice",
   url: "/contact/",
@@ -213,20 +221,6 @@ export const homeSecties = {
     ],
   },
 
-  projecten: {
-    bovenregel: "Referenties",
-    kop: "Projecten en referenties",
-    lead:
-      "Projecten waarin B-Advice de voorbereiding, werkvoorbereiding of " +
-      "projectleiding verzorgde.",
-    /** Er staat nog geen project gepubliceerd, dus geen kaarten maar een
-     *  eerlijke lege staat. Zodra er projecten zijn komt hier een overzicht. */
-    leeg:
-      "De eerste referentieprojecten worden op dit moment samengesteld. Wilt u " +
-      "nu al weten of wij ervaring hebben met een vergelijkbaar project, neem " +
-      "dan gerust contact op.",
-    link: { url: "/projecten/", label: "Alle projecten en referenties" },
-  },
 
   cta: {
     kop: "Een project in voorbereiding of uitvoering?",
@@ -242,7 +236,6 @@ export const footer = {
     {
       titel: "Bedrijf",
       links: [
-        { url: "/projecten/", label: "Projecten en referenties" },
         { url: "/over-ons/", label: "Over ons" },
         { url: "/nieuws/", label: "Nieuws" },
         { url: "/contact/", label: "Contact" },
@@ -254,6 +247,9 @@ export const footer = {
   onderaan: [
     { url: "/privacy/", label: "Privacy" },
     { url: "/cookies/", label: "Cookies" },
+    // Het bureau achter de site, zoals onderaan de huidige site staat.
+    // Extern, dus in een nieuw tabblad met rel=noopener.
+    { url: "https://sitefront.nl", label: "Powered by Sitefront", extern: true },
   ],
 } as const;
 
@@ -338,7 +334,6 @@ export const diensten: readonly Dienst[] = [
     ],
     verwant: [
       { label: "Locatieonderzoek en werkvoorbereiding", url: "/diensten/locatieonderzoek/" },
-      { label: "Projecten en referenties", url: "/projecten/" },
     ],
     faq: [
       {
@@ -350,6 +345,11 @@ export const diensten: readonly Dienst[] = [
         vraag: "Voor welke organisaties werkt B-Advice?",
         antwoord:
           "Wij ondersteunen gemeenten en afvalinzamelaars bij de voorbereiding en uitvoering van projecten rondom ondergrondse afvalcontainers.",
+      },
+      {
+        vraag: "Wat doet een projectleider afvalinzameling bij B-Advice precies?",
+        antwoord:
+          "De werkzaamheden omvatten onder andere het voorbereiden en begeleiden van de levering en plaatsing van ondergrondse inzamelvoorzieningen, het opstellen en bewaken van projectplanningen, afstemming met alle betrokken partijen, begeleiding van de uitvoering, voortgangsrapportages en ondersteuning bij overdracht en oplevering.",
       },
       {
         vraag: "In welke regio's is B-Advice inzetbaar?",
@@ -415,7 +415,6 @@ export const diensten: readonly Dienst[] = [
     ],
     verwant: [
       { label: "Projectleiding en projectbegeleiding", url: "/diensten/projectleiding/" },
-      { label: "Projecten en referenties", url: "/projecten/" },
     ],
     faq: [
       {
@@ -427,6 +426,11 @@ export const diensten: readonly Dienst[] = [
         vraag: "Verzorgen jullie ook het onderzoek naar kabels en leidingen?",
         antwoord:
           "Wij beoordelen de beschikbare informatie over kabels en leidingen en bereiden aanvullend onderzoek voor en coördineren dat, zoals proefsleuven of grondradar. Het veldwerk zelf wordt uitgevoerd door gespecialiseerde partijen; wij stemmen dat af en verwerken de resultaten in de voorbereiding.",
+      },
+      {
+        vraag: "Maken jullie inrichtingstekeningen?",
+        antwoord:
+          "Ja. Het opstellen en uitwerken van inrichtingstekeningen hoort tot onze werkzaamheden, net als het voorbereiden van de werkzaamheden voor de uitvoering.",
       },
       {
         vraag: "Kunnen wij alleen de werkvoorbereiding uitbesteden?",
@@ -941,27 +945,6 @@ export const overOns = {
   },
 } as const;
 
-export const projectenPagina = {
-  meta: {
-    titel: "Projecten en referenties ondergrondse containers | B-Advice",
-    omschrijving:
-      "Projecten waarin B-Advice gemeenten en afvalinzamelaars ondersteunde bij " +
-      "voorbereiding, werkvoorbereiding en projectleiding van ondergrondse " +
-      "inzamelvoorzieningen.",
-  },
-  h1: "Projecten en referenties",
-  kopAccent: "referenties",
-  lead:
-    "Projecten waarin B-Advice gemeenten en afvalinzamelaars ondersteunde bij de " +
-    "voorbereiding, werkvoorbereiding en projectleiding van ondergrondse " +
-    "inzamelvoorzieningen.",
-  // Er staan nog geen referentieprojecten online. Deze tekst zegt dat eerlijk,
-  // in plaats van de pagina te vullen met voorbeelden die er niet zijn.
-  leegTekst:
-    "De eerste referentieprojecten worden op dit moment samengesteld. Wilt u nu al " +
-    "weten of wij ervaring hebben met een vergelijkbaar project? Neem gerust contact op.",
-  leegKop: "Nog geen projecten online",
-} as const;
 
 export const locatieaanvraag = {
   meta: {

@@ -4,7 +4,7 @@ import Kader from "../../components/Kader.astro";
 import Kruimels from "../../components/Kruimels.astro";
 import Bovenregel from "../../components/Bovenregel.astro";
 import CtaBand from "../../components/CtaBand.astro";
-import { diensten, navigatie, home } from "../../data/site";
+import { diensten, navigatie, dienstenPagina, home } from "../../data/site";
 
 // Eén bron voor de volgorde: het menu. Een nieuwe dienst verschijnt daarmee
 // vanzelf in de navigatie, de footer en op deze pagina tegelijk.
@@ -43,9 +43,9 @@ const lijstSchema = {
 
   <Kader als="section" id="inhoud" klasse="pt-10 lg:pt-14">
     <Bovenregel tekst="Wat we doen" />
-    <h1 class="mt-6 max-w-[14ch] text-3xl font-extrabold text-ink">Onze diensten</h1>
+    <h1 class="mt-6 max-w-[14ch] text-3xl font-extrabold text-ink">{dienstenPagina.h1}</h1>
     <p class="mt-6 max-w-[56ch] text-xl font-medium text-ink-2">
-      {home.hero.alineas[0]}
+      {dienstenPagina.lead}
     </p>
   </Kader>
 

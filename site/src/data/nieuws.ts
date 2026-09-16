@@ -34,6 +34,8 @@ export interface Artikel {
   datum: string;
   h1: string;
   lead: string;
+  /** Korte samenvatting voor het nieuwsoverzicht. */
+  samenvatting: string;
   meta: { titel: string; omschrijving: string };
   blokken: ArtikelBlok[];
 }
@@ -53,10 +55,11 @@ export const nieuwsPagina = {
 export const artikelen: Artikel[] = [
   {
     slug: "afval-naast-ondergrondse-containers",
+    samenvatting: "Op tien locaties worden containers opgeknapt en krijgen omwonenden uitleg. Een verzorgde plek helpt — maar niet elke bijplaatsing is een kwestie van gedrag.",
     categorie: "Analyse",
     datum: "2026-09-16",
     h1: "Afval naast ondergrondse containers: Rd4 en vier gemeenten pakken bijplaatsingen aan",
-    lead: "Op tien locaties worden containers opgeknapt en krijgen omwonenden uitleg. Een verzorgde plek helpt &mdash; maar niet elke bijplaatsing is een kwestie van gedrag.",
+    lead: "Op tien locaties worden containers opgeknapt en krijgen omwonenden uitleg. Een verzorgde plek helpt — maar niet elke bijplaatsing is een kwestie van gedrag.",
     meta: {
       titel: "Afval naast ondergrondse containers aanpakken",
       omschrijving: "Rd4 en vier gemeenten pakken afval naast ondergrondse containers aan. Wat werkt tegen bijplaatsingen, en wat is in de voorbereiding al op te lossen?",
@@ -72,11 +75,11 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "De maatregelen zijn bewust praktisch. De containers worden schoongemaakt en opgeknapt, er komen nieuwe stickers op en bij elke locatie komt een informatiebord te staan. Daarnaast krijgen inwoners uitleg over wat zij kunnen doen wanneer een container vol of defect is &mdash; juist op die momenten ontstaan de meeste bijplaatsingen.",
+        tekst: "De maatregelen zijn bewust praktisch. De containers worden schoongemaakt en opgeknapt, er komen nieuwe stickers op en bij elke locatie komt een informatiebord te staan. Daarnaast krijgen inwoners uitleg over wat zij kunnen doen wanneer een container vol of defect is — juist op die momenten ontstaan de meeste bijplaatsingen.",
       },
       {
         type: "p",
-        tekst: "Omwonenden worden actief betrokken. Via de Rd4-app ontvangen zij updates over de aangepakte locaties en tips om de omgeving schoon te houden. De campagneboodschap &lsquo;Doe gewoon, houd je buurt schoon&rsquo; is bedacht door een Rd4-medewerker die dagelijks ondergrondse containers schoonmaakt en het afval ernaast opruimt.",
+        tekst: "Omwonenden worden actief betrokken. Via de Rd4-app ontvangen zij updates over de aangepakte locaties en tips om de omgeving schoon te houden. De campagneboodschap ‘Doe gewoon, houd je buurt schoon’ is bedacht door een Rd4-medewerker die dagelijks ondergrondse containers schoonmaakt en het afval ernaast opruimt.",
       },
       {
         type: "h2",
@@ -88,7 +91,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "citaat",
-        tekst: "&ldquo;Als een locatie schoon en verzorgd oogt, zijn mensen eerder geneigd om deze ook netjes te houden.&rdquo; &mdash; Rd4",
+        tekst: "“Als een locatie schoon en verzorgd oogt, zijn mensen eerder geneigd om deze ook netjes te houden.” — Rd4",
       },
       {
         type: "p",
@@ -118,7 +121,7 @@ export const artikelen: Artikel[] = [
               "Of er fysiek ruimte is om iets naast de zuil neer te zetten",
               "De ligging ten opzichte van looproutes, parkeerplaatsen en de aanrijroute",
               "Zicht vanuit omliggende woningen en verlichting in de avonduren",
-              "Hoe eenvoudig een storing te melden is &mdash; en hoe snel die wordt verholpen",
+              "Hoe eenvoudig een storing te melden is — en hoe snel die wordt verholpen",
             ],
           },
         ],
@@ -149,12 +152,13 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Dit artikel is gebaseerd op het bericht <a href=\"https://www.beekdaelen.nl/rd4-en-gemeenten-pakken-afval-naast-containers-aan\" target=\"_blank\" rel=\"noopener\">&lsquo;Rd4 en gemeenten pakken afval naast containers aan&rsquo;</a> van de gemeente Beekdaelen, 14 september 2026. De aangehaalde citaten komen uit dat bericht.",
+        tekst: "Dit artikel is gebaseerd op het bericht <a href=\"https://www.beekdaelen.nl/rd4-en-gemeenten-pakken-afval-naast-containers-aan\" target=\"_blank\" rel=\"noopener\">‘Rd4 en gemeenten pakken afval naast containers aan’</a> van de gemeente Beekdaelen, 14 september 2026. De aangehaalde citaten komen uit dat bericht.",
       },
     ],
   },
   {
     slug: "pmd-verzamelcontainers-hoogbouw-verpact-2026",
+    samenvatting: "Verpact, VNG en NVRD schrappen de vergoeding voor PMD uit openbare verzamelcontainers. Enschede laat zien hoe lastig deze omslag in de praktijk is.",
     categorie: "Analyse",
     datum: "2026-09-10",
     h1: "PMD-verzamelcontainers verdwijnen uit hoogbouw: wat betekent dit voor gemeenten?",
@@ -256,7 +260,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Lees meer over <a href=\"/diensten/afvalinzameling/\">afvalinzameling &amp; management</a> of bekijk onze andere <a href=\"/nieuws/\">nieuwsartikelen</a>.",
+        tekst: "Lees meer over <a href=\"/diensten/afvalinzameling/\">afvalinzameling & management</a> of bekijk onze andere <a href=\"/nieuws/\">nieuwsartikelen</a>.",
       },
       {
         type: "streep",
@@ -270,6 +274,7 @@ export const artikelen: Artikel[] = [
   },
   {
     slug: "hitteprotocol-afvalinzameling-hittegolf-2026",
+    samenvatting: "Tientallen gemeenten pasten halverwege augustus hun inzameling aan vanwege de hitte. Wat leert het hitteprotocol ons over de kracht van ondergronds inzamelen?",
     categorie: "Analyse",
     datum: "2026-08-24",
     h1: "Hittegolf van augustus 2026: een stresstest voor de gemeentelijke afvalinzameling",
@@ -368,6 +373,7 @@ export const artikelen: Artikel[] = [
   },
   {
     slug: "afvalstoffenbelasting-verhoging-2028-gemeenten",
+    samenvatting: "De belasting op afvalverbranding stijgt fors richting 2028 en 2035. Waarom minder restafval per inwoner nu een financiële noodzaak wordt.",
     categorie: "Analyse",
     datum: "2026-08-20",
     h1: "Afvalstoffenbelasting fors omhoog vanaf 2028: wat betekent dit voor gemeenten?",
@@ -479,6 +485,7 @@ export const artikelen: Artikel[] = [
   },
   {
     slug: "textielinzameling-ondergrondse-containers-2026",
+    samenvatting: "Sinds 2025 is gescheiden textielinzameling EU-breed verplicht. Wat betekent dit voor gemeenten en waar loopt het in de praktijk vast?",
     categorie: "Uitleg",
     datum: "2026-08-12",
     h1: "Textielinzameling in 2026: de verplichting, de knelpunten en de rol van ondergrondse containers",
@@ -577,7 +584,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Lees meer over <a href=\"/diensten/afvalinzameling/\">afvalinzameling &amp; management</a> of bekijk onze andere <a href=\"/nieuws/\">nieuwsartikelen</a>.",
+        tekst: "Lees meer over <a href=\"/diensten/afvalinzameling/\">afvalinzameling & management</a> of bekijk onze andere <a href=\"/nieuws/\">nieuwsartikelen</a>.",
       },
       {
         type: "streep",
@@ -591,6 +598,7 @@ export const artikelen: Artikel[] = [
   },
   {
     slug: "bronscheiding-nascheiding-pmd-2026",
+    samenvatting: "PMD-nascheiding wint terrein in 2026. De verschillen met bronscheiding, wat de PPWR betekent en welke rol ondergrondse containers spelen.",
     categorie: "Analyse",
     datum: "2026-08-07",
     h1: "Bronscheiding of nascheiding van PMD in 2026: wat betekent het voor ondergrondse afvalinzameling?",
@@ -733,7 +741,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Lees meer over <a href=\"/diensten/afvalinzameling/\">afvalinzameling &amp; management</a> of bekijk onze andere <a href=\"/nieuws/\">nieuwsartikelen</a>.",
+        tekst: "Lees meer over <a href=\"/diensten/afvalinzameling/\">afvalinzameling & management</a> of bekijk onze andere <a href=\"/nieuws/\">nieuwsartikelen</a>.",
       },
       {
         type: "streep",
@@ -747,6 +755,7 @@ export const artikelen: Artikel[] = [
   },
   {
     slug: "batterijbranden-afvalinzameling",
+    samenvatting: "Ruim 7 miljoen vapes per jaar verdwijnen in het restafval, met bijna dagelijks brand in containers en inzamelwagens tot gevolg. Wat gemeenten nu kunnen doen.",
     categorie: "Analyse",
     datum: "2026-07-16",
     h1: "Batterijbranden in de afvalinzameling: van incident naar structureel risico",
@@ -867,6 +876,7 @@ export const artikelen: Artikel[] = [
   },
   {
     slug: "pmd-ketenovereenkomst-2026-gemeenten",
+    samenvatting: "Afkeur van PMD-vrachten verdwijnt, een voorspelbare vergoeding komt ervoor in de plaats. Wat dit betekent voor bron- en nascheiding en voor ondergrondse containers.",
     categorie: "Analyse",
     datum: "2026-07-01",
     h1: "PMD ketenovereenkomst 2026: wat verandert er voor gemeenten?",
@@ -890,7 +900,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "citaat",
-        tekst: "Niet meer &ldquo;wordt onze vracht afgekeurd&rdquo;, maar &ldquo;welke inzamelmethode past het best bij onze gemeente&rdquo;.",
+        tekst: "Niet meer “wordt onze vracht afgekeurd”, maar “welke inzamelmethode past het best bij onze gemeente”.",
       },
       {
         type: "h2",
@@ -975,11 +985,11 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "De nieuwe ketenafspraken lossen een langlopend pijnpunt op, maar verschuiven de vraag naar een nieuw niveau: niet meer &ldquo;wordt onze vracht afgekeurd&rdquo;, maar &ldquo;welke inzamelmethode past het best bij onze gemeente, gegeven de nieuwe vergoedingsstructuur&rdquo;. Voor gemeenten die hun containerpark de komende jaren vernieuwen of uitbreiden, is dit hét moment om die keuze opnieuw tegen het licht te houden.",
+        tekst: "De nieuwe ketenafspraken lossen een langlopend pijnpunt op, maar verschuiven de vraag naar een nieuw niveau: niet meer “wordt onze vracht afgekeurd”, maar “welke inzamelmethode past het best bij onze gemeente, gegeven de nieuwe vergoedingsstructuur”. Voor gemeenten die hun containerpark de komende jaren vernieuwen of uitbreiden, is dit hét moment om die keuze opnieuw tegen het licht te houden.",
       },
       {
         type: "p",
-        tekst: "Lees meer over hoe wij gemeenten begeleiden bij <a href=\"/diensten/afvalinzameling/\">afvalinzameling &amp; management</a>, of bekijk waarom <a href=\"/nieuws/kantelpunt-2026/\">2026 een kantelpunt vormt voor ondergrondse inzameling</a>.",
+        tekst: "Lees meer over hoe wij gemeenten begeleiden bij <a href=\"/diensten/afvalinzameling/\">afvalinzameling & management</a>, of bekijk waarom <a href=\"/nieuws/kantelpunt-2026/\">2026 een kantelpunt vormt voor ondergrondse inzameling</a>.",
       },
       {
         type: "streep",
@@ -993,6 +1003,7 @@ export const artikelen: Artikel[] = [
   },
   {
     slug: "diftar-betalen-naar-gebruik",
+    samenvatting: "Wat is diftar, hoe werkt het en waarom is de ondergrondse container het sleutelstuk van een werkend diftar-systeem?",
     categorie: "Uitleg",
     datum: "2026-06-26",
     h1: "Diftar uitgelegd: betalen naar gebruik en de rol van ondergrondse containers",
@@ -1135,7 +1146,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Lees ook: <a href=\"/diensten/afvalinzameling/\">afvalinzameling &amp; management</a>, <a href=\"/nieuws/omgekeerd-inzamelen/\">omgekeerd inzamelen</a> en <a href=\"/nieuws/afvalstoffenbelasting-verhoging-2028-gemeenten/\">de afvalstoffenbelasting vanaf 2028</a>.",
+        tekst: "Lees ook: <a href=\"/diensten/afvalinzameling/\">afvalinzameling & management</a>, <a href=\"/nieuws/omgekeerd-inzamelen/\">omgekeerd inzamelen</a> en <a href=\"/nieuws/afvalstoffenbelasting-verhoging-2028-gemeenten/\">de afvalstoffenbelasting vanaf 2028</a>.",
       },
       {
         type: "streep",
@@ -1174,6 +1185,7 @@ export const artikelen: Artikel[] = [
   },
   {
     slug: "kantelpunt-2026",
+    samenvatting: "Gemeenten kiezen massaal voor inzameling op afstand en diftar. Wat drijft die verschuiving, en wat vraagt het van de infrastructuur?",
     categorie: "Analyse",
     datum: "2026-06-23",
     h1: "Waarom 2026 een kantelpunt is voor ondergrondse afvalinzameling",
@@ -1276,6 +1288,7 @@ export const artikelen: Artikel[] = [
   },
   {
     slug: "qr-code-pilot",
+    samenvatting: "B-Advice en B-Organized lanceren een QR-code pilot die onderhoud en reparaties aan ondergrondse containers slimmer, sneller en inzichtelijker maakt. Bekijk de video en lees hoe het werkt.",
     categorie: "Innovatie",
     datum: "2026-06-23",
     h1: "Efficiënter containerbeheer: de QR-code pilot via B-Organized",
@@ -1356,7 +1369,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Lees ook: <a href=\"/diensten/beheer-onderhoud/\">beheer, onderhoud &amp; refurbish</a>, <a href=\"/b-organized/\">het B-Organized-platform</a> en <a href=\"/nieuws/batterijbranden-afvalinzameling/\">batterijbranden in de afvalinzameling</a>.",
+        tekst: "Lees ook: <a href=\"/diensten/beheer-onderhoud/\">beheer, onderhoud & refurbish</a>, <a href=\"/b-organized/\">het B-Organized-platform</a> en <a href=\"/nieuws/batterijbranden-afvalinzameling/\">batterijbranden in de afvalinzameling</a>.",
       },
       {
         type: "streep",
@@ -1383,6 +1396,7 @@ export const artikelen: Artikel[] = [
   },
   {
     slug: "omgekeerd-inzamelen",
+    samenvatting: "Steeds meer gemeenten draaien hun afvalinzameling letterlijk om. Wat betekent dit in de praktijk en waar gaat het mis?",
     categorie: "Artikel",
     datum: "2026-06-10",
     h1: "Omgekeerd inzamelen: wat verandert er voor gemeenten?",
@@ -1472,7 +1486,7 @@ export const artikelen: Artikel[] = [
           {
             type: "lijst",
             items: [
-              "Grondig locatieonderzoek inclusief kabels &amp; leidingen",
+              "Grondig locatieonderzoek inclusief kabels & leidingen",
               "Formeel aanwijsbesluit met inspraakperiode",
               "Proactieve communicatie richting bewoners",
               "Gefaseerde aanpak: wijk voor wijk",

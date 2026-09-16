@@ -50,6 +50,7 @@ import { bedrijf, navigatie, footer } from "../data/site";
         <ul class="mt-4 space-y-2 text-sm sm:mt-5 sm:space-y-2.5">
           <li><a href={`mailto:${bedrijf.email}`} class="transition-colors hover:text-op-donker-sterk">{bedrijf.email}</a></li>
           <li><a href={bedrijf.telefoonUrl} class="transition-colors hover:text-op-donker-sterk">{bedrijf.telefoon}</a></li>
+          <li>{bedrijf.adres.straat}, {bedrijf.adres.plaats}</li>
         </ul>
       </div>
     </div>
@@ -58,7 +59,16 @@ import { bedrijf, navigatie, footer } from "../data/site";
       <p>&copy; {new Date().getFullYear()} {bedrijf.naam}. Alle rechten voorbehouden. KvK {bedrijf.kvk}</p>
       <ul class="flex gap-5">
         {footer.onderaan.map((link) => (
-          <li><a href={link.url} class="transition-colors hover:text-op-donker-sterk">{link.label}</a></li>
+          <li>
+            <a
+              href={link.url}
+              target={"extern" in link && link.extern ? "_blank" : undefined}
+              rel={"extern" in link && link.extern ? "noopener" : undefined}
+              class="transition-colors hover:text-op-donker-sterk"
+            >
+              {link.label}
+            </a>
+          </li>
         ))}
       </ul>
     </div>

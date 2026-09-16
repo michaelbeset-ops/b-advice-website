@@ -48,6 +48,10 @@ for (const bron of await bestanden(BRON)) {
 
   // De sitemap van de voorbeeldversie hoort niet in Google terecht te komen.
   if (rel.startsWith("sitemap")) continue;
+  // CNAME en robots.txt horen bij de echte site, niet bij een kopie in een
+  // submap. De QR-kortlinks staan op stickers en verwijzen naar de echte
+  // URL's; een tweede set onder /preview/ heeft geen functie.
+  if (rel === "CNAME" || rel === "robots.txt" || rel.startsWith("rmn-")) continue;
 
   // Ook de verwijzingen binnen de CSS, anders wijzen de @font-face-regels
   // nog naar /fonts/ en valt de site terug op systeemletters.
