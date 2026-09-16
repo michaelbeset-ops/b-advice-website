@@ -90,17 +90,16 @@ def overzicht(projecten):
         % (i + 1, p["slug"], json.dumps(p["naam"], ensure_ascii=False))
         for i, p in enumerate(pubs)
     )
-    head = page.breadcrumbs([("Home", "/"), ("Projecten", url)])
+    head = ""
     if pubs:
-        head += ('\n  <script type="application/ld+json">\n  {\n'
+        head += ('  <script type="application/ld+json">\n  {\n'
                  '    "@context": "https://schema.org",\n'
                  '    "@type": "ItemList",\n'
                  '    "name": "Projecten en referenties B-Advice",\n'
                  '    "itemListElement": [\n      %s\n    ]\n  }\n  </script>' % itemlist)
 
     body = f"""<section class="page-hero" id="inhoud">
-  <div class="page-hero-tag"><span class="tag"><span class="tag-dot"></span>Projecten &amp; referenties</span></div>
-  <h1 class="page-hero-title">Projecten en <em>referenties</em></h1>
+    <h1 class="page-hero-title">Projecten en referenties</h1>
   <p class="page-hero-sub">Projecten waarin B-Advice gemeenten en afvalinzamelaars ondersteunde bij de voorbereiding, werkvoorbereiding en projectleiding van ondergrondse inzamelvoorzieningen.</p>
 </section>
 
@@ -202,8 +201,7 @@ def detail(p):
   foto&rsquo;s klaarstaan.
 </div>"""
 
-    trail = [("Home", "/"), ("Projecten", "/projecten/"), (p["naam"], url)]
-    head = page.breadcrumbs(trail)
+    head = ""
     if not concept:
         head += f"""
   <script type="application/ld+json">
@@ -221,8 +219,7 @@ def detail(p):
 
     body = f"""{banner}
 <section class="page-hero" id="inhoud">
-  <div class="page-hero-tag"><span class="tag"><span class="tag-dot"></span><a href="/projecten/" style="color:inherit;">Projecten</a></span></div>
-  <h1 class="page-hero-title">{E(p['naam'])}</h1>
+    <h1 class="page-hero-title">{E(p['naam'])}</h1>
   <p class="page-hero-sub">{E(p.get('samenvatting'))}</p>
 </section>
 

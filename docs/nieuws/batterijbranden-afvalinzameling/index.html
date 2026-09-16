@@ -51,17 +51,6 @@
   </script>
 
   <!-- BreadcrumbList schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type":"ListItem","position":1,"name":"Home","item":"https://b-advice.info/"},
-      {"@type":"ListItem","position":2,"name":"Nieuws","item":"https://b-advice.info/nieuws/"},
-      {"@type":"ListItem","position":3,"name":"Batterijbranden in de afvalinzameling","item":"https://b-advice.info/nieuws/batterijbranden-afvalinzameling/"}
-    ]
-  }
-  </script>
 
   <link rel="stylesheet" href="/fonts/fonts.min.css">
   <link rel="icon" type="image/png" href="/assets/favicon.png">
@@ -71,10 +60,10 @@
     .article-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(76,175,114,.15) 0%, transparent 65%); pointer-events: none; }
     .article-hero-inner { max-width: 760px; margin: 0 auto; position: relative; }
     .article-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; flex-wrap: wrap; }
-    .article-category { display: inline-flex; align-items: center; gap: 7px; background: rgba(76,175,114,.15); border: 1px solid rgba(76,175,114,.3); color: #4CAF72; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; }
-    .article-date { font-size: 13px; color: rgba(255,255,255,.4); }
+    .article-category { display: inline-flex; align-items: center; gap: 7px; background: rgba(76,175,114,.15); border: 1px solid rgba(76,175,114,.3); color:var(--merk); font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; }
+    .article-date { font-size: 13px; color: rgba(255,255,255,.75); }
     .article-hero-title { font-size: clamp(28px, 5vw, 48px); font-weight: 700; color: #fff; line-height: 1.15; letter-spacing: -1px; margin: 0 0 24px; }
-    .article-hero-title em { color: #4CAF72; font-style: normal; }
+    .article-hero-title em { color:var(--green); font-style: normal; }
     .article-hero-sub { font-size: 18px; color: rgba(255,255,255,.6); line-height: 1.7; max-width: 640px; margin: 0; }
     .article-body { max-width: 760px; margin: 0 auto; padding: 64px 24px 80px; }
     .article-body p { font-size: 17px; line-height: 1.8; color: var(--ink-2, #2a3d30); margin: 0 0 24px; }
@@ -82,22 +71,33 @@
     .article-h2::before { content: ''; display: block; width: 4px; height: 24px; background: #4CAF72; border-radius: 2px; flex-shrink: 0; }
     .article-pullquote { background: var(--ink); border-left: 4px solid #4CAF72; border-radius: 0 10px 10px 0; padding: 28px 32px; margin: 40px 0; }
     .article-pullquote p { font-size: 20px; font-weight: 600; color: #fff; line-height: 1.5; letter-spacing: -.3px; margin: 0; }
-    .article-pullquote span { color: #4CAF72; }
+    .article-pullquote span { color:var(--merk); }
     .article-infobox { background: #fafaf9; border: 1px solid var(--border, #e4ebe5); border-radius: 12px; padding: 28px 32px; margin: 40px 0; }
-    .article-infobox-title { font-size: 13px; font-weight: 700; color: #4CAF72; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 16px; }
+    .article-infobox-title { font-size: 13px; font-weight: 700; color:var(--green); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 16px; }
     .article-checklist { list-style: none; padding: 0; margin: 0; }
     .article-checklist li { font-size: 15px; color: var(--ink-2, #2a3d30); line-height: 1.6; padding: 8px 0 8px 32px; position: relative; border-bottom: 1px solid var(--border, #e4ebe5); }
     .article-checklist li:last-child { border-bottom: none; }
-    .article-checklist li::before { content: '→'; position: absolute; left: 0; color: #4CAF72; font-weight: 700; }
+    .article-checklist li::before { content: '→'; position: absolute; left: 0; color:var(--green); font-weight: 700; }
     .article-cta { background: var(--ink); border-radius: 16px; padding: 40px 36px; margin: 56px 0 0; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-    .article-cta-text { font-size: 13px; font-weight: 700; color: #4CAF72; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; }
+    .article-cta-text { font-size: 13px; font-weight: 700; color: var(--merk); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; }
     .article-cta h3 { font-size: 22px; font-weight: 700; color: #fff; margin: 0 0 8px; letter-spacing: -.3px; }
     .article-cta p { font-size: 14px; color: rgba(255,255,255,.55); margin: 0; line-height: 1.6; }
     .article-back { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink-3, #5a6e60); text-decoration: none; margin-bottom: 48px; transition: color .2s; }
-    .article-back:hover { color: #4CAF72; }
+    .article-back:hover { color:var(--green); }
     .article-divider { border: none; border-top: 1px solid var(--border, #e4ebe5); margin: 48px 0; }
     @media (max-width: 600px) { .article-cta { flex-direction: column; } .article-pullquote { padding: 20px; } .article-pullquote p { font-size: 17px; } }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://b-advice.info/"},
+    {"@type":"ListItem","position":2,"name":"Nieuws","item":"https://b-advice.info/nieuws/"},
+    {"@type":"ListItem","position":3,"name":"Batterijbranden in de afvalinzameling: van incident naar structureel risico","item":"https://b-advice.info/nieuws/batterijbranden-afvalinzameling/"}
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -165,6 +165,13 @@
 </div>
 
 <!-- ═══════ HERO ═══════ -->
+<nav class="kruimels" aria-label="Kruimelpad">
+  <ol>
+    <li><a href="/">Home</a></li>
+    <li><a href="/nieuws/">Nieuws</a></li>
+    <li><span aria-current="page">Batterijbranden in de afvalinzameling: van incident naar structureel risico</span></li>
+  </ol>
+</nav>
 <div class="article-hero" id="inhoud">
   <div class="article-hero-inner">
     <div class="article-meta">
@@ -174,7 +181,7 @@
       </span>
       <span class="article-date">Juli 2026 &nbsp;·&nbsp; B-Advice</span>
     </div>
-    <h1 class="article-hero-title">Batterijbranden in de afvalinzameling: van incident naar <em>structureel risico</em></h1>
+    <h1 class="article-hero-title">Batterijbranden in de afvalinzameling: van incident naar structureel risico</h1>
     <p class="article-hero-sub">Vapes en lithium-batterijen in het restafval zorgen bijna dagelijks voor brand in containers, inzamelvoertuigen en verwerkingsinstallaties. Wat betekent dat voor uw gemeente, en wat kunt u er nu al aan doen?</p>
   </div>
 </div>
@@ -195,7 +202,7 @@
 
   <!-- Donker stat-blok -->
   <div style="background:#0F2117;border-radius:16px;padding:30px 30px 22px;margin:40px 0;">
-    <div style="font-size:12px;font-weight:700;color:#4CAF72;text-transform:uppercase;letter-spacing:.08em;margin-bottom:18px;">Het probleem in cijfers</div>
+    <div style="font-size:12px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.08em;margin-bottom:18px;">Het probleem in cijfers</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;">
       <div>
         <div style="font-size:30px;font-weight:700;color:#fff;letter-spacing:-1px;">±20.000</div>
@@ -331,10 +338,10 @@
   (function initCookieBanner(){
     if(localStorage.getItem('b_advice_consent'))return;
     var s=document.createElement('style');
-    s.textContent='#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9998;background:#0f1e16;border-top:3px solid #4CAF72;padding:20px 80px;transform:translateY(110%);transition:transform .45s cubic-bezier(.4,0,.2,1);box-shadow:0 -8px 40px rgba(0,0,0,.3)}.ck-visible{transform:translateY(0)!important}.ck-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:24px}.ck-text{flex:1}.ck-title{display:block;font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}.ck-desc{font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;margin:0}.ck-desc a{color:#4CAF72;text-decoration:underline}.ck-actions{display:flex;gap:10px;flex-shrink:0}#ck-accept{padding:10px 22px;background:#4CAF72;color:#fff;border:none;border-radius:7px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}#ck-accept:hover{background:#3d9f63}@media(max-width:768px){#cookie-banner{padding:20px}.ck-inner{flex-direction:column;gap:16px}.ck-icon{display:none}.ck-actions{width:100%;flex-direction:column}#ck-accept{width:100%;text-align:center;padding:13px 20px;font-size:15px}}';
+    s.textContent='#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9998;background:#0f1e16;border-top:3px solid #4CAF72;padding:20px 80px;transform:translateY(110%);transition:transform .45s cubic-bezier(.4,0,.2,1);box-shadow:0 -8px 40px rgba(0,0,0,.3)}.ck-visible{transform:translateY(0)!important}.ck-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:24px}.ck-text{flex:1}.ck-title{display:block;font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}.ck-desc{font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;margin:0}.ck-desc a{color:var(--green);text-decoration:underline}.ck-actions{display:flex;gap:10px;flex-shrink:0}#ck-accept{padding:10px 22px;background:var(--green);color:#fff;border:none;border-radius:7px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}#ck-accept:hover{background:#3d9f63}@media(max-width:768px){#cookie-banner{padding:20px}.ck-inner{flex-direction:column;gap:16px}.ck-icon{display:none}.ck-actions{width:100%;flex-direction:column}#ck-accept{width:100%;text-align:center;padding:13px 20px;font-size:15px}}';
     document.head.appendChild(s);
     var banner=document.createElement('div');banner.id='cookie-banner';
-    banner.innerHTML='<div class="ck-inner"><div class="ck-icon">🍪</div><div class="ck-text"><strong class="ck-title">Wij gebruiken cookies</strong><p class="ck-desc">Wij gebruiken alleen functionele opslag voor een goede werking van de website, geen tracking- of analytische cookies. Lees meer in ons <a href="/cookies/">cookiebeleid</a>.</p></div><div class="ck-actions"><button id="ck-accept">Begrepen</button></div></div>';
+    banner.innerHTML='<div class="ck-inner"><div class="ck-text"><strong class="ck-title">Wij gebruiken cookies</strong><p class="ck-desc">Wij gebruiken alleen functionele opslag voor een goede werking van de website, geen tracking- of analytische cookies. Lees meer in ons <a href="/cookies/">cookiebeleid</a>.</p></div><div class="ck-actions"><button id="ck-accept">Begrepen</button></div></div>';
     document.body.appendChild(banner);
     requestAnimationFrame(function(){requestAnimationFrame(function(){banner.classList.add('ck-visible');});});
     function dismiss(val){localStorage.setItem('b_advice_consent',val);banner.classList.remove('ck-visible');banner.addEventListener('transitionend',function(){if(banner.parentNode)banner.parentNode.removeChild(banner);},{once:true});}

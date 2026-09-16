@@ -82,7 +82,7 @@ def service_schema(url, name, description, service_type):
 
 REFERENTIES = """<section class="section-sm" style="border-top:1px solid var(--border);background:var(--bg-2);">
   <div class="section-label">Referenties</div>
-  <h2 class="section-title" style="font-size:28px;">Relevante <em>referentieprojecten</em></h2>
+  <h2 class="section-title" style="font-size:28px;">Relevante referentieprojecten</h2>
   <p class="section-sub">Projecten waarin B-Advice deze werkzaamheden uitvoerde.</p>
   <div class="project-grid" id="dienst-projecten" data-dienst="{sleutel}"><!-- gevuld door tools/build_projecten.py --></div>
   <p style="margin-top:28px;"><a href="/projecten/" class="service-link">Alle projecten en referenties &rarr;</a></p>
@@ -115,8 +115,8 @@ PL_FAQ = [
 ]
 
 PL_BODY = f"""<section class="page-hero" id="inhoud">
-  <div class="page-hero-tag"><span class="tag"><span class="tag-dot"></span>Diensten</span></div>
-  <h1 class="page-hero-title">Projectleider ondergrondse afvalcontainers <em>inhuren</em></h1>
+  
+  <h1 class="page-hero-title">Projectleider ondergrondse afvalcontainers inhuren</h1>
   <p class="page-hero-sub">Tijdelijke projectleiding en projectbegeleiding voor gemeenten en afvalinzamelaars &mdash; landelijk inzetbaar.</p>
   <div style="margin-top:28px;"><a href="/contact/" class="btn-primary">Informeer naar onze beschikbaarheid</a></div>
 </section>
@@ -125,7 +125,8 @@ PL_BODY = f"""<section class="page-hero" id="inhoud">
   <div class="dienst-body">
     <p>B-Advice ondersteunt gemeenten en afvalinzamelaars bij de voorbereiding en uitvoering van projecten rondom ondergrondse afvalcontainers. Wij bieden tijdelijke projectleiding en projectbegeleiding, waarbij wij ondersteuning kunnen bieden vanaf de eerste voorbereidingen tot en met de oplevering.</p>
 
-    <h2 id="werkzaamheden">Onze werkzaamheden omvatten onder andere</h2>
+    <h2 id="werkzaamheden">Onze werkzaamheden</h2>
+    <p>Onze werkzaamheden omvatten onder andere:</p>
     <ul>
       <li>Het voorbereiden en begeleiden van de levering en plaatsing van ondergrondse inzamelvoorzieningen.</li>
       <li>Het opstellen en bewaken van projectplanningen.</li>
@@ -157,8 +158,6 @@ PL_BODY = f"""<section class="page-hero" id="inhoud">
 </div>"""
 
 PL_HEAD = "\n".join([
-    page.breadcrumbs([("Home", "/"), ("Diensten", "/diensten/"),
-                      ("Projectleiding en projectbegeleiding", PL_URL)]),
     service_schema(PL_URL, "Projectleiding en projectbegeleiding ondergrondse afvalcontainers",
                    "Tijdelijke projectleiding, interim-opdrachten en projectmatige ondersteuning "
                    "voor gemeenten en afvalinzamelaars bij projecten rondom ondergrondse "
@@ -197,7 +196,7 @@ LO_FAQ = [
 
 BEELD_PLACEHOLDER = """<section class="section-sm" id="beeldmateriaal" style="border-top:1px solid var(--border);">
   <div class="section-label">In de praktijk</div>
-  <h2 class="section-title" style="font-size:28px;">Locatieonderzoek en <em>inrichtingstekeningen</em></h2>
+  <h2 class="section-title" style="font-size:28px;">Locatieonderzoek en inrichtingstekeningen</h2>
   <p class="section-sub">Voorbeelden uit lopende en afgeronde projecten.</p>
   <div class="beeld-grid">
     <figure class="beeld-item beeld-placeholder">
@@ -225,8 +224,8 @@ BEELD_PLACEHOLDER = """<section class="section-sm" id="beeldmateriaal" style="bo
 </section>"""
 
 LO_BODY = f"""<section class="page-hero" id="inhoud">
-  <div class="page-hero-tag"><span class="tag"><span class="tag-dot"></span>Diensten</span></div>
-  <h1 class="page-hero-title">Locatieonderzoek en werkvoorbereiding <em>ondergrondse containers</em></h1>
+  
+  <h1 class="page-hero-title">Locatieonderzoek en werkvoorbereiding ondergrondse containers</h1>
   <p class="page-hero-sub">Van het beoordelen van containerlocaties tot inrichtingstekeningen en voorbereiding van de uitvoering.</p>
   <div style="margin-top:28px;"><a href="/contact/" class="btn-primary">Vraag ondersteuning aan voor uw project</a></div>
 </section>
@@ -235,7 +234,8 @@ LO_BODY = f"""<section class="page-hero" id="inhoud">
   <div class="dienst-body">
     <p>Een zorgvuldige voorbereiding is essentieel voor de succesvolle plaatsing van ondergrondse afvalcontainers. B-Advice ondersteunt gemeenten en afvalinzamelaars bij het onderzoeken, voorbereiden en uitwerken van geschikte containerlocaties.</p>
 
-    <h2 id="ondersteuning">Wij kunnen onder andere ondersteuning bieden bij</h2>
+    <h2 id="ondersteuning">Waarbij wij ondersteunen</h2>
+    <p>Wij kunnen onder andere ondersteuning bieden bij:</p>
     <ul>
       <li>Het onderzoeken en beoordelen van potenti&euml;le containerlocaties.</li>
       <li>Het uitvoeren en begeleiden van locatiebezoeken.</li>
@@ -275,8 +275,6 @@ LO_BODY = f"""<section class="page-hero" id="inhoud">
 </div>"""
 
 LO_HEAD = "\n".join([
-    page.breadcrumbs([("Home", "/"), ("Diensten", "/diensten/"),
-                      ("Locatieonderzoek en werkvoorbereiding", LO_URL)]),
     service_schema(LO_URL, "Locatieonderzoek en werkvoorbereiding ondergrondse containers",
                    "Onderzoeken, beoordelen en uitwerken van geschikte containerlocaties: "
                    "locatiebezoek, kabels en leidingen, inmeten, inrichtingstekeningen en "
@@ -286,8 +284,100 @@ LO_HEAD = "\n".join([
 ])
 
 
+# ══════════════════════════════════════════════════════════════════════════
+# Overzichtspagina /diensten/
+# ══════════════════════════════════════════════════════════════════════════
+# Eén bron voor de omschrijvingen; de volgorde komt uit tools/update_nav.py,
+# zodat menu, footer en deze pagina nooit uit elkaar lopen.
+OMSCHRIJVINGEN = {
+    "/diensten/projectleiding/":
+        "Tijdelijke projectleiding en interim-ondersteuning, van de eerste voorbereidingen "
+        "tot en met de oplevering.",
+    "/diensten/locatieonderzoek/":
+        "Onderzoeken, beoordelen en uitwerken van geschikte containerlocaties: locatiebezoek, "
+        "kabels en leidingen, inmeten en inrichtingstekeningen.",
+    "/diensten/plaatsing/":
+        "Civieltechnische plaatsing van ondergrondse en halfondergrondse containers, inclusief "
+        "grondwerk, fundering en inbedrijfstelling.",
+    "/diensten/beheer-onderhoud/":
+        "Preventief en correctief onderhoud verlengt de levensduur van uw inzamelmiddelen "
+        "aanzienlijk. Wij refurbishen containers tot als-nieuw staat.",
+    "/diensten/afvalinzameling/":
+        "Strategisch advies en operationeel management van uw volledige afvalinzamelingsproces, "
+        "van wijkanalyse tot routeoptimalisatie.",
+    "/diensten/projectmanagement/":
+        "Complete projectbegeleiding van initiatief tot oplevering. Wij co\u00f6rdineren alle "
+        "partijen en bewaken planning, budget en kwaliteit.",
+    "/diensten/aanbesteding/":
+        "Wij stellen complete bestekken en aanbestedingsdocumenten op die voldoen aan de "
+        "wettelijke vereisten en marktstandaarden.",
+    "/diensten/meerjaren-investeringsplan/":
+        "Inzicht in de levensduur en vervangingsbehoefte van uw containerpark. Wij stellen een "
+        "gefundeerd MIP op voor uw gemeente.",
+    "/diensten/bewonersparticipatie/":
+        "Effectieve communicatie met bewoners over wijzigingen in de afvalinfrastructuur. "
+        "Van informatieavonden tot digitale updates.",
+}
+
+OVERZICHT_URL = "/diensten/"
+
+OVERZICHT_BODY = """<section class="page-hero" id="inhoud">
+  <h1 class="page-hero-title">Onze diensten</h1>
+  <p class="page-hero-sub">B-Advice ondersteunt gemeenten en afvalinzamelaars bij projecten rondom ondergrondse inzamelvoorzieningen. Onze werkzaamheden kunnen afzonderlijk of als onderdeel van een groter project worden uitgevoerd.</p>
+</section>
+
+<section class="section">
+  <div class="dienst-list">
+{rijen}
+  </div>
+
+  <dl class="feiten" style="margin-top:56px;">
+    <div class="feit"><dt>Gemeenten bediend</dt><dd>40+</dd></div>
+    <div class="feit"><dt>Containers in beheer</dt><dd>7.000+</dd></div>
+    <div class="feit"><dt>Ervaring</dt><dd>20+ jaar</dd></div>
+  </dl>
+</section>
+
+<div class="cta-band">
+  <div>
+    <div class="cta-band-title">Heeft u een project waar wij in mee kunnen denken?</div>
+    <p class="cta-band-sub">Neem vrijblijvend contact op. Wij reageren binnen &eacute;&eacute;n werkdag.</p>
+  </div>
+  <a href="/contact/" class="btn-white">Bespreek uw project met B-Advice</a>
+</div>"""
+
+
+def overzicht_body():
+    rijen = "\n".join(
+        f"""    <a href="{href}" class="dienst-row">
+      <span class="dienst-row-title">{label}</span>
+      <span class="dienst-row-desc">{OMSCHRIJVINGEN[href]}</span>
+    </a>""" for href, label in DIENSTEN)
+    return OVERZICHT_BODY.format(rijen=rijen)
+
+
+OVERZICHT_HEAD = """  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Diensten van B-Advice",
+    "itemListElement": [
+%s
+    ]
+  }
+  </script>""" % ",\n".join(
+    '    {"@type":"ListItem","position":%d,"name":"%s","url":"https://b-advice.info%s"}'
+    % (i + 1, label.replace("&amp;", "&"), href)
+    for i, (href, label) in enumerate(DIENSTEN))
+
+
 def main():
     for url, title, desc, body, head in [
+        (OVERZICHT_URL,
+         "Diensten ondergrondse afvalcontainers | B-Advice",
+         "Projectleiding, locatieonderzoek, werkvoorbereiding, plaatsing, beheer en advies "
+         "rondom ondergrondse inzamelvoorzieningen voor gemeenten en afvalinzamelaars.",
+         overzicht_body(), OVERZICHT_HEAD),
         (PL_URL, PL_TITLE, PL_DESC, PL_BODY, PL_HEAD),
         (LO_URL, LO_TITLE, LO_DESC, LO_BODY, LO_HEAD),
     ]:
