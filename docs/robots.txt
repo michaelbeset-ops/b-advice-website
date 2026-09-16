@@ -2,6 +2,8 @@ User-agent: *
 Allow: /
 
 # Niet indexeren: RMN-kortlinks (interne redirects) en technische pagina's
+# Voorbeeldversie van de nieuwe site, geen publieke pagina
+Disallow: /preview/
 Disallow: /rmn-*/
 
 Sitemap: https://b-advice.info/sitemap.xml
