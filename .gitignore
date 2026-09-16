@@ -1,0 +1,12 @@
+# Afhankelijkheden van de hulpscripts (sharp voor beeldbewerking).
+# Installeren met: npm install --no-save sharp
+node_modules/
+package-lock.json
+
+# Systeembestanden
+.DS_Store
+Thumbs.db
+
+# Python-cache
+__pycache__/
+*.pyc

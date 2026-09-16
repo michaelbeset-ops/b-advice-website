@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beheeromgeving projecten | B-Advice</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="/fonts/fonts.min.css">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+
+<!-- ── Nog niet ingesteld ─────────────────────────────────────────────── -->
+<div id="scherm-setup" hidden>
+  <div class="login-wrap">
+    <div class="login-kaart" style="max-width:560px;">
+      <h1>Beheeromgeving nog niet ingesteld</h1>
+      <p class="uitleg">De koppeling met Supabase ontbreekt. Vul het bestand
+        <code>docs/admin/config.js</code> in met de Project URL en de
+        <em>anon public</em>-sleutel van het Supabase-project.</p>
+      <div class="melding melding-let-op">
+        Stap voor stap uitgelegd in <strong>BEHEEROMGEVING.md</strong> in de repository.
+        De benodigde database-instellingen staan kant-en-klaar in
+        <strong>supabase/schema.sql</strong>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Inloggen ───────────────────────────────────────────────────────── -->
+<div id="scherm-login" hidden>
+  <div class="login-wrap">
+    <form class="login-kaart" id="login-form">
+      <h1>Beheeromgeving B-Advice</h1>
+      <p class="uitleg">Log in om projecten en referenties te beheren.</p>
+      <div id="login-melding"></div>
+      <div class="veld">
+        <label for="login-email">E-mailadres</label>
+        <input type="email" id="login-email" autocomplete="username" required>
+      </div>
+      <div class="veld">
+        <label for="login-wachtwoord">Wachtwoord</label>
+        <input type="password" id="login-wachtwoord" autocomplete="current-password" required>
+      </div>
+      <button type="submit" class="knop" style="width:100%;" id="login-knop">Inloggen</button>
+      <p class="hint" style="margin-top:16px;font-size:12px;color:var(--ink-4);">
+        Wachtwoord vergeten? Vraag de beheerder een nieuw wachtwoord in te stellen via Supabase.
+      </p>
+    </form>
+  </div>
+</div>
+
+<!-- ── Overzicht ──────────────────────────────────────────────────────── -->
+<div id="scherm-overzicht" hidden>
+  <header class="topbar">
+    <div class="topbar-brand">B-Advice <small>Beheer projecten</small></div>
+    <div class="topbar-right">
+      <span id="wie"></span>
+      <button class="knop knop-licht knop-klein" id="uitloggen">Uitloggen</button>
+    </div>
+  </header>
+  <div class="wrap">
+    <div class="kop">
+      <div>
+        <h1>Projecten en referenties</h1>
+        <p>Voeg projecten toe, bewerk ze of verwijder ze. Alleen projecten met de status
+          <strong>Gepubliceerd</strong> verschijnen op de website.</p>
+      </div>
+      <button class="knop" id="nieuw-project">+ Nieuw project</button>
+    </div>
+    <div id="overzicht-melding"></div>
+    <div class="melding melding-let-op" id="publicatie-uitleg">
+      Wijzigingen worden automatisch naar de website gepubliceerd. Dat gebeurt elk half uur;
+      houd er rekening mee dat een aanpassing niet direct zichtbaar is.
+    </div>
+    <div class="lijst" id="lijst"></div>
+  </div>
+</div>
+
+<!-- ── Bewerken ───────────────────────────────────────────────────────── -->
+<div id="scherm-bewerken" hidden>
+  <header class="topbar">
+    <div class="topbar-brand">B-Advice <small>Project bewerken</small></div>
+    <div class="topbar-right">
+      <button class="knop knop-licht knop-klein" id="terug">&larr; Terug naar overzicht</button>
+    </div>
+  </header>
+  <form class="wrap" id="project-form">
+    <div class="kop"><div><h1 id="bewerk-titel">Nieuw project</h1></div></div>
+    <div id="bewerk-melding"></div>
+
+    <div class="kaart">
+      <h2>Projectgegevens</h2>
+      <p class="uitleg">Deze gegevens komen op de projectpagina te staan.</p>
+
+      <div class="veld">
+        <label for="f-naam">Naam van het project <span style="color:var(--green)">*</span></label>
+        <input type="text" id="f-naam" required placeholder="Bijvoorbeeld: Hoogbouw op Orde">
+      </div>
+
+      <div class="veld">
+        <label for="f-opdrachtgever">Naam van de opdrachtgever</label>
+        <input type="text" id="f-opdrachtgever" placeholder="Bijvoorbeeld: Gemeente Dordrecht">
+      </div>
+
+      <div class="veld">
+        <label class="schakel" for="f-opdrachtgever-tonen">
+          <input type="checkbox" id="f-opdrachtgever-tonen">
+          <span class="schakel-spoor"></span>
+          <span class="schakel-tekst">Naam opdrachtgever tonen op de website
+            <small>Zet dit alleen aan als de opdrachtgever toestemming heeft gegeven voor publicatie. Staat dit uit, dan blijft de naam onzichtbaar voor bezoekers.</small>
+          </span>
+        </label>
+      </div>
+
+      <div class="veld-rij">
+        <div class="veld">
+          <label for="f-locatie">Locatie of gemeente</label>
+          <input type="text" id="f-locatie" placeholder="Bijvoorbeeld: Dordrecht">
+        </div>
+        <div class="veld">
+          <label for="f-periode">Periode <span class="hint" style="display:inline">(optioneel)</span></label>
+          <input type="text" id="f-periode" placeholder="Bijvoorbeeld: 2025 – 2026">
+        </div>
+      </div>
+
+      <div class="veld">
+        <label for="f-samenvatting">Korte omschrijving van de opdracht <span style="color:var(--green)">*</span></label>
+        <textarea id="f-samenvatting" required placeholder="Twee tot vier zinnen over de opdracht. Deze tekst staat ook onder de projectkaart en in Google."></textarea>
+        <span class="hint">Tip: houd het bij ongeveer 150 tot 300 tekens.</span>
+      </div>
+    </div>
+
+    <div class="kaart">
+      <h2>Uitgevoerde werkzaamheden</h2>
+      <p class="uitleg">Eén regel per werkzaamheid. Deze komen als opsomming op de pagina.</p>
+      <div id="werkzaamheden-lijst"></div>
+      <button type="button" class="knop knop-rand knop-klein" data-lijst="werkzaamheden">+ Regel toevoegen</button>
+    </div>
+
+    <div class="kaart">
+      <h2>Resultaten</h2>
+      <p class="uitleg">Eén regel per resultaat.</p>
+      <div id="resultaten-lijst"></div>
+      <button type="button" class="knop knop-rand knop-klein" data-lijst="resultaten">+ Regel toevoegen</button>
+    </div>
+
+    <div class="kaart">
+      <h2>Foto's, tekeningen en afbeeldingen</h2>
+      <p class="uitleg">Sleep bestanden hierheen of klik om te kiezen. JPG, PNG of WebP, maximaal 10 MB per bestand.</p>
+      <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Afbeeldingen toevoegen">
+        <strong>Sleep afbeeldingen hierheen</strong>
+        <span>of klik om bestanden te kiezen</span>
+      </div>
+      <input type="file" id="bestand-input" accept="image/*" multiple hidden>
+      <div class="media-lijst" id="media-lijst"></div>
+    </div>
+
+    <div class="kaart">
+      <h2>Koppeling met dienstenpagina's</h2>
+      <p class="uitleg">Het project verschijnt als referentie op de aangevinkte dienstenpagina's.</p>
+      <div class="keuzes">
+        <label class="keuze"><input type="checkbox" name="dienst" value="projectleiding"> Projectleiding en projectbegeleiding</label>
+        <label class="keuze"><input type="checkbox" name="dienst" value="locatieonderzoek"> Locatieonderzoek en werkvoorbereiding</label>
+      </div>
+    </div>
+
+    <div class="kaart">
+      <h2>Publicatie</h2>
+      <p class="uitleg">Een concept is alleen zichtbaar in deze beheeromgeving en via een directe link; het staat niet in het projectoverzicht en niet in Google.</p>
+      <div class="veld-rij">
+        <div class="veld">
+          <label for="f-status">Status</label>
+          <select id="f-status">
+            <option value="concept">Concept — nog niet zichtbaar op de website</option>
+            <option value="gepubliceerd">Gepubliceerd — zichtbaar op de website</option>
+          </select>
+        </div>
+        <div class="veld">
+          <label for="f-volgorde">Volgorde</label>
+          <input type="number" id="f-volgorde" value="100" min="1" step="1">
+          <span class="hint">Lager getal staat hoger in het overzicht.</span>
+        </div>
+      </div>
+      <div class="veld">
+        <label for="f-slug">Webadres</label>
+        <input type="text" id="f-slug" placeholder="wordt automatisch gevuld">
+        <span class="hint">De pagina komt op <code>b-advice.info/projecten/<span id="slug-voorbeeld">…</span>/</code>.
+          Pas dit alleen aan vóór de eerste publicatie — wijzigen achteraf maakt de oude link ongeldig.</span>
+      </div>
+    </div>
+
+    <div class="balk-onder">
+      <button type="submit" class="knop" id="opslaan">Opslaan</button>
+      <button type="button" class="knop knop-rand" id="annuleren">Annuleren</button>
+      <span style="flex:1"></span>
+      <button type="button" class="knop knop-gevaar" id="verwijderen" hidden>Project verwijderen</button>
+    </div>
+  </form>
+</div>
+
+<script src="/admin/config.js"></script>
+<script>
+  // Zonder ingevulde Supabase-gegevens tonen we alleen de installatie-uitleg;
+  // de beheermodule wordt dan niet geladen.
+  (function () {
+    var cfg = window.B_ADVICE_CONFIG || {};
+    if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) {
+      document.getElementById('scherm-setup').hidden = false;
+      return;
+    }
+    var s = document.createElement('script');
+    s.type = 'module';
+    s.src = '/admin/admin.js';
+    document.body.appendChild(s);
+  })();
+</script>
+</body>
+</html>

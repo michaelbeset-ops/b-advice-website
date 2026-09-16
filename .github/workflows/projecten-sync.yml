@@ -1,0 +1,65 @@
+# Publiceert projecten uit de beheeromgeving (Supabase) naar de website.
+#
+# Draait elk half uur en kan ook handmatig worden gestart via
+# Actions → Projecten publiceren → Run workflow.
+#
+# Er zijn geen secrets nodig: de workflow leest de Supabase-URL en de
+# 'anon public'-sleutel uit docs/admin/config.js en kan daarmee alleen
+# gepubliceerde projecten lezen.
+name: Projecten publiceren
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "docs/data/projecten.json"
+      - "tools/build_projecten.py"
+      - "tools/page.py"
+      - "tools/update_nav.py"
+
+concurrency:
+  group: projecten-sync
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publiceren:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Beeldbewerking installeren
+        run: npm install --no-save sharp
+
+      - name: Projecten ophalen uit Supabase
+        run: node tools/sync_projecten.mjs
+
+      - name: Pagina's genereren
+        run: |
+          python3 tools/build_projecten.py
+          python3 tools/build_sitemap.py
+
+      - name: Wijzigingen vastleggen
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Geen wijzigingen."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Projecten bijgewerkt vanuit de beheeromgeving"
+          git push
