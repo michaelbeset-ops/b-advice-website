@@ -22,14 +22,14 @@ const dienstActief = pad.startsWith("/diensten/");
     <!-- De hele navigatie gaat onder 1180px naar het schuifmenu. Met acht
          items past de balk daaronder niet meer op één regel, en items die
          over twee regels breken zien er slordig uit. -->
-    <nav class="hidden items-center gap-6 min-[1180px]:flex" aria-label={a11y.hoofdnavigatie}>
+    <nav class="hidden items-center gap-5 min-[1220px]:flex min-[1340px]:gap-6" aria-label={a11y.hoofdnavigatie}>
       <!-- Uitklapmenu zonder JavaScript: hover voor de muis, focus-within
            voor het toetsenbord. -->
       <div class="group relative">
         <a
           href="/diensten/"
           class:list={[
-            "inline-flex items-center gap-1.5 py-2 text-sm font-medium transition-colors",
+            "inline-flex items-center gap-1.5 py-2 text-[0.875rem] font-medium transition-colors min-[1340px]:text-sm",
             dienstActief ? "text-ink" : "text-ink-3 hover:text-ink",
           ]}
           aria-haspopup="true"
@@ -63,7 +63,7 @@ const dienstActief = pad.startsWith("/diensten/");
         <a
           href={item.url}
           class:list={[
-            "py-2 text-sm font-medium transition-colors",
+            "py-2 text-[0.875rem] font-medium transition-colors min-[1340px]:text-sm",
             pad === item.url ? "text-ink" : "text-ink-3 hover:text-ink",
           ]}
         >
@@ -72,7 +72,7 @@ const dienstActief = pad.startsWith("/diensten/");
       ))}
     </nav>
 
-    <div class="hidden shrink-0 items-center gap-5 min-[1180px]:flex">
+    <div class="hidden shrink-0 items-center gap-4 min-[1220px]:flex min-[1340px]:gap-5">
       <a href={navigatie.contact.url} class="text-sm text-ink-4 transition-colors hover:text-ink">
         {navigatie.contact.label}
       </a>
@@ -88,7 +88,7 @@ const dienstActief = pad.startsWith("/diensten/");
 
     <!-- Schuifmenu op smalle schermen. <details> doet het openen en sluiten
          zelf, dus dit werkt ook als JavaScript uitvalt. -->
-    <details class="menu group/menu min-[1180px]:hidden">
+    <details class="menu group/menu min-[1220px]:hidden">
       <summary
         class="relative z-50 -mr-2 flex h-11 w-11 cursor-pointer list-none items-center justify-center text-ink [&::-webkit-details-marker]:hidden"
         aria-label={a11y.menuOpenen}

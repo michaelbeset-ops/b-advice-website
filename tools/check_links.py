@@ -6,6 +6,8 @@ DOCS = ROOT / "docs"
 HREF = re.compile(r'(?:href|src)="(/[^"#?]*)(?:[#?][^"]*)?"')
 fouten, gecheckt = [], 0
 for f in sorted(DOCS.rglob("*.html")):
+    if f.relative_to(DOCS).parts[:1] == ("preview",):
+        continue
     for m in HREF.finditer(f.read_text(encoding="utf-8")):
         url = m.group(1)
         gecheckt += 1

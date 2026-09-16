@@ -3,6 +3,8 @@ Allow: /
 
 # Niet indexeren: beheeromgeving, RMN-kortlinks (interne redirects) en technische pagina's
 Disallow: /admin/
+# Voorbeeldversie van de nieuwe site, geen publieke pagina
+Disallow: /preview/
 Disallow: /rmn-*/
 
 Sitemap: https://b-advice.info/sitemap.xml
