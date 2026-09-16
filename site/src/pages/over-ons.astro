@@ -1,0 +1,122 @@
+---
+import Base from "../layouts/Base.astro";
+import Kader from "../components/Kader.astro";
+import Kruimels from "../components/Kruimels.astro";
+import Kop from "../components/Kop.astro";
+import Bovenregel from "../components/Bovenregel.astro";
+import Veegrij from "../components/Veegrij.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { overOns } from "../data/site";
+
+const { tijdlijn, geschiedenis, team, aanpak } = overOns;
+---
+
+<Base titel={overOns.meta.titel} omschrijving={overOns.meta.omschrijving}>
+  <Kader>
+    <Kruimels spoor={[{ label: "Home", url: "/" }, { label: "Over ons", url: "/over-ons/" }]} />
+  </Kader>
+
+  <Kader als="section" id="inhoud" klasse="pt-10 lg:pt-14">
+    <Bovenregel tekst={overOns.bovenregel} />
+    <Kop
+      als="h1"
+      tekst={overOns.h1}
+      accent={overOns.kopAccent}
+      klasse="mt-6 max-w-[16ch] text-display font-extrabold text-ink"
+    />
+    <p class="mt-6 max-w-[50ch] text-xl font-medium text-ink-2">{overOns.lead}</p>
+  </Kader>
+
+  <!-- De tijdlijn is één rij die op een telefoon horizontaal schuift. Verticaal
+       zou hij zes schermen kosten en dat is precies wat we op mobiel willen
+       voorkomen. -->
+  <section class="mt-14 border-y border-line bg-paper-2 py-14">
+    <Kader>
+      <h2 class="text-xs font-semibold uppercase tracking-[0.1em] text-accent">Van 2001 tot nu</h2>
+    </Kader>
+    <ol
+      class="veegrij kaderrand mt-7 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 lg:grid lg:grid-cols-6 lg:snap-none lg:gap-6 lg:overflow-visible lg:pb-0"
+      tabindex="0"
+      role="region"
+      aria-label="Tijdlijn van B-Advice, horizontaal schuifbaar"
+    >
+      {
+        tijdlijn.map((punt) => (
+          <li class="w-[62vw] max-w-[15rem] shrink-0 snap-start border-t-2 border-accent/30 pt-4 lg:w-auto lg:max-w-none">
+            <span class="font-display text-lg font-extrabold tracking-tight text-accent">{punt.jaar}</span>
+            <p class="mt-2 text-sm leading-relaxed text-ink-3">{punt.tekst}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <Kader als="section" klasse="py-20 lg:py-24">
+    <div class="grid gap-x-16 gap-y-8 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <Bovenregel tekst={geschiedenis.bovenregel} />
+        <Kop
+          tekst={geschiedenis.kop}
+          accent={geschiedenis.kopAccent}
+          klasse="mt-5 text-2xl font-extrabold text-ink"
+        />
+      </div>
+      <div class="lg:col-span-7 lg:col-start-6">
+        {
+          geschiedenis.alineas.map((alinea, i) => (
+            <p class:list={["max-w-[66ch] text-base text-ink-3", i > 0 && "mt-5"]}>{alinea}</p>
+          ))
+        }
+      </div>
+    </div>
+  </Kader>
+
+  <section class="border-t border-line bg-paper-2 py-20 lg:py-24">
+    <Kader>
+      <Bovenregel tekst={team.bovenregel} />
+      <h2 class="mt-5 text-2xl font-extrabold text-ink">{team.kop}</h2>
+      <p class="mt-4 max-w-[46ch] text-base text-ink-3">{team.lead}</p>
+    </Kader>
+
+    <Veegrij label="Het team van B-Advice" klasse="mt-12">
+      {
+        team.leden.map((lid) => (
+          <li class="w-[78vw] max-w-[20rem] shrink-0 snap-start sm:w-auto sm:max-w-none">
+            <img
+              src={lid.foto}
+              alt={`Portret van ${lid.naam}`}
+              width="640"
+              height="640"
+              loading="lazy"
+              decoding="async"
+              class="aspect-square w-full rounded-kaart border border-line object-cover"
+            />
+            <h3 class="mt-5 font-display text-lg font-bold tracking-tight text-ink">{lid.naam}</h3>
+            <p class="mt-1 text-sm font-semibold text-accent">{lid.rol}</p>
+            <p class="mt-3 text-sm leading-relaxed text-ink-3">{lid.tekst}</p>
+          </li>
+        ))
+      }
+    </Veegrij>
+  </section>
+
+  <Kader als="section" klasse="py-20 lg:py-24">
+    <Bovenregel tekst={aanpak.bovenregel} />
+    <Kop tekst={aanpak.kop} accent={aanpak.kopAccent} klasse="mt-5 text-2xl font-extrabold text-ink" />
+    <ol class="mt-10 grid gap-x-10 gap-y-8 sm:grid-cols-3">
+      {
+        aanpak.punten.map((punt, i) => (
+          <li class="border-t-2 border-accent/25 pt-5">
+            <span class="font-display text-sm font-bold text-accent">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <h3 class="mt-2 font-display text-lg font-bold tracking-tight text-ink">{punt.titel}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink-3">{punt.tekst}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </Kader>
+
+  <CtaBand />
+</Base>

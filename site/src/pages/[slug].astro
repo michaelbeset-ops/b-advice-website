@@ -1,0 +1,132 @@
+---
+import Base from "../layouts/Base.astro";
+import Kader from "../components/Kader.astro";
+import Kruimels from "../components/Kruimels.astro";
+import { tekstPaginas, binnenkortPaginas, hoofdactie } from "../data/site";
+import type { TekstPagina } from "../data/site";
+
+type Binnenkort = (typeof binnenkortPaginas)[number];
+
+// Alle losse pagina's op het eerste niveau komen uit deze ene route: de
+// tekstpagina's (privacy, cookies) en de pagina's waar nog aan gewerkt wordt
+// (b-covered, producten). Twee bestanden [slug].astro naast elkaar kan niet,
+// vandaar dat ze hier samenkomen met een soort-veld als wissel.
+export function getStaticPaths() {
+  return [
+    ...tekstPaginas.map((pagina) => ({
+      params: { slug: pagina.slug },
+      props: { soort: "tekst" as const, pagina },
+    })),
+    ...binnenkortPaginas.map((pagina) => ({
+      params: { slug: pagina.slug },
+      props: { soort: "binnenkort" as const, pagina },
+    })),
+  ];
+}
+
+type Props =
+  | { soort: "tekst"; pagina: TekstPagina }
+  | { soort: "binnenkort"; pagina: Binnenkort };
+
+const { soort, pagina } = Astro.props as Props;
+const url = `/${pagina.slug}/`;
+---
+
+<Base titel={pagina.meta.titel} omschrijving={pagina.meta.omschrijving}>
+  <Kader>
+    <Kruimels spoor={[{ label: "Home", url: "/" }, { label: pagina.h1, url }]} />
+  </Kader>
+
+  {
+    soort === "binnenkort" ? (
+      <Kader als="section" id="inhoud" klasse="pb-28 pt-10 lg:pt-14">
+        <p class="inline-flex items-center rounded-full bg-accent/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.08em] text-accent">
+          In voorbereiding
+        </p>
+        <h1 class="mt-6 text-3xl font-extrabold text-ink">{pagina.h1}</h1>
+        <p class="mt-5 max-w-[46ch] text-xl font-medium text-ink-2">{pagina.intro}</p>
+        <p class="mt-5 max-w-[56ch] text-base text-ink-3">{(pagina as Binnenkort).tekst}</p>
+        <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+          <a
+            href={hoofdactie.url}
+            class="rounded-base bg-accent px-7 py-4 text-center text-base font-semibold text-wit transition-colors hover:bg-accent-deep sm:py-3.5"
+          >
+            {hoofdactie.label}
+          </a>
+          <a
+            href="/diensten/"
+            class="rounded-base border border-line-strong px-7 py-4 text-center text-base font-medium text-ink-2 transition-colors hover:border-ink-3 sm:py-3.5"
+          >
+            Bekijk onze diensten
+          </a>
+        </div>
+      </Kader>
+    ) : (
+      <>
+        <Kader als="section" id="inhoud" klasse="pt-10 lg:pt-14">
+          <h1 class="max-w-[18ch] text-3xl font-extrabold text-ink">{pagina.h1}</h1>
+          {pagina.intro && (
+            <p class="mt-5 max-w-[56ch] text-xl font-medium text-ink-2">{pagina.intro}</p>
+          )}
+        </Kader>
+
+        <Kader klasse="pb-24 pt-12">
+          {/* Smalle kolom: juridische tekst leest het beste op zo'n 70 tekens
+              per regel, ook op een breed scherm. */}
+          <div class="max-w-[68ch]">
+            {(pagina as TekstPagina).blokken.map((blok) => {
+              if (blok.type === "h2")
+                return <h2 class="mt-12 text-xl font-extrabold text-ink first:mt-0">{blok.tekst}</h2>;
+              if (blok.type === "h3")
+                return (
+                  <h3 class="mt-8 font-display text-lg font-bold tracking-tight text-ink">
+                    {blok.tekst}
+                  </h3>
+                );
+              if (blok.type === "ul")
+                return (
+                  <ul class="mt-4 space-y-2">
+                    {blok.items.map((item) => (
+                      <li class="flex gap-3 text-base text-ink-3">
+                        <span aria-hidden="true" class="mt-[0.7em] h-px w-3 shrink-0 bg-line-strong" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                );
+              if (blok.type === "tabel")
+                return (
+                  /* Een tabel van drie kolommen past niet op een telefoon; hij
+                     schuift daar horizontaal in plaats van de pagina breder te
+                     maken. */
+                  <div class="mt-6 overflow-x-auto">
+                    <table class="w-full min-w-[34rem] border-collapse text-sm">
+                      <thead>
+                        <tr>
+                          {blok.koppen.map((kop) => (
+                            <th class="border-b border-line-strong bg-paper-2 px-4 py-3 text-left font-semibold text-ink-2">
+                              {kop}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {blok.rijen.map((rij) => (
+                          <tr>
+                            {rij.map((cel) => (
+                              <td class="border-b border-line px-4 py-3 align-top text-ink-3">{cel}</td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                );
+              return <p class="mt-4 text-base text-ink-3">{blok.tekst}</p>;
+            })}
+          </div>
+        </Kader>
+      </>
+    )
+  }
+</Base>

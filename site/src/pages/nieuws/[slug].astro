@@ -1,0 +1,294 @@
+---
+import Base from "../../layouts/Base.astro";
+import Kader from "../../components/Kader.astro";
+import Kruimels from "../../components/Kruimels.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import { artikelen } from "../../data/nieuws";
+import type { Artikel } from "../../data/nieuws";
+import { bedrijf, hoofdactie } from "../../data/site";
+import { datumNL } from "../../lib/datum";
+
+export function getStaticPaths() {
+  return artikelen.map((artikel, i) => ({
+    params: { slug: artikel.slug },
+    // Onderaan het artikel staan de drie eerstvolgende artikelen. Die lijst
+    // wordt hier al bepaald, zodat de pagina zelf niets hoeft te rekenen.
+    props: {
+      artikel,
+      verder: [...artikelen.slice(i + 1), ...artikelen.slice(0, i)].slice(0, 3),
+    },
+  }));
+}
+
+interface Props {
+  artikel: Artikel;
+  verder: Artikel[];
+}
+const { artikel, verder } = Astro.props;
+const url = `https://b-advice.info/nieuws/${artikel.slug}/`;
+
+const vragen = artikel.blokken.flatMap((b) => (b.type === "faq" ? b.items : []));
+
+const schema: Record<string, unknown>[] = [
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    headline: artikel.h1,
+    description: artikel.lead,
+    datePublished: artikel.datum,
+    mainEntityOfPage: url,
+    author: { "@id": "https://b-advice.info/#organisatie" },
+    publisher: { "@id": "https://b-advice.info/#organisatie" },
+    inLanguage: "nl-NL",
+  },
+];
+if (vragen.length) {
+  schema.push({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: vragen.map((v) => ({
+      "@type": "Question",
+      name: v.vraag,
+      // Het antwoord bevat soms een link; schema.org wil hier platte tekst.
+      acceptedAnswer: { "@type": "Answer", text: v.antwoord.replace(/<[^>]+>/g, "") },
+    })),
+  });
+}
+---
+
+<Base titel={`${artikel.meta.titel} | ${bedrijf.naam}`} omschrijving={artikel.meta.omschrijving}>
+  <Kader>
+    <Kruimels
+      spoor={[
+        { label: "Home", url: "/" },
+        { label: "Nieuws", url: "/nieuws/" },
+        { label: artikel.h1, url: `/nieuws/${artikel.slug}/` },
+      ]}
+    />
+  </Kader>
+
+  <Kader als="section" id="inhoud" klasse="pt-10 lg:pt-14">
+    <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold uppercase tracking-[0.08em] text-accent">
+      {artikel.categorie}
+      <span class="font-normal normal-case tracking-normal text-ink-4">
+        <time datetime={artikel.datum}>{datumNL(artikel.datum)}</time>
+      </span>
+    </p>
+    <h1 class="mt-5 max-w-[22ch] text-3xl font-extrabold text-ink">{artikel.h1}</h1>
+    <p class="mt-6 max-w-[56ch] text-xl font-medium text-ink-2">{artikel.lead}</p>
+  </Kader>
+
+  <Kader als="article" klasse="pb-20 pt-10 lg:pb-24">
+    {/* Eén smalle kolom: rond de 70 tekens per regel leest een lang artikel
+        het prettigst, ook op een breed scherm. */}
+    <div class="max-w-[68ch]">
+      {
+        artikel.blokken.map((blok) => {
+          switch (blok.type) {
+            case "h2":
+              return <h2 class="mt-12 text-xl font-extrabold text-ink">{blok.tekst}</h2>;
+            case "h3":
+              return (
+                <h3 class="mt-8 font-display text-lg font-bold tracking-tight text-ink">
+                  {blok.tekst}
+                </h3>
+              );
+            case "streep":
+              return <hr class="mt-12 border-0 border-t border-line" />;
+            case "lijst":
+              return (
+                <ul class="mt-5 space-y-2.5">
+                  {blok.items.map((item) => (
+                    <li class="flex gap-3 text-base text-ink-3">
+                      <span aria-hidden="true" class="mt-[0.7em] h-px w-3 shrink-0 bg-line-strong" />
+                      <span set:html={item} />
+                    </li>
+                  ))}
+                </ul>
+              );
+            case "stappen":
+              return (
+                <ol class="mt-6 space-y-6">
+                  {blok.items.map((stap, i) => (
+                    <li class="border-l-2 border-accent/25 pl-5">
+                      <span class="font-display text-sm font-bold text-accent">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <h3 class="mt-1 font-display text-base font-bold tracking-tight text-ink">
+                        {stap.titel}
+                      </h3>
+                      <p class="mt-1.5 text-base text-ink-3" set:html={stap.tekst} />
+                    </li>
+                  ))}
+                </ol>
+              );
+            case "citaat":
+              return (
+                <blockquote class="mt-10 border-l-2 border-accent pl-6 text-lg font-medium leading-relaxed text-ink-2">
+                  <p set:html={blok.tekst} />
+                </blockquote>
+              );
+            case "kader":
+              return (
+                <aside class="mt-10 bg-paper-2 px-7 py-7">
+                  <h3 class="font-display text-base font-bold tracking-tight text-ink">
+                    {blok.titel}
+                  </h3>
+                  {blok.inhoud.map((deel) =>
+                    deel.type === "p" ? (
+                      <p class="mt-3 text-base text-ink-3" set:html={deel.tekst} />
+                    ) : (
+                      <ul class="mt-3 space-y-2">
+                        {deel.items.map((item) => (
+                          <li class="flex gap-3 text-base text-ink-3">
+                            <span aria-hidden="true" class="mt-[0.7em] h-px w-3 shrink-0 bg-line-strong" />
+                            <span set:html={item} />
+                          </li>
+                        ))}
+                      </ul>
+                    )
+                  )}
+                </aside>
+              );
+            case "let-op":
+              return (
+                <aside class="mt-10 border-l-2 border-ink-3 bg-paper-2 px-7 py-6">
+                  <p class="text-xs font-semibold uppercase tracking-[0.08em] text-ink-2">
+                    {blok.label}
+                  </p>
+                  <p class="mt-2.5 text-base text-ink-3" set:html={blok.tekst} />
+                </aside>
+              );
+            case "cijfers":
+              return (
+                <aside class="mt-10 bg-ink px-7 py-8">
+                  {blok.label && (
+                    <p class="text-xs font-semibold uppercase tracking-[0.08em] text-merk">
+                      {blok.label}
+                    </p>
+                  )}
+                  {blok.titel && (
+                    <p class="mt-3 font-display text-lg font-bold tracking-tight text-wit">
+                      {blok.titel}
+                    </p>
+                  )}
+                  {blok.sub && <p class="mt-1.5 text-sm text-op-donker-sterk">{blok.sub}</p>}
+                  <dl class="mt-6 grid gap-x-8 gap-y-6 sm:grid-cols-3">
+                    {blok.items.map((cijfer) => (
+                      <div>
+                        <dd class="font-display text-2xl font-extrabold tracking-tight text-merk">
+                          {cijfer.waarde}
+                        </dd>
+                        <dt class="mt-2 text-sm leading-snug text-op-donker-sterk">{cijfer.label}</dt>
+                      </div>
+                    ))}
+                  </dl>
+                  {blok.bron && (
+                    <p class="mt-6 border-t border-wit/15 pt-4 text-xs text-op-donker">{blok.bron}</p>
+                  )}
+                </aside>
+              );
+            case "faq":
+              return (
+                <section class="mt-12">
+                  <div class="border-t border-line-strong">
+                    {blok.items.map((v) => (
+                      <details class="group border-b border-line">
+                        <summary class="flex cursor-pointer list-none items-start justify-between gap-6 py-5 font-display text-base font-bold text-ink transition-colors hover:text-accent [&::-webkit-details-marker]:hidden">
+                          {v.vraag}
+                          <svg viewBox="0 0 16 16" class="mt-1 h-4 w-4 shrink-0 text-accent" aria-hidden="true">
+                            <line x1="1" y1="8" x2="15" y2="8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                            <line x1="8" y1="1" x2="8" y2="15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                                  class="origin-center transition-transform group-open:rotate-90 group-open:opacity-0" />
+                          </svg>
+                        </summary>
+                        <p class="pb-5 text-base text-ink-3" set:html={v.antwoord} />
+                      </details>
+                    ))}
+                  </div>
+                </section>
+              );
+            case "video":
+              return (
+                /* De video laadt pas als hij in beeld komt; YouTube haalt
+                   anders bij elk bezoek een half megabyte binnen. */
+                <div class="mt-8 aspect-video w-full overflow-hidden rounded-kaart border border-line">
+                  <iframe
+                    src={blok.src}
+                    title={blok.titel}
+                    loading="lazy"
+                    class="h-full w-full"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  />
+                </div>
+              );
+            case "bron":
+              return <p class="mt-8 text-sm text-ink-4" set:html={blok.tekst} />;
+            case "cta":
+              return (
+                <aside class="mt-12 border-t-2 border-accent pt-7">
+                  {blok.label && (
+                    <p class="text-xs font-semibold uppercase tracking-[0.08em] text-accent">
+                      {blok.label}
+                    </p>
+                  )}
+                  <h2 class="mt-3 text-xl font-extrabold text-ink">{blok.kop}</h2>
+                  <p class="mt-3 text-base text-ink-3">{blok.tekst}</p>
+                  <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+                    <a
+                      href={hoofdactie.url}
+                      class="rounded-base bg-accent px-7 py-4 text-center text-base font-semibold text-wit transition-colors hover:bg-accent-deep sm:py-3.5"
+                    >
+                      {hoofdactie.label}
+                    </a>
+                    <a
+                      href={bedrijf.telefoonUrl}
+                      class="rounded-base border border-line-strong px-7 py-4 text-center text-base font-medium text-ink-2 transition-colors hover:border-ink-3 sm:py-3.5"
+                    >
+                      {bedrijf.telefoon}
+                    </a>
+                  </div>
+                </aside>
+              );
+            default:
+              return <p class="mt-5 text-base text-ink-3" set:html={blok.tekst} />;
+          }
+        })
+      }
+    </div>
+  </Kader>
+
+  <section class="border-t border-line bg-paper-2 py-16">
+    <Kader>
+      <h2 class="text-xs font-semibold uppercase tracking-[0.1em] text-accent">Verder lezen</h2>
+      <ul class="mt-7 grid gap-x-10 gap-y-8 sm:grid-cols-3">
+        {
+          verder.map((ander) => (
+            <li>
+              <a href={`/nieuws/${ander.slug}/`} class="group block border-t border-line-strong pt-4">
+                <p class="text-[0.6875rem] font-normal text-ink-4">{datumNL(ander.datum)}</p>
+                <h3 class="mt-2 font-display text-base font-bold leading-snug tracking-tight text-ink group-hover:text-accent-deep">
+                  {ander.h1}
+                </h3>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="mt-8">
+        <a
+          href="/nieuws/"
+          class="text-base font-medium text-accent underline decoration-accent/30 underline-offset-2 transition-colors hover:decoration-current"
+        >
+          Alle artikelen
+        </a>
+      </p>
+    </Kader>
+  </section>
+
+  <CtaBand />
+
+  {schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} is:inline />)}
+</Base>

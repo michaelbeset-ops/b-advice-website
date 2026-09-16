@@ -1,0 +1,71 @@
+---
+import Base from "../layouts/Base.astro";
+import Kader from "../components/Kader.astro";
+import Kruimels from "../components/Kruimels.astro";
+import ContactFormulier from "../components/ContactFormulier.vue";
+import { contact, bedrijf } from "../data/site";
+
+const gegevens = [
+  { label: "E-mail", waarde: bedrijf.email, url: `mailto:${bedrijf.email}` },
+  { label: "Telefoon", waarde: bedrijf.telefoon, url: bedrijf.telefoonUrl },
+  { label: "Adres", waarde: `${bedrijf.adres.straat}, ${bedrijf.adres.plaats}` },
+  { label: "KvK", waarde: bedrijf.kvk },
+];
+---
+
+<Base titel={contact.meta.titel} omschrijving={contact.meta.omschrijving}>
+  <Kader>
+    <Kruimels spoor={[{ label: "Home", url: "/" }, { label: "Contact", url: "/contact/" }]} />
+  </Kader>
+
+  <Kader als="section" id="inhoud" klasse="pt-10 lg:pt-14">
+    <h1 class="max-w-[18ch] text-3xl font-extrabold text-ink">{contact.h1}</h1>
+    <p class="mt-5 max-w-[52ch] text-xl font-medium text-ink-2">{contact.intro}</p>
+  </Kader>
+
+  <Kader klasse="pb-24 pt-12">
+    <div class="grid gap-x-16 gap-y-14 lg:grid-cols-12">
+      <div class="lg:col-span-7">
+        <!-- Het enige island op de site. client:load in plaats van client:idle,
+             omdat dit de hoofdactie van de pagina is: het formulier moet al
+             werken op het moment dat iemand begint te typen. -->
+        <ContactFormulier
+          client:load
+          toegangssleutel={contact.web3formsSleutel}
+          onderwerpen={contact.onderwerpen}
+          privacyUrl="/privacy/"
+          email={bedrijf.email}
+          telefoon={bedrijf.telefoon}
+        />
+      </div>
+
+      <aside class="lg:col-span-4 lg:col-start-9">
+        <div class="rounded-kaart border border-line bg-paper-2 p-7">
+          <h2 class="text-xs font-bold uppercase tracking-[0.1em] text-ink-4">Rechtstreeks contact</h2>
+          <dl class="mt-5">
+            {
+              gegevens.map((g, i) => (
+                <div class:list={[i > 0 && "mt-4 border-t border-line pt-4"]}>
+                  <dt class="text-sm text-ink-4">{g.label}</dt>
+                  <dd class="mt-1 text-base font-medium text-ink-2">
+                    {g.url ? (
+                      <a href={g.url} class="underline decoration-line-strong underline-offset-2 transition-colors hover:text-accent hover:decoration-current">
+                        {g.waarde}
+                      </a>
+                    ) : (
+                      g.waarde
+                    )}
+                  </dd>
+                </div>
+              ))
+            }
+          </dl>
+          <p class="mt-6 flex items-center gap-2.5 border-t border-line pt-5 text-sm text-ink-3">
+            <span aria-hidden="true" class="h-2 w-2 shrink-0 rounded-full bg-accent"></span>
+            {contact.reactietijd}
+          </p>
+        </div>
+      </aside>
+    </div>
+  </Kader>
+</Base>

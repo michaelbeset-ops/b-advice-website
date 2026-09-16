@@ -1,0 +1,79 @@
+---
+import Base from "../../layouts/Base.astro";
+import Kader from "../../components/Kader.astro";
+import Kruimels from "../../components/Kruimels.astro";
+import Kop from "../../components/Kop.astro";
+import Bovenregel from "../../components/Bovenregel.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import { artikelen, nieuwsPagina } from "../../data/nieuws";
+import { datumNL } from "../../lib/datum";
+
+const [nieuwste, ...rest] = artikelen;
+---
+
+<Base titel={nieuwsPagina.meta.titel} omschrijving={nieuwsPagina.meta.omschrijving}>
+  <Kader>
+    <Kruimels spoor={[{ label: "Home", url: "/" }, { label: "Nieuws", url: "/nieuws/" }]} />
+  </Kader>
+
+  <Kader als="section" id="inhoud" klasse="pt-10 lg:pt-14">
+    <Bovenregel tekst="Nieuws" />
+    <Kop
+      als="h1"
+      tekst={nieuwsPagina.h1}
+      accent={nieuwsPagina.kopAccent}
+      klasse="mt-6 max-w-[14ch] text-display font-extrabold text-ink"
+    />
+    <p class="mt-6 max-w-[50ch] text-xl font-medium text-ink-2">{nieuwsPagina.lead}</p>
+  </Kader>
+
+  <!-- Het nieuwste artikel krijgt de volle breedte; de rest staat eronder in
+       een lijst. Zo is meteen zichtbaar wat als laatste is verschenen zonder
+       dat er twaalf gelijke kaartjes onder elkaar komen. -->
+  <Kader als="section" klasse="pt-12">
+    <a
+      href={`/nieuws/${nieuwste.slug}/`}
+      class="group block border-t-2 border-accent pt-6 transition-colors hover:border-accent-deep"
+    >
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold uppercase tracking-[0.08em] text-accent">
+        {nieuwste.categorie}
+        <span class="font-normal normal-case tracking-normal text-ink-4">
+          {datumNL(nieuwste.datum)}
+        </span>
+      </p>
+      <h2 class="mt-4 max-w-[24ch] text-2xl font-extrabold text-ink group-hover:text-accent-deep">
+        {nieuwste.h1}
+      </h2>
+      <p class="mt-4 max-w-[62ch] text-base text-ink-3">{nieuwste.lead}</p>
+    </a>
+  </Kader>
+
+  <Kader als="section" klasse="pb-24 pt-12 lg:pb-28">
+    <h2 class="sr-only">Eerdere artikelen</h2>
+    <ul class="grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        rest.map((artikel) => (
+          <li>
+            <a
+              href={`/nieuws/${artikel.slug}/`}
+              class="group block h-full border-t border-line-strong pt-5 transition-colors hover:border-accent"
+            >
+              <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-accent">
+                {artikel.categorie}
+                <span class="font-normal normal-case tracking-normal text-ink-4">
+                  {datumNL(artikel.datum)}
+                </span>
+              </p>
+              <h3 class="mt-3 font-display text-lg font-bold leading-snug tracking-tight text-ink group-hover:text-accent-deep">
+                {artikel.h1}
+              </h3>
+              <p class="mt-2.5 text-sm leading-relaxed text-ink-3">{artikel.lead}</p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </Kader>
+
+  <CtaBand />
+</Base>

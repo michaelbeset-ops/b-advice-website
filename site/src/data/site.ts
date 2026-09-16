@@ -590,3 +590,469 @@ export const diensten: readonly Dienst[] = [
     ],
   },
 ] as const;
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Tekstpagina's (privacy, cookies)
+
+   Letterlijk overgenomen uit de huidige site. Deze teksten zijn juridisch van
+   aard; er is niets aan geherformuleerd.
+
+   TE_BEVESTIGEN: het cookiebeleid noemt een versiedatum van mei 2025. Loop na
+   of de inhoud nog klopt met wat de site nu doet.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+export type TekstBlok =
+  | { type: "p"; tekst: string }
+  | { type: "h2"; tekst: string }
+  | { type: "h3"; tekst: string }
+  | { type: "ul"; items: readonly string[] }
+  | { type: "tabel"; koppen: readonly string[]; rijen: readonly (readonly string[])[] };
+
+export interface TekstPagina {
+  slug: string;
+  h1: string;
+  intro: string;
+  meta: { titel: string; omschrijving: string };
+  blokken: readonly TekstBlok[];
+}
+
+export const tekstPaginas: readonly TekstPagina[] = [
+  {
+    slug: "privacy",
+    h1: "Privacyverklaring",
+    intro: "Hoe B-Advice omgaat met uw persoonsgegevens conform de AVG.",
+    meta: { titel: "Privacyverklaring | B-Advice", omschrijving: "Lees hoe B-Advice omgaat met persoonsgegevens conform de AVG. Privacyverklaring voor bezoekers van b-advice.info." },
+    blokken: [
+        { type: "p", tekst: "Versie 1.0 · Mei 2025  |  KvK 82797811" },
+        { type: "p", tekst: "Samenvatting: B-Advice verwerkt alleen gegevens die u zelf verstrekt (contactformulier, e-mail) en gegevens voor websiteanalyse. Wij verkopen uw gegevens nooit aan derden en bewaren ze niet langer dan noodzakelijk." },
+        { type: "h2", tekst: "1. Wie zijn wij?" },
+        { type: "p", tekst: "B-Advice is een eenmanszaak geregistreerd bij de Kamer van Koophandel onder nummer 82797811, gevestigd aan Achterdijk 26 te Nieuwland (UT). Wij zijn verantwoordelijk voor de verwerking van persoonsgegevens zoals beschreven in deze privacyverklaring." },
+        { type: "p", tekst: "Contactgegevens:\nE-mail: info@b-advice.info\nTelefoon: +31 (6) 431 25 245" },
+        { type: "h2", tekst: "2. Welke gegevens verwerken wij?" },
+        { type: "p", tekst: "Wij verwerken de volgende persoonsgegevens:" },
+        { type: "ul", items: [
+          "Naam en contactgegevens (e-mail, telefoonnummer) die u invult via onze contactformulieren",
+          "Organisatienaam en functie (indien opgegeven)",
+          "Inhoud van berichten en aanvragen die u verstuurt",
+          "Technische gegevens: IP-adres, browsertype en bezochte pagina's (anoniem via analyticssoftware)",
+        ] },
+        { type: "h2", tekst: "3. Waarom verwerken wij uw gegevens?" },
+        {
+          type: "tabel",
+          koppen: ["Doel", "Grondslag"],
+          rijen: [
+            ["Beantwoorden van uw vragen en aanvragen", "Uitvoering overeenkomst / gerechtvaardigd belang"],
+            ["Verbetering van onze website", "Gerechtvaardigd belang"],
+            ["Voldoen aan wettelijke verplichtingen", "Wettelijke verplichting"],
+          ],
+        },
+        { type: "h2", tekst: "4. Hoe lang bewaren wij uw gegevens?" },
+        { type: "p", tekst: "Wij bewaren persoonsgegevens niet langer dan noodzakelijk:" },
+        { type: "ul", items: [
+          "Contactformulieren: maximaal 2 jaar na laatste contact",
+          "Financiële administratie: 7 jaar (wettelijke bewaarplicht)",
+        ] },
+        { type: "h2", tekst: "5. Delen wij uw gegevens?" },
+        { type: "p", tekst: "Wij delen uw gegevens nooit met derden voor commerciële doeleinden. Wij maken gebruik van de volgende verwerkers:" },
+        { type: "ul", items: [
+          "Web3Forms: voor het verwerken van formulierinzendingen; doorgifte buiten de EER vindt plaats op basis van de EU-standaardcontractbepalingen",
+          "GitHub Pages: voor hosting van de website",
+        ] },
+        { type: "p", tekst: "Met al onze verwerkers hebben wij verwerkersovereenkomsten gesloten conform de AVG." },
+        { type: "h2", tekst: "6. Cookies" },
+        { type: "p", tekst: "Onze website gebruikt alleen functionele cookies en lokale opslag; wij plaatsen geen analytische of tracking-cookies. Meer informatie vindt u in ons cookiebeleid." },
+        { type: "h2", tekst: "7. Uw rechten" },
+        { type: "p", tekst: "Op grond van de AVG heeft u de volgende rechten:" },
+        { type: "ul", items: [
+          "Inzage: U kunt opvragen welke gegevens wij van u verwerken",
+          "Rectificatie: U kunt onjuiste gegevens laten corrigeren",
+          "Verwijdering: U kunt verzoeken uw gegevens te laten verwijderen",
+          "Bezwaar: U kunt bezwaar maken tegen verwerking op basis van gerechtvaardigd belang",
+          "Overdraagbaarheid: U kunt uw gegevens opvragen in een machineleesbaar formaat",
+        ] },
+        { type: "p", tekst: "Stuur uw verzoek naar info@b-advice.info. Wij reageren binnen 30 dagen." },
+        { type: "h2", tekst: "8. Beveiliging" },
+        { type: "p", tekst: "Wij nemen passende technische en organisatorische maatregelen om uw persoonsgegevens te beveiligen tegen ongeautoriseerde toegang, verlies of misbruik. Onze website maakt gebruik van HTTPS-versleuteling." },
+        { type: "h2", tekst: "9. Klachten" },
+        { type: "p", tekst: "Heeft u een klacht over de verwerking van uw persoonsgegevens? U kunt een klacht indienen bij de Autoriteit Persoonsgegevens via autoriteitpersoonsgegevens.nl." },
+        { type: "h2", tekst: "10. Wijzigingen" },
+        { type: "p", tekst: "Wij behouden het recht deze privacyverklaring te wijzigen. De meest actuele versie vindt u altijd op deze pagina. Bij ingrijpende wijzigingen informeren wij u via e-mail." },
+        { type: "h2", tekst: "11. Contact" },
+        { type: "p", tekst: "Voor vragen over deze privacyverklaring kunt u contact opnemen via info@b-advice.info of ons contactformulier." },
+    ],
+  },
+  {
+    slug: "cookies",
+    h1: "Cookiebeleid",
+    intro: "Welke cookies B-Advice gebruikt en hoe u uw voorkeuren beheert.",
+    meta: { titel: "Cookiebeleid | B-Advice", omschrijving: "Het cookiebeleid van B-Advice: welke cookies we gebruiken op b-advice.info en hoe u uw voorkeuren kunt instellen." },
+    blokken: [
+        { type: "p", tekst: "Versie 1.0 · Mei 2025" },
+        { type: "h2", tekst: "Wat zijn cookies?" },
+        { type: "p", tekst: "Cookies zijn kleine tekstbestanden die bij een bezoek aan onze website op uw apparaat worden opgeslagen. Ze zorgen ervoor dat de website goed functioneert en helpen ons de website te verbeteren." },
+        { type: "h2", tekst: "Welke cookies gebruiken wij?" },
+        { type: "h3", tekst: "Noodzakelijke cookies" },
+        { type: "p", tekst: "Deze cookies zijn essentieel voor het functioneren van de website. Zonder deze cookies werken bepaalde functies niet correct." },
+        {
+          type: "tabel",
+          koppen: ["Naam", "Doel", "Bewaartijd"],
+          rijen: [
+            ["b_advice_consent", "Slaat uw cookievoorkeur op zodat de banner niet herhaaldelijk verschijnt", "Permanent (localStorage)"],
+          ],
+        },
+        { type: "h3", tekst: "Analytische cookies" },
+        { type: "p", tekst: "Wij plaatsen op dit moment geen analytische of tracking-cookies. Mocht dit in de toekomst veranderen, dan vragen wij hiervoor eerst uw toestemming via een cookiebanner en werken wij dit beleid bij." },
+        { type: "h2", tekst: "Uw cookievoorkeur beheren" },
+        { type: "p", tekst: "U kunt uw cookievoorkeuren op elk moment aanpassen. Klik op de knop hieronder om de cookiebanner opnieuw te tonen:" },
+        { type: "p", tekst: "Daarnaast kunt u cookies blokkeren via de instellingen van uw browser. Let op: het blokkeren van noodzakelijke cookies kan de werking van de website beïnvloeden." },
+        { type: "h2", tekst: "Cookies van derden" },
+        { type: "p", tekst: "Onze website maakt gebruik van Web3Forms voor het verwerken van formulierinzendingen. Web3Forms plaatst geen cookies bij bezoekers; de inhoud van het formulier wordt bij verzending via hun dienst aan ons doorgestuurd. Zie het privacybeleid van Web3Forms voor meer informatie." },
+        { type: "h2", tekst: "Meer informatie" },
+        { type: "p", tekst: "Voor vragen over ons cookiebeleid kunt u contact opnemen via info@b-advice.info. Meer informatie over privacy vindt u in onze privacyverklaring." },
+    ],
+  },
+];
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Contact
+
+   De access key van Web3Forms is bedoeld om openbaar te zijn en staat ook in
+   de huidige site.
+
+   TE_BEVESTIGEN: zet in het Web3Forms-dashboard de domeinrestrictie op
+   b-advice.info aan. Zonder die instelling kan iedereen die de sleutel
+   uitleest het maandelijkse inzendquotum opmaken.
+   ══════════════════════════════════════════════════════════════════════════ */
+export const contact = {
+  meta: {
+    titel: "Contact | B-Advice",
+    omschrijving:
+      "Neem contact op met B-Advice over projectleiding, locatieonderzoek of " +
+      "werkvoorbereiding rondom ondergrondse afvalcontainers.",
+  },
+  h1: "Bespreek uw project met B-Advice",
+  intro:
+    "Vertel kort waar uw project staat en waar u ondersteuning bij zoekt. " +
+    "Wij reageren binnen één werkdag.",
+  web3formsSleutel: "28c0f073-516d-4fe1-a111-8d987ee1bbb6",
+  onderwerpen: [
+    "Projectleiding en projectbegeleiding",
+    "Locatieonderzoek en werkvoorbereiding",
+    "Onderzoek naar kabels en leidingen",
+    "Inrichtingstekeningen en uitvoeringsvoorbereiding",
+    "Advies over ondergrondse inzamelvoorzieningen",
+    "Plaatsen van inzamelmiddelen",
+    "B-Organized platform",
+    "Overig",
+  ],
+  reactietijd: "Wij reageren binnen één werkdag",
+} as const;
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Overige pagina's, letterlijk overgenomen uit de huidige site.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+export const bOrganized = {
+  slug: "b-organized",
+  meta: {
+    titel: "B-Organized: containerbeheer software | B-Advice",
+    omschrijving:
+      "B-Organized is het digitale platform voor containerbeheer. Beheer uw " +
+      "containerpark, plan onderhoud en monitor vulgraden via één dashboard.",
+  },
+  h1: "B-Organized",
+  intro:
+    "Het digitale platform voor volledig containerbeheer. Gemeenten en " +
+    "afvalverwerkers beheren hun containerpark overzichtelijk, snel en " +
+    "schaalbaar via één dashboard.",
+  kopAlles: "Alles in één platform",
+  leadAlles:
+    "B-Organized brengt alle informatie over uw containerpark samen. Van " +
+    "werkvoorbereiding tot lediging: alles inzichtelijk en beheersbaar.",
+  kenmerken: [
+    "Kanban-overzicht per gemeente en wijk",
+    "Containerregistratie met kaartweergave",
+    "Takenbeheer en gebruikersrollen",
+    "Bijlages en notities per container",
+  ],
+  kopStappen: "Hoe werkt B-Organized?",
+  leadStappen: "In drie stappen aan de slag met digitaal containerbeheer.",
+  stappen: [
+    {
+      titel: "Toegang",
+      tekst:
+        "Neem contact op met B-Advice om toegang te krijgen tot het platform. " +
+        "Wij richten uw organisatie en containerpark in.",
+    },
+    {
+      titel: "Inrichten",
+      tekst:
+        "Voeg uw containerlocaties toe via de kaartweergave of importeer " +
+        "bestaande data. Wij helpen u bij de initiële opzet.",
+    },
+    {
+      titel: "Beheren",
+      tekst:
+        "Wijs taken toe, beheer onderhoudsstatus en houd alles bij via het " +
+        "Kanban-dashboard. Altijd en overal beschikbaar.",
+    },
+  ],
+  slotTekst: "Vraag een demo aan of log direct in op B-Organized.",
+  loginUrl: "https://b-organized.info",
+} as const;
+
+/** Pagina's waar nog aan gewerkt wordt. Eerlijk gelabeld in plaats van gevuld. */
+export const binnenkortPaginas = [
+  {
+    slug: "b-covered",
+    meta: {
+      titel: "B-Covered: locatiemeting containers | B-Advice",
+      omschrijving:
+        "B-Covered biedt professionele locatiemeting voor containerplaatsingen. " +
+        "Binnenkort beschikbaar via B-Advice.",
+    },
+    h1: "B-Covered",
+    intro: "Uw partner voor inmeten op maat.",
+    tekst: "Wij werken aan deze pagina. Binnenkort vindt u hier meer informatie.",
+  },
+  {
+    slug: "producten",
+    meta: {
+      titel: "Producten ondergrondse containers | B-Advice",
+      omschrijving:
+        "Overzicht van ondergrondse containers en inzamelmiddelen die B-Advice " +
+        "levert en plaatst voor gemeenten en afvalverwerkers in Nederland.",
+    },
+    h1: "Producten",
+    intro: "Ondergrondse containers en inzamelmiddelen.",
+    tekst:
+      "Wij werken aan deze pagina. Binnenkort vindt u hier meer informatie over " +
+      "onze producten.",
+  },
+] as const;
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Over ons, projecten en de locatieaanvraag. De teksten komen letterlijk van
+   de huidige site; er is niets bij verzonnen.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+export const overOns = {
+  meta: {
+    titel: "Over B-Advice | Specialist afvalinfrastructuur",
+    omschrijving:
+      "B-Advice ondersteunt gemeenten en afvalinzamelaars met ruim twee decennia " +
+      "ervaring in ondergrondse afvalinfrastructuur. Ons verhaal, ons team en onze aanpak.",
+  },
+  bovenregel: "Sinds 2013",
+  h1: "Specialisten in afvalinzameling",
+  kopAccent: "afvalinzameling",
+  lead:
+    "B-Advice ondersteunt gemeentes en afvalverwerkers met ruim twee decennia " +
+    "ervaring in ondergrondse afvalinfrastructuur.",
+  tijdlijn: [
+    { jaar: "2001", tekst: "Start loopbaan in inzameling en recycling van bedrijfsafvalstoffen" },
+    { jaar: "2007", tekst: "Focus verlegd naar ondergrondse en bovengrondse onderlossende systemen" },
+    { jaar: "2010", tekst: "Specialisatie in gemeentelijke inzameling: logistiek, techniek en civieltechniek" },
+    { jaar: "2013", tekst: "Oprichting B-Advice door Ricardo Beset" },
+    { jaar: "2022", tekst: "Lancering B-Organized platform voor digitaal containerbeheer" },
+    { jaar: "Nu", tekst: "40+ gemeentes bediend, 7.000+ containers beheerd" },
+  ],
+  geschiedenis: {
+    bovenregel: "Achtergrond",
+    kop: "Onze geschiedenis",
+    kopAccent: "geschiedenis",
+    alineas: [
+      "B-Advice bestaat sinds 2013, maar onze werkzaamheden in afvalinzameling en " +
+        "verwerking gaan terug tot 2001. Oprichter Ricardo Beset begon zijn carrière in " +
+        "inzameling en recycling van bedrijfsafvalstoffen. Met de opkomst van ondergrondse " +
+        "afvalcontainers in Nederland verlegde hij de focus naar ondergrondse en " +
+        "bovengrondse onderlossende systemen.",
+      "Die vroege ervaring met zowel de techniek als de logistiek van afvalinzameling " +
+        "vormt tot op de dag van vandaag de basis van onze aanpak: wij begrijpen het " +
+        "systeem van binnenuit.",
+      "Sinds 2010 richten wij ons primair op gemeentelijke inzameling, met specialisme " +
+        "in logistiek, techniek en civieltechniek. De rode draad: inzamelmiddelen, " +
+        "afvalinzameling en afvalscheiding, altijd met oog voor de eindgebruiker, zowel " +
+        "bewoners als inzamelaars.",
+      "Alle kennis die we opdoen in het veld, verwerken we direct in ons platform " +
+        "B-Organized. Zo profiteert elke klant van de collectieve ervaring van tientallen " +
+        "projecten per jaar.",
+    ],
+  },
+  team: {
+    bovenregel: "De mensen achter B-Advice",
+    kop: "Het team",
+    lead: "Drie mensen. Eén missie: afvalbeheer eenvoudiger en slimmer maken.",
+    leden: [
+      {
+        naam: "Ricardo Beset",
+        rol: "Directeur en senior projectmanager",
+        foto: "/assets/team/ric.webp",
+        tekst:
+          "Meer dan 20 jaar ervaring in afvalinzameling, van bedrijfsafval tot complexe " +
+          "gemeentelijke infrastructuurprojecten. Oprichter van B-Advice en drijvende " +
+          "kracht achter B-Organized.",
+      },
+      {
+        naam: "Jayden Beset",
+        rol: "Werkvoorbereider",
+        foto: "/assets/team/jay.webp",
+        tekst:
+          "Verantwoordelijk voor de voorbereiding en coördinatie van plaatsingsprojecten. " +
+          "Werkt dagelijks met B-Organized om projecten van initiatief naar uitvoering te " +
+          "begeleiden.",
+      },
+      {
+        naam: "Leon Lauran",
+        rol: "Developer en projectleider",
+        foto: "/assets/team/leon.webp",
+        tekst:
+          "Ontwikkelaar van het B-Organized platform en projectleider voor technische " +
+          "implementaties. Combineert softwarekennis met praktijkervaring in de " +
+          "afvalinzameling.",
+      },
+    ],
+  },
+  aanpak: {
+    bovenregel: "Werkwijze",
+    kop: "Onze aanpak",
+    kopAccent: "aanpak",
+    punten: [
+      {
+        titel: "Specialisme",
+        tekst:
+          "Diepgaande kennis van logistiek, techniek en civieltechniek. Geen generalist: " +
+          "wij kennen elk onderdeel van het systeem van binnenuit.",
+      },
+      {
+        titel: "Eigen processen",
+        tekst:
+          "Eigen werkprocessen en complete administratie maken efficiëntie mogelijk. Van " +
+          "aanbesteding tot oplevering werken wij gestructureerd en voorspelbaar.",
+      },
+      {
+        titel: "SMART systemen",
+        tekst:
+          "Niet alleen slimme inzamelsystemen, maar ook slimme registratie en beheer. Via " +
+          "B-Organized is elk containerpunt inzichtelijk en beheersbaar.",
+      },
+    ],
+  },
+} as const;
+
+export const projectenPagina = {
+  meta: {
+    titel: "Projecten en referenties ondergrondse containers | B-Advice",
+    omschrijving:
+      "Projecten waarin B-Advice gemeenten en afvalinzamelaars ondersteunde bij " +
+      "voorbereiding, werkvoorbereiding en projectleiding van ondergrondse " +
+      "inzamelvoorzieningen.",
+  },
+  h1: "Projecten en referenties",
+  kopAccent: "referenties",
+  lead:
+    "Projecten waarin B-Advice gemeenten en afvalinzamelaars ondersteunde bij de " +
+    "voorbereiding, werkvoorbereiding en projectleiding van ondergrondse " +
+    "inzamelvoorzieningen.",
+  // Er staan nog geen referentieprojecten online. Deze tekst zegt dat eerlijk,
+  // in plaats van de pagina te vullen met voorbeelden die er niet zijn.
+  leegTekst:
+    "De eerste referentieprojecten worden op dit moment samengesteld. Wilt u nu al " +
+    "weten of wij ervaring hebben met een vergelijkbaar project? Neem gerust contact op.",
+  leegKop: "Nog geen projecten online",
+} as const;
+
+export const locatieaanvraag = {
+  meta: {
+    titel: "Locatieaanvraag ondergrondse container | B-Advice",
+    omschrijving:
+      "Dien een locatie in voor beoordeling. Wij toetsen de haalbaarheid en logistiek " +
+      "en koppelen binnen twee werkdagen terug.",
+  },
+  h1: "Locatieaanvraag",
+  kopAccent: "aanvraag",
+  lead:
+    "Vul het formulier in zodat wij uw locatie kunnen beoordelen en een passend " +
+    "voorstel kunnen maken.",
+  stappen: [
+    { titel: "Aanvraag indienen", tekst: "Vul het formulier in met locatiegegevens en uw contactinformatie." },
+    { titel: "Beoordeling", tekst: "Wij beoordelen de locatie op haalbaarheid en logistiek." },
+    { titel: "Terugkoppeling", tekst: "U ontvangt binnen 2 werkdagen een reactie met ons advies." },
+    { titel: "Offerte op maat", tekst: "Bij akkoord stellen wij een offerte op maat op." },
+  ],
+  meten: {
+    kop: "B-Covered meten",
+    tekst:
+      "Wij meten locaties professioneel in met GPS-apparatuur voor nauwkeurige coördinaten.",
+    link: { url: "/b-covered/", label: "Meer over B-Covered" },
+  },
+  bevestiging: {
+    kop: "Aanvraag ontvangen",
+    tekst: "Bedankt voor uw locatieaanvraag. Wij nemen zo spoedig mogelijk contact met u op.",
+  },
+  /** De vier stappen van het formulier, in dezelfde volgorde als nu. */
+  onderdelen: [
+    {
+      titel: "Contactgegevens",
+      sub: "Uw persoonlijke informatie",
+      velden: [
+        { soort: "tekst", naam: "naam", label: "Naam", type: "text", hint: "Uw volledige naam", verplicht: true, autocomplete: "name" },
+        { soort: "tekst", naam: "email", label: "E-mailadres", type: "email", hint: "uw@email.nl", verplicht: true, autocomplete: "email" },
+        { soort: "tekst", naam: "telefoon", label: "Telefoonnummer", type: "tel", hint: "+31 6 12 34 56 78", verplicht: false, autocomplete: "tel" },
+        { soort: "tekst", naam: "organisatie", label: "Organisatie", type: "text", hint: "Gemeente of bedrijfsnaam", verplicht: true, autocomplete: "organization" },
+      ],
+    },
+    {
+      titel: "Locatiegegevens",
+      sub: "Technische informatie over de locatie",
+      velden: [
+        { soort: "tekst", naam: "adres", label: "Adres of omschrijving locatie", type: "text", hint: "Straatnaam, plaatsnaam", verplicht: true, autocomplete: "street-address" },
+        { soort: "tekst", naam: "coord_x", label: "X-coördinaat (RD)", type: "text", hint: "bijvoorbeeld 125000", verplicht: false },
+        { soort: "tekst", naam: "coord_y", label: "Y-coördinaat (RD)", type: "text", hint: "bijvoorbeeld 483000", verplicht: false },
+        { soort: "tekst", naam: "kenmerk", label: "Kenmerk of referentie", type: "text", hint: "Interne projectcode of locatienaam", verplicht: false },
+        { soort: "keuze", naam: "plaatsing", label: "Plaatsing", opties: ["Eigen grond", "Openbaar terrein", "Onbekend"] },
+      ],
+    },
+    {
+      titel: "Locatiekenmerken",
+      sub: "Huidige situatie en werkzaamheden",
+      velden: [
+        { soort: "keuze", naam: "proefsleuven", label: "Proefsleuven gewenst?", opties: ["Ja", "Nee", "Onbekend"] },
+        { soort: "keuze", naam: "ingemeten", label: "Locatie al ingemeten?", opties: ["Ja", "Nee", "Onbekend"] },
+        { soort: "keuze", naam: "voertuig", label: "Bezocht met inzamelvoertuig?", opties: ["Ja", "Nee", "Onbekend"] },
+      ],
+    },
+    {
+      titel: "Aanvullende informatie",
+      sub: "Type container en opmerkingen",
+      velden: [
+        { soort: "keuze", naam: "inrichting", label: "Standaardinrichting", opties: ["Standaard", "Geen voorkeur", "Afwijkend"] },
+        {
+          soort: "tekstvak",
+          naam: "opmerkingen",
+          label: "Opmerkingen of aanvullende informatie",
+          hint: "Beschrijf eventuele bijzonderheden, obstakels of andere relevante informatie",
+          verplicht: false,
+        },
+      ],
+    },
+  ],
+} as const;
+
+export const nietGevonden = {
+  meta: {
+    titel: "Pagina niet gevonden | B-Advice",
+    omschrijving: "Deze pagina bestaat niet of is verplaatst.",
+  },
+  h1: "Deze pagina bestaat niet",
+  tekst:
+    "De link klopt niet meer of de pagina is verplaatst. Hieronder staan de plekken " +
+    "waar de meeste bezoekers naar op zoek zijn.",
+  suggesties: [
+    { url: "/diensten/", label: "Alle diensten" },
+    { url: "/nieuws/", label: "Nieuws en achtergrond" },
+    { url: "/over-ons/", label: "Over B-Advice" },
+    { url: "/contact/", label: "Contact" },
+  ],
+} as const;

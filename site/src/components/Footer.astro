@@ -19,7 +19,9 @@ import { bedrijf, navigatie, footer } from "../data/site";
 
       <div class="sm:col-span-2 lg:col-span-4">
         <h2 class="text-xs font-bold uppercase tracking-[0.1em] text-op-donker-sterk">Diensten</h2>
-        <ul class="mt-4 grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-1 sm:gap-y-2.5">
+        <!-- Twee kolommen passen pas vanaf ongeveer 400px; daaronder liepen de
+             langste dienstnamen buiten hun kolom. -->
+        <ul class="mt-4 grid grid-cols-1 gap-x-6 gap-y-2 min-[400px]:grid-cols-2 sm:grid-cols-1 sm:gap-y-2.5">
           {navigatie.diensten.map((d) => (
             <li>
               <a href={d.url} class="text-sm leading-snug transition-colors hover:text-op-donker-sterk">
