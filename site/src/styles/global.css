@@ -126,6 +126,8 @@
     font-family: var(--font-display);
     letter-spacing: -0.03em;
     text-wrap: balance;
+    hyphens: auto;
+    overflow-wrap: break-word;
   }
 
   /* Zichtbare focus, ook voor wie met de muis klikt en dan Tab gebruikt. */
