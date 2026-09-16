@@ -1,0 +1,50 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import { a11y, bedrijf } from "../data/site";
+
+interface Props {
+  titel: string;
+  omschrijving: string;
+}
+const { titel, omschrijving } = Astro.props;
+const pad = Astro.url.pathname;
+const canoniek = new URL(pad, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titel}</title>
+    <meta name="description" content={omschrijving} />
+    <link rel="canonical" href={canoniek} />
+
+    <!-- De twee lettertypebestanden staan op het kritieke pad van de eerste
+         schermvulling, dus die halen we alvast op. -->
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+          href="/fonts/schibsted-grotesk-latin-wght-normal.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+          href="/fonts/public-sans-latin-wght-normal.woff2" />
+
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+    <link rel="apple-touch-icon" href="/assets/favicon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={bedrijf.naam} />
+    <meta property="og:locale" content="nl_NL" />
+    <meta property="og:title" content={titel} />
+    <meta property="og:description" content={omschrijving} />
+    <meta property="og:url" content={canoniek} />
+    <meta property="og:image" content={new URL("/assets/og-image.png", Astro.site).href} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <a href="#inhoud" class="skip-link">{a11y.skipLink}</a>
+    <Header pad={pad} />
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

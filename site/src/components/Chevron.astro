@@ -1,0 +1,9 @@
+---
+/** Zelfgetekend pijltje. Geen iconenpakket voor één vorm. */
+interface Props { klasse?: string }
+const { klasse = "" } = Astro.props;
+---
+<svg viewBox="0 0 10 6" aria-hidden="true" class:list={["h-[6px] w-[10px] shrink-0", klasse]}>
+  <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"
+        stroke-linecap="round" stroke-linejoin="round" />
+</svg>

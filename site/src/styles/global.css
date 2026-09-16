@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Lettertypen, zelf gehost, alleen de latin-subset.
+   Twee variabele bestanden dekken het hele gewichtsbereik, dus er gaat maar
+   74 KB over de lijn voor alle koppen en lopende tekst samen.
+   ══════════════════════════════════════════════════════════════════════════ */
+@font-face {
+  font-family: "Schibsted Grotesk";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 900;
+  src: url("/fonts/schibsted-grotesk-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Public Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("/fonts/public-sans-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Design tokens
+
+   De standaardschalen van Tailwind worden eerst helemaal leeggemaakt. Daardoor
+   bestaat `bg-blue-500` of `text-gray-600` niet meer: wie zoiets typt krijgt
+   geen klasse en ziet het meteen. Alles hieronder is van deze site.
+   ══════════════════════════════════════════════════════════════════════════ */
+@theme {
+  --color-*: initial;
+  --text-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --font-*: initial;
+
+  /* ── Kleur ──────────────────────────────────────────────────────────────
+     Het palet van de huidige site, ongewijzigd overgenomen.
+     Twee groentinten met een reden: het logogroen haalt op wit maar 2,7:1 en
+     zakt daarmee door WCAG AA. Voor alles wat tekst of knop is geldt daarom
+     --color-accent (6,2:1 op papier, 6,5:1 met witte tekst erop). Het
+     logogroen blijft voorbehouden aan de donkere vlakken, waar het 6,3:1 haalt. */
+  --color-paper: #fbfbfa;
+  --color-paper-2: #f2f4f2;
+  --color-ink: #12211a;
+  --color-ink-2: #1a2820;
+  --color-ink-3: #46574c;
+  --color-ink-4: #5b6b61;
+  --color-accent: #1f6b3f;
+  --color-accent-deep: #17532f;
+  --color-merk: #4caf72;
+  --color-line: rgb(18 33 26 / 0.14);
+  --color-line-strong: rgb(18 33 26 / 0.26);
+  --color-op-donker: #9aa7a0;
+  --color-op-donker-sterk: #d6ded9;
+  --color-wit: #ffffff;
+
+  /* ── Typografie ─────────────────────────────────────────────────────────
+     Koppen worden groot door gewicht, niet door extreme afmetingen: de
+     bovengrens van de display ligt bewust op 4,25rem. */
+  --font-display: "Schibsted Grotesk", system-ui, sans-serif;
+  --font-body: "Public Sans", system-ui, sans-serif;
+
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.5;
+  --text-sm: 0.9375rem;
+  --text-sm--line-height: 1.6;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.7;
+  --text-lg: clamp(1.125rem, 0.35vw + 1.05rem, 1.3125rem);
+  --text-lg--line-height: 1.6;
+  --text-xl: clamp(1.3125rem, 0.9vw + 1.1rem, 1.625rem);
+  --text-xl--line-height: 1.45;
+  --text-2xl: clamp(1.625rem, 1.8vw + 1.2rem, 2.25rem);
+  --text-2xl--line-height: 1.2;
+  --text-3xl: clamp(2rem, 3vw + 1.25rem, 3rem);
+  --text-3xl--line-height: 1.12;
+  --text-display: clamp(2.375rem, 4.4vw + 1.15rem, 4.25rem);
+  --text-display--line-height: 1.02;
+
+  /* ── Vorm ───────────────────────────────────────────────────────────────
+     Hoeken van 3px, net als nu. Schaduwen zijn laag en zacht of afwezig;
+     structuur komt uit lijnen, niet uit diepte. */
+  --radius-hair: 2px;
+  --radius-base: 3px;
+  --shadow-laag: 0 1px 2px rgb(18 33 26 / 0.05);
+  --shadow-zwevend: 0 8px 24px rgb(18 33 26 / 0.1);
+
+  /* ── Ritme ──────────────────────────────────────────────────────────────
+     Eén maat voor de zijmarge, zodat header, hero en secties op dezelfde
+     verticale lijn beginnen. */
+  --spacing-gutter: clamp(1.25rem, 4vw, 5rem);
+  --spacing-header: 4rem;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Basis
+   ══════════════════════════════════════════════════════════════════════════ */
+@layer base {
+  html {
+    /* Vaste header, dus ankers moeten eronderdoor kunnen scrollen. */
+    scroll-padding-top: calc(var(--spacing-header) + 1rem);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  /* Zichtbare focus, ook voor wie met de muis klikt en dan Tab gebruikt. */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: var(--radius-hair);
+  }
+
+  /* Eén beweging op de hele site (het openen van het menu) en die staat
+     hieronder uit zodra het besturingssysteem daarom vraagt. */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* De skip-link zit buiten beeld tot hij focus krijgt. */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    background: var(--color-accent);
+    color: var(--color-wit);
+    padding: 0.75rem 1.25rem;
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+  .skip-link:focus {
+    left: 0;
+  }
+}

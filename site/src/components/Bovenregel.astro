@@ -1,0 +1,13 @@
+---
+/**
+ * Kleine aanduiding boven een kop: een streepje gevolgd door een woord in
+ * kapitalen. Vervangt het pilletje met bolletje dat op vrijwel elke
+ * sjabloonsite staat.
+ */
+interface Props { tekst: string }
+const { tekst } = Astro.props;
+---
+<p class="flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.1em] text-ink-4">
+  <span aria-hidden="true" class="h-px w-6 bg-accent"></span>
+  {tekst}
+</p>

@@ -1,0 +1,63 @@
+# Bouwt de Astro-site in site/ en zet hem op GitHub Pages.
+#
+# LET OP, eenmalige handeling voordat dit werkt:
+# in Settings -> Pages moet de bron van "Deploy from a branch" naar
+# "GitHub Actions" worden gezet. Zolang dat niet gebeurd is blijft de oude
+# site uit docs/ gewoon in de lucht en doet deze workflow niets kwaads.
+name: Site bouwen en uitrollen
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - ".github/workflows/site-deploy.yml"
+  workflow_dispatch:
+
+# Alleen lezen in de repo; het uitrollen gaat via het Pages-token.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Eén uitrol tegelijk. Een nieuwe push annuleert een lopende build niet,
+# zodat een half uitgerolde site niet kan ontstaan.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  bouwen:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - run: npm ci
+
+      - name: Bouwen
+        run: npm run build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/dist
+
+  uitrollen:
+    needs: bouwen
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.uitrol.outputs.page_url }}
+    steps:
+      - id: uitrol
+        uses: actions/deploy-pages@v4

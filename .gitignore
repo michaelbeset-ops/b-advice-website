@@ -2,6 +2,9 @@
 # Installeren met: npm install --no-save sharp
 node_modules/
 package-lock.json
+# De Astro-site wordt wel met npm ci gebouwd, dus die lockfile hoort er juist
+# in: zonder vastgezette versies bouwt de workflow niet reproduceerbaar.
+!site/package-lock.json
 
 # Systeembestanden
 .DS_Store

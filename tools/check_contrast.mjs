@@ -27,9 +27,19 @@ for (const pad of paginas) {
   await page.reload({ waitUntil: "networkidle" });
 
   const fouten = await page.evaluate(() => {
+    // Moderne CSS levert kleuren als oklab() of color-mix(), niet als rgb().
+    // Zelf parsen gaat daar mis, dus laat het canvas de omrekening naar sRGB
+    // doen: dat begrijpt elke notatie die de browser zelf ook accepteert.
+    const doek = document.createElement("canvas");
+    doek.width = doek.height = 1;
+    const ctx2d = doek.getContext("2d", { willReadFrequently: true });
+    ctx2d.globalCompositeOperation = "copy";
     const kleur = (c) => {
-      const m = c.match(/[\d.]+/g).map(Number);
-      return { r: m[0], g: m[1], b: m[2], a: m.length > 3 ? m[3] : 1 };
+      ctx2d.fillStyle = "#000000";
+      ctx2d.fillStyle = c;
+      ctx2d.fillRect(0, 0, 1, 1);
+      const d = ctx2d.getImageData(0, 0, 1, 1).data;
+      return { r: d[0], g: d[1], b: d[2], a: d[3] / 255 };
     };
     const meng = (voor, achter) => ({
       r: voor.r * voor.a + achter.r * (1 - voor.a),

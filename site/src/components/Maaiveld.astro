@@ -1,0 +1,45 @@
+---
+/**
+ * Het eigen detail van deze site: een doorsnede van het maaiveld met twee
+ * ondergrondse inzamelvoorzieningen, getekend zoals op een inrichtings-
+ * tekening. Het is letterlijk wat B-Advice doet, en het komt uit geen enkel
+ * sjabloon.
+ *
+ * De maaiveldlijn is een CSS-lijn: altijd haarscherp en over de volle breedte,
+ * ongeacht de schermmaat. De putten zitten in een SVG op vaste maat, zodat ze
+ * op een smal scherm niet uitgerekt worden maar netjes buiten beeld doorlopen.
+ */
+const MAAIVELD_Y = 56; // hoogte van de maaiveldlijn binnen de tekening
+---
+
+<div class="relative h-[148px] overflow-hidden" aria-hidden="true">
+  <!-- Maaiveld. -->
+  <div class="absolute inset-x-0 top-[56px] h-px bg-line-strong"></div>
+
+  <svg
+    class="absolute left-gutter top-0 h-[148px] w-[520px] text-line-strong"
+    viewBox="0 0 520 148"
+    fill="none"
+    preserveAspectRatio="xMinYMin meet"
+  >
+    <g stroke="currentColor" stroke-width="1">
+      <!-- Voorziening 1: inworpzuil boven het maaiveld, container eronder. -->
+      <rect x="62" y="20" width="34" height={MAAIVELD_Y - 20} />
+      <line x1="69" y1="30" x2="89" y2="30" />
+      <rect x="44" y={MAAIVELD_Y} width="80" height="70" fill="currentColor" fill-opacity="0.04" />
+      <line x1="44" y1={MAAIVELD_Y + 12} x2="124" y2={MAAIVELD_Y + 12} />
+
+      <!-- Voorziening 2, iets dieper: containers verschillen per fractie. -->
+      <rect x="218" y="28" width="34" height={MAAIVELD_Y - 28} />
+      <line x1="225" y1="37" x2="245" y2="37" />
+      <rect x="200" y={MAAIVELD_Y} width="80" height="84" fill="currentColor" fill-opacity="0.04" />
+      <line x1="200" y1={MAAIVELD_Y + 12} x2="280" y2={MAAIVELD_Y + 12} />
+
+      <!-- Maatlijn voor de vrije ruimte tussen beide putten, met
+           maatstreepjes, zoals op een inrichtingstekening. -->
+      <line x1="124" y1="86" x2="200" y2="86" stroke-dasharray="2 3" />
+      <line x1="124" y1="80" x2="124" y2="92" />
+      <line x1="200" y1="80" x2="200" y2="92" />
+    </g>
+  </svg>
+</div>

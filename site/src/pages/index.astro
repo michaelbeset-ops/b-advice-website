@@ -1,0 +1,9 @@
+---
+import Base from "../layouts/Base.astro";
+import Hero from "../components/Hero.astro";
+import { home } from "../data/site";
+---
+
+<Base titel={home.meta.titel} omschrijving={home.meta.omschrijving}>
+  <Hero />
+</Base>

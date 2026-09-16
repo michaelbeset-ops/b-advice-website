@@ -1,0 +1,21 @@
+---
+/**
+ * Het logo als afbeelding, met expliciete afmetingen zodat de header niet
+ * verspringt terwijl het bestand nog laadt.
+ */
+interface Props {
+  /** Op donkere vlakken wordt het logo naar wit gekeerd. */
+  omgekeerd?: boolean;
+  klasse?: string;
+}
+const { omgekeerd = false, klasse = "" } = Astro.props;
+---
+
+<img
+  src="/assets/b-advice-logo.webp"
+  alt="B-Advice"
+  width="137"
+  height="40"
+  decoding="async"
+  class:list={["block h-10 w-auto", omgekeerd && "brightness-0 invert", klasse]}
+/>
