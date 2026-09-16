@@ -87,8 +87,9 @@
   /* ── Vorm ───────────────────────────────────────────────────────────────
      Hoeken van 3px, net als nu. Schaduwen zijn laag en zacht of afwezig;
      structuur komt uit lijnen, niet uit diepte. */
-  --radius-hair: 2px;
-  --radius-base: 3px;
+  --radius-hair: 3px;
+  --radius-base: 7px;
+  --radius-kaart: 12px;
   --shadow-laag: 0 1px 2px rgb(18 33 26 / 0.05);
   --shadow-zwevend: 0 8px 24px rgb(18 33 26 / 0.1);
 
