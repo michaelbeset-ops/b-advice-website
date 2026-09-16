@@ -50,13 +50,20 @@ SCHEMA_RE = re.compile(
 
 
 def naam_van(url, src):
+    """Korte naam voor het kruimelpad, afgeleid uit de H1 van de pagina."""
     if url in NAMEN:
         return NAMEN[url]
     m = re.search(r"<h1[^>]*>(.*?)</h1>", src, re.S)
-    if m:
-        tekst = re.sub(r"<[^>]+>", "", m.group(1))
-        return html.unescape(" ".join(tekst.split()))
-    return url.strip("/").split("/")[-1].replace("-", " ").capitalize()
+    if not m:
+        return url.strip("/").split("/")[-1].replace("-", " ").capitalize()
+    naam = html.unescape(" ".join(re.sub(r"<[^>]+>", "", m.group(1)).split()))
+    # Artikelkoppen zijn te lang voor een kruimelpad. Het deel voor de
+    # dubbele punt is meestal precies het onderwerp.
+    if len(naam) > 48 and ": " in naam:
+        naam = naam.split(": ", 1)[0]
+    if len(naam) > 56:
+        naam = naam[:56].rsplit(" ", 1)[0] + "\u2026"
+    return naam
 
 
 def spoor(url, src):

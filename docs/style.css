@@ -356,6 +356,24 @@ footer {
 }
 .form-textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
 
+/* ── Links in de artikeltekst ──
+   De basisregel `a { color: inherit; text-decoration: none }` maakte links in
+   nieuwsartikelen niet te onderscheiden van gewone tekst. */
+.article-body p a,
+.article-body li a,
+.article-infobox a {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  transition: text-decoration-thickness .12s;
+}
+.article-body p a:hover,
+.article-body li a:hover,
+.article-infobox a:hover { text-decoration-thickness: 2px; }
+/* In de donkere blokken hoort het heldere merkgroen. */
+.article-pullquote a, .article-cta a:not(.btn-primary) { color: var(--merk); }
+
 /* ── Bronvermelding onder een nieuwsartikel ── */
 .article-bron {
   margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border);
