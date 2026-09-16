@@ -5,7 +5,7 @@
  * grond, een meetlint, een leidingtracé, een tekening, een gesprek.
  */
 interface Props {
-  soort: "put" | "meten" | "leidingen" | "tekening" | "advies";
+  soort: "put" | "meten" | "leidingen" | "tekening" | "advies" | "plaatsing";
   klasse?: string;
 }
 const { soort, klasse = "" } = Astro.props;
@@ -53,6 +53,14 @@ const { soort, klasse = "" } = Astro.props;
         <rect x="3" y="4" width="18" height="16" rx="1" />
         <path d="M3 9h18M9 9v11" />
         <path d="M13 13h4" />
+      </>
+    )}
+    {soort === "plaatsing" && (
+      <>
+        <path d="M4 20h16" />
+        <path d="M6 20V5h9" />
+        <path d="M15 5v4" />
+        <rect x="11" y="12" width="8" height="8" />
       </>
     )}
     {soort === "advies" && (

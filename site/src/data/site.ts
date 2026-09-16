@@ -142,6 +142,14 @@ export const homeSecties = {
           "Specialistisch advies over inzamelstructuur, inzamelmiddelen, beheer " +
           "en vervanging.",
       },
+      {
+        url: "/diensten/plaatsing/",
+        icoon: "plaatsing",
+        titel: "Plaatsen van inzamelmiddelen",
+        tekst:
+          "Civieltechnische plaatsing van ondergrondse en halfondergrondse " +
+          "containers, inclusief grondwerk, fundering en inbedrijfstelling.",
+      },
     ],
   },
 

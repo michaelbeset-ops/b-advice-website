@@ -156,6 +156,17 @@
 }
 
 @layer components {
+  /* Zelfde linkerrand als een <Kader>, maar zonder de inhoud te begrenzen.
+     Nodig voor rijen die op een telefoon van rand tot rand mogen schuiven en
+     op brede schermen toch precies onder de kop moeten uitlijnen. Met alleen
+     px-gutter liep zo'n rij op een breed scherm links buiten de tekstkolom. */
+  .kaderrand {
+    padding-inline: max(
+      var(--spacing-gutter),
+      calc((100% - var(--container-kader)) / 2)
+    );
+  }
+
   /* De skip-link zit buiten beeld tot hij focus krijgt. */
   .skip-link {
     position: absolute;
