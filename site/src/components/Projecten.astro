@@ -1,0 +1,26 @@
+---
+import Kader from "./Kader.astro";
+import Bovenregel from "./Bovenregel.astro";
+import { homeSecties } from "../data/site";
+
+const { projecten } = homeSecties;
+---
+
+<Kader als="section" klasse="py-20 lg:py-28">
+  <Bovenregel tekst={projecten.bovenregel} />
+  <h2 class="mt-6 text-2xl font-extrabold text-ink">{projecten.kop}</h2>
+  <p class="mt-5 max-w-[52ch] text-base text-ink-3">{projecten.lead}</p>
+
+  <!-- Er staat nog geen project gepubliceerd. Liever een eerlijke lege staat
+       dan opgevulde voorbeeldkaarten die er als echte referenties uitzien. -->
+  <p class="mt-10 max-w-[56ch] border-l-2 border-line-strong pl-6 text-base text-ink-3">
+    {projecten.leeg}
+  </p>
+
+  <a
+    href={projecten.link.url}
+    class="mt-8 inline-flex items-center gap-2 rounded-base border border-line-strong px-6 py-3.5 text-base font-medium text-ink-2 transition-colors hover:border-ink-3"
+  >
+    {projecten.link.label}
+  </a>
+</Kader>

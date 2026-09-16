@@ -89,3 +89,113 @@ export const a11y = {
   menuSluiten: "Menu sluiten",
   hoofdnavigatie: "Hoofdnavigatie",
 } as const;
+
+/** Homepagesecties onder de hero. Alle tekst komt van de huidige site. */
+export const homeSecties = {
+  diensten: {
+    bovenregel: "Onze diensten",
+    kop: "Waarmee wij gemeenten en afvalinzamelaars ondersteunen",
+    lead:
+      "Afzonderlijk in te zetten of als samenhangend pakket, van eerste " +
+      "locatieonderzoek tot oplevering van de uitvoering.",
+    /** De vijf diensten uit de briefing, elk direct doorklikbaar. */
+    items: [
+      {
+        url: "/diensten/projectleiding/",
+        titel: "Projectleiding en projectbegeleiding",
+        tekst:
+          "Tijdelijke projectleiding en interim-ondersteuning, van de eerste " +
+          "voorbereidingen tot en met de oplevering.",
+      },
+      {
+        url: "/diensten/locatieonderzoek/",
+        titel: "Locatieonderzoek en werkvoorbereiding",
+        tekst:
+          "Onderzoeken, beoordelen en uitwerken van geschikte containerlocaties, " +
+          "inclusief locatiebezoek en inmeten.",
+      },
+      {
+        url: "/diensten/locatieonderzoek/#kabels-en-leidingen",
+        titel: "Onderzoek naar kabels en leidingen",
+        tekst:
+          "Beoordelen van de beschikbare informatie en het voorbereiden en " +
+          "co\u00f6rdineren van aanvullend onderzoek.",
+      },
+      {
+        url: "/diensten/locatieonderzoek/#inrichtingstekeningen",
+        titel: "Inrichtingstekeningen en uitvoeringsvoorbereiding",
+        tekst:
+          "Opstellen en uitwerken van inrichtingstekeningen en het voorbereiden " +
+          "van de werkzaamheden voor de uitvoering.",
+      },
+      {
+        url: "/diensten/",
+        titel: "Advies over ondergrondse inzamelvoorzieningen",
+        tekst:
+          "Specialistisch advies over inzamelstructuur, inzamelmiddelen, beheer " +
+          "en vervanging.",
+      },
+    ],
+  },
+
+  platform: {
+    bovenregel: "Ons platform",
+    kop: "B-Organized: digitaal containerbeheer",
+    lead:
+      "Gemeenten en afvalinzamelaars beheren hun volledige containerpark via " +
+      "\u00e9\u00e9n platform. Overzichtelijk, snel en schaalbaar.",
+    kenmerken: [
+      "Kanban-overzicht per gemeente en wijk",
+      "Containerregistratie met kaartweergave",
+      "Takenbeheer en gebruikersrollen",
+      "Bijlages en notities per container",
+    ],
+    acties: [
+      { url: "/b-organized/", label: "Meer over B-Organized" },
+      { url: "https://b-organized.info", label: "Inloggen", extern: true },
+    ],
+  },
+
+  projecten: {
+    bovenregel: "Projecten en referenties",
+    kop: "Projecten en referenties",
+    lead:
+      "Projecten waarin B-Advice de voorbereiding, werkvoorbereiding of " +
+      "projectleiding verzorgde.",
+    /** Er staat nog geen project gepubliceerd, dus geen kaarten maar een
+     *  eerlijke lege staat. Zodra er projecten zijn komt hier een overzicht. */
+    leeg:
+      "De eerste referentieprojecten worden op dit moment samengesteld. Wilt u " +
+      "nu al weten of wij ervaring hebben met een vergelijkbaar project, neem " +
+      "dan gerust contact op.",
+    link: { url: "/projecten/", label: "Alle projecten en referenties" },
+  },
+
+  cta: {
+    kop: "Een project in voorbereiding of uitvoering?",
+    tekst: "Wij denken vrijblijvend mee en reageren binnen \u00e9\u00e9n werkdag.",
+  },
+} as const;
+
+export const footer = {
+  tagline:
+    "Specialist in ondergrondse afvalcontainers. Advies, projectleiding en " +
+    "werkvoorbereiding voor gemeenten en afvalinzamelaars.",
+  kolommen: [
+    {
+      titel: "Bedrijf",
+      links: [
+        { url: "/projecten/", label: "Projecten en referenties" },
+        { url: "/over-ons/", label: "Over ons" },
+        { url: "/nieuws/", label: "Nieuws" },
+        { url: "/contact/", label: "Contact" },
+        { url: "/b-organized/", label: "B-Organized" },
+        { url: "/privacy/", label: "Privacy en cookies" },
+      ],
+    },
+  ],
+  onderaan: [
+    { url: "/privacy/", label: "Privacy" },
+    { url: "/cookies/", label: "Cookies" },
+  ],
+} as const;

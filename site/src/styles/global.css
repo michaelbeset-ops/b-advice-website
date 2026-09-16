@@ -97,6 +97,10 @@
      verticale lijn beginnen. */
   --spacing-gutter: clamp(1.25rem, 4vw, 5rem);
   --spacing-header: 4rem;
+
+  /* Maximale contentbreedte. Zonder bovengrens wordt de lege rechterkolom op
+     een breed scherm een gat in plaats van rust, en lopen regels te lang. */
+  --container-kader: 84rem;
 }
 
 /* ══════════════════════════════════════════════════════════════════════════

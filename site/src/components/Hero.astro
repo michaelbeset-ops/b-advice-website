@@ -1,4 +1,5 @@
 ---
+import Kader from "./Kader.astro";
 import Bovenregel from "./Bovenregel.astro";
 import Maaiveld from "./Maaiveld.astro";
 import { home, hoofdactie } from "../data/site";
@@ -6,12 +7,18 @@ import { home, hoofdactie } from "../data/site";
 const { hero } = home;
 ---
 
-<section id="inhoud" class="px-gutter pt-16 lg:pt-28">
+<Kader als="section" id="inhoud" klasse="pt-16 lg:pt-28">
   <!-- Asymmetrisch raster: de tekst staat op zeven van de twaalf kolommen en
        de feiten op drie, met een lege kolom ertussen en rechtsboven bewust
-       niets. Dat lege vlak is het verschil met een gecentreerde hero. -->
-  <div class="grid gap-x-8 gap-y-14 lg:grid-cols-12">
-    <div class="lg:col-span-7">
+       niets. Dat lege vlak is het verschil met een gecentreerde hero.
+
+       De knoppen staan in de HTML na de feiten en worden op brede schermen
+       teruggezet naar de linkerkolom, rij twee. Daardoor is de leesvolgorde
+       op elk scherm gelijk: kop, lead, tekst, cijfers, knoppen. Stonden de
+       knoppen gewoon in het tekstblok, dan vielen de cijfers op mobiel na de
+       knoppen terwijl ze op desktop ervoor staan. -->
+  <div class="grid gap-x-8 lg:grid-cols-12">
+    <div class="lg:col-span-7 lg:row-start-1">
       <Bovenregel tekst={hero.bovenregel} />
 
       <h1 class="mt-6 max-w-[16ch] text-display font-extrabold text-ink">
@@ -27,26 +34,11 @@ const { hero } = home;
           <p class="text-base text-ink-3">{alinea}</p>
         ))}
       </div>
-
-      <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-        <a
-          href={hoofdactie.url}
-          class="rounded-base bg-accent px-7 py-4 text-center text-base font-semibold text-wit transition-colors hover:bg-accent-deep sm:py-3.5"
-        >
-          {hoofdactie.label}
-        </a>
-        <a
-          href={hero.tweedeActie.url}
-          class="rounded-base border border-line-strong px-7 py-4 text-center text-base font-medium text-ink-2 transition-colors hover:border-ink-3 sm:py-3.5"
-        >
-          {hero.tweedeActie.label}
-        </a>
-      </div>
     </div>
 
     <!-- De feiten beginnen op de hoogte van de lopende tekst, niet bij de kop.
          Daardoor blijft de rechterbovenhoek leeg. -->
-    <dl class="lg:col-span-3 lg:col-start-10 lg:mt-[13.5rem]">
+    <dl class="mt-12 lg:col-span-3 lg:col-start-10 lg:row-start-1 lg:mt-[13.5rem]">
       {hero.feiten.map((feit, i) => (
         <div class:list={["py-4", i > 0 && "border-t border-line"]}>
           <dt class="text-sm text-ink-4">{feit.label}</dt>
@@ -56,8 +48,23 @@ const { hero } = home;
         </div>
       ))}
     </dl>
+
+    <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center lg:col-span-7 lg:row-start-2 lg:mt-12">
+      <a
+        href={hoofdactie.url}
+        class="rounded-base bg-accent px-7 py-4 text-center text-base font-semibold text-wit transition-colors hover:bg-accent-deep sm:py-3.5"
+      >
+        {hoofdactie.label}
+      </a>
+      <a
+        href={hero.tweedeActie.url}
+        class="rounded-base border border-line-strong px-7 py-4 text-center text-base font-medium text-ink-2 transition-colors hover:border-ink-3 sm:py-3.5"
+      >
+        {hero.tweedeActie.label}
+      </a>
+    </div>
   </div>
-</section>
+</Kader>
 
 <div class="mt-20 lg:mt-28">
   <Maaiveld />

@@ -1,0 +1,59 @@
+---
+/**
+ * Gestructureerde bedrijfsgegevens voor Google. Staat op elke pagina, zodat
+ * een verwijzing naar #organisatie vanaf een dienstpagina altijd klopt.
+ *
+ * Postcode en btw-nummer ontbreken bewust: die zijn niet aangeleverd en
+ * verzinnen zou hier een fout in de gegevens van het bedrijf zetten.
+ */
+import { bedrijf } from "../data/site";
+
+const gegevens = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Organization", "ProfessionalService", "LocalBusiness"],
+      "@id": "https://b-advice.info/#organisatie",
+      name: bedrijf.naam,
+      url: "https://b-advice.info/",
+      logo: "https://b-advice.info/assets/b-advice-logo.webp",
+      image: "https://b-advice.info/assets/og-image.png",
+      description:
+        "B-Advice ondersteunt gemeenten en afvalinzamelaars bij de voorbereiding, " +
+        "organisatie en uitvoering van projecten rondom ondergrondse " +
+        "inzamelvoorzieningen.",
+      slogan:
+        "Advies, projectleiding en werkvoorbereiding voor gemeenten en afvalinzamelaars.",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: bedrijf.adres.straat,
+        addressLocality: "Nieuwland",
+        addressRegion: "Utrecht",
+        addressCountry: "NL",
+      },
+      telephone: "+31643125245",
+      email: bedrijf.email,
+      taxID: bedrijf.kvk,
+      areaServed: { "@type": "Country", name: "Nederland" },
+      knowsAbout: [
+        "ondergrondse afvalcontainers",
+        "ondergrondse inzamelvoorzieningen",
+        "locatieonderzoek ondergrondse containers",
+        "werkvoorbereiding ondergrondse containers",
+        "projectleiding afvalinzameling",
+        "kabels en leidingen",
+        "inrichtingstekeningen",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://b-advice.info/#website",
+      url: "https://b-advice.info/",
+      name: bedrijf.naam,
+      inLanguage: "nl-NL",
+      publisher: { "@id": "https://b-advice.info/#organisatie" },
+    },
+  ],
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(gegevens)} />

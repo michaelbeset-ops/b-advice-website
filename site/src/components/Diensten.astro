@@ -1,0 +1,32 @@
+---
+import Kader from "./Kader.astro";
+import Bovenregel from "./Bovenregel.astro";
+import { homeSecties } from "../data/site";
+
+const { diensten } = homeSecties;
+---
+
+<Kader als="section" id="diensten" klasse="py-20 lg:py-28">
+  <Bovenregel tekst={diensten.bovenregel} />
+  <h2 class="mt-6 max-w-[22ch] text-2xl font-extrabold text-ink">{diensten.kop}</h2>
+  <p class="mt-5 max-w-[52ch] text-base text-ink-3">{diensten.lead}</p>
+
+  <!-- Definitie-opmaak in plaats van kaarten met pictogrammen: titel links,
+       toelichting rechts, gescheiden door haarlijnen. Werkt met vijf items
+       net zo goed als met negen, en leest als een inhoudsopgave. -->
+  <ul class="mt-12 border-t border-line-strong">
+    {diensten.items.map((item) => (
+      <li class="border-b border-line">
+        <a
+          href={item.url}
+          class="group grid gap-x-8 gap-y-1.5 py-6 transition-colors hover:bg-accent/[0.035] lg:grid-cols-[minmax(0,38%)_minmax(0,1fr)]"
+        >
+          <span class="font-display text-lg font-bold tracking-tight text-ink transition-colors group-hover:text-accent">
+            {item.titel}
+          </span>
+          <span class="text-sm text-ink-3">{item.tekst}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</Kader>

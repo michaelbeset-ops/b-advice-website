@@ -7,7 +7,7 @@
 interface Props { tekst: string }
 const { tekst } = Astro.props;
 ---
-<p class="flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.1em] text-ink-4">
-  <span aria-hidden="true" class="h-px w-6 bg-accent"></span>
+<p class="flex items-start gap-2.5 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-ink-4 sm:text-xs">
+  <span aria-hidden="true" class="mt-[0.5em] h-px w-6 shrink-0 bg-accent"></span>
   {tekst}
 </p>
