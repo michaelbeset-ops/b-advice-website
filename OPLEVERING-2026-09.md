@@ -307,6 +307,84 @@ teksten aan.
 
 ---
 
+## 6. Uitstraling — de "AI-look" eraf
+
+Een aantal vormkenmerken maakte de site herkenbaar als sjabloonwerk. Die zijn
+eruit, en er is iets in de plaats gekomen dat past bij een leverancier van
+gemeenten.
+
+### Wat eruit is
+- De pil met het knipperende groene bolletje bovenaan elke pagina.
+- Het groene accentwoord middenin koppen ("Specialist in <em>ondergrondse
+  afvalcontainers</em>").
+- De nummering 01–05 bij de diensten.
+- Labels in monospace-hoofdletters. Monospace is nu voorbehouden aan echte
+  cijfers, zoals het KvK-nummer.
+- De pulserende stip, de stuiterende scrollpijl en kaarten die omhoog zweven
+  bij aanwijzen.
+- De emoji in de cookiemelding en in de bevestiging na het versturen van een
+  formulier.
+- Ronde hoeken van 12 px (nu 3 px) en slagschaduwen onder kaarten (nu randen).
+
+### Wat ervoor in de plaats komt
+- Een zichtbaar kruimelpad op alle onderliggende pagina's. Dat is gebruikelijk
+  op zakelijke en overheidssites, maakt de structuur zichtbaar en helpt Google.
+  Het wordt afgeleid uit hetzelfde spoor als het BreadcrumbList-blok, dus
+  zichtbare navigatie en gestructureerde data kunnen niet uit elkaar lopen.
+- De diensten staan als definitielijst: titel links, toelichting rechts,
+  gescheiden door haarlijnen. Rustiger dan een raster met pictogrammen, en het
+  werkt met negen diensten net zo goed als met vijf.
+- De cijfers staan als nuchtere feitenregel onder de tekst in plaats van als
+  grote getallen.
+
+### Kleur en toegankelijkheid
+
+Bij het nalopen bleek het groen uit het logo (#4CAF72) overal gebruikt te
+worden als tekst- en knopkleur. Op wit haalt dat **2,7:1**, terwijl WCAG 2.1 AA
+**4,5:1** vereist. Elke knop, elke link in de huisstijlkleur en elk label was
+dus feitelijk ontoegankelijk.
+
+Het groen is daarom gesplitst:
+
+| Kleur | Waar | Contrast |
+|---|---|---|
+| #4CAF72 (logogroen) | alleen op de donkere vlakken | 6,3:1 |
+| #1f6b3f | tekst, links en knoppen op lichte vlakken | 6,2:1 (wit erop: 6,5:1) |
+
+Ook de footertekst is aangepast: die stond op 45% wit (4,0:1) en haalde de norm
+net niet.
+
+**Het resultaat is gemeten, niet aangenomen.** `tools/check_contrast.mjs` opent
+elke pagina in een echte browser, bepaalt per tekstelement de werkelijk
+gerenderde voor- en achtergrondkleur en toetst aan AA. Uitkomst:
+
+```
+Alle tekst op 19 pagina's haalt WCAG 2.1 AA.
+```
+
+Voor een leverancier van gemeenten is dat relevant: onder het Tijdelijk besluit
+digitale toegankelijkheid overheid wordt hier in aanbestedingen naar gevraagd.
+
+### Twee inhoudelijke ingrepen
+
+1. **"87% klanttevredenheid" is weggehaald** van de homepage en de
+   dienstenoverzichtspagina. Het cijfer stond er groot bij, maar er is geen bron
+   bij te leveren. Bij een overheidsdoelgroep is een onbewijsbaar percentage
+   eerder een risico dan een pluspunt. Lever een onderbouwing aan (welk
+   onderzoek, welk jaar, hoeveel respondenten) en het kan terug.
+2. **De dienstenoverzichtspagina miste projectleiding en locatieonderzoek.**
+   Die pagina wordt nu gegenereerd uit dezelfde bron als het menu en de footer,
+   zodat een nieuwe dienst automatisch overal verschijnt.
+
+### Nog te bespreken
+De pagina /over-ons/ beschrijft B-Advice nog als "specialisten in
+afvalinzameling" met "ruim twee decennia ervaring in ondergrondse
+afvalinfrastructuur". Dat is uw eigen bedrijfsgeschiedenis, dus die heb ik niet
+herschreven, maar hij sluit niet helemaal aan op de nieuwe positionering op de
+homepage. Wilt u dat ik die tekst meeneem, dan hoor ik het graag.
+
+---
+
 ## Terugkerende kosten — overzicht
 
 | Onderdeel | Nu | Na deze oplevering |
@@ -353,13 +431,21 @@ De hulpscripts staan in `tools/`. Na een wijziging aan de navigatie of de
 stylesheet:
 
 ```bash
+python3 tools/build.py            # doet alles hieronder, in de juiste volgorde
+
+# of los:
 python3 tools/update_nav.py       # navigatie op alle pagina's bijwerken
-python3 tools/build_diensten.py   # de twee nieuwe dienstenpagina's genereren
+python3 tools/build_diensten.py   # dienstenoverzicht en de twee nieuwe pagina's
 python3 tools/build_projecten.py  # projectpagina's genereren
+python3 tools/build_kruimels.py   # kruimelpaden en BreadcrumbList
 python3 tools/build_sitemap.py    # sitemap opnieuw opbouwen
 python3 tools/minify.py           # stylesheet minificeren
 python3 tools/check_links.py      # controle: geen dode links
 python3 tools/check_seo.py        # controle: unieke titles, één H1 per pagina
+
+# toegankelijkheid (vereist een draaiende testserver):
+cd docs && python3 -m http.server 8765 &
+npm install --no-save playwright && node tools/check_contrast.mjs
 ```
 
 De projectpagina's worden ook automatisch gegenereerd door de GitHub Action. Voor
