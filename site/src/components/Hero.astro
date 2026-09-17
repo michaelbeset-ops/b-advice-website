@@ -82,7 +82,10 @@ const { hero } = home;
         </dl>
       </div>
 
-      <div class="min-w-0 lg:-mr-gutter lg:pl-8">
+      {/* Op een telefoon blijft het beeld weg: het kost daar een half scherm
+          scrollen en hetzelfde dashboard staat verderop op de pagina nog een
+          keer, in de sectie over B-Organized. */}
+      <div class="hidden min-w-0 md:block lg:-mr-gutter lg:pl-8">
         <img
           src="/assets/dashboard.webp"
           alt="Het B-Organized dashboard met een containeroverzicht per gemeente"
