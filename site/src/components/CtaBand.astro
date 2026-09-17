@@ -1,0 +1,23 @@
+---
+import Kader from "./Kader.astro";
+import { homeSecties, hoofdactie } from "../data/site";
+
+const { cta } = homeSecties;
+---
+
+<section class="bg-accent">
+  <Kader klasse="py-12 lg:py-20">
+    <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+      <div>
+        <h2 class="max-w-[26ch] text-2xl font-extrabold text-wit">{cta.kop}</h2>
+        <p class="mt-3 max-w-[56ch] text-base text-wit/90">{cta.tekst}</p>
+      </div>
+      <a
+        href={hoofdactie.url}
+        class="shrink-0 rounded-base bg-wit px-7 py-4 text-center text-base font-semibold text-accent transition-colors hover:bg-paper-2 sm:py-3.5"
+      >
+        {hoofdactie.label}
+      </a>
+    </div>
+  </Kader>
+</section>

@@ -1,0 +1,35 @@
+---
+/**
+ * Rij die op een telefoon horizontaal schuift en vanaf 640px een gewoon raster
+ * wordt. Op een klein scherm scheelt dat flink scrollen; daarboven is er ruimte
+ * genoeg om alles tegelijk te tonen.
+ *
+ * Dit is CSS, geen carousel-script: geen bibliotheek, het werkt zonder
+ * JavaScript en het volgt vanzelf de systeeminstelling voor minder beweging.
+ * De rij is focusbaar, zodat hij ook met het toetsenbord te bedienen is.
+ */
+interface Props {
+  /** ul voor een opsomming, ol als de volgorde betekenis heeft. */
+  als?: "ul" | "ol";
+  /** Wat er in de rij staat, voor schermlezers. */
+  label: string;
+  /** Aantal kolommen vanaf de grote breekpunten. */
+  kolommen?: 3 | 4;
+  klasse?: string;
+}
+const { als: Tag = "ul", label, kolommen = 3, klasse = "" } = Astro.props;
+---
+
+<Tag
+  class:list={[
+    "veegrij kaderrand flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2",
+    "sm:grid sm:snap-none sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 sm:overflow-visible sm:pb-0",
+    kolommen === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3",
+    klasse,
+  ]}
+  tabindex="0"
+  role="region"
+  aria-label={`${label}, horizontaal schuifbaar`}
+>
+  <slot />
+</Tag>

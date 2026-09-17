@@ -1,0 +1,97 @@
+---
+import Base from "../layouts/Base.astro";
+import Kader from "../components/Kader.astro";
+import Kruimels from "../components/Kruimels.astro";
+import Veegrij from "../components/Veegrij.astro";
+import { bOrganized, hoofdactie } from "../data/site";
+
+const p = bOrganized;
+---
+
+<Base titel={p.meta.titel} omschrijving={p.meta.omschrijving}>
+  <Kader>
+    <Kruimels spoor={[{ label: "Home", url: "/" }, { label: p.h1, url: "/b-organized/" }]} />
+  </Kader>
+
+  <Kader als="section" id="inhoud" klasse="pt-10 lg:pt-14">
+    <h1 class="text-3xl font-extrabold text-ink">{p.h1}</h1>
+    <p class="mt-5 max-w-[52ch] text-xl font-medium text-ink-2">{p.intro}</p>
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+      <a
+        href={hoofdactie.url}
+        class="rounded-base bg-accent px-7 py-4 text-center text-base font-semibold text-wit transition-colors hover:bg-accent-deep sm:py-3.5"
+      >
+        Vraag een demo aan
+      </a>
+      <a
+        href={p.loginUrl}
+        target="_blank"
+        rel="noopener"
+        class="rounded-base border border-line-strong px-7 py-4 text-center text-base font-medium text-ink-2 transition-colors hover:border-ink-3 sm:py-3.5"
+      >
+        Inloggen op B-Organized
+      </a>
+    </div>
+  </Kader>
+
+  <section class="mt-14 bg-ink text-op-donker">
+    <Kader klasse="py-20 lg:py-24">
+      <div class="grid items-center gap-x-16 gap-y-12 lg:grid-cols-2">
+        <div>
+          <h2 class="max-w-[16ch] text-2xl font-extrabold text-wit">{p.kopAlles}</h2>
+          <p class="mt-5 max-w-[46ch] text-base text-op-donker-sterk">{p.leadAlles}</p>
+          <ul class="mt-8 space-y-3.5">
+            {
+              p.kenmerken.map((kenmerk) => (
+                <li class="flex items-start gap-3 text-base text-op-donker-sterk">
+                  <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-merk/20">
+                    <svg viewBox="0 0 12 12" class="h-2.5 w-2.5 text-merk" aria-hidden="true">
+                      <polyline points="2,6 5,9 10,3" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                  {kenmerk}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <img
+          src="/assets/dashboard.webp"
+          alt="Kanban-overzicht in B-Organized met containers per wijk"
+          width="1400"
+          height="1050"
+          loading="lazy"
+          decoding="async"
+          class="w-full rounded-kaart border border-wit/10"
+        />
+      </div>
+    </Kader>
+  </section>
+
+  <section class="py-20 lg:py-24">
+    <Kader>
+      <p class="text-xs font-semibold uppercase tracking-[0.1em] text-accent">Aan de slag</p>
+      <h2 class="mt-4 max-w-[20ch] text-2xl font-extrabold text-ink">{p.kopStappen}</h2>
+      <p class="mt-4 max-w-[52ch] text-base text-ink-3">{p.leadStappen}</p>
+    </Kader>
+
+    <Veegrij als="ol" label="In drie stappen aan de slag" klasse="mt-12">
+      {
+        p.stappen.map((stap, i) => (
+          <li class="w-[78vw] max-w-[20rem] shrink-0 snap-start border-t-2 border-accent/25 pt-5 sm:w-auto sm:max-w-none">
+            <span class="font-display text-sm font-bold text-accent">{String(i + 1).padStart(2, "0")}</span>
+            <h3 class="mt-2 font-display text-lg font-bold tracking-tight text-ink">{stap.titel}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink-3">{stap.tekst}</p>
+          </li>
+        ))
+      }
+    </Veegrij>
+
+    <Kader>
+      <p class="mt-12 max-w-[60ch] border-l-2 border-accent pl-5 text-base font-medium text-ink-2">
+        {p.slotTekst}
+      </p>
+    </Kader>
+  </section>
+</Base>

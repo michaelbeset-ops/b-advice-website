@@ -1,0 +1,17 @@
+---
+/**
+ * Eén plek waar de contentbreedte en de zijmarge worden bepaald. Elke sectie
+ * gebruikt dit, zodat alles op dezelfde verticale lijn staat, ook de
+ * maaiveldtekening die verder buiten de tekstkolom valt.
+ */
+interface Props {
+  /** Rendert als <div> tenzij een ander element beter past. */
+  als?: "div" | "section" | "footer" | "header";
+  klasse?: string;
+  id?: string;
+}
+const { als: Tag = "div", klasse = "", id } = Astro.props;
+---
+<Tag id={id} class:list={["px-gutter", klasse]}>
+  <div class="mx-auto w-full max-w-kader"><slot /></div>
+</Tag>

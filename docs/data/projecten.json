@@ -1,0 +1,31 @@
+{
+  "_toelichting": "Bron voor de projectpagina's. Wordt automatisch overschreven door de GitHub Action 'projecten-sync' zodra Supabase is gekoppeld. Handmatig bewerken kan, draai daarna tools/build_projecten.py.",
+  "bijgewerkt": "2026-09-16",
+  "projecten": [
+    {
+      "slug": "hoogbouw-op-orde-dordrecht",
+      "naam": "Hoogbouw op Orde",
+      "opdrachtgever": "Gemeente Dordrecht",
+      "opdrachtgever_tonen": true,
+      "locatie": "Dordrecht",
+      "periode": "",
+      "status": "concept",
+      "volgorde": 1,
+      "diensten": ["projectleiding", "locatieonderzoek"],
+      "samenvatting": "VOORBEELDTEKST — Binnen het programma 'Hoogbouw op Orde' werkt de gemeente Dordrecht aan het verbeteren van de afvalinzameling bij hoogbouwcomplexen. B-Advice verzorgde de voorbereiding en begeleiding van de aanpassing van de ondergrondse inzamelvoorzieningen.",
+      "werkzaamheden": [
+        "VOORBEELDTEKST — Inventarisatie en beoordeling van de bestaande inzamellocaties bij de hoogbouwcomplexen.",
+        "VOORBEELDTEKST — Locatiebezoeken en inmeten van de beoogde containerlocaties.",
+        "VOORBEELDTEKST — Beoordeling van de beschikbare informatie over kabels en leidingen en coördinatie van aanvullend onderzoek.",
+        "VOORBEELDTEKST — Opstellen en uitwerken van de inrichtingstekeningen.",
+        "VOORBEELDTEKST — Projectleiding en afstemming met gemeente, leveranciers en aannemers tijdens de uitvoering."
+      ],
+      "resultaten": [
+        "VOORBEELDTEKST — Aantal aangepaste of nieuw geplaatste ondergrondse inzamelvoorzieningen.",
+        "VOORBEELDTEKST — Doorlooptijd van voorbereiding tot oplevering.",
+        "VOORBEELDTEKST — Effect op de inzameling bij de betrokken hoogbouwcomplexen."
+      ],
+      "afbeeldingen": []
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+---
+import Base from "../../layouts/Base.astro";
+import Kader from "../../components/Kader.astro";
+import Kruimels from "../../components/Kruimels.astro";
+import Bovenregel from "../../components/Bovenregel.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import { diensten, navigatie, dienstenPagina, home } from "../../data/site";
+
+// Eén bron voor de volgorde: het menu. Een nieuwe dienst verschijnt daarmee
+// vanzelf in de navigatie, de footer en op deze pagina tegelijk.
+const rijen = navigatie.diensten.map((item) => {
+  const dienst = diensten.find((d) => `/diensten/${d.slug}/` === item.url);
+  return { url: item.url, label: item.label, intro: dienst?.intro ?? "" };
+});
+
+const titel = "Diensten ondergrondse afvalcontainers | B-Advice";
+const omschrijving =
+  "Projectleiding, locatieonderzoek, werkvoorbereiding, plaatsing, beheer en " +
+  "advies rondom ondergrondse inzamelvoorzieningen voor gemeenten.";
+
+const lijstSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Diensten van B-Advice",
+  itemListElement: rijen.map((rij, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: rij.label,
+    url: `https://b-advice.info${rij.url}`,
+  })),
+};
+---
+
+<Base titel={titel} omschrijving={omschrijving}>
+  <Kader>
+    <Kruimels
+      spoor={[
+        { label: "Home", url: "/" },
+        { label: "Diensten", url: "/diensten/" },
+      ]}
+    />
+  </Kader>
+
+  <Kader als="section" id="inhoud" klasse="pt-10 lg:pt-14">
+    <Bovenregel tekst="Wat we doen" />
+    <h1 class="mt-6 max-w-[14ch] text-3xl font-extrabold text-ink">{dienstenPagina.h1}</h1>
+    <p class="mt-6 max-w-[56ch] text-xl font-medium text-ink-2">
+      {dienstenPagina.lead}
+    </p>
+  </Kader>
+
+  <Kader klasse="pb-20 pt-14 lg:pb-28">
+    <!-- Dezelfde definitie-opmaak als op de homepage, zodat de negen diensten
+         als één lijst lezen in plaats van als negen kaartjes. -->
+    <ul class="border-t border-line-strong">
+      {
+        rijen.map((rij) => (
+          <li class="border-b border-line">
+            <a
+              href={rij.url}
+              class="group grid gap-x-8 gap-y-1.5 py-6 transition-colors hover:bg-accent/[0.035] lg:grid-cols-[minmax(0,38%)_minmax(0,1fr)]"
+            >
+              <span class="font-display text-lg font-bold tracking-tight text-ink transition-colors group-hover:text-accent">
+                {rij.label}
+              </span>
+              <span class="max-w-[62ch] text-sm text-ink-3">{rij.intro}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <dl class="mt-16 flex flex-wrap border-t border-line-strong">
+      {
+        home.hero.feiten.map((feit, i) => (
+          <div class:list={["py-5 pr-12", i > 0 && "border-l border-line pl-12"]}>
+            <dt class="text-sm text-ink-4">{feit.label}</dt>
+            <dd class="mt-1 font-display text-xl font-bold tracking-tight text-ink">{feit.waarde}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </Kader>
+
+  <CtaBand />
+
+  <script type="application/ld+json" set:html={JSON.stringify(lijstSchema)} is:inline />
+</Base>

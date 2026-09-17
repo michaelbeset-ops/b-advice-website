@@ -1,0 +1,56 @@
+---
+import Kader from "./Kader.astro";
+import Kop from "./Kop.astro";
+import DienstIcoon from "./DienstIcoon.astro";
+import Veegrij from "./Veegrij.astro";
+import { homeSecties } from "../data/site";
+
+const { diensten } = homeSecties;
+---
+
+<section id="diensten" class="py-14 lg:py-24">
+  <Kader>
+    <p class="text-xs font-semibold uppercase tracking-[0.1em] text-accent">{diensten.bovenregel}</p>
+    <Kop
+      tekst={diensten.kop}
+      accent={diensten.kopAccent}
+      klasse="mt-4 max-w-[22ch] text-2xl font-extrabold text-ink"
+    />
+    <p class="mt-4 max-w-[54ch] text-base text-ink-3">{diensten.lead}</p>
+  </Kader>
+
+  <!-- Op een telefoon is vijf kaarten onder elkaar een lange scroll. Daar
+       staan ze daarom naast elkaar en veeg je erdoorheen; scroll-snap laat
+       elke kaart netjes op zijn plek vallen. Vanaf 640px is er ruimte genoeg
+       voor een gewoon raster en vervalt het vegen.
+
+       Dit is CSS, geen carousel-script: geen bibliotheek, werkt zonder
+       JavaScript en respecteert vanzelf de instelling voor minder beweging. -->
+  <Veegrij label="Onze diensten" klasse="mt-10 sm:mt-12 sm:gap-5">
+    {
+      diensten.items.map((item) => (
+        <li class="flex w-[78vw] max-w-[20rem] shrink-0 snap-start sm:w-auto sm:max-w-none">
+          <a
+            href={item.url}
+            class="group flex w-full flex-col gap-4 rounded-kaart border border-line bg-wit p-6 transition-colors hover:border-accent/40 sm:p-7"
+          >
+            <DienstIcoon soort={item.icoon} />
+            <span class="font-display text-lg font-bold leading-snug tracking-tight text-ink">
+              {item.titel}
+            </span>
+            <span class="flex-1 text-sm text-ink-3">{item.tekst}</span>
+            <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+              Meer informatie
+              <svg viewBox="0 0 16 16" class="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden="true">
+                <path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </a>
+        </li>
+      ))
+    }
+  </Veegrij>
+
+  <p class="mt-4 kaderrand text-sm text-ink-4 sm:hidden">Veeg voor meer diensten</p>
+</section>
+

@@ -1,0 +1,154 @@
+---
+import Logo from "./Logo.astro";
+import Chevron from "./Chevron.astro";
+import { navigatie, hoofdactie, a11y } from "../data/site";
+
+interface Props {
+  /** Pad van de huidige pagina, voor het markeren van het actieve menu-item. */
+  pad: string;
+}
+const { pad } = Astro.props;
+const dienstActief = pad.startsWith("/diensten/");
+---
+
+<header
+  class="sticky top-0 z-30 h-header border-b border-line bg-paper"
+>
+  <div class="mx-auto flex h-full items-center justify-between gap-6 px-gutter">
+    <a href="/" class="shrink-0" aria-label="B-Advice, naar de homepage">
+      <Logo />
+    </a>
+
+    <!-- De hele navigatie gaat onder 1180px naar het schuifmenu. Met acht
+         items past de balk daaronder niet meer op één regel, en items die
+         over twee regels breken zien er slordig uit. -->
+    <nav class="hidden items-center gap-5 min-[1220px]:flex min-[1340px]:gap-6" aria-label={a11y.hoofdnavigatie}>
+      <!-- Uitklapmenu zonder JavaScript: hover voor de muis, focus-within
+           voor het toetsenbord. -->
+      <div class="group relative">
+        <a
+          href="/diensten/"
+          class:list={[
+            "inline-flex items-center gap-1.5 py-2 text-[0.875rem] font-medium transition-colors min-[1340px]:text-sm",
+            dienstActief ? "text-ink" : "text-ink-3 hover:text-ink",
+          ]}
+          aria-haspopup="true"
+        >
+          Diensten
+          <Chevron klasse="transition-transform group-hover:rotate-180 group-focus-within:rotate-180" />
+        </a>
+        <!-- Onzichtbare brug, zodat de muis van de link naar het menu kan
+             zonder dat het menu dichtklapt. -->
+        <div class="absolute left-0 top-full h-3 w-full"></div>
+        <div
+          class="invisible absolute left-0 top-[calc(100%+0.75rem)] w-[19rem] translate-y-1 border border-line bg-wit p-2 opacity-0 shadow-zwevend transition-[opacity,transform,visibility] duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
+        >
+          {navigatie.diensten.map((d) => (
+            <a
+              href={d.url}
+              class:list={[
+                "block rounded-hair px-3 py-2 text-sm leading-snug transition-colors",
+                pad === d.url
+                  ? "bg-accent/10 font-semibold text-accent"
+                  : "text-ink-3 hover:bg-accent/[0.07] hover:text-ink",
+              ]}
+            >
+              {d.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {navigatie.hoofd.map((item) => (
+        <a
+          href={item.url}
+          class:list={[
+            "py-2 text-[0.875rem] font-medium transition-colors min-[1340px]:text-sm",
+            pad === item.url ? "text-ink" : "text-ink-3 hover:text-ink",
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="hidden shrink-0 items-center gap-4 min-[1220px]:flex min-[1340px]:gap-5">
+      <a href={navigatie.contact.url} class="text-sm text-ink-4 transition-colors hover:text-ink">
+        {navigatie.contact.label}
+      </a>
+      <a
+        href={navigatie.login.url}
+        target="_blank"
+        rel="noopener"
+        class="rounded-base bg-accent px-4 py-2.5 text-xs font-semibold text-wit transition-colors hover:bg-accent-deep"
+      >
+        {navigatie.login.label}
+      </a>
+    </div>
+
+    <!-- Schuifmenu op smalle schermen. <details> doet het openen en sluiten
+         zelf, dus dit werkt ook als JavaScript uitvalt. -->
+    <details class="menu group/menu min-[1220px]:hidden">
+      <summary
+        class="relative z-50 -mr-2 flex h-11 w-11 cursor-pointer list-none items-center justify-center text-ink [&::-webkit-details-marker]:hidden"
+        aria-label={a11y.menuOpenen}
+      >
+        <span class="sr-only">{a11y.menuOpenen}</span>
+        <!-- Twee lijnen worden een kruis zodra het menu openstaat. -->
+        <svg viewBox="0 0 24 24" class="h-6 w-6" aria-hidden="true">
+          <line class="origin-center transition-transform group-open/menu:translate-y-[5px] group-open/menu:rotate-45"
+                x1="3" y1="7" x2="21" y2="7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+          <line class="origin-center transition-transform group-open/menu:-translate-y-[5px] group-open/menu:-rotate-45"
+                x1="3" y1="17" x2="21" y2="17" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+        </svg>
+      </summary>
+
+      <div
+        class="fixed inset-0 top-header z-40 overflow-y-auto overscroll-contain bg-paper px-gutter pb-16 pt-8"
+      >
+        <nav aria-label={a11y.hoofdnavigatie}>
+          <a href="/diensten/" class="block border-b border-line py-3 font-display text-xl font-extrabold tracking-tight text-ink">
+            Diensten
+          </a>
+          <div class="my-2 ml-1 border-l-2 border-accent/25 pl-4">
+            {navigatie.diensten.map((d) => (
+              <a href={d.url} class="block py-2.5 text-base text-ink-3">{d.label}</a>
+            ))}
+          </div>
+          {navigatie.hoofd.map((item) => (
+            <a href={item.url} class="block border-b border-line py-3 font-display text-xl font-extrabold tracking-tight text-ink">
+              {item.label}
+            </a>
+          ))}
+          <a href={navigatie.contact.url} class="block border-b border-line py-3 font-display text-xl font-extrabold tracking-tight text-ink">
+            {navigatie.contact.label}
+          </a>
+        </nav>
+
+        <a
+          href={hoofdactie.url}
+          class="mt-8 block rounded-base bg-accent px-5 py-4 text-center text-base font-semibold text-wit"
+        >
+          {hoofdactie.label}
+        </a>
+        <a
+          href={navigatie.login.url}
+          target="_blank"
+          rel="noopener"
+          class="mt-3 block rounded-base border border-line-strong px-5 py-4 text-center text-base font-medium text-ink-2"
+        >
+          {navigatie.login.label}
+        </a>
+      </div>
+    </details>
+  </div>
+</header>
+
+<style>
+  /* Het standaard driehoekje van <summary> weg in alle browsers. */
+  .menu > summary::marker,
+  .menu > summary::-webkit-details-marker {
+    display: none;
+    content: "";
+  }
+</style>

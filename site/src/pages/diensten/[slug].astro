@@ -1,0 +1,123 @@
+---
+import Base from "../../layouts/Base.astro";
+import Kader from "../../components/Kader.astro";
+import Kruimels from "../../components/Kruimels.astro";
+import Bovenregel from "../../components/Bovenregel.astro";
+import DienstNav from "../../components/DienstNav.astro";
+import Faq from "../../components/Faq.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import { diensten, navigatie } from "../../data/site";
+import type { Dienst } from "../../data/site";
+
+// Statisch gegenereerd: elke dienst wordt bij het bouwen een eigen map met een
+// index.html, dus de bestaande URL's blijven exact hetzelfde.
+export function getStaticPaths() {
+  return diensten.map((dienst) => ({
+    params: { slug: dienst.slug },
+    props: { dienst },
+  }));
+}
+
+interface Props {
+  dienst: Dienst;
+}
+const { dienst } = Astro.props;
+const url = `/diensten/${dienst.slug}/`;
+const menuLabel = navigatie.diensten.find((d) => d.url === url)?.label ?? dienst.h1;
+
+const dienstSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `https://b-advice.info${url}#dienst`,
+  name: dienst.h1,
+  serviceType: dienst.soort,
+  description: dienst.meta.omschrijving,
+  url: `https://b-advice.info${url}`,
+  provider: { "@id": "https://b-advice.info/#organisatie" },
+  areaServed: { "@type": "Country", name: "Nederland" },
+  audience: { "@type": "Audience", audienceType: "Gemeenten en afvalinzamelaars" },
+};
+---
+
+<Base titel={dienst.meta.titel} omschrijving={dienst.meta.omschrijving}>
+  <Kader>
+    <Kruimels
+      spoor={[
+        { label: "Home", url: "/" },
+        { label: "Diensten", url: "/diensten/" },
+        { label: menuLabel, url },
+      ]}
+    />
+  </Kader>
+
+  <Kader als="section" id="inhoud" klasse="pt-10 lg:pt-14">
+    <Bovenregel tekst="Diensten" />
+    <h1 class="mt-6 max-w-[20ch] text-3xl font-extrabold text-ink">{dienst.h1}</h1>
+    <p class="mt-6 max-w-[52ch] text-xl font-medium text-ink-2">{dienst.intro}</p>
+    <a
+      href="/contact/"
+      class="mt-8 block w-full rounded-base bg-accent px-7 py-4 text-center text-base font-semibold text-wit transition-colors hover:bg-accent-deep sm:inline-block sm:w-auto sm:py-3.5"
+    >
+      {dienst.actie}
+    </a>
+  </Kader>
+
+  <Kader klasse="pb-20 pt-16 lg:pb-28">
+    <!-- Tekst op zeven kolommen, zijkolom op vier. De regellengte blijft
+         daarmee onder de 70 tekens, ook op een breed scherm. -->
+    <div class="grid gap-x-16 gap-y-14 lg:grid-cols-12">
+      <div class="lg:col-span-7">
+        {
+          dienst.blokken.map((blok) =>
+            blok.type === "h2" ? (
+              <h2 id={blok.id} class="mt-12 scroll-mt-28 text-xl font-extrabold text-ink first:mt-0">
+                {blok.tekst}
+              </h2>
+            ) : blok.type === "ul" ? (
+              <ul class="mt-5 space-y-2.5">
+                {blok.items.map((item) => (
+                  <li class="flex gap-3 text-base text-ink-3">
+                    <span aria-hidden="true" class="mt-[0.7em] h-px w-3 shrink-0 bg-line-strong" />
+                    <span class="max-w-[62ch]">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p class="mt-5 max-w-[66ch] text-base text-ink-3 first:mt-0">{blok.tekst}</p>
+            )
+          )
+        }
+
+        {
+          dienst.verwant && (
+            <div class="mt-14 border-t border-line-strong pt-6">
+              <h2 class="text-xs font-bold uppercase tracking-[0.1em] text-ink-4">Sluit aan op</h2>
+              <ul class="mt-4 space-y-2">
+                {dienst.verwant.map((v) => (
+                  <li>
+                    <a
+                      href={v.url}
+                      class="text-base font-medium text-accent underline decoration-accent/30 underline-offset-2 transition-colors hover:decoration-current"
+                    >
+                      {v.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
+
+        {dienst.faq && <Faq vragen={dienst.faq} />}
+      </div>
+
+      <aside class="lg:col-span-4 lg:col-start-9">
+        <DienstNav huidig={url} />
+      </aside>
+    </div>
+  </Kader>
+
+  <CtaBand />
+
+  <script type="application/ld+json" set:html={JSON.stringify(dienstSchema)} is:inline />
+</Base>

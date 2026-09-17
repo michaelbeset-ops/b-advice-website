@@ -1,0 +1,27 @@
+---
+/**
+ * Kop met een accentwoord in het groen, zoals op de huidige site.
+ *
+ * Het accent is een letterlijk stuk uit de kop zelf, zodat de tekst in
+ * src/data/site.ts leesbaar blijft en er geen opmaak in de data staat.
+ */
+interface Props {
+  tekst: string;
+  /** Exact stuk uit `tekst` dat groen wordt. Weglaten voor een gewone kop. */
+  accent?: string;
+  /** h1 op de homepage, h2 in de secties. */
+  als?: "h1" | "h2";
+  klasse?: string;
+  /** Op donkere vlakken haalt het logogroen wel contrast en accent-kop niet. */
+  opDonker?: boolean;
+}
+const { tekst, accent, als: Tag = "h2", klasse = "", opDonker = false } = Astro.props;
+
+const index = accent ? tekst.indexOf(accent) : -1;
+const voor = index >= 0 ? tekst.slice(0, index) : tekst;
+const na = index >= 0 ? tekst.slice(index + accent!.length) : "";
+---
+
+<Tag class:list={[klasse]}>
+  {voor}{index >= 0 && <span class:list={[opDonker ? "text-merk" : "text-accent-kop"]}>{accent}</span>}{na}
+</Tag>

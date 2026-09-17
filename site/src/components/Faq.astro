@@ -1,0 +1,41 @@
+---
+/**
+ * Accordeon op <details>. Native, toegankelijk en werkt zonder JavaScript.
+ * Het FAQPage-blok gaat mee zodat Google de vragen kan tonen.
+ */
+interface Props {
+  vragen: readonly { vraag: string; antwoord: string }[];
+}
+const { vragen } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: vragen.map((v) => ({
+    "@type": "Question",
+    name: v.vraag,
+    acceptedAnswer: { "@type": "Answer", text: v.antwoord },
+  })),
+};
+---
+
+<section class="mt-16">
+  <h2 class="text-xl font-extrabold text-ink">Veelgestelde vragen</h2>
+  <div class="mt-6 border-t border-line-strong">
+    {vragen.map((v) => (
+      <details class="group border-b border-line">
+        <summary class="flex cursor-pointer list-none items-start justify-between gap-6 py-5 font-display text-base font-bold text-ink transition-colors hover:text-accent [&::-webkit-details-marker]:hidden">
+          {v.vraag}
+          <!-- Plus dat een min wordt. Getekend, niet uit een iconenpakket. -->
+          <svg viewBox="0 0 16 16" class="mt-1 h-4 w-4 shrink-0 text-accent" aria-hidden="true">
+            <line x1="1" y1="8" x2="15" y2="8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            <line x1="8" y1="1" x2="8" y2="15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                  class="origin-center transition-transform group-open:rotate-90 group-open:opacity-0" />
+          </svg>
+        </summary>
+        <p class="max-w-[68ch] pb-5 text-base text-ink-3">{v.antwoord}</p>
+      </details>
+    ))}
+  </div>
+</section>
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

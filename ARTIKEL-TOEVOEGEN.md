@@ -30,10 +30,12 @@ Open `docs/nieuws/JOUW-SLUG/index.html` en vervang **alle** `HOOFDLETTERS`-place
 |---|---|
 | `ZOEKWOORD: korte beschrijving \| B-Advice` | Paginatitel, **max 60 tekens**. Zoekwoord vooraan. |
 | `Vul hier een unieke beschrijving in...` | Meta description, **ca. 150 tekens**. |
-| `SLUG-VAN-DIT-ARTIKEL` | Jouw slug (3x: canonical, og:url, BreadcrumbList) |
+| `SLUG-VAN-DIT-ARTIKEL` | Jouw slug (3x: canonical, og:url) |
 | `Volledige artikeltitel zoals in de H1` | Exacte H1-tekst in het JSON-LD Article-schema |
 | `JJJJ-MM-DD` (2x) | Publicatiedatum én wijzigingsdatum, formaat `2026-06-26` |
-| `ARTIKELTITEL (kort)` | Korte naam in de BreadcrumbList |
+
+Het kruimelpad en het bijbehorende `BreadcrumbList`-blok hoef je **niet** in te
+vullen: die worden gegenereerd uit het pad en de H1 van de pagina.
 
 ---
 
@@ -78,11 +80,9 @@ Beschikbare elementen:
 Open `docs/nieuws/index.html` en voeg in het "Meer nieuws" grid een kaart toe:
 
 ```html
-<a href="/nieuws/JOUW-SLUG/" style="text-decoration:none;display:block;background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:box-shadow .2s,transform .2s;" onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.1)';this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='';this.style.transform='';">
+<a href="/nieuws/JOUW-SLUG/" style="text-decoration:none;display:block;background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color .18s;" onmouseover="this.style.borderColor='var(--ink-3)';" onmouseout="this.style.borderColor='';">
   <div style="background:var(--ink);padding:28px 28px 24px;position:relative;overflow:hidden;">
-    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 0%, rgba(76,175,114,.2) 0%, transparent 60%);pointer-events:none;"></div>
-    <div style="display:inline-flex;align-items:center;gap:7px;background:rgba(76,175,114,.15);border:1px solid rgba(76,175,114,.25);color:#4CAF72;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:4px 10px;border-radius:100px;margin-bottom:16px;">
-      <span style="width:5px;height:5px;background:#4CAF72;border-radius:50%;display:inline-block;"></span>
+    <div style="display:inline-flex;align-items:center;gap:7px;background:rgba(76,175,114,.15);border:1px solid rgba(76,175,114,.25);color:var(--merk);font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:4px 10px;border-radius:100px;margin-bottom:16px;">
       Artikel <!-- of: Analyse / Uitleg / Innovatie -->
     </div>
     <div style="font-size:18px;font-weight:700;color:#fff;line-height:1.3;letter-spacing:-.3px;">ARTIKELTITEL</div>
@@ -91,25 +91,34 @@ Open `docs/nieuws/index.html` en voeg in het "Meer nieuws" grid een kaart toe:
     <p style="font-size:14px;color:var(--ink-3);line-height:1.65;margin:0 0 16px;">KORTE TEASER (1-2 zinnen)</p>
     <div style="display:flex;align-items:center;justify-content:space-between;">
       <span style="font-size:12px;color:var(--ink-4);">Maand JJJJ</span>
-      <span style="font-size:13px;font-weight:600;color:#4CAF72;">Lees artikel →</span>
+      <span style="font-size:13px;font-weight:600;color:var(--green);">Lees artikel &rarr;</span>
     </div>
   </div>
 </a>
 ```
 
+**Let op met kleuren.** Gebruik `var(--green)` voor tekst op lichte vlakken en
+`var(--merk)` voor tekst op de donkere vlakken. Het logogroen haalt op wit maar
+2,7:1 en zakt daarmee door de WCAG-norm; `tools/check_contrast.mjs` betrapt dat.
+
 ---
 
-### 6. Update de sitemap
+### 6. Bouw de site opnieuw op
 
-Open `docs/sitemap.xml` en voeg een `<url>`-blok toe in de "Nieuws"-sectie:
+```bash
+python3 tools/build.py
+```
 
-```xml
-<url>
-  <loc>https://b-advice.info/nieuws/JOUW-SLUG/</loc>
-  <lastmod>JJJJ-MM-DD</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
+Dit zet het kruimelpad en het `BreadcrumbList`-blok op de nieuwe pagina, werkt
+`docs/sitemap.xml` bij en controleert links en SEO. De sitemap hoef je dus niet
+met de hand te bewerken.
+
+Controleer daarna ook de toegankelijkheid:
+
+```bash
+cd docs && python3 -m http.server 8765 &
+npm install --no-save playwright
+node tools/check_contrast.mjs
 ```
 
 ---
@@ -133,6 +142,19 @@ git push origin main
 
 ---
 
+## Artikelen op basis van een bericht van een derde
+
+Neem nooit letterlijk tekst over van een gemeente, koepelorganisatie of vakmedium:
+op die teksten rust auteursrecht. Schrijf een eigen stuk op basis van de feiten
+en voeg toe wat B-Advice er vanuit de praktijk aan kan toevoegen — dat is ook
+wat het artikel onderscheidend maakt voor Google.
+
+Vermeld de bron onderaan met een link, bijvoorbeeld:
+
+```html
+<p class="article-bron">Bron: <a href="https://www.voorbeeld.nl/bericht" target="_blank" rel="noopener">Gemeente Voorbeeld</a>, 12 september 2026.</p>
+```
+
 ## Checklist voor elk artikel
 
 - [ ] `<title>` ingevuld, max 60 tekens, zoekwoord vooraan
@@ -140,10 +162,11 @@ git push origin main
 - [ ] `<link rel="canonical">` klopt met de slug
 - [ ] OG-tags ingevuld (og:title, og:description, og:url)
 - [ ] JSON-LD Article schema: `datePublished` en `dateModified` als `JJJJ-MM-DD`
-- [ ] BreadcrumbList schema klopt
 - [ ] Precies één `<h1>` in het artikel
 - [ ] Minimaal één interne link naar dienst of gerelateerd artikel
+- [ ] Bron vermeld als het artikel op een bericht van een derde is gebaseerd
 - [ ] Kaart toegevoegd aan `docs/nieuws/index.html`
-- [ ] URL toegevoegd aan `docs/sitemap.xml`
+- [ ] `python3 tools/build.py` gedraaid (zet kruimelpad en sitemap, controleert links en SEO)
+- [ ] `node tools/check_contrast.mjs` gedraaid — geen meldingen
 - [ ] Gecommit en gepusht naar main
 - [ ] URL-inspectie gedaan in Google Search Console

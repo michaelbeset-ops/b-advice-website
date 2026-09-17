@@ -1,7 +1,8 @@
 User-agent: *
 Allow: /
 
-# Niet indexeren: RMN-kortlinks (interne redirects) en technische pagina's
+# Niet indexeren: beheeromgeving, RMN-kortlinks (interne redirects) en technische pagina's
+Disallow: /admin/
 # Voorbeeldversie van de nieuwe site, geen publieke pagina
 Disallow: /preview/
 Disallow: /rmn-*/

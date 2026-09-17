@@ -1,0 +1,85 @@
+---
+import Kader from "./Kader.astro";
+import Logo from "./Logo.astro";
+import { bedrijf, navigatie, footer } from "../data/site";
+---
+
+<footer class="bg-ink text-op-donker">
+  <Kader klasse="pt-10 lg:pt-20">
+    <div class="grid gap-x-10 gap-y-10 border-b border-wit/10 pb-9 sm:grid-cols-2 lg:grid-cols-12 lg:gap-y-12 lg:pb-14">
+      <div class="sm:col-span-2 lg:col-span-4">
+        <a href="/" aria-label="B-Advice, naar de homepage" class="inline-block">
+          <Logo omgekeerd lui klasse="h-[3.25rem]" />
+        </a>
+        <p class="mt-5 max-w-[34ch] text-sm">{footer.tagline}</p>
+        <address class="mt-4 text-sm not-italic">
+          {bedrijf.adres.straat}<br />{bedrijf.adres.plaats}
+        </address>
+      </div>
+
+      <div class="sm:col-span-2 lg:col-span-4">
+        <h2 class="text-xs font-bold uppercase tracking-[0.1em] text-op-donker-sterk">Diensten</h2>
+        <!-- Twee kolommen passen pas vanaf ongeveer 400px; daaronder liepen de
+             langste dienstnamen buiten hun kolom. -->
+        <!-- Op een telefoon staat de volledige dienstenlijst al in het
+             schuifmenu bovenaan. Negen regels herhalen maakt de voettekst
+             daar bijna anderhalf scherm hoog, dus onder sm één verwijzing. -->
+        <ul class="mt-4 hidden grid-cols-1 gap-x-6 gap-y-2 min-[400px]:grid-cols-2 sm:grid sm:grid-cols-1 sm:gap-y-2.5">
+          {navigatie.diensten.map((d) => (
+            <li>
+              <a href={d.url} class="text-sm leading-snug transition-colors hover:text-op-donker-sterk">
+                {d.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <a
+          href="/diensten/"
+          class="mt-4 inline-block text-sm underline decoration-wit/25 underline-offset-4 transition-colors hover:text-op-donker-sterk sm:hidden"
+        >
+          Alle negen diensten
+        </a>
+      </div>
+
+      {footer.kolommen.map((kolom) => (
+        <div class="lg:col-span-2">
+          <h2 class="text-xs font-bold uppercase tracking-[0.1em] text-op-donker-sterk">{kolom.titel}</h2>
+          <ul class="mt-4 space-y-2 sm:mt-5 sm:space-y-2.5">
+            {kolom.links.map((link) => (
+              <li>
+                <a href={link.url} class="text-sm transition-colors hover:text-op-donker-sterk">{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+      <div class="lg:col-span-2">
+        <h2 class="text-xs font-bold uppercase tracking-[0.1em] text-op-donker-sterk">Contact</h2>
+        <ul class="mt-4 space-y-2 text-sm sm:mt-5 sm:space-y-2.5">
+          <li><a href={`mailto:${bedrijf.email}`} class="transition-colors hover:text-op-donker-sterk">{bedrijf.email}</a></li>
+          <li><a href={bedrijf.telefoonUrl} class="transition-colors hover:text-op-donker-sterk">{bedrijf.telefoon}</a></li>
+          <li>{bedrijf.adres.straat}, {bedrijf.adres.plaats}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-3 py-6 text-xs sm:flex-row sm:items-center sm:justify-between">
+      <p>&copy; {new Date().getFullYear()} {bedrijf.naam}. Alle rechten voorbehouden. KvK {bedrijf.kvk}</p>
+      <ul class="flex gap-5">
+        {footer.onderaan.map((link) => (
+          <li>
+            <a
+              href={link.url}
+              target={"extern" in link && link.extern ? "_blank" : undefined}
+              rel={"extern" in link && link.extern ? "noopener" : undefined}
+              class="transition-colors hover:text-op-donker-sterk"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </Kader>
+</footer>
