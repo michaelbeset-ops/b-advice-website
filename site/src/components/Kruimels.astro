@@ -28,7 +28,14 @@ const schema = {
       <li class="flex items-center gap-2">
         {i > 0 && <span aria-hidden="true" class="text-ink-4">/</span>}
         {i === spoor.length - 1 ? (
-          <span aria-current="page" class="font-semibold text-ink-2">{stap.label}</span>
+          /* Een lange artikelkop mag het kruimelpad niet over drie regels
+             trekken: op een telefoon afgekapt, vanaf sm gewoon volledig. */
+          <span
+            aria-current="page"
+            class="block max-w-[52vw] truncate font-semibold text-ink-2 sm:max-w-none sm:overflow-visible"
+          >
+            {stap.label}
+          </span>
         ) : (
           <a href={stap.url} class="underline decoration-line-strong underline-offset-2 transition-colors hover:text-accent hover:decoration-current">
             {stap.label}

@@ -17,7 +17,7 @@ const { hero } = home;
   >
   </div>
 
-  <Kader klasse="relative pt-14 pb-16 lg:pt-16 lg:pb-16">
+  <Kader klasse="relative pt-10 pb-12 lg:pt-16 lg:pb-16">
     <div class="grid items-center gap-x-14 gap-y-10 lg:grid-cols-[54fr_46fr]">
       <div class="min-w-0 lg:pr-6">
         <p
@@ -30,7 +30,7 @@ const { hero } = home;
           als="h1"
           tekst={hero.kop}
           accent={hero.kopAccent}
-          klasse="mt-6 max-w-[15ch] text-display font-extrabold text-ink"
+          klasse="mt-6 max-w-[15ch] text-display font-extrabold text-ink lg:text-3xl xl:text-display"
         />
 
         <p class="mt-6 max-w-[40ch] text-xl font-medium text-ink-2">
@@ -41,7 +41,7 @@ const { hero } = home;
           {hero.alineas.map((alinea) => <p class="text-base text-ink-3">{alinea}</p>)}
         </div>
 
-        <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
           <a
             href={hoofdactie.url}
             class="rounded-base bg-accent px-7 py-4 text-center text-base font-semibold text-wit transition-colors hover:bg-accent-deep sm:py-3.5"
@@ -70,7 +70,7 @@ const { hero } = home;
                     "font-display leading-tight tracking-tight text-ink",
                     "tekstwaarde" in feit && feit.tekstwaarde
                       ? "text-lg font-bold"
-                      : "text-xl font-extrabold lg:text-2xl",
+                      : "text-xl font-extrabold xl:text-2xl",
                   ]}
                 >
                   {feit.waarde}

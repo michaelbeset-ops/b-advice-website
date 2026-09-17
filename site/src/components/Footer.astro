@@ -5,8 +5,8 @@ import { bedrijf, navigatie, footer } from "../data/site";
 ---
 
 <footer class="bg-ink text-op-donker">
-  <Kader klasse="pt-12 lg:pt-20">
-    <div class="grid gap-x-10 gap-y-10 border-b border-wit/10 pb-12 sm:grid-cols-2 lg:grid-cols-12 lg:gap-y-12 lg:pb-14">
+  <Kader klasse="pt-10 lg:pt-20">
+    <div class="grid gap-x-10 gap-y-10 border-b border-wit/10 pb-9 sm:grid-cols-2 lg:grid-cols-12 lg:gap-y-12 lg:pb-14">
       <div class="sm:col-span-2 lg:col-span-4">
         <a href="/" aria-label="B-Advice, naar de homepage" class="inline-block">
           <Logo omgekeerd lui klasse="h-[3.25rem]" />
@@ -21,7 +21,10 @@ import { bedrijf, navigatie, footer } from "../data/site";
         <h2 class="text-xs font-bold uppercase tracking-[0.1em] text-op-donker-sterk">Diensten</h2>
         <!-- Twee kolommen passen pas vanaf ongeveer 400px; daaronder liepen de
              langste dienstnamen buiten hun kolom. -->
-        <ul class="mt-4 grid grid-cols-1 gap-x-6 gap-y-2 min-[400px]:grid-cols-2 sm:grid-cols-1 sm:gap-y-2.5">
+        <!-- Op een telefoon staat de volledige dienstenlijst al in het
+             schuifmenu bovenaan. Negen regels herhalen maakt de voettekst
+             daar bijna anderhalf scherm hoog, dus onder sm één verwijzing. -->
+        <ul class="mt-4 hidden grid-cols-1 gap-x-6 gap-y-2 min-[400px]:grid-cols-2 sm:grid sm:grid-cols-1 sm:gap-y-2.5">
           {navigatie.diensten.map((d) => (
             <li>
               <a href={d.url} class="text-sm leading-snug transition-colors hover:text-op-donker-sterk">
@@ -30,6 +33,12 @@ import { bedrijf, navigatie, footer } from "../data/site";
             </li>
           ))}
         </ul>
+        <a
+          href="/diensten/"
+          class="mt-4 inline-block text-sm underline decoration-wit/25 underline-offset-4 transition-colors hover:text-op-donker-sterk sm:hidden"
+        >
+          Alle negen diensten
+        </a>
       </div>
 
       {footer.kolommen.map((kolom) => (

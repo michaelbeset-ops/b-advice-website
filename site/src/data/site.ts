@@ -13,9 +13,9 @@ export const bedrijf = {
   telefoonUrl: "tel:+31643125245",
   email: "info@b-advice.info",
   adres: { straat: "Achterdijk 26", plaats: "Nieuwland (UT)" },
-  // TE_BEVESTIGEN: postcode en btw-nummer zijn niet bekend. Zonder deze twee
-  // blijft het LocalBusiness-blok voor Google onvolledig.
-  postcode: null as string | null,
+  // Postcode hoeft er van de opdrachtgever niet in. Het btw-nummer is niet
+  // bekend en staat daarom niet in de bedrijfsgegevens voor Google; zonder
+  // die twee is het LocalBusiness-blok verder compleet.
   btwNummer: null as string | null,
 } as const;
 

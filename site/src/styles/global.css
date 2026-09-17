@@ -156,6 +156,16 @@
 }
 
 @layer components {
+  /* Rij die horizontaal schuift. De schuifbalk hoort hier niet: de kaart die
+     half in beeld staat laat al zien dat er meer is. Staat hier en niet in
+     Veegrij.astro, omdat ook losse rijen buiten die component hem gebruiken. */
+  .veegrij {
+    scrollbar-width: none;
+  }
+  .veegrij::-webkit-scrollbar {
+    display: none;
+  }
+
   /* Zelfde linkerrand als een <Kader>, maar zonder de inhoud te begrenzen.
      Nodig voor rijen die op een telefoon van rand tot rand mogen schuiven en
      op brede schermen toch precies onder de kop moeten uitlijnen. Met alleen
