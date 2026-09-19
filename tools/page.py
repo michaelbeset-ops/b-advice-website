@@ -7,6 +7,7 @@ Dit hulpbestand haalt die gedeelde blokken uit een bestaande pagina, zodat nieuw
 pagina's nooit uit de pas lopen. Na een wijziging in de navigatie draai je eerst
 `tools/update_nav.py` en daarna de generators die dit bestand gebruiken.
 """
+import html
 import pathlib
 import re
 import importlib.util
@@ -47,6 +48,12 @@ def breadcrumbs(trail):
 def build(url, title, description, body, extra_head="", noindex=False):
     """Bouwt een volledige pagina. `url` is het pad met slashes, bv. /projecten/."""
     robots = '\n  <meta name="robots" content="noindex, nofollow">' if noindex else ""
+    # Titel, omschrijving en pad komen deels uit de beheeromgeving. Ze gaan hier
+    # door html.escape, zodat een aanhalingsteken of < in een projectnaam de
+    # meta-tags niet kan openbreken. Aanroepers leveren dus ruwe tekst aan.
+    title = html.escape(str(title or ""), quote=True)
+    description = html.escape(str(description or ""), quote=True)
+    url = html.escape(str(url or ""), quote=True)
     head = f"""<!DOCTYPE html>
 <html lang="nl">
 <head>

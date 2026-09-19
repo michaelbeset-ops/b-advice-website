@@ -259,7 +259,7 @@ def detail(p):
     if len(desc) > 158:
         desc = desc[:158]
         desc = (desc[:desc.rfind(" ")] if " " in desc else desc).rstrip(" ,;:-") + "."
-    return page.build(url, titel, E(desc), body, extra_head=head, noindex=concept)
+    return page.build(url, titel, desc, body, extra_head=head, noindex=concept)
 
 
 # ── Projectblokken op bestaande pagina's vullen ────────────────────────────
