@@ -371,16 +371,28 @@ OVERZICHT_HEAD = """  <script type="application/ld+json">
     for i, (href, label) in enumerate(DIENSTEN))
 
 
+# Kruimelpad per pagina: (naam, url) vanaf Home, laatste stap is de pagina zelf.
+HOME = ("Home", "/")
+DIENSTEN_KRUIMEL = ("Diensten", OVERZICHT_URL)
+
+
 def main():
-    for url, title, desc, body, head in [
+    for url, title, desc, body, head, trail in [
         (OVERZICHT_URL,
          "Diensten ondergrondse afvalcontainers | B-Advice",
          "Projectleiding, locatieonderzoek, werkvoorbereiding, plaatsing, beheer en advies "
          "rondom ondergrondse inzamelvoorzieningen voor gemeenten en afvalinzamelaars.",
-         overzicht_body(), OVERZICHT_HEAD),
-        (PL_URL, PL_TITLE, PL_DESC, PL_BODY, PL_HEAD),
-        (LO_URL, LO_TITLE, LO_DESC, LO_BODY, LO_HEAD),
+         overzicht_body(), OVERZICHT_HEAD,
+         [HOME, DIENSTEN_KRUIMEL]),
+        (PL_URL, PL_TITLE, PL_DESC, PL_BODY, PL_HEAD,
+         [HOME, DIENSTEN_KRUIMEL, ("Projectleiding", PL_URL)]),
+        (LO_URL, LO_TITLE, LO_DESC, LO_BODY, LO_HEAD,
+         [HOME, DIENSTEN_KRUIMEL, ("Locatieonderzoek en werkvoorbereiding", LO_URL)]),
     ]:
+        # Het kruimelpad stond alleen met de hand in de pagina's; de generator
+        # zette het er niet in en wiste het dus bij elke draai.
+        head = head + "\n" + page.breadcrumbs(trail)
+        body = page.kruimels(trail) + body
         target = page.write(url, page.build(url, title, desc, body, extra_head=head))
         print("geschreven:", target.relative_to(ROOT))
 
