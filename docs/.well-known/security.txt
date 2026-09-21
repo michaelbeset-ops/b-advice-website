@@ -1,0 +1,7 @@
+# Hoe je een beveiligingsprobleem op deze site meldt.
+# Opzet volgens RFC 9116.
+
+Contact: mailto:info@b-advice.info
+Expires: 2027-09-21T00:00:00.000Z
+Preferred-Languages: nl, en
+Canonical: https://b-advice.info/.well-known/security.txt
