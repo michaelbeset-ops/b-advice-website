@@ -63,7 +63,7 @@ export const artikelen: Artikel[] = [
     lead:
       "Hilversum kreeg in acht maanden bijna evenveel afvalmeldingen als in heel 2025. De gemeente wil aan diezelfde meldingen aflezen of de aanpak werkt. Daar zit een addertje onder het gras.",
     meta: {
-      titel: "Afvalmeldingen als graadmeter: de cijfers uit Hilversum",
+      titel: "Afvalmeldingen Hilversum: wat de cijfers zeggen",
       omschrijving:
         "Afvalmeldingen in Hilversum stegen van 1.024 naar 1.845 per jaar. Waarom meer meldingen niet hetzelfde is als meer afval, en wat hotspots wel vertellen.",
     },
