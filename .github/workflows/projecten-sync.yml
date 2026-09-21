@@ -31,7 +31,7 @@ jobs:
   publiceren:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           # Volledige geschiedenis. Zonder dit haalt de checkout maar één commit
           # op, en dan geeft `git log` voor elk bestand diezelfde commit terug.
