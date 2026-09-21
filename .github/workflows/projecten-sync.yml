@@ -32,6 +32,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Volledige geschiedenis. Zonder dit haalt de checkout maar één commit
+          # op, en dan geeft `git log` voor elk bestand diezelfde commit terug.
+          # tools/build_sitemap.py leidt de lastmod daaruit af, dus dan krijgt
+          # elke pagina elke dag opnieuw de datum van vandaag.
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
