@@ -54,6 +54,162 @@ export const nieuwsPagina = {
 // Nieuwste artikel eerst.
 export const artikelen: Artikel[] = [
   {
+    slug: "afvalmeldingen-hilversum-graadmeter",
+    samenvatting:
+      "Hilversum kreeg in acht maanden bijna evenveel afvalmeldingen als in heel 2025. De gemeente wil aan diezelfde meldingen aflezen of de aanpak werkt. Daar zit een addertje onder het gras.",
+    categorie: "Analyse",
+    datum: "2026-09-21",
+    h1: "Afvalmeldingen als graadmeter: wat de cijfers uit Hilversum wel en niet zeggen",
+    lead:
+      "Hilversum kreeg in acht maanden bijna evenveel afvalmeldingen als in heel 2025. De gemeente wil aan diezelfde meldingen aflezen of de aanpak werkt. Daar zit een addertje onder het gras.",
+    meta: {
+      titel: "Afvalmeldingen als graadmeter: de cijfers uit Hilversum",
+      omschrijving:
+        "Afvalmeldingen in Hilversum stegen van 1.024 naar 1.845 per jaar. Waarom meer meldingen niet hetzelfde is als meer afval, en wat hotspots wel vertellen.",
+    },
+    blokken: [
+      {
+        type: "p",
+        tekst: "In Hilversum nemen de meldingen over afval naast ondergrondse containers en grofvuildumpingen fors toe. In de eerste acht maanden van 2026 kwamen er <strong>1.689 meldingen</strong> binnen — bijna evenveel als in heel 2025. Het college van burgemeester en wethouders noemt de overlast in antwoord op schriftelijke vragen van D66 een ‘groeiend probleem’.",
+      },
+      {
+        type: "cijfers",
+        label: "Meldingen in Hilversum",
+        sub: "De gemeente en de GAD registreren meldingen en dumpingen sinds 2024.",
+        bron: "Gemeente Hilversum, in antwoord op schriftelijke vragen van D66",
+        items: [
+          { waarde: "1.024", label: "meldingen in 2024" },
+          { waarde: "1.845", label: "meldingen in 2025" },
+          { waarde: "1.689", label: "meldingen in de eerste acht maanden van 2026" },
+        ],
+      },
+      {
+        type: "p",
+        tekst: "Houdt het tempo van de eerste acht maanden aan, dan komt 2026 uit op ruim 2.500 meldingen. Dat zou opnieuw een stijging van ongeveer een derde betekenen, bovenop de bijna verdubbeling tussen 2024 en 2025. De gemeente en de GAD, die de afvalinzameling in de regio verzorgt, houden er extra werk aan over: meldingen afhandelen en afval opruimen.",
+      },
+      {
+        type: "h2",
+        tekst: "De graadmeter die zichzelf beïnvloedt",
+      },
+      {
+        type: "p",
+        tekst: "D66 vroeg het college hoe het gaat bepalen of de aanpak werkt. Het antwoord: de meldingen en registraties vormen daarvoor de belangrijkste graadmeter. Dat is een begrijpelijke keuze — het is het enige cijfer dat er ligt. Maar het is ook een cijfer dat meebeweegt met de aanpak zelf.",
+      },
+      {
+        type: "p",
+        tekst: "De aangekondigde maatregelen zijn surveilleren op de hotspots, sneller opruimen en mensen waar mogelijk aanspreken. Alle drie leiden ertoe dat er <em>meer</em> wordt waargenomen en geregistreerd. Een surveillant die een dumping aantreft, legt die vast; een dumping die niemand ziet, bestaat statistisch niet. Het aantal meldingen kan dus stijgen terwijl de hoeveelheid afval op straat gelijk blijft of zelfs daalt.",
+      },
+      {
+        type: "let-op",
+        label: "Let op",
+        tekst: "Een meldingenaantal meet hoe vaak iets wordt waargenomen en doorgegeven, niet hoeveel afval er ligt. Wie melden makkelijker maakt of actiever gaat surveilleren, meet vanaf dat moment iets anders dan daarvoor.",
+      },
+      {
+        type: "p",
+        tekst: "Dat geldt ook met terugwerkende kracht. De registratie begon in 2024, en juist bij een nieuw registratiesysteem is de eerste periode vrijwel altijd een onderschatting: niet iedereen weet de weg, niet elke melding landt in het systeem. Een deel van de sprong van 1.024 naar 1.845 zegt daarom iets over de registratie, niet over de straat.",
+      },
+      {
+        type: "p",
+        tekst: "De praktische consequentie is niet dat de cijfers waardeloos zijn — ze zijn juist bruikbaar. Maar dan wel als <strong>verdeling over locaties</strong>, niet als totaal. Het totaal vertelt vooral hoe goed er wordt geregistreerd; de verdeling vertelt waar het misgaat.",
+      },
+      {
+        type: "h2",
+        tekst: "Negen locaties, negen verschillende verhalen",
+      },
+      {
+        type: "p",
+        tekst: "Dat is ook precies waar de Hilversumse cijfers wél hard zijn: het merendeel van de meldingen komt van negen locaties. Die concentratie is het bruikbaarste gegeven uit het hele dossier.",
+      },
+      {
+        type: "kader",
+        titel: "De negen hotspots in Hilversum",
+        inhoud: [
+          {
+            type: "lijst",
+            items: [
+              "Minckelersstraat",
+              "Liebergerweg",
+              "Verschurenstraat",
+              "Karel Doormanlaan",
+              "Noordse Bosje",
+              "Erfgooierstraat",
+              "Havenstraat",
+              "Neuweg",
+              "Prins Bernhardstraat",
+            ],
+          },
+        ],
+      },
+      {
+        type: "p",
+        tekst: "Een stadsbrede campagne raakt zo’n lijst maar half. Negen locaties zijn te belopen, en per locatie verschilt de oorzaak. Aan de Liebergerweg lagen tapijttegels, een bureaustoel en meerdere matrassen — dat is grofvuil, geen huisvuil dat niet in de zuil paste. Aan de Erfgooierstraat, ook een hotspot, was het tijdens het bezoek van NH Nieuws juist rustig. Dat verschil tussen twee plekken op dezelfde lijst is geen ruis; het is de aanwijzing.",
+      },
+      {
+        type: "h2",
+        tekst: "Gedrag én drempel",
+      },
+      {
+        type: "p",
+        tekst: "In de reacties van omwonenden lopen twee verklaringen door elkaar, en ze zijn allebei waar. De eerste is gedrag. “Ik vind het verschrikkelijk asociaal. Het is gewoon troep”, zegt een buurtbewoonster bij de Minckelersstraat, die pleit voor harder optreden en camera’s. Een omwonende van de Erfgooierstraat wijst erop dat het afvalbrengstation in Crailo op zo’n 800 meter ligt en vindt niet dat de GAD de schuld treft.",
+      },
+      {
+        type: "p",
+        tekst: "De tweede verklaring gaat over de drempel om het wél goed te doen. Een man die bij dezelfde containers zijn afval wegbrengt, merkt op dat mensen soms niet weten waar ze ermee heen moeten, en dat het zonder auto lastig is om bepaald afval weg te brengen. Hij oppert vaste ophaalmomenten waarop grofvuil naast de container mag — mits het diezelfde dag wordt opgehaald.",
+      },
+      {
+        type: "p",
+        tekst: "Die twee sluiten elkaar niet uit. Achthonderd meter is niets met een auto en een wereld van verschil met een matras en geen auto. Handhaving werkt op de eerste verklaring; de tweede vraagt om een voorziening. Zolang alleen het eerste spoor wordt bewandeld, blijft de groep die niet onwillig maar onthand is, hetzelfde doen.",
+      },
+      {
+        type: "citaat",
+        tekst: "“Als er eenmaal iets staat, wordt er makkelijk iets bijgedonderd.” — omwonende van de Minckelersstraat, tegen NH Nieuws",
+      },
+      {
+        type: "p",
+        tekst: "Dat mechanisme is het sterkste argument voor het snel opruimen dat Hilversum aankondigt. De eerste dumping verlaagt de drempel voor de tweede. Snel weghalen is daarmee geen cosmetica maar preventie — het is alleen geen oplossing voor de vraag waaróm die eerste dumping er kwam.",
+      },
+      {
+        type: "h2",
+        tekst: "Wat wij gemeenten zouden adviseren",
+      },
+      {
+        type: "stappen",
+        items: [
+          {
+            titel: "Meet naast de meldingen ook iets dat niet meebeweegt",
+            tekst: "Bijvoorbeeld het opgeruimde gewicht of het aantal opruimritten per hotspot. Dat cijfer verandert niet doordat er beter wordt geregistreerd, en maakt zichtbaar of het probleem echt kleiner wordt.",
+          },
+          {
+            titel: "Splits de meldingen naar soort",
+            tekst: "Huisvuil naast de zuil en een afgedankte bank zijn verschillende problemen. Het eerste wijst op capaciteit, lediging of inworpopening; het tweede op de route naar het brengstation.",
+          },
+          {
+            titel: "Ga per hotspot kijken op het moment dat het misgaat",
+            tekst: "Tel het aantal huishoudens per container, kijk naar de vulgraad vlak voor lediging, meet de inworpopening en let op de ruimte ernaast: een stoeprand, plantvak of muurtje nodigt uit om iets neer te zetten.",
+          },
+          {
+            titel: "Neem de uitkomst mee naar de volgende plaatsingsronde",
+            tekst: "Locaties die nu problemen geven, laten zien wat er in de voorbereiding is gemist. Dat is de goedkoopste les die een containerpark te bieden heeft.",
+          },
+        ],
+      },
+      {
+        type: "p",
+        tekst: "Een deel van de bijplaatsingen is met communicatie en handhaving op te lossen. Een ander deel gaat terug op de inrichting van de locatie zelf — daarover schreven we eerder naar aanleiding van <a href=\"/nieuws/afval-naast-ondergrondse-containers/\">de gezamenlijke aanpak van Rd4 en vier Limburgse gemeenten</a>. Welk deel waar overheerst, is per locatie te bepalen tijdens <a href=\"/diensten/locatieonderzoek/\">locatieonderzoek en werkvoorbereiding</a>.",
+      },
+      {
+        type: "cta",
+        label: "Aan de slag",
+        kop: "Van hotspotlijst naar maatregel per locatie",
+        tekst: "B-Advice loopt probleemlocaties langs, brengt per plek de oorzaak in kaart en vertaalt dat naar een concrete maatregel. Neem contact op om te bespreken wat er in uw gemeente speelt.",
+      },
+      {
+        type: "p",
+        tekst: "Bron: NH Gooi / NH Nieuws, ‘Het is gewoon troep’: Hilversum ziet afvalmeldingen fors toenemen, 18 september 2026.",
+      },
+    ],
+  },
+  {
     slug: "afval-naast-ondergrondse-containers",
     samenvatting: "Op tien locaties worden containers opgeknapt en krijgen omwonenden uitleg. Een verzorgde plek helpt — maar niet elke bijplaatsing is een kwestie van gedrag.",
     categorie: "Analyse",

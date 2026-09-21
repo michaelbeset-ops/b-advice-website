@@ -7,6 +7,7 @@ Dit hulpbestand haalt die gedeelde blokken uit een bestaande pagina, zodat nieuw
 pagina's nooit uit de pas lopen. Na een wijziging in de navigatie draai je eerst
 `tools/update_nav.py` en daarna de generators die dit bestand gebruiken.
 """
+import html
 import pathlib
 import re
 import importlib.util
@@ -27,7 +28,8 @@ FOOTER_AND_SCRIPTS = _ref[_ref.index("<footer>"):]
 HEAD_ASSETS = """  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/fonts/fonts.min.css">
-  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
   <link rel="stylesheet" href="/style.min.css">"""
 
 
@@ -44,9 +46,29 @@ def breadcrumbs(trail):
             '    "itemListElement": [\n    %s\n    ]\n  }\n  </script>' % items)
 
 
+def kruimels(trail):
+    """Zichtbaar kruimelpad bij dezelfde trail als breadcrumbs(). De laatste
+    stap is de huidige pagina en wordt geen link."""
+    regels = []
+    for n, (name, url) in enumerate(trail):
+        naam = html.escape(str(name), quote=True)
+        if n == len(trail) - 1:
+            regels.append(f'    <li><span aria-current="page">{naam}</span></li>')
+        else:
+            regels.append(f'    <li><a href="{html.escape(str(url), quote=True)}">{naam}</a></li>')
+    return ('<nav class="kruimels" aria-label="Kruimelpad">\n  <ol>\n'
+            + "\n".join(regels) + "\n  </ol>\n</nav>\n")
+
+
 def build(url, title, description, body, extra_head="", noindex=False):
     """Bouwt een volledige pagina. `url` is het pad met slashes, bv. /projecten/."""
     robots = '\n  <meta name="robots" content="noindex, nofollow">' if noindex else ""
+    # Titel, omschrijving en pad komen deels uit de beheeromgeving. Ze gaan hier
+    # door html.escape, zodat een aanhalingsteken of < in een projectnaam de
+    # meta-tags niet kan openbreken. Aanroepers leveren dus ruwe tekst aan.
+    title = html.escape(str(title or ""), quote=True)
+    description = html.escape(str(description or ""), quote=True)
+    url = html.escape(str(url or ""), quote=True)
     head = f"""<!DOCTYPE html>
 <html lang="nl">
 <head>

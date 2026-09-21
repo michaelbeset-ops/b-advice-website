@@ -30,6 +30,18 @@ Dit maakt de tabel `projecten`, de beveiligingsregels en de opslagmap
 3. Ga daarna naar **Authentication** → **Sign In / Providers** → **Email** en zet
    **Allow new users to sign up** **uit**. Zonder deze stap kan iedereen zichzelf
    een account aanmaken.
+4. Een account alleen is niet genoeg om te mogen wijzigen: de gebruiker moet ook
+   in de tabel `beheerders` staan. Draai je `supabase/schema.sql` voor het eerst
+   nadat je de beheerder hebt aangemaakt, dan gebeurt dat vanzelf. Voeg je later
+   iemand toe, zet hem er dan zelf bij via **SQL Editor**:
+
+   ```sql
+   insert into public.beheerders (user_id)
+   select id from auth.users where email = 'nieuwe@beheerder.nl';
+   ```
+
+   Zo is het uitzetten van registratie niet het enige slot: een zelfgemaakt
+   account kan dan nog steeds niets wijzigen.
 
 ### 4. De website koppelen
 1. Ga in Supabase naar **Project Settings** → **API**.
