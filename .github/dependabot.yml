@@ -1,0 +1,21 @@
+# Houdt de afhankelijkheden van de site en de workflows bij. Dependabot opent
+# een pull request zodra er een update is; samenvoegen doe je zelf, zodat er
+# niets ongezien live gaat.
+version: 2
+updates:
+  # De Astro-site in site/.
+  - package-ecosystem: npm
+    directory: /site
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "site"
+
+  # De actions die in de workflows worden gebruikt.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "workflows"

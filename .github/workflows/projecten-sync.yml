@@ -51,6 +51,9 @@ jobs:
         run: |
           python3 tools/build_projecten.py
           python3 tools/build_sitemap.py
+          # De generators schrijven de pagina's opnieuw, dus de CSP moet er
+          # daarna weer in met de hashes van de nieuwe inline scripts.
+          python3 tools/csp.py
 
       - name: Wijzigingen vastleggen
         run: |

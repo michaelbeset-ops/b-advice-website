@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node tools/csp.mjs",
     "preview": "astro preview",
     "controle": "node tools/check-links.mjs",
     "preview:build": "node tools/preview.mjs",
