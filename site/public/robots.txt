@@ -4,4 +4,4 @@ Allow: /
 # Niet indexeren: RMN-kortlinks (doorstuurpagina's op de containerstickers)
 Disallow: /rmn-*/
 
-Sitemap: https://b-advice.info/sitemap-index.xml
+Sitemap: https://b-advice.info/sitemap.xml
