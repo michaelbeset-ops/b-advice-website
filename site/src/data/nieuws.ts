@@ -54,6 +54,151 @@ export const nieuwsPagina = {
 // Nieuwste artikel eerst.
 export const artikelen: Artikel[] = [
   {
+    slug: "afvaldumpingen-almere-meldingen",
+    samenvatting:
+      "Een kwart van alle 65.000 meldingen in Almere gaat over gedumpt afval. De gemeente noemt het een gedragsprobleem — maar haar eigen vuilnisophaler wijst op iets anders.",
+    categorie: "Analyse",
+    datum: "2026-09-22",
+    h1: "Afvaldumpingen in Almere: een gedragsprobleem, of een wachttijd van vier weken?",
+    lead:
+      "Een kwart van alle 65.000 meldingen in Almere gaat over gedumpt afval. De gemeente noemt het een gedragsprobleem — maar haar eigen vuilnisophaler wijst op iets anders.",
+    meta: {
+      titel: "Afvaldumpingen Almere: gedrag of drempel?",
+      omschrijving:
+        "17.500 meldingen over gedumpt afval in Almere. Waarom de aanpak vastloopt op één ding: de wachttijd voor grofvuil en de volle container.",
+    },
+    blokken: [
+      {
+        type: "p",
+        tekst: "Inwoners van Almere deden vorig jaar ruim <strong>65.000 meldingen</strong> over hun leefomgeving. Meer dan 17.500 daarvan gingen over illegaal gestort afval: ruim een kwart van alles wat er binnenkomt. In het callcenter van de gemeente komen dagelijks 700 tot 1.200 telefoontjes binnen, en volgens senior medewerker Duncan Wilms valt het grootste deel daarvan in de categorie afval.",
+      },
+      {
+        type: "cijfers",
+        label: "Meldingen in Almere",
+        sub: "Cijfers over het afgelopen jaar, uit een analyse van de gemeente.",
+        bron: "Gemeente Almere, via Omroep Flevoland",
+        items: [
+          { waarde: "65.000+", label: "meldingen over de leefomgeving" },
+          { waarde: "17.500+", label: "daarvan over gedumpt afval" },
+          { waarde: "95%", label: "van de dumpingen binnen vijf werkdagen opgeruimd" },
+        ],
+      },
+      {
+        type: "h2",
+        tekst: "Vijf wijken, al jaren dezelfde",
+      },
+      {
+        type: "p",
+        tekst: "Net als in andere gemeenten zit het probleem niet overal. De gemeente weet al jaren welke wijken bovenaan staan, en daar gaat de extra inzet naartoe: stadsreiniging, afvalcoaches, toezichthouders en handhavers.",
+      },
+      {
+        type: "kader",
+        titel: "De vijf wijken met de meeste meldingen",
+        inhoud: [
+          {
+            type: "lijst",
+            items: [
+              "Stedenwijk — 1.108 meldingen",
+              "Filmwijk — 958",
+              "Literatuurwijk — 934",
+              "Homeruskwartier — 916",
+              "Kruidenwijk — 754",
+            ],
+          },
+          { type: "p", tekst: "Op stadsdeelniveau springt Almere Stad eruit, met 5.496 meldingen." },
+        ],
+      },
+      {
+        type: "h2",
+        tekst: "Wat de gemeente zegt, en wat de vuilnisophaler zegt",
+      },
+      {
+        type: "p",
+        tekst: "De gemeente noemt afvaldumpingen <strong>vooral een gedragsprobleem</strong>. De regel is helder: afval mag niet naast een container, ook niet als die vol of verstopt is. Ondernemers mogen de ondergrondse containers helemaal niet gebruiken; die moeten een eigen afvalcontract hebben.",
+      },
+      {
+        type: "p",
+        tekst: "In hetzelfde bericht staat echter een verklaring van een heel andere orde. Vuilnisophaler Peter Perez-van Huisstede legt uit dat inwoners een afspraak kunnen maken om grofvuil te laten ophalen, maar dat daar drie tot vier weken tussen zit, zodat de route efficiënt te rijden blijft.",
+      },
+      {
+        type: "citaat",
+        tekst: "“Mensen willen het nú kwijt. Dan wordt het ons probleem, en wij ruimen het wel weer op.” — Peter Perez-van Huisstede, vuilnisophaler",
+      },
+      {
+        type: "p",
+        tekst: "Dat is geen gedrag meer, dat is een drempel. Iemand die een kapotte bank kwijt moet en te horen krijgt dat het over een maand kan, staat voor een keuze tussen vier weken een bank in de gang of vanavond een bank op straat. Een deel van die 17.500 meldingen is daarmee geen kwestie van onwil, maar van een serviceniveau dat niet aansluit bij het moment waarop mensen iets kwijt willen.",
+      },
+      {
+        type: "let-op",
+        label: "Let op",
+        tekst: "De regel dat afval ook niet naast een volle container mag, legt het hele probleem bij de inwoner. Maar een container die regelmatig vol zit, is geen gedrag: dat is capaciteit of ledigingsfrequentie, en dat is de gemeente zelf.",
+      },
+      {
+        type: "h2",
+        tekst: "Snel opruimen werkt — en dat bevestigt Almere",
+      },
+      {
+        type: "p",
+        tekst: "Waar de gemeente wél hard cijfermateriaal heeft, is het opruimen. De officiële afhandeltermijn is vijf werkdagen en inmiddels haalt Almere die in 95 procent van de gevallen. De onderbouwing die de gemeente daarbij geeft, is precies wat wij in de praktijk zien: een dumping die blijft liggen trekt nieuwe dumpingen aan.",
+      },
+      {
+        type: "p",
+        tekst: "Dat is de goedkoopste maatregel die er is. De eerste zak of doos bepaalt of het bij één blijft. Op een plek waar snel wordt opgeruimd, valt de volgende dumping op; op een plek waar het een week blijft liggen, is het al een stortplaats geworden.",
+      },
+      {
+        type: "h2",
+        tekst: "Camera’s vallen af",
+      },
+      {
+        type: "p",
+        tekst: "Een maatregel die vaak als eerste wordt genoemd, blijkt in de praktijk geen optie. Volgens de gemeente mogen bestaande camera’s vanwege privacyregels juridisch niet worden ingezet voor handhaving op afvaldumpingen, en nieuwe camera’s daarvoor plaatsen kan op dit moment ook niet. Uit ervaringen elders blijkt bovendien dat handhaving via beeld alleen lukt als zowel de overtreding als een kenteken duidelijk in beeld komt.",
+      },
+      {
+        type: "p",
+        tekst: "Handhaving zelf loopt wel: afvalcoaches herleiden maandelijks meer dan 150 adressen uit aangetroffen afval, wat gemiddeld zo’n veertig boetes per maand oplevert, met een piek van 57 in maart. Bij ruim 17.500 meldingen is dat geen instrument om het probleem mee op te lossen, wel om de norm zichtbaar te maken.",
+      },
+      {
+        type: "h2",
+        tekst: "Wat dit betekent voor uw containerpark",
+      },
+      {
+        type: "p",
+        tekst: "Almere wil de jaarlijkse groei van gedumpt afval in 2027 tot staan brengen en daarna omlaag krijgen. Op basis van wat er in dit dossier staat, zouden wij de aanpak op drie plaatsen aanvullen.",
+      },
+      {
+        type: "stappen",
+        items: [
+          {
+            titel: "Meet de wachttijd op grofvuil als onderdeel van het probleem",
+            tekst: "Zet het aantal dumpingen per wijk naast de wachttijd voor een grofvuilafspraak. Loopt dat gelijk op, dan is een kortere wachttijd of een inleverpunt in de wijk goedkoper dan blijven opruimen.",
+          },
+          {
+            titel: "Controleer de vulgraad op de hotspots vóór de lediging",
+            tekst: "Zit de container structureel vol op de dag voor lediging, dan is communicatie zinloos: verhoog de frequentie of de capaciteit. Zo niet, dan is het inderdaad gedrag of grofvuil.",
+          },
+          {
+            titel: "Kijk naar de inrichting van de plek zelf",
+            tekst: "De inworpopening, de ruimte naast de zuil, het zicht vanuit woningen en de verlichting bepalen samen hoe uitnodigend een plek is om iets neer te zetten. Dat is bij aanleg te beïnvloeden en achteraf nog te corrigeren.",
+          },
+        ],
+      },
+      {
+        type: "p",
+        tekst: "Hetzelfde patroon zagen we eerder bij <a href=\"/nieuws/afvalmeldingen-hilversum-graadmeter/\">de stijgende afvalmeldingen in Hilversum</a> en bij <a href=\"/nieuws/afval-naast-ondergrondse-containers/\">de gezamenlijke aanpak van Rd4 en vier Limburgse gemeenten</a>: communicatie en handhaving pakken het ene deel, de inrichting en de capaciteit van de locatie het andere. Welk deel waar overheerst, blijkt pas bij <a href=\"/diensten/locatieonderzoek/\">locatieonderzoek</a> op de plek zelf.",
+      },
+      {
+        type: "cta",
+        label: "Aan de slag",
+        kop: "Van hotspotlijst naar maatregel per locatie",
+        tekst: "B-Advice loopt probleemlocaties langs, brengt per plek de oorzaak in kaart en vertaalt dat naar een concrete maatregel. Neem contact op om te bespreken wat er in uw gemeente speelt.",
+      },
+      {
+        type: "p",
+        tekst: "Bron: Omroep Flevoland, ‘Afvaldumpingen en overlast domineren meldingen in Almere’, 20 september 2026.",
+      },
+    ],
+  },
+  {
     slug: "afvalmeldingen-hilversum-graadmeter",
     samenvatting:
       "Hilversum kreeg in acht maanden bijna evenveel afvalmeldingen als in heel 2025. De gemeente wil aan diezelfde meldingen aflezen of de aanpak werkt. Daar zit een addertje onder het gras.",
