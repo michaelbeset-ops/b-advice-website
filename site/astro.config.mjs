@@ -16,6 +16,11 @@ export default defineConfig({
   // containers in de openbare ruimte, dus ze moeten blijven werken; bij een
   // statische build maakt Astro er een doorstuurpagina van.
   redirects: {
+    // De oude site had een projectenoverzicht dat in de nieuwe opzet niet
+    // terugkwam. De URL stond in de oude sitemap en is door Google
+    // opgepikt, dus hij stuurt door in plaats van een 404 te geven.
+    "/projecten/": "/diensten/",
+    "/projecten/hoogbouw-op-orde-dordrecht/": "/diensten/",
     "/rmn-7028/": "https://b-organized.info/board/houten/tasks/6650-rest-container-rmn-7028",
     "/rmn-7029/": "https://b-organized.info/board/houten/tasks/6651-rest-container-rmn-7029",
     "/rmn-7033/": "https://b-organized.info/board/houten/tasks/6342-rest-container-bammens-rmn-7033",
