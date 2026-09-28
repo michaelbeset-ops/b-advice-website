@@ -406,6 +406,8 @@ export const diensten: readonly Dienst[] = [
       },
     ],
     verwant: [
+      { label: "STOSAG: de open standaard", url: "/stosag/" },
+      { label: "Toegangscontrole en milieupassen", url: "/toegangscontrole-milieupas/" },
       { label: "Beheer en onderhoud", url: "/diensten/beheer-onderhoud/" },
       { label: "Meerjaren Investeringsplan", url: "/diensten/meerjaren-investeringsplan/" },
       { label: "B-Organized", url: "/b-organized/" },
@@ -536,6 +538,7 @@ export const diensten: readonly Dienst[] = [
       },
     ],
     verwant: [
+      { label: "KLIC-melding en kabels en leidingen", url: "/klic-melding-containerplaatsing/" },
       { label: "Projectleiding en projectbegeleiding", url: "/diensten/projectleiding/" },
       { label: "Plaatsen van inzamelmiddelen", url: "/diensten/plaatsing/" },
       { label: "Een locatie indienen", url: "/locatieaanvraag/" },
@@ -591,6 +594,7 @@ export const diensten: readonly Dienst[] = [
       { type: "p", tekst: "De meeste vertraging bij plaatsingen ontstaat in de ondergrond en in de besluitvorming: een obstakel dat niet op tekening stond, of bezwaren van omwonenden die pas tijdens de uitvoering boven tafel komen. Beide zijn in de voorbereiding op te vangen, niet tijdens het graven." },
     ],
     verwant: [
+      { label: "KLIC-melding en kabels en leidingen", url: "/klic-melding-containerplaatsing/" },
       { label: "Locatieonderzoek en werkvoorbereiding", url: "/diensten/locatieonderzoek/" },
       { label: "Projectleiding en projectbegeleiding", url: "/diensten/projectleiding/" },
       { label: "Een locatie indienen", url: "/locatieaanvraag/" },
@@ -639,6 +643,7 @@ export const diensten: readonly Dienst[] = [
       { type: "p", tekst: "Refurbishment is het alternatief voor vervangen. Nieuwe bekleding, een mechanische revisie en waar gewenst een update naar de actuele veiligheidsstandaarden leveren een container op die weer meekan, zonder de kosten en het straatwerk van een nieuwe plaatsing." },
     ],
     verwant: [
+      { label: "Toegangscontrole en milieupassen", url: "/toegangscontrole-milieupas/" },
       { label: "B-Organized: containerbeheer", url: "/b-organized/" },
       { label: "Plaatsen van inzamelmiddelen", url: "/diensten/plaatsing/" },
       { label: "QR-codes op containers via B-Organized", url: "/nieuws/qr-code-pilot/" },
@@ -831,6 +836,7 @@ export const diensten: readonly Dienst[] = [
       { type: "p", tekst: "Het resultaat is een planning met een kostenraming per jaar. Dat maakt de vervangingsopgave begrootbaar in plaats van een post die pas opvalt wanneer een container uitvalt. Met de oplopende belasting op afvalverbranding wordt die voorspelbaarheid alleen maar belangrijker." },
     ],
     verwant: [
+      { label: "Wat kost een ondergrondse afvalcontainer?", url: "/kosten-ondergrondse-afvalcontainer/" },
       { label: "Beheer, onderhoud en refurbish", url: "/diensten/beheer-onderhoud/" },
       { label: "B-Organized: containerbeheer", url: "/b-organized/" },
       { label: "Afvalstoffenbelasting fors omhoog vanaf 2028", url: "/nieuws/afvalstoffenbelasting-verhoging-2028-gemeenten/" },
@@ -932,6 +938,292 @@ export interface TekstPagina {
 }
 
 export const tekstPaginas: readonly TekstPagina[] = [
+  {
+    slug: "kosten-ondergrondse-afvalcontainer",
+    verwant: [
+      { label: "Meerjaren Investeringsplan", url: "/diensten/meerjaren-investeringsplan/" },
+      { label: "Aanbesteding en bestek", url: "/diensten/aanbesteding/" },
+      { label: "Locatieonderzoek", url: "/diensten/locatieonderzoek/" },
+    ],
+    h1: "Wat kost een ondergrondse afvalcontainer?",
+    intro:
+      "Waarom de prijs van de container zelf maar een deel van het verhaal is, en welke posten de uitkomst bepalen.",
+    meta: {
+      titel: "Wat kost een ondergrondse afvalcontainer? | B-Advice",
+      omschrijving:
+        "De kosten van een ondergrondse afvalcontainer zitten in meer dan de container: grondwerk, kabels en leidingen, aansluiting en beheer. De posten op een rij.",
+    },
+    blokken: [
+      {
+        type: "p",
+        tekst:
+          "Het eerlijke antwoord op deze vraag begint met een tegenvraag: wat rekent u mee? De aanschafprijs van een container zegt weinig over wat een containerlocatie uiteindelijk kost. Dezelfde container kan op de ene plek zonder complicaties de grond in gaan en op de andere plek het dubbele kosten, door omstandigheden die niets met de container te maken hebben.",
+      },
+      {
+        type: "p",
+        tekst:
+          "Wij noemen op deze pagina bewust geen richtprijzen. Bedragen die los van de locatie worden genoemd, zijn in aanbestedingen keer op keer een bron van teleurstelling: ze wekken een verwachting die het project daarna niet waar kan maken. Wat wij wel kunnen doen, is uitleggen waaruit de kosten zijn opgebouwd, zodat u een offerte of een raming kunt beoordelen op volledigheid.",
+      },
+      { type: "h2", tekst: "De posten bij aanleg" },
+      {
+        type: "tabel",
+        koppen: ["Post", "Waar de verschillen vandaan komen"],
+        rijen: [
+          ["Container en betonput", "Type, inhoud, fractie, uitvoering van de zuil en de inworpopening"],
+          ["Grondwerk en bestrating", "Grondsoort, grondwaterstand, benodigde bemaling, herstel van de verharding"],
+          ["Kabels en leidingen", "Of er iets verlegd moet worden; dit is de grootste bron van verrassingen"],
+          ["Netaansluiting", "Alleen nodig bij toegangscontrole, sensoren of verlichting; doorlooptijd bepaalt de planning"],
+          ["Verkeersmaatregelen", "Binnenstedelijk en op drukke wegen aanzienlijk zwaarder dan in een woonwijk"],
+          ["Vergunning en procedure", "Inclusief de tijd voor bezwaar en participatie"],
+          ["Inrichting van de omgeving", "Bestrating, paaltjes, beplanting en verlichting rond de locatie"],
+        ],
+      },
+      {
+        type: "p",
+        tekst:
+          "De post die het vaakst wordt onderschat is die van kabels en leidingen. Een locatie die op tekening prima lijkt, kan in de praktijk vol liggen, en verleggen kost tijd én geld die zelden in de eerste raming zitten. Dat is precies waarom het onderzoek naar de ondergrond vooraf hoort en niet tijdens de uitvoering.",
+      },
+      { type: "h2", tekst: "De posten daarna" },
+      {
+        type: "p",
+        tekst:
+          "Een container gaat vijftien tot twintig jaar mee. Over die periode is de aanleg vaak niet de grootste kostenpost. Wat daarna komt:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Lediging: het aantal ledigingen per jaar, bepaald door het aantal aangesloten huishoudens en de vulgraad.",
+          "Onderhoud en keuring: periodiek onderhoud aan de zuil, het hefsysteem en de veiligheidsvoorzieningen.",
+          "Reiniging en herstel van schade of vandalisme.",
+          "Storingen: hoe vaker een container hapert, hoe meer meldingen en bijplaatsingen.",
+          "Opruimen van bijplaatsingen, wat op probleemlocaties een structurele post wordt.",
+          "Vervanging aan het eind van de levensduur, inclusief het grondwerk van toen.",
+        ],
+      },
+      { type: "h2", tekst: "Waarom een prijs per container misleidt" },
+      {
+        type: "p",
+        tekst:
+          "Een gemeente die stuurt op de laagste prijs per container, stuurt op de kleinste van de bovenstaande posten. Een locatie die tienduizend euro goedkoper is aangelegd maar wekelijks tot meldingen leidt, is binnen een paar jaar duurder uit. Hetzelfde geldt voor een krappe dimensionering: minder containers plaatsen verlaagt de investering en verhoogt de ledigingsfrequentie en het aantal bijplaatsingen.",
+      },
+      {
+        type: "p",
+        tekst:
+          "De vraag die er werkelijk toe doet, is dus niet wat een container kost, maar wat een locatie kost over haar levensduur. Dat is de basis van een meerjaren investeringsplan, en het is ook de manier waarop een bestek moet worden opgezet als u inschrijvingen wilt kunnen vergelijken.",
+      },
+      { type: "h2", tekst: "Wat u zelf kunt doen aan de onzekerheid" },
+      {
+        type: "ul",
+        items: [
+          "Onderzoek de ondergrond voordat de locatie definitief wordt, niet erna.",
+          "Vraag de netaansluiting aan zodra een locatie waarschijnlijk is; die doorlooptijd haalt u nergens anders in.",
+          "Dimensioneer op het aantal huishoudens en het werkelijke aanbod, niet op het aantal beschikbare plekken.",
+          "Laat een raming de exploitatiekosten meenemen, niet alleen de aanleg.",
+          "Leg vast wat er staat, zodat vervanging planbaar wordt in plaats van een verrassing.",
+        ],
+      },
+      {
+        type: "p",
+        tekst:
+          "B-Advice levert zelf geen containers. Wij ondersteunen gemeenten en afvalinzamelaars bij het voorbereiden, aanbesteden en begeleiden van deze projecten, juist zodat de kosten vooraf in beeld zijn in plaats van tijdens de uitvoering.",
+      },
+    ],
+  },
+  {
+    slug: "stosag",
+    verwant: [
+      { label: "Containerregistratie", url: "/diensten/containerregistratie/" },
+      { label: "Aanbesteding en bestek", url: "/diensten/aanbesteding/" },
+      { label: "B-Organized", url: "/b-organized/" },
+    ],
+    h1: "STOSAG: de open standaard voor afvalinzameling",
+    intro:
+      "Wat de standaard regelt, waarom leveranciersonafhankelijkheid ertoe doet en wat u ermee doet in een programma van eisen.",
+    meta: {
+      titel: "STOSAG: open standaard afvalinzameling | B-Advice",
+      omschrijving:
+        "STOSAG is de open standaard voor gegevensuitwisseling in de afvalinzameling. Wat de standaard regelt tussen pas, container, voertuig en backoffice.",
+    },
+    blokken: [
+      {
+        type: "p",
+        tekst:
+          "STOSAG staat voor Stuurgroep Open Standaarden Afval en Grondstoffen. Het is een open ICT-standaard die beschrijft hoe gegevens rond de inzameling van afval en grondstoffen tussen systemen worden uitgewisseld. De standaard is te vinden via stosag.nl en is opgenomen bij Forum Standaardisatie en in NORA; de technische specificaties worden beheerd in Semantic Treehouse.",
+      },
+      { type: "h2", tekst: "Wat de standaard beschrijft" },
+      {
+        type: "p",
+        tekst: "STOSAG richt zich op de communicatie tussen de onderdelen van het inzamelproces:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Tussen chipkaart en ondergrondse container, voor toegangsherkenning.",
+          "Tussen gechipte minicontainers en de identificatiesystemen op inzamelvoertuigen.",
+          "Tussen inzamelcontainers en de backofficesystemen.",
+          "Tussen de systemen op de inzamelvoertuigen en de backoffice.",
+        ],
+      },
+      { type: "h2", tekst: "Waarom een standaard hier verschil maakt" },
+      {
+        type: "p",
+        tekst:
+          "Zonder afspraken hoort een toegangspas bij één merk container. Wisselt u van leverancier, of werkt u samen met een buurgemeente die iets anders heeft staan, dan werkt de pas daar niet. Met een open standaard is de pas losgekoppeld van het containermerk.",
+      },
+      {
+        type: "p",
+        tekst:
+          "Dat raakt drie dingen die voor een gemeente zwaar wegen: u zit niet vast aan één leverancier, samenwerking met buurgemeenten wordt eenvoudiger en goedkoper, en de gegevens uit verschillende systemen blijven onderling vergelijkbaar omdat alle partijen dezelfde taal spreken.",
+      },
+      { type: "h2", tekst: "Wat u ermee doet in een aanbesteding" },
+      {
+        type: "p",
+        tekst:
+          "De praktische stap is eenvoudig: neem ondersteuning van de standaard op in uw programma van eisen, en wees daarbij concreet over welke berichtstromen u nodig heeft. Een leverancier die STOSAG ondersteunt voor de toegangsherkenning, ondersteunt daarmee niet automatisch de uitwisseling met uw backoffice.",
+      },
+      {
+        type: "p",
+        tekst:
+          "Let ook op de versie. Van de standaard bestaan opeenvolgende versies; leg vast welke u vraagt, zodat u bij oplevering kunt toetsen wat er is geleverd.",
+      },
+      { type: "h2", tekst: "De link met uw eigen registratie" },
+      {
+        type: "p",
+        tekst:
+          "Een standaard geeft u nog geen gegevens. U heeft een tegenpartij nodig die hem ook spreekt, en u heeft uw eigen gegevens op orde nodig. Legt u uw containerregistratie vanaf het begin vast in termen die aansluiten bij de standaard, dan hoeft u later niet per partij een eigen vertaalslag te maken.",
+      },
+    ],
+  },
+  {
+    slug: "klic-melding-containerplaatsing",
+    verwant: [
+      { label: "Locatieonderzoek en werkvoorbereiding", url: "/diensten/locatieonderzoek/" },
+      { label: "Ondergrondse container plaatsen", url: "/diensten/plaatsing/" },
+      { label: "Wat kost een ondergrondse afvalcontainer?", url: "/kosten-ondergrondse-afvalcontainer/" },
+    ],
+    h1: "KLIC-melding en kabels en leidingen bij containerplaatsing",
+    intro:
+      "Waarom de ondergrond bepaalt of een containerlocatie haalbaar is, en wat u vooraf uitzoekt.",
+    meta: {
+      titel: "KLIC-melding bij containerplaatsing | B-Advice",
+      omschrijving:
+        "Kabels en leidingen bepalen of een containerlocatie haalbaar is. Over het oriëntatieverzoek, de graafmelding en waarom tekeningen niet exact zijn.",
+    },
+    blokken: [
+      {
+        type: "p",
+        tekst:
+          "Een ondergrondse container vraagt een put van enkele meters diep. Daarmee is elke locatiekeuze in de eerste plaats een vraag over de ondergrond: ligt daar iets, en zo ja, kan het weg of moet de locatie verschuiven? In Nederland loopt dat via het Kadaster, dat de informatie over kabels en leidingen van netbeheerders ontsluit.",
+      },
+      { type: "h2", tekst: "Oriëntatieverzoek en graafmelding" },
+      {
+        type: "p",
+        tekst:
+          "Er is verschil tussen oriënteren en melden. Een oriëntatieverzoek gebruikt u in de planfase: het geeft een beeld van wat er in een gebied ligt, zonder dat er al een concrete graaflocatie is. Daarmee kunt u kansloze locaties afvallen voordat er tekenwerk in gaat zitten.",
+      },
+      {
+        type: "p",
+        tekst:
+          "Een graafmelding hoort bij het werk zelf en is wettelijk verplicht voordat er mechanisch wordt gegraven. Die melding is een beperkte tijd geldig en kent termijnen voor het moment waarop u hem doet; de actuele voorwaarden staan bij het Kadaster. Plan dat in met de rest van de voorbereiding, zodat de melding nog geldig is op het moment dat de aannemer begint.",
+      },
+      { type: "h2", tekst: "De tekening is een indicatie, geen maatvoering" },
+      {
+        type: "p",
+        tekst:
+          "Dit is het punt waarop de meeste projecten misgaan. De informatie die u ontvangt, geeft de ligging bij benadering. De werkelijke ligging kan afwijken, zeker bij oudere leidingen en in binnenstedelijk gebied waar in de loop der jaren veel is gebeurd.",
+      },
+      {
+        type: "p",
+        tekst:
+          "Daarom hoort er tussen de tekening en de schop nog een stap: het vaststellen van de werkelijke ligging op de kritieke punten, met proefsleuven of door voorzichtig handmatig te ontgraven. Dat kost een dag en voorkomt een geraakte kabel, een stilgelegd werk en een schadeclaim.",
+      },
+      { type: "h2", tekst: "Als er iets in de weg ligt" },
+      {
+        type: "p",
+        tekst:
+          "Ligt er een kabel of leiding precies waar de put moet komen, dan heeft u drie mogelijkheden: de locatie verschuiven, de put anders inpassen of de leiding laten verleggen. Verleggen is de duurste en traagste route, want u bent afhankelijk van de planning van de netbeheerder.",
+      },
+      {
+        type: "p",
+        tekst:
+          "De afweging is bijna altijd in het voordeel van verschuiven, mits de nieuwe plek ruimtelijk en voor bewoners acceptabel is. Dat is precies waarom het onderzoek naar de ondergrond vóór de definitieve locatiekeuze hoort en niet erna: zolang de locatie nog kan schuiven, is een obstakel een aanpassing in plaats van een kostenpost.",
+      },
+      { type: "h2", tekst: "Wat B-Advice hierin doet" },
+      {
+        type: "p",
+        tekst:
+          "Binnen locatieonderzoek en werkvoorbereiding beoordelen wij de beschikbare informatie over kabels en leidingen, bereiden wij proefsleuven voor en stemmen wij af met netbeheerders en de overige beheerders van de openbare ruimte. Die afstemming is vaak bepalender voor de planning dan het graafwerk zelf.",
+      },
+    ],
+  },
+  {
+    slug: "toegangscontrole-milieupas",
+    verwant: [
+      { label: "STOSAG", url: "/stosag/" },
+      { label: "Containerregistratie", url: "/diensten/containerregistratie/" },
+      { label: "Beheer en onderhoud", url: "/diensten/beheer-onderhoud/" },
+    ],
+    h1: "Toegangscontrole en milieupassen bij ondergrondse containers",
+    intro:
+      "Wat een passysteem oplevert, wat het van de locatie vraagt en waar u vooraf over moet nadenken.",
+    meta: {
+      titel: "Toegangscontrole en milieupas containers | B-Advice",
+      omschrijving:
+        "Toegangscontrole met een milieupas bij ondergrondse containers: wat het oplevert, welke eisen het aan de locatie stelt en hoe het samenhangt met registratie.",
+    },
+    blokken: [
+      {
+        type: "p",
+        tekst:
+          "Steeds meer ondergrondse containers zijn alleen te openen met een pas. De zuil herkent de pas, opent de trommel en legt vast dat er is aangeboden. Voor de gemeente verandert daarmee iets wezenlijks: de container is niet langer een gat in de grond, maar een voorziening met een gebruiker en een gebruikshistorie.",
+      },
+      { type: "h2", tekst: "Wat het oplevert" },
+      {
+        type: "ul",
+        items: [
+          "Alleen inwoners van de eigen gemeente of wijk kunnen de container gebruiken.",
+          "Bedrijfsafval is te weren; ondernemers horen een eigen afvalcontract te hebben.",
+          "Het aanbod is meetbaar, wat de basis vormt voor dimensionering en ledigingsfrequentie.",
+          "Bij diftar is het de voorwaarde om op gebruik te kunnen afrekenen.",
+          "Storingen en misbruik zijn te herleiden tot een locatie en een moment.",
+        ],
+      },
+      { type: "h2", tekst: "Wat het van de locatie vraagt" },
+      {
+        type: "p",
+        tekst:
+          "Een passysteem betekent elektronica, en elektronica betekent stroom. Dat klinkt vanzelfsprekend, maar het is in de praktijk de post die planningen laat uitlopen: de doorlooptijd van een netaansluiting bepaalt de netbeheerder, niet de gemeente of de aannemer. Vraag de aansluiting daarom aan zodra een locatie waarschijnlijk is, niet pas als de put er ligt.",
+      },
+      {
+        type: "p",
+        tekst:
+          "Daarnaast vraagt het om beheer dat er voorheen niet was: passen uitgeven en blokkeren, storingen aan de leesapparatuur verhelpen, en een aanspreekpunt voor inwoners bij wie de pas het niet doet. Een container die niet opengaat, levert binnen een dag een zak ernaast op.",
+      },
+      { type: "h2", tekst: "Kies een systeem dat u niet vastzet" },
+      {
+        type: "p",
+        tekst:
+          "De pas en de container komen vaak van dezelfde leverancier, en dat is precies de afhankelijkheid waar u vanaf wilt. Werkt de pas alleen bij één merk, dan bepaalt dat merk bij de volgende vervangingsronde uw keuzeruimte, en werkt samenwerking met een buurgemeente niet.",
+      },
+      {
+        type: "p",
+        tekst:
+          "Hiervoor bestaat de open standaard STOSAG, die onder meer de communicatie tussen chipkaart en ondergrondse container beschrijft. Neem ondersteuning daarvan op in uw programma van eisen, en wees concreet over welke berichtstromen u nodig heeft.",
+      },
+      { type: "h2", tekst: "Gegevens en privacy" },
+      {
+        type: "p",
+        tekst:
+          "Zodra u vastlegt welke pas wanneer welke container heeft geopend, verwerkt u gegevens die naar een huishouden herleidbaar zijn. Dat mag, maar het vraagt om keuzes die u vooraf maakt en vastlegt: welk doel de registratie dient, hoe lang u de gegevens bewaart, wie erbij kan en wat u met de inzamelaar en de leverancier afspreekt. Bij diftar is dit onvermijdelijk, omdat de afrekening erop rust.",
+      },
+      { type: "h2", tekst: "De link met uw containerregistratie" },
+      {
+        type: "p",
+        tekst:
+          "Toegangscontrole werkt alleen als duidelijk is welke zuil welk apparaat heeft en welk regime daar geldt. Leg daarom per container vast welk toegangssysteem er zit en welke gebruikersgroep toegang heeft. Zonder die registratie is een storing in het pasjessysteem een zoektocht in plaats van een werkorder.",
+      },
+    ],
+  },
   {
     slug: "privacy",
     verwant: [{ label: "Cookiebeleid", url: "/cookies/" }],
