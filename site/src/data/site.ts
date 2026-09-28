@@ -29,6 +29,7 @@ export const navigatie = {
     { url: "/diensten/afvalinzameling/", label: "Afvalinzameling en management" },
     { url: "/diensten/projectmanagement/", label: "Projectmanagement" },
     { url: "/diensten/aanbesteding/", label: "Aanbesteding en bestek" },
+    { url: "/diensten/containerregistratie/", label: "Containerregistratie" },
     { url: "/diensten/meerjaren-investeringsplan/", label: "Meerjaren Investeringsplan" },
     { url: "/diensten/bewonersparticipatie/", label: "Bewonersparticipatie" },
   ],
@@ -291,6 +292,125 @@ export interface Dienst {
 }
 
 export const diensten: readonly Dienst[] = [
+  {
+    slug: "containerregistratie",
+    h1: "Containerregistratie voor ondergrondse afvalcontainers",
+    intro:
+      "Een actueel overzicht van elke container: waar hij staat, wat erin gaat en wanneer hij aan onderhoud toe is.",
+    meta: {
+      titel: "Containerregistratie ondergrondse containers | B-Advice",
+      omschrijving:
+        "Containerregistratie opzetten en bijhouden: welke gegevens u per ondergrondse container vastlegt, hoe u inventariseert en waarom een losse Excel het zelden volhoudt.",
+    },
+    actie: "Bespreek uw containerregistratie",
+    soort: "Containerregistratie en containerbeheer",
+    blokken: [
+      {
+        type: "p",
+        tekst:
+          "Containerregistratie is het vastleggen en bijhouden van alle gegevens van uw inzamelvoorzieningen: welke container waar staat, van welk type hij is, welke fractie erin gaat, wanneer hij is geplaatst en wat eraan is gedaan. Het klinkt als administratie, maar het is de basis onder vrijwel elke beslissing die u later over uw containerpark neemt.",
+      },
+      {
+        type: "p",
+        tekst:
+          "Zonder registratie is elke vraag een onderzoek. Hoeveel containers zijn ouder dan vijftien jaar? Welke locaties hebben dezelfde inworpopening? Waar staan de containers van de leverancier die failliet is gegaan? In een gemeente met honderden voorzieningen kost het beantwoorden daarvan zonder registratie dagen veldwerk.",
+      },
+      { type: "h2", tekst: "Wat legt u per container vast?", id: "gegevens" },
+      {
+        type: "p",
+        tekst:
+          "Een bruikbare registratie gaat verder dan een adres en een nummer. Dit zijn de gegevens die in de praktijk het vaakst nodig blijken:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Een uniek nummer dat ook fysiek op de container staat, zodat een melding altijd bij de juiste voorziening terechtkomt.",
+          "Type, merk, bouwjaar en inhoud, plus de leverancier en de garantietermijn.",
+          "De fractie: restafval, papier, glas, textiel, PMD of GFE.",
+          "De exacte locatie in coördinaten, niet alleen een straatnaam. Twee containers aan dezelfde straat zijn anders niet uit elkaar te houden.",
+          "De maat van de inworpopening, want die bepaalt wat er daadwerkelijk in past.",
+          "Het toegangsregime: vrij toegankelijk of met pas, en welk systeem daarvoor wordt gebruikt.",
+          "Plaatsingsdatum, uitgevoerde onderhoudsbeurten, keuringen en storingen.",
+          "Foto’s van de locatie en de omgeving, bij plaatsing en bij wijzigingen.",
+        ],
+      },
+      { type: "h2", tekst: "Waar u de registratie voor gebruikt", id: "gebruik" },
+      {
+        type: "p",
+        tekst:
+          "De registratie is geen doel op zich. Zij is de onderlegger voor vier dingen die anders op schattingen drijven:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Vervangingsplanning. Bouwjaar en onderhoudshistorie samen bepalen welke containers de komende jaren aan vervanging toe zijn, en dat is de basis van een meerjaren investeringsplan.",
+          "Aanbesteding. Een bestek dat rust op harde aantallen en types levert scherpere inschrijvingen op dan een bestek met marges voor onzekerheid.",
+          "Storingsafhandeling. Een melding die aan een containernummer hangt, is direct te koppelen aan het type, de leverancier en de garantie.",
+          "Analyse van probleemlocaties. Terugkerende bijplaatsingen worden pas verklaarbaar als u per locatie weet hoeveel huishoudens erop zijn aangesloten en hoe vaak er wordt geleegd.",
+        ],
+      },
+      { type: "h2", tekst: "Een registratie opbouwen vanaf nul", id: "inventarisatie" },
+      {
+        type: "p",
+        tekst:
+          "Veel gemeenten hebben wel gegevens, maar verspreid: een lijst bij de inzamelaar, een tekening bij de afdeling beheer en een map met leveringsbonnen. Een registratie opbouwen begint daarom zelden bij nul en bijna altijd bij het samenvoegen en controleren van wat er al is.",
+      },
+      {
+        type: "p",
+        tekst:
+          "De veldcontrole is daarbij het werk dat niet te vermijden is. Pas als iemand langs de locaties is geweest, weet u zeker dat de container die op papier staat er ook werkelijk staat, dat het nummer klopt en dat de coördinaten kloppen met de werkelijkheid in plaats van met een oude tekening.",
+      },
+      { type: "h2", tekst: "Waarom een losse Excel het zelden volhoudt", id: "bijhouden" },
+      {
+        type: "p",
+        tekst:
+          "Bijna elke registratie begint als spreadsheet, en de meeste lopen binnen een jaar achter. Niet omdat een spreadsheet niet deugt, maar omdat bijhouden een werkproces is en geen bestand. Zodra de aannemer een container vervangt, de inzamelaar een storing verhelpt en een collega een locatie verplaatst, moeten die drie wijzigingen op dezelfde plek terechtkomen.",
+      },
+      {
+        type: "p",
+        tekst:
+          "Werkt u met een omgeving waarin de registratie en het dagelijkse werk in hetzelfde systeem zitten, dan wordt bijhouden een bijproduct van het werk in plaats van een extra taak. Daarvoor hebben wij B-Organized ontwikkeld: containerregistratie met locatiegegevens, taken en bijlagen per container.",
+      },
+      { type: "h2", tekst: "Uitwisselbaar vastleggen", id: "standaarden" },
+      {
+        type: "p",
+        tekst:
+          "Houd bij het inrichten rekening met uitwisseling. STOSAG, de Stuurgroep Open Standaarden Afval en Grondstoffen, beschrijft hoe gegevens rond de inzameling tussen systemen worden uitgewisseld: tussen pas en container, tussen container en backoffice en tussen voertuig en backoffice.",
+      },
+      {
+        type: "p",
+        tekst:
+          "Legt u uw gegevens vanaf het begin vast in termen die aansluiten bij zo’n standaard, dan kunt u later koppelen zonder per partij een eigen vertaalslag te maken. Dat scheelt bij een wisseling van inzamelaar, bij samenwerking met buurgemeenten en bij elke aanbesteding waarin leveranciersonafhankelijkheid meetelt.",
+      },
+    ],
+    faq: [
+      {
+        vraag: "Wat is containerregistratie precies?",
+        antwoord:
+          "Het vastleggen en bijhouden van de gegevens van al uw inzamelvoorzieningen: locatie, type, fractie, bouwjaar, toegangsregime, onderhoudshistorie en storingen. Het is de basis voor beheer, vervangingsplanning en aanbesteding.",
+      },
+      {
+        vraag: "Welke gegevens zijn minimaal nodig?",
+        antwoord:
+          "Een uniek containernummer dat ook fysiek op de container staat, de exacte locatie in coördinaten, het type en de fractie, en de plaatsingsdatum. Daarmee kunt u meldingen koppelen en een vervangingsplanning maken. De rest bouwt u daarop uit.",
+      },
+      {
+        vraag: "Hoe lang duurt het opbouwen van een registratie?",
+        antwoord:
+          "Dat hangt af van het aantal locaties en van wat er al ligt. Het samenvoegen van bestaande bronnen gaat meestal snel; de veldcontrole bepaalt de doorlooptijd, omdat elke locatie één keer bezocht moet worden.",
+      },
+      {
+        vraag: "Moet een registratie voldoen aan STOSAG?",
+        antwoord:
+          "Dat is geen verplichting, maar wel verstandig. STOSAG beschrijft hoe gegevens rond de inzameling tussen systemen worden uitgewisseld. Sluit uw registratie daarop aan, dan voorkomt u dat elke koppeling met een inzamelaar of buurgemeente een eigen vertaalslag vraagt.",
+      },
+    ],
+    verwant: [
+      { label: "Beheer en onderhoud", url: "/diensten/beheer-onderhoud/" },
+      { label: "Meerjaren Investeringsplan", url: "/diensten/meerjaren-investeringsplan/" },
+      { label: "B-Organized", url: "/b-organized/" },
+    ],
+  },
   {
     slug: "projectleiding",
     h1: "Projectleider ondergrondse afvalcontainers inhuren",
