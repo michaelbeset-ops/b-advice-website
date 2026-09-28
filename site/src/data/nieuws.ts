@@ -54,6 +54,137 @@ export const nieuwsPagina = {
 // Nieuwste artikel eerst.
 export const artikelen: Artikel[] = [
   {
+    slug: "ondergrondse-containers-hoorn-stroomaansluiting",
+    samenvatting:
+      "Hoorn nam 31 nieuwe ondergrondse containers in gebruik. Twee staan stil tot half oktober, omdat de stroomaansluiting er nog niet is. Dat is geen pech, dat is planning.",
+    categorie: "Analyse",
+    datum: "2026-09-28",
+    h1: "31 containers in gebruik, twee wachten op stroom: wat Hoorn laat zien over werkvoorbereiding",
+    lead:
+      "Hoorn nam 31 nieuwe ondergrondse containers in gebruik. Twee staan stil tot half oktober, omdat de stroomaansluiting er nog niet is. Dat is geen pech, dat is planning.",
+    meta: {
+      titel: "Containers Hoorn: wachten op de stroom",
+      omschrijving:
+        "Hoorn nam 31 ondergrondse containers in gebruik, twee wachten op een netaansluiting. Wat dat zegt over werkvoorbereiding en de plaatsing van GFE-cocons.",
+    },
+    blokken: [
+      {
+        type: "p",
+        tekst: "De gemeente Hoorn heeft sinds <strong>1 september 2026</strong> 31 nieuwe ondergrondse containers voor huishoudelijk afval in gebruik. Bij die locaties staan ook bovengrondse cocons voor groente-, fruit- en etensresten (GFE), op ongeveer vijf meter afstand. Tuinafval mag daar niet in. Bij zestien bestaande locaties zijn dezelfde cocons alsnog bijgeplaatst.",
+      },
+      {
+        type: "p",
+        tekst: "Twee containers doen nog niet mee. Die op Gerritsland en op Grote Noord 30 kunnen pas open als de stroomaansluiting er ligt; die staat gepland voor <strong>15 oktober</strong>. Tot die tijd verwijst de gemeente bewoners naar twee andere containers, genoemd in de brief van HVC, en naar de zoekfunctie van HVC om de dichtstbijzijnde te vinden.",
+      },
+      {
+        type: "cijfers",
+        label: "De uitrol in Hoorn",
+        bron: "Gemeente Hoorn",
+        items: [
+          { waarde: "31", label: "nieuwe ondergrondse containers, in gebruik sinds 1 september" },
+          { waarde: "16", label: "bestaande locaties kregen alsnog een GFE-cocon" },
+          { waarde: "2", label: "containers wachten op een netaansluiting tot 15 oktober" },
+        ],
+      },
+      {
+        type: "h2",
+        tekst: "Zes weken stilstand door een aansluiting",
+      },
+      {
+        type: "p",
+        tekst: "Een ondergrondse container is allang geen put met een deksel meer. Toegangsherkenning met een pas, een vulgraadsensor, verlichting of een elektrisch bediende zuil: zodra daar iets van in het ontwerp zit, heeft de locatie een netaansluiting nodig. En een netaansluiting is het enige onderdeel van zo’n project waar de gemeente noch de aannemer de doorlooptijd van bepaalt.",
+      },
+      {
+        type: "p",
+        tekst: "Dat is precies wat je in Hoorn ziet: de containers staan er, de put is gemaakt, de bestrating ligt terug — en toch kan er zes weken lang niets in. De fysieke oplevering is klaar, de ingebruikname niet.",
+      },
+      {
+        type: "let-op",
+        label: "Let op",
+        tekst: "De aanvraag voor een netaansluiting hoort niet aan het eind van de werkvoorbereiding, maar aan het begin, parallel aan het locatieonderzoek. Netbeheerders werken met doorlooptijden van weken tot maanden, en die tijd wint u nergens anders in het project terug.",
+      },
+      {
+        type: "p",
+        tekst: "In een planning waarin de aansluiting pas wordt aangevraagd als de locatie definitief is, loopt u die doorlooptijd achteraf tegen het lijf. Vraagt u hem aan zodra de locatie waarschijnlijk is, dan loopt hij mee met de vergunning en de uitvoering. Het risico is dan een aanvraag die u moet corrigeren als de locatie alsnog verschuift — beduidend goedkoper dan een container die er staat maar dicht blijft.",
+      },
+      {
+        type: "h2",
+        tekst: "Waar de cocon niet past",
+      },
+      {
+        type: "p",
+        tekst: "Het tweede dat opvalt, is de omgang met de GFE-cocons. Op de twee locaties aan het Grote Noord komen ze er niet bij; daarvoor heeft de gemeente twee andere plekken aan het Nieuwe Noord aangewezen. Dat is een eerlijke oplossing voor een binnenstedelijke straat waar de ruimte er simpelweg niet is.",
+      },
+      {
+        type: "p",
+        tekst: "Tegelijk verandert het wel iets wezenlijks. Bij de andere locaties staat de cocon op zo’n vijf meter van de container: je gooit je restafval weg en je etensresten in één beweging. Zodra die twee fracties in verschillende straten staan, wordt scheiden een aparte handeling — en dat is precies het moment waarop het scheidingspercentage begint te zakken.",
+      },
+      {
+        type: "kader",
+        titel: "Wat bepaalt of een tweede fractie wordt gebruikt",
+        inhoud: [
+          {
+            type: "lijst",
+            items: [
+              "De loopafstand tot de andere fractie: naast elkaar of om de hoek scheelt veel",
+              "Of het aanbieden in één gang kan of twee losse ritjes vraagt",
+              "Of duidelijk is wat er wel en niet in mag — bij GFE struikelt iedereen over tuinafval",
+              "Of de cocon net zo verzorgd oogt als de hoofdcontainer",
+              "Of de capaciteit klopt: een volle cocon leert mensen binnen een week hem over te slaan",
+            ],
+          },
+        ],
+      },
+      {
+        type: "h2",
+        tekst: "Wat Hoorn goed doet",
+      },
+      {
+        type: "p",
+        tekst: "Eén ding verdient navolging. De gemeente laat het niet bij de mededeling dat twee containers nog niet werken, maar noemt twee concrete alternatieven én verwijst naar de zoekfunctie waarmee bewoners zelf de dichtstbijzijnde container vinden.",
+      },
+      {
+        type: "p",
+        tekst: "Dat klinkt vanzelfsprekend en is het niet. Een bewoner die voor een dichte container staat en niet weet waar hij dan heen moet, zet zijn zak ernaast — en zoals we eerder schreven naar aanleiding van <a href=\"/nieuws/afvaldumpingen-almere-meldingen/\">de afvaldumpingen in Almere</a> en <a href=\"/nieuws/afvalmeldingen-hilversum-graadmeter/\">de meldingen in Hilversum</a>: de eerste zak bepaalt of het bij één blijft. Een tijdelijke storing die goed wordt gecommuniceerd, kost niets. Dezelfde storing zonder alternatief kost u een hotspot die er daarna niet meer weggaat.",
+      },
+      {
+        type: "h2",
+        tekst: "Drie dingen voor uw eigen uitrol",
+      },
+      {
+        type: "stappen",
+        items: [
+          {
+            titel: "Zet de netaansluiting vooraan in de planning",
+            tekst: "Vraag hem aan zodra een locatie waarschijnlijk is, niet pas als hij definitief is. De doorlooptijd van de netbeheerder is het enige onderdeel dat u niet kunt versnellen.",
+          },
+          {
+            titel: "Bepaal per locatie of beide fracties naast elkaar passen",
+            tekst: "Past de tweede fractie er niet bij, weet dan dat u inlevert op gebruik. Dat is soms onvermijdelijk, maar het hoort een bewuste afweging te zijn en geen uitkomst.",
+          },
+          {
+            titel: "Regel de terugvaloptie vóór de ingebruikname",
+            tekst: "Benoem bij elke locatie die nog niet werkt welke container bewoners in de tussentijd moeten gebruiken, en zorg dat die informatie hen ook echt bereikt.",
+          },
+        ],
+      },
+      {
+        type: "p",
+        tekst: "Deze afwegingen horen thuis in de fase vóór de schop de grond in gaat. Wat er in <a href=\"/diensten/locatieonderzoek/\">locatieonderzoek en werkvoorbereiding</a> wordt vastgelegd, bepaalt of een uitrol op de geplande datum draait of zes weken later.",
+      },
+      {
+        type: "cta",
+        label: "Aan de slag",
+        kop: "Een uitrol die op de geplande datum draait",
+        tekst: "B-Advice verzorgt locatieonderzoek, werkvoorbereiding en projectleiding rondom ondergrondse containers, van de eerste locatiekeuze tot de oplevering. Neem contact op om te bespreken wat er in uw gemeente speelt.",
+      },
+      {
+        type: "p",
+        tekst: "Bron: Gemeente Hoorn, ‘Ondergrondse containers’, geraadpleegd op 28 september 2026.",
+      },
+    ],
+  },
+  {
     slug: "afvaldumpingen-almere-meldingen",
     samenvatting:
       "Een kwart van alle 65.000 meldingen in Almere gaat over gedumpt afval. De gemeente noemt het een gedragsprobleem — maar haar eigen vuilnisophaler wijst op iets anders.",
