@@ -29,7 +29,6 @@ export const navigatie = {
     { url: "/diensten/afvalinzameling/", label: "Afvalinzameling en management" },
     { url: "/diensten/projectmanagement/", label: "Projectmanagement" },
     { url: "/diensten/aanbesteding/", label: "Aanbesteding en bestek" },
-    { url: "/diensten/containerregistratie/", label: "Containerregistratie" },
     { url: "/diensten/meerjaren-investeringsplan/", label: "Meerjaren Investeringsplan" },
     { url: "/diensten/bewonersparticipatie/", label: "Bewonersparticipatie" },
   ],
@@ -643,6 +642,7 @@ export const diensten: readonly Dienst[] = [
       { type: "p", tekst: "Refurbishment is het alternatief voor vervangen. Nieuwe bekleding, een mechanische revisie en waar gewenst een update naar de actuele veiligheidsstandaarden leveren een container op die weer meekan, zonder de kosten en het straatwerk van een nieuwe plaatsing." },
     ],
     verwant: [
+      { label: "Containerregistratie", url: "/diensten/containerregistratie/" },
       { label: "Toegangscontrole en milieupassen", url: "/toegangscontrole-milieupas/" },
       { label: "B-Organized: containerbeheer", url: "/b-organized/" },
       { label: "Plaatsen van inzamelmiddelen", url: "/diensten/plaatsing/" },
