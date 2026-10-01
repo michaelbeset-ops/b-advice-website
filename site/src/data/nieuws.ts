@@ -54,6 +54,132 @@ export const nieuwsPagina = {
 // Nieuwste artikel eerst.
 export const artikelen: Artikel[] = [
   {
+    slug: "afvalinzameling-houten-rmn-2027",
+    samenvatting:
+      "Houten stapt per 1 januari 2027 over naar RMN. Voor inwoners verandert er weinig — onder de motorkap moet er juist veel kloppen.",
+    categorie: "Analyse",
+    datum: "2026-10-01",
+    h1: "Houten stapt over naar RMN: wat er bij een wissel van inzamelaar moet kloppen",
+    lead:
+      "Houten stapt per 1 januari 2027 over naar RMN. Voor inwoners verandert er weinig — onder de motorkap moet er juist veel kloppen.",
+    meta: {
+      titel: "Houten stapt over naar RMN per 2027",
+      omschrijving:
+        "Houten laat de afvalinzameling vanaf 2027 door RMN uitvoeren. Wat zo'n overgang vraagt van containerregistratie, toegangspassen en meldingen.",
+    },
+    blokken: [
+      {
+        type: "p",
+        tekst: "Vanaf <strong>1 januari 2027</strong> verzorgt Reinigingsbedrijf Midden Nederland (RMN) de afvalinzameling in de gemeente Houten. Tot en met 31 december 2026 haalt de huidige inzamelaar het afval op. De gemeente blijft verantwoordelijk voor het afvalbeleid; RMN neemt de uitvoering over, en vanaf januari kunnen inwoners bij RMN terecht met vragen en meldingen.",
+      },
+      {
+        type: "p",
+        tekst: "Voor inwoners verandert er in de praktijk weinig aan de manier waarop zij hun afval aanbieden. Wel wijzigen de inzameldagen en het contactpunt. De gemeente en RMN informeren inwoners de komende maanden stapsgewijs; in november valt er een envelop op de mat met de praktische details, en daarna zijn de inzameldagen ook via de RMN-app en de website te vinden.",
+      },
+      {
+        type: "p",
+        tekst: "Dat is het verhaal aan de voorkant, en het is netjes opgezet. Interessanter is wat er in de tussenliggende maanden aan de achterkant moet gebeuren. Een wissel van inzamelaar is namelijk vooral een overdracht van gegevens.",
+      },
+      {
+        type: "h2",
+        tekst: "De overdracht is een gegevensoverdracht",
+      },
+      {
+        type: "p",
+        tekst: "Op 1 januari rijdt er een ploeg die deze gemeente niet kent, langs voorzieningen die een ander heeft geplaatst en onderhouden. Alles wat die ploeg moet weten, zit in de administratie van de vertrekkende partij. Wat daar niet in staat, moet in de eerste weken op straat worden uitgezocht.",
+      },
+      {
+        type: "kader",
+        titel: "Wat de nieuwe uitvoerder nodig heeft",
+        inhoud: [
+          {
+            type: "lijst",
+            items: [
+              "Welke containers er staan, waar precies, van welk type en voor welke fractie",
+              "Het unieke nummer per container, en of dat nummer ook fysiek op de zuil staat",
+              "De ledigingsfrequentie per locatie en het aantal aangesloten huishoudens",
+              "De onderhoudshistorie: wat is wanneer vervangen, wat staat open",
+              "Het toegangsregime per container en welk passysteem erin zit",
+              "De bekende probleemlocaties, met wat daar al is geprobeerd",
+            ],
+          },
+        ],
+      },
+      {
+        type: "p",
+        tekst: "Dit is precies waarom <a href=\"/diensten/containerregistratie/\">containerregistratie</a> geen administratieve bijzaak is. Een gemeente die haar registratie op orde heeft, draagt een bestand over. Een gemeente die dat niet heeft, draagt een probleem over — en betaalt de inventarisatie alsnog, maar dan onder tijdsdruk.",
+      },
+      {
+        type: "h2",
+        tekst: "Werken de passen straks nog?",
+      },
+      {
+        type: "p",
+        tekst: "De vraag die bij zo’n overgang het vaakst te laat wordt gesteld, gaat over <a href=\"/toegangscontrole-milieupas/\">toegangscontrole</a>. Zitten er pasjessystemen op de containers, dan moet de nieuwe uitvoerder daarop kunnen aansluiten: passen uitgeven en blokkeren, storingen verhelpen, aanbiedingen uitlezen.",
+      },
+      {
+        type: "p",
+        tekst: "Zit dat systeem vast aan één leverancier, dan is de keuzeruimte op dat moment al bepaald. Dit is het moment waarop de open standaard <a href=\"/stosag/\">STOSAG</a> zijn waarde bewijst: die beschrijft onder meer de communicatie tussen chipkaart en container, zodat de pas niet aan één containermerk hangt. Wie dat bij aanschaf heeft meegewogen, heeft bij een wissel van uitvoerder geen probleem.",
+      },
+      {
+        type: "h2",
+        tekst: "De eerste weken zijn de risicoweken",
+      },
+      {
+        type: "p",
+        tekst: "De inzameldagen veranderen, en dat is precies het soort wijziging waar een deel van de inwoners overheen leest. Een container of minicontainer die op de oude dag aan de weg staat, blijft staan. Wat er daarna gebeurt, weten we uit elke gemeente waar dit speelt: er komt iets naast te staan, en de volgende dag staat er meer.",
+      },
+      {
+        type: "p",
+        tekst: "Dat mechanisme beschreven we eerder naar aanleiding van <a href=\"/nieuws/afvaldumpingen-almere-meldingen/\">de afvaldumpingen in Almere</a> en <a href=\"/nieuws/afvalmeldingen-hilversum-graadmeter/\">de meldingen in Hilversum</a>: de eerste zak bepaalt of het bij één blijft. In een overgangsperiode is snel opruimen daarom geen luxe maar een maatregel. Reken voor de eerste weken op extra inzet, en plan die vooraf in plaats van erop te reageren.",
+      },
+      {
+        type: "let-op",
+        label: "Let op",
+        tekst: "Let ook op het contactpunt. Op 1 januari verschuift het loket voor meldingen. Een melding die in de laatste week van december binnenkomt bij de oude partij en pas in januari wordt opgepakt, valt zonder duidelijke afspraken tussen wal en schip.",
+      },
+      {
+        type: "h2",
+        tekst: "Wat een overgang ook oplevert",
+      },
+      {
+        type: "p",
+        tekst: "Een wissel dwingt tot opruimen. Alles wat jarenlang impliciet bij de uitvoerder zat — welke locaties lastig zijn, welke containers aan vervanging toe zijn, waar de capaciteit niet klopt — moet nu expliciet worden gemaakt. Dat is vervelend werk en tegelijk de beste gelegenheid in jaren om het containerpark echt in beeld te krijgen.",
+      },
+      {
+        type: "p",
+        tekst: "Gebruik dat moment dan ook breder dan voor de overdracht alleen. Een actuele registratie is de basis voor een meerjaren investeringsplan, voor de volgende aanbesteding en voor het onderbouwen van capaciteit per locatie. Wie die slag toch maakt, kan hem beter in één keer goed maken.",
+      },
+      {
+        type: "stappen",
+        items: [
+          {
+            titel: "Leg de registratie vast vóór de overdracht",
+            tekst: "Controleer wat er op papier staat tegen wat er werkelijk staat, inclusief nummers op de zuil en coördinaten. Doe dat nu, niet in januari.",
+          },
+          {
+            titel: "Toets of het toegangssysteem overdraagbaar is",
+            tekst: "Ga na welke passen en welke apparatuur er zitten, en of de nieuwe uitvoerder daar zonder leveranciersafhankelijkheid op kan aansluiten.",
+          },
+          {
+            titel: "Plan de eerste zes weken als risicoperiode",
+            tekst: "Extra capaciteit voor opruimen, duidelijke afspraken over wie welke melding afhandelt, en één aanspreekpunt voor wat ertussenin valt.",
+          },
+        ],
+      },
+      {
+        type: "cta",
+        label: "Aan de slag",
+        kop: "Een overgang zonder verrassingen in januari",
+        tekst: "B-Advice ondersteunt gemeenten bij het voorbereiden van dit soort overgangen: registratie op orde, locaties in beeld en de uitvoering begeleid. Neem contact op om te bespreken wat er in uw gemeente speelt.",
+      },
+      {
+        type: "p",
+        tekst: "Bron: Gemeente Houten en RMN, bericht over de voorbereiding van de nieuwe afvalinzameling, september 2026.",
+      },
+    ],
+  },
+  {
     slug: "ondergrondse-containers-hoorn-stroomaansluiting",
     samenvatting:
       "Hoorn nam 31 nieuwe ondergrondse containers in gebruik. Twee staan stil tot half oktober, omdat de stroomaansluiting er nog niet is. Dat is geen pech, dat is planning.",
