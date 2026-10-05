@@ -54,6 +54,135 @@ export const nieuwsPagina = {
 // Nieuwste artikel eerst.
 export const artikelen: Artikel[] = [
   {
+    slug: "omgekeerd-inzamelen-middelburg-2028",
+    samenvatting:
+      "Middelburg wil vanaf 2028 omgekeerd inzamelen. Het restafval verhuist naar verzamelcontainers in de buurt — en die locaties moeten er eerst komen.",
+    categorie: "Analyse",
+    datum: "2026-10-05",
+    h1: "Middelburg kiest voor omgekeerd inzamelen: de locaties zijn het kritieke pad",
+    lead:
+      "Middelburg wil vanaf 2028 omgekeerd inzamelen. Het restafval verhuist naar verzamelcontainers in de buurt — en die locaties moeten er eerst komen.",
+    meta: {
+      titel: "Middelburg: omgekeerd inzamelen in 2028",
+      omschrijving:
+        "Middelburg wil vanaf 2028 omgekeerd inzamelen, met restafval naar verzamelcontainers. Waarom de locaties en niet de containers het kritieke pad vormen.",
+    },
+    blokken: [
+      {
+        type: "p",
+        tekst: "Het college van Middelburg stelt voor om vanaf 2028 over te gaan op <a href=\"/nieuws/omgekeerd-inzamelen/\">omgekeerd inzamelen</a>. De rolcontainer die nu voor restafval aan huis staat, wordt dan de container voor PMD. Het restafval gaat de andere kant op: naar een verzamelcontainer in de buurt. De plannen stonden op 1 oktober op de raadsagenda; op 12 november besluit de raad over de tarieven en de tariefstructuur voor 2027.",
+      },
+      {
+        type: "citaat",
+        tekst: "“Met omgekeerd inzamelen maken we het makkelijker om waardevolle grondstoffen goed te scheiden en stimuleren we inwoners om minder restafval over te houden.” — wethouder Jesse Aarnoutse",
+      },
+      {
+        type: "p",
+        tekst: "De aanleiding is herkenbaar: landelijke ontwikkelingen vragen om een betere kwaliteit van het ingezamelde PMD, zodat er meer materiaal daadwerkelijk opnieuw gebruikt kan worden. Een eigen rolcontainer aan huis levert doorgaans schoner PMD op dan een verzamelcontainer, waar vervuiling moeilijker te herleiden is.",
+      },
+      {
+        type: "h2",
+        tekst: "De zin die het meeste werk verbergt",
+      },
+      {
+        type: "p",
+        tekst: "Middenin het bericht staat één zin die bepalend is voor de hele operatie: er komen extra locaties met ondergrondse containers voor restafval. Dat is geen uitvoeringsdetail, dat is het project.",
+      },
+      {
+        type: "p",
+        tekst: "Want de rolcontainers zijn er al: die krijgen alleen een andere bestemming. De verzamelcontainers voor restafval zijn er nog niet, en elke nieuwe locatie doorloopt hetzelfde pad: locatiekeuze, onderzoek naar de ondergrond, afstemming met netbeheerders, bewonersparticipatie, vergunning met de bijbehorende bezwaartermijn, aanbesteding, levering, grondwerk en oplevering.",
+      },
+      {
+        type: "kader",
+        titel: "Wat de doorlooptijd per locatie bepaalt",
+        inhoud: [
+          {
+            type: "lijst",
+            items: [
+              "Ligging van kabels en leidingen; ligt er iets in de weg, dan schuift de locatie of verschuift de planning",
+              "De vergunningprocedure, inclusief de tijd voor bezwaar",
+              "Bewonersparticipatie: niemand wil de container voor zijn raam",
+              "Levertijd van de containers zelf, zeker bij een grote order",
+              "De netaansluiting, als er toegangscontrole op komt",
+            ],
+          },
+        ],
+      },
+      {
+        type: "p",
+        tekst: "Die laatste is de stilste risicopost. Wij schreven er onlangs over naar aanleiding van <a href=\"/nieuws/ondergrondse-containers-hoorn-stroomaansluiting/\">de uitrol in Hoorn</a>, waar 31 containers in gebruik gingen maar er twee zes weken stillagen omdat de stroomaansluiting er nog niet was. Bij een invoeringsdatum waarop de rolcontainer van functie wisselt, is zo’n vertraging geen ongemak: dan heeft een wijk op dag één geen plek voor restafval.",
+      },
+      {
+        type: "h2",
+        tekst: "Diftar maakt de volgorde nog strakker",
+      },
+      {
+        type: "p",
+        tekst: "Middelburg houdt vast aan diftar en scherpt het aan. In 2027 wordt al vanaf de eerste aanbieding apart betaald — er zitten dan geen aanbiedingen meer verrekend in het vaste tarief — en in 2028 wordt de financiële prikkel vergroot. De kwijtschelding, de medische regeling en de vrijstelling voor huishoudens met kinderen tot vier jaar blijven bestaan.",
+      },
+      {
+        type: "p",
+        tekst: "Dat betekent dat de nieuwe restafvalcontainers niet alleen op tijd moeten staan, maar ook moeten kunnen registreren wie wat aanbiedt. <a href=\"/toegangscontrole-milieupas/\">Toegangscontrole</a> is bij diftar geen optie maar de voorwaarde om te kunnen afrekenen. En toegangscontrole betekent stroom, en stroom betekent een netaansluiting per locatie.",
+      },
+      {
+        type: "let-op",
+        label: "Let op",
+        tekst: "Een sterkere financiële prikkel in hetzelfde jaar als een nieuwe inzamelstructuur betekent twee veranderingen tegelijk voor dezelfde inwoner. Reken op meer vragen, meer meldingen en een piek in bijplaatsingen rond de invoering, en plan daar capaciteit voor in.",
+      },
+      {
+        type: "h2",
+        tekst: "De uitzonderingen zijn verstandig",
+      },
+      {
+        type: "p",
+        tekst: "Voor hoogbouw, de binnenstad en de Edelstenenbuurt verandert de PMD-inzameling voorlopig niet; daar blijven de ondergrondse verzamelcontainers, zolang de kwaliteit van het PMD voldoende hoog blijft. Het buitengebied krijgt juist een extra rolcontainer.",
+      },
+      {
+        type: "p",
+        tekst: "Dat is precies de nuance die in dit soort trajecten vaak ontbreekt. Omgekeerd inzamelen is ontworpen voor laagbouw met tuin en ruimte voor meerdere rolcontainers. In hoogbouw werkt het anders, en een gemeente die dat erkent in plaats van één model over de hele stad uit te rollen, voorkomt een hoop problemen. Dezelfde afweging speelt bij <a href=\"/nieuws/pmd-verzamelcontainers-hoogbouw-verpact-2026/\">PMD-inzameling bij hoogbouw</a>.",
+      },
+      {
+        type: "h2",
+        tekst: "Wat wij zouden adviseren",
+      },
+      {
+        type: "stappen",
+        items: [
+          {
+            titel: "Begin nu met het locatieonderzoek, niet in 2027",
+            tekst: "Het aantal benodigde locaties volgt uit het aantal huishoudens dat van rolcontainer naar verzamelcontainer gaat. Dat aantal is nu al te bepalen, ook zonder definitief raadsbesluit.",
+          },
+          {
+            titel: "Vraag netaansluitingen aan zodra locaties waarschijnlijk zijn",
+            tekst: "Niet pas na het definitieve besluit. De doorlooptijd van de netbeheerder is het enige deel dat u niet kunt versnellen.",
+          },
+          {
+            titel: "Houd rekening met uitval in de planning",
+            tekst: "Een deel van de beoogde locaties valt af door kabels en leidingen of door bezwaar. Onderzoek er meer dan u nodig heeft, zodat uitval geen vertraging wordt.",
+          },
+          {
+            titel: "Leg vanaf het begin vast wat waar komt",
+            tekst: "Een <a href=\"/diensten/containerregistratie/\">containerregistratie</a> die tijdens de uitrol wordt bijgehouden, is bij oplevering compleet. Achteraf reconstrueren kost een veelvoud.",
+          },
+        ],
+      },
+      {
+        type: "p",
+        tekst: "Middelburg heeft met 2028 een realistische horizon gekozen. Of die haalbaar is, hangt niet af van de containers maar van hoeveel locaties er in de tussenliggende twee jaar daadwerkelijk rond komen — en dat werk begint bij <a href=\"/diensten/locatieonderzoek/\">locatieonderzoek en werkvoorbereiding</a>.",
+      },
+      {
+        type: "cta",
+        label: "Aan de slag",
+        kop: "Van besluit naar locaties die op tijd klaar zijn",
+        tekst: "B-Advice verzorgt locatieonderzoek, werkvoorbereiding en projectleiding bij de uitrol van ondergrondse containers. Neem contact op om te bespreken wat er in uw gemeente speelt.",
+      },
+      {
+        type: "p",
+        tekst: "Bron: Gemeente Middelburg, ‘Middelburg zet volgende stap naar minder restafval’, 3 september 2026.",
+      },
+    ],
+  },
+  {
     slug: "afvalinzameling-houten-rmn-2027",
     samenvatting:
       "Houten stapt per 1 januari 2027 over naar RMN. Voor inwoners verandert er weinig — onder de motorkap moet er juist veel kloppen.",
