@@ -54,6 +54,248 @@ export const nieuwsPagina = {
 // Nieuwste artikel eerst.
 export const artikelen: Artikel[] = [
   {
+    slug: "omgekeerd-inzamelen-middelburg-2028",
+    samenvatting:
+      "Middelburg wil vanaf 2028 omgekeerd inzamelen. Het restafval verhuist naar verzamelcontainers in de buurt — en die locaties moeten er eerst komen.",
+    categorie: "Analyse",
+    datum: "2026-10-05",
+    h1: "Middelburg kiest voor omgekeerd inzamelen: de locaties zijn het kritieke pad",
+    lead:
+      "Middelburg wil vanaf 2028 omgekeerd inzamelen. Het restafval verhuist naar verzamelcontainers in de buurt — en die locaties moeten er eerst komen.",
+    meta: {
+      titel: "Middelburg: omgekeerd inzamelen in 2028",
+      omschrijving:
+        "Middelburg wil vanaf 2028 omgekeerd inzamelen, met restafval naar verzamelcontainers. Waarom de locaties en niet de containers het kritieke pad vormen.",
+    },
+    blokken: [
+      {
+        type: "p",
+        tekst: "Het college van Middelburg stelt voor om vanaf 2028 over te gaan op <a href=\"/nieuws/omgekeerd-inzamelen/\">omgekeerd inzamelen</a>. De rolcontainer die nu voor restafval aan huis staat, wordt dan de container voor PMD. Het restafval gaat de andere kant op: naar een verzamelcontainer in de buurt. De plannen stonden op 1 oktober op de raadsagenda; op 12 november besluit de raad over de tarieven en de tariefstructuur voor 2027.",
+      },
+      {
+        type: "citaat",
+        tekst: "“Met omgekeerd inzamelen maken we het makkelijker om waardevolle grondstoffen goed te scheiden en stimuleren we inwoners om minder restafval over te houden.” — wethouder Jesse Aarnoutse",
+      },
+      {
+        type: "p",
+        tekst: "De aanleiding is herkenbaar: landelijke ontwikkelingen vragen om een betere kwaliteit van het ingezamelde PMD, zodat er meer materiaal daadwerkelijk opnieuw gebruikt kan worden. Een eigen rolcontainer aan huis levert doorgaans schoner PMD op dan een verzamelcontainer, waar vervuiling moeilijker te herleiden is.",
+      },
+      {
+        type: "h2",
+        tekst: "De zin die het meeste werk verbergt",
+      },
+      {
+        type: "p",
+        tekst: "Middenin het bericht staat één zin die bepalend is voor de hele operatie: er komen extra locaties met ondergrondse containers voor restafval. Dat is geen uitvoeringsdetail, dat is het project.",
+      },
+      {
+        type: "p",
+        tekst: "Want de rolcontainers zijn er al: die krijgen alleen een andere bestemming. De verzamelcontainers voor restafval zijn er nog niet, en elke nieuwe locatie doorloopt hetzelfde pad: locatiekeuze, onderzoek naar de ondergrond, afstemming met netbeheerders, bewonersparticipatie, vergunning met de bijbehorende bezwaartermijn, aanbesteding, levering, grondwerk en oplevering.",
+      },
+      {
+        type: "kader",
+        titel: "Wat de doorlooptijd per locatie bepaalt",
+        inhoud: [
+          {
+            type: "lijst",
+            items: [
+              "Ligging van kabels en leidingen; ligt er iets in de weg, dan schuift de locatie of verschuift de planning",
+              "De vergunningprocedure, inclusief de tijd voor bezwaar",
+              "Bewonersparticipatie: niemand wil de container voor zijn raam",
+              "Levertijd van de containers zelf, zeker bij een grote order",
+              "De netaansluiting, als er toegangscontrole op komt",
+            ],
+          },
+        ],
+      },
+      {
+        type: "p",
+        tekst: "Die laatste is de stilste risicopost. Wij schreven er onlangs over naar aanleiding van <a href=\"/nieuws/ondergrondse-containers-hoorn-stroomaansluiting/\">de uitrol in Hoorn</a>, waar 31 containers in gebruik gingen maar er twee zes weken stillagen omdat de stroomaansluiting er nog niet was. Bij een invoeringsdatum waarop de rolcontainer van functie wisselt, is zo’n vertraging geen ongemak: dan heeft een wijk op dag één geen plek voor restafval.",
+      },
+      {
+        type: "h2",
+        tekst: "Diftar maakt de volgorde nog strakker",
+      },
+      {
+        type: "p",
+        tekst: "Middelburg houdt vast aan diftar en scherpt het aan. In 2027 wordt al vanaf de eerste aanbieding apart betaald — er zitten dan geen aanbiedingen meer verrekend in het vaste tarief — en in 2028 wordt de financiële prikkel vergroot. De kwijtschelding, de medische regeling en de vrijstelling voor huishoudens met kinderen tot vier jaar blijven bestaan.",
+      },
+      {
+        type: "p",
+        tekst: "Dat betekent dat de nieuwe restafvalcontainers niet alleen op tijd moeten staan, maar ook moeten kunnen registreren wie wat aanbiedt. <a href=\"/toegangscontrole-milieupas/\">Toegangscontrole</a> is bij diftar geen optie maar de voorwaarde om te kunnen afrekenen. En toegangscontrole betekent stroom, en stroom betekent een netaansluiting per locatie.",
+      },
+      {
+        type: "let-op",
+        label: "Let op",
+        tekst: "Een sterkere financiële prikkel in hetzelfde jaar als een nieuwe inzamelstructuur betekent twee veranderingen tegelijk voor dezelfde inwoner. Reken op meer vragen, meer meldingen en een piek in bijplaatsingen rond de invoering, en plan daar capaciteit voor in.",
+      },
+      {
+        type: "h2",
+        tekst: "De uitzonderingen zijn verstandig",
+      },
+      {
+        type: "p",
+        tekst: "Voor hoogbouw, de binnenstad en de Edelstenenbuurt verandert de PMD-inzameling voorlopig niet; daar blijven de ondergrondse verzamelcontainers, zolang de kwaliteit van het PMD voldoende hoog blijft. Het buitengebied krijgt juist een extra rolcontainer.",
+      },
+      {
+        type: "p",
+        tekst: "Dat is precies de nuance die in dit soort trajecten vaak ontbreekt. Omgekeerd inzamelen is ontworpen voor laagbouw met tuin en ruimte voor meerdere rolcontainers. In hoogbouw werkt het anders, en een gemeente die dat erkent in plaats van één model over de hele stad uit te rollen, voorkomt een hoop problemen. Dezelfde afweging speelt bij <a href=\"/nieuws/pmd-verzamelcontainers-hoogbouw-verpact-2026/\">PMD-inzameling bij hoogbouw</a>.",
+      },
+      {
+        type: "h2",
+        tekst: "Wat wij zouden adviseren",
+      },
+      {
+        type: "stappen",
+        items: [
+          {
+            titel: "Begin nu met het locatieonderzoek, niet in 2027",
+            tekst: "Het aantal benodigde locaties volgt uit het aantal huishoudens dat van rolcontainer naar verzamelcontainer gaat. Dat aantal is nu al te bepalen, ook zonder definitief raadsbesluit.",
+          },
+          {
+            titel: "Vraag netaansluitingen aan zodra locaties waarschijnlijk zijn",
+            tekst: "Niet pas na het definitieve besluit. De doorlooptijd van de netbeheerder is het enige deel dat u niet kunt versnellen.",
+          },
+          {
+            titel: "Houd rekening met uitval in de planning",
+            tekst: "Een deel van de beoogde locaties valt af door kabels en leidingen of door bezwaar. Onderzoek er meer dan u nodig heeft, zodat uitval geen vertraging wordt.",
+          },
+          {
+            titel: "Leg vanaf het begin vast wat waar komt",
+            tekst: "Een <a href=\"/diensten/containerregistratie/\">containerregistratie</a> die tijdens de uitrol wordt bijgehouden, is bij oplevering compleet. Achteraf reconstrueren kost een veelvoud.",
+          },
+        ],
+      },
+      {
+        type: "p",
+        tekst: "Middelburg heeft met 2028 een realistische horizon gekozen. Of die haalbaar is, hangt niet af van de containers maar van hoeveel locaties er in de tussenliggende twee jaar daadwerkelijk rond komen — en dat werk begint bij <a href=\"/diensten/locatieonderzoek/\">locatieonderzoek en werkvoorbereiding</a>.",
+      },
+      {
+        type: "cta",
+        label: "Aan de slag",
+        kop: "Van besluit naar locaties die op tijd klaar zijn",
+        tekst: "B-Advice verzorgt locatieonderzoek, werkvoorbereiding en projectleiding bij de uitrol van ondergrondse containers. Neem contact op om te bespreken wat er in uw gemeente speelt.",
+      },
+      {
+        type: "p",
+        tekst: "Bron: Gemeente Middelburg, ‘Middelburg zet volgende stap naar minder restafval’, 3 september 2026.",
+      },
+    ],
+  },
+  {
+    slug: "afvalstoffenheffing-westland-2027",
+    samenvatting:
+      "Westland wil het vaste tarief verlagen en de prijs per kilo restafval verhogen. Die verschuiving raakt direct uw containerlocaties.",
+    categorie: "Analyse",
+    datum: "2026-10-05",
+    h1: "Westland verschuift van vast naar variabel tarief: wat dat doet met uw containers",
+    lead:
+      "Westland wil het vaste tarief verlagen en de prijs per kilo restafval verhogen. Die verschuiving raakt direct uw containerlocaties.",
+    meta: {
+      titel: "Afvalstoffenheffing Westland: kwart omhoog",
+      omschrijving:
+        "Westland stelt een kwart hogere afvalstoffenheffing voor, met een lager vast tarief en een hogere kiloprijs. Wat een sterkere prikkel betekent voor bijplaatsingen.",
+    },
+    blokken: [
+      {
+        type: "p",
+        tekst: "Het college van Westland heeft een voorstel voor de afvalstoffenheffing van 2027 aan de gemeenteraad voorgelegd. De heffing zou daarin ongeveer een kwart hoger uitvallen: voor een meerpersoonshuishouden komt dat volgens de berichtgeving neer op zo’n honderd euro per jaar extra. De gemeenteraad neemt begin november een besluit, dus de bedragen liggen nog niet vast.",
+      },
+      {
+        type: "p",
+        tekst: "Als reden noemt de gemeente de gestegen kosten voor het inzamelen en verwerken van restafval en gft. Dat sluit aan bij een beweging die wij eerder beschreven rond <a href=\"/nieuws/afvalstoffenbelasting-verhoging-2028-gemeenten/\">de verhoging van de afvalstoffenbelasting</a>: restafval wordt voor gemeenten de komende jaren simpelweg duurder om kwijt te raken.",
+      },
+      {
+        type: "h2",
+        tekst: "Niet alleen hoger, maar anders verdeeld",
+      },
+      {
+        type: "p",
+        tekst: "Het interessantste in het voorstel is niet de stijging zelf, maar de verdeling. Het vaste deel van de heffing gaat volgens de berichtgeving juist omlaag, terwijl de prijs per kilo restafval stijgt. Een huishouden betaalt dus minder omdat het bestaat, en meer naar gelang wat het aanbiedt.",
+      },
+      {
+        type: "p",
+        tekst: "Dat is de kern van <a href=\"/nieuws/diftar-betalen-naar-gebruik/\">diftar</a>: betalen naar gebruik. Wie goed scheidt, merkt de verhoging nauwelijks; wie veel restafval aanbiedt, merkt hem dubbel. Beleidsmatig is dat een logische keuze, zeker als je het aanbod van restafval omlaag wilt krijgen.",
+      },
+      {
+        type: "let-op",
+        label: "Let op",
+        tekst: "Een hogere kiloprijs maakt niet alleen scheiden aantrekkelijker, maar ook ontwijken. Elke kilo die niet in de eigen container gaat, is immers geld. Dat is geen cynische gedachte maar een voorspelbaar effect, en het landt in de openbare ruimte.",
+      },
+      {
+        type: "h2",
+        tekst: "Waar die kilo’s heen gaan",
+      },
+      {
+        type: "p",
+        tekst: "Op het moment dat restafval per kilo gaat kosten, verschuift een deel van het aanbod. Dat gebeurt langs drie wegen, en alle drie komen ze uit bij voorzieningen in de openbare ruimte:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Afval in de verkeerde fractie: restafval in de papier-, PMD- of gft-stroom, wat de kwaliteit van die stromen verlaagt en tot afkeur kan leiden.",
+          "Afval bij de buren of bij voorzieningen van een andere gemeente, zeker dicht bij een gemeentegrens.",
+          "Afval naast de container of elders in de openbare ruimte.",
+        ],
+      },
+      {
+        type: "p",
+        tekst: "Dat laatste kennen we inmiddels goed. In <a href=\"/nieuws/afvaldumpingen-almere-meldingen/\">Almere</a> gaat ruim een kwart van alle meldingen over gedumpt afval, en in <a href=\"/nieuws/afvalmeldingen-hilversum-graadmeter/\">Hilversum</a> stijgen de meldingen al jaren. Een tariefwijziging die de prikkel verscherpt, komt daar bovenop.",
+      },
+      {
+        type: "h2",
+        tekst: "Wat dat betekent voor de voorbereiding",
+      },
+      {
+        type: "p",
+        tekst: "Een gemeente die het variabele deel verhoogt, verandert daarmee ook de eisen aan haar containerpark. Drie dingen worden belangrijker dan ze waren:",
+      },
+      {
+        type: "stappen",
+        items: [
+          {
+            titel: "Toegangscontrole die klopt",
+            tekst: "Zonder <a href=\"/toegangscontrole-milieupas/\">pasherkenning</a> is er geen koppeling tussen aanbod en huishouden, en dus geen basis voor afrekenen. Het bepaalt bovendien of iemand van buiten de gemeente uw container kan gebruiken.",
+          },
+          {
+            titel: "Capaciteit die het aanbod aankan",
+            tekst: "Een volle container is bij diftar geen ongemak maar een excuus. Controleer de vulgraad op de drukke locaties vóór de tariefwijziging ingaat, niet erna.",
+          },
+          {
+            titel: "Een plan voor de eerste maanden",
+            tekst: "Reken op een piek in bijplaatsingen rond de invoering. Snel opruimen in die periode is goedkoper dan een hotspot die blijft.",
+          },
+        ],
+      },
+      {
+        type: "p",
+        tekst: "Daar hoort een vierde ding bij dat minder opvalt: u moet weten wat u heeft staan. Welke containers op welke locatie, met welk toegangssysteem en welke capaciteit — dat is de <a href=\"/diensten/containerregistratie/\">containerregistratie</a> waarop elke onderbouwing rust, zowel richting de raad als richting inwoners die vragen waarom hun rekening omhoog gaat.",
+      },
+      {
+        type: "h2",
+        tekst: "De afweging die blijft",
+      },
+      {
+        type: "p",
+        tekst: "Dit is geen pleidooi tegen een hogere kiloprijs. De prikkel werkt aantoonbaar: gemeenten met een variabel tarief halen gemiddeld minder restafval op. Maar het is wel een pleidooi om de kosten van het neveneffect mee te wegen in het besluit.",
+      },
+      {
+        type: "p",
+        tekst: "Wat u aan de ene kant bespaart op verwerkingskosten, kunt u aan de andere kant kwijtraken aan opruimen, handhaving en afgekeurde stromen. Of dat saldo positief uitvalt, hangt af van hoe goed de voorzieningen op orde zijn op het moment dat het tarief verandert — en dat is precies het werk dat in de maanden vóór de invoering gebeurt.",
+      },
+      {
+        type: "cta",
+        label: "Aan de slag",
+        kop: "Uw containerpark klaar voor een tariefwijziging",
+        tekst: "B-Advice brengt per locatie in kaart wat capaciteit, toegang en inrichting aankunnen, en wat er vóór invoering moet gebeuren. Neem contact op om te bespreken wat er in uw gemeente speelt.",
+      },
+      {
+        type: "p",
+        tekst: "Bron: berichtgeving over het collegevoorstel voor de Westlandse afvalstoffenheffing 2027, onder meer via WOS en het AD, oktober 2026. De gemeenteraad besluit begin november over de definitieve tarieven.",
+      },
+    ],
+  },
+  {
     slug: "afvalinzameling-houten-rmn-2027",
     samenvatting:
       "Houten stapt per 1 januari 2027 over naar RMN. Voor inwoners verandert er weinig — onder de motorkap moet er juist veel kloppen.",
