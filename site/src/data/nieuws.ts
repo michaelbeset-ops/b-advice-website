@@ -54,6 +54,186 @@ export const nieuwsPagina = {
 // Nieuwste artikel eerst.
 export const artikelen: Artikel[] = [
   {
+    slug: "vulgraadsensoren-ondergrondse-containers",
+    samenvatting:
+      "Amsterdam onderzoekt vulgraadsensoren op al zijn containers. Wat zo'n sensor doet, wat de proef met 1.500 glascontainers leert en waar hij niet tegen helpt.",
+    categorie: "Analyse",
+    datum: "2026-10-08",
+    h1: "Vulgraadsensoren in ondergrondse containers: wat ze opleveren en waar ze niet tegen helpen",
+    lead:
+      "Amsterdam onderzoekt vulgraadsensoren op al zijn containers. Wat zo'n sensor doet, wat de proef met 1.500 glascontainers leert en waar hij niet tegen helpt.",
+    meta: {
+      titel: "Vulgraadsensoren in ondergrondse containers",
+      omschrijving:
+        "Wat een vulgraadsensor doet, wat de Amsterdamse proef met 1.500 glascontainers oplevert, wat er in de business case hoort en waar sensoren niet tegen helpen.",
+    },
+    blokken: [
+      {
+        type: "p",
+        tekst: "De gemeente Amsterdam onderzoekt of <strong>vulgraadsensoren</strong> kunnen helpen om minder afval rond vuilcontainers te krijgen. Zo’n sensor meet hoe vol een container is en geeft een signaal wanneer legen nodig is. De VVD vroeg het college om een business case voor het uitrusten van álle containers met sensoren, inclusief de kosten en de besparing door minder ritten van de inzamelwagens.",
+      },
+      {
+        type: "p",
+        tekst: "Dat antwoord is er nog niet. Wel loopt er een marktverkenning met verschillende scenario’s, en draait er al een proef om de business case te onderbouwen. Het doel dat de gemeente in augustus formuleerde: vanaf begin 2028 zoveel mogelijk containers van sensoren voorzien.",
+      },
+      {
+        type: "h2",
+        tekst: "Wat is een vulgraadsensor?",
+      },
+      {
+        type: "p",
+        tekst: "Een vulgraadsensor is een meetapparaat in de container dat bepaalt hoeveel ruimte er nog over is. Meestal gebeurt dat met ultrasoon geluid of met een laser: het apparaat meet de afstand tot het afval onder zich en vertaalt die naar een vullingspercentage. Dat percentage gaat via een draadloze verbinding naar een systeem waarin de inzamelaar alle containers ziet staan.",
+      },
+      {
+        type: "p",
+        tekst: "Daarmee verschuift de inzameling van een vaste route naar een route op basis van wat er werkelijk in de containers zit. Dat heet dynamisch of vraaggestuurd inzamelen, en het is het verschil tussen rijden volgens de kalender en rijden volgens de behoefte.",
+      },
+      {
+        type: "h2",
+        tekst: "Wat de Amsterdamse proef laat zien",
+      },
+      {
+        type: "p",
+        tekst: "In Amsterdam loopt een proef met ongeveer 1.500 glascontainers. De belangrijkste uitkomst tot nu toe is niet dat containers te vol raken, maar het omgekeerde: veel glascontainers worden geleegd terwijl ze nog lang niet vol zijn. Het glas kan dus minder vaak worden opgehaald.",
+      },
+      {
+        type: "citaat",
+        tekst: "“Daarmee kan de gemeente steeds beter bepalen wanneer een container daadwerkelijk geleegd moet worden.” — gemeente Amsterdam",
+      },
+      {
+        type: "p",
+        tekst: "Dat is een belangrijke nuance voor iedereen die sensoren vooral ziet als middel tegen volle containers. De eerste winst zit meestal aan de andere kant: aan de loze ritten die verdwijnen. Minder ritten betekent minder kilometers, minder uren en minder uitstoot — en dat is precies de kant van de business case die te becijferen valt.",
+      },
+      {
+        type: "h2",
+        tekst: "Wat er in zo’n business case hoort",
+      },
+      {
+        type: "p",
+        tekst: "Amsterdam heeft die berekening nog niet af, en dat is begrijpelijk: het is meer dan de prijs van een sensor maal het aantal containers. Dit zijn de posten die in de praktijk de uitkomst bepalen:",
+      },
+      {
+        type: "tabel",
+        koppen: ["Post", "Waar u op moet doorvragen"],
+        rijen: [
+          ["Sensor en montage", "Past het apparaat in elk containertype dat u heeft staan?"],
+          ["Dataverbinding", "Kosten per sensor per jaar, en wie die verbinding levert"],
+          ["Energievoorziening", "Batterij of netaansluiting, en hoe vaak de batterij vervangen moet worden"],
+          ["Software", "Zit het meekijken in een eigen systeem of dat van de leverancier?"],
+          ["Beheer", "Wie vervangt een defecte sensor, en binnen welke termijn?"],
+          ["Besparing", "Hoeveel ritten vervallen er werkelijk, en wat levert dat op aan uren en kilometers?"],
+        ],
+      },
+      {
+        type: "p",
+        tekst: "De besparing is het lastigste getal. Een rit die vervalt, levert pas geld op als de route ook echt korter wordt of als er een wagen minder nodig is. Vervalt er op een volle route één container, dan rijdt die wagen nog steeds. Vraag daarom niet naar de besparing per container, maar naar de besparing per route.",
+      },
+      {
+        type: "h2",
+        tekst: "Waar sensoren niet tegen helpen",
+      },
+      {
+        type: "p",
+        tekst: "De gemeente zegt het zelf, en dat is eerlijk: sensoren lossen niet alle problemen op. Ze worden gezien als een hulpmiddel om de inzameling slimmer te organiseren, niet als oplossing voor afval naast de container.",
+      },
+      {
+        type: "p",
+        tekst: "Dat klopt met wat wij in de praktijk zien. Mensen zetten hun afval naast de container omdat die vol is, maar net zo goed omdat hij kapot is, omdat de inworpopening te klein is voor wat zij aanbieden, of simpelweg omdat het makkelijker is. Een sensor meet alleen het eerste.",
+      },
+      {
+        type: "kader",
+        titel: "Wat een sensor wel en niet oplost",
+        inhoud: [
+          {
+            type: "lijst",
+            items: [
+              "Wél: een container die vol raakt voordat de geplande lediging komt",
+              "Wél: loze ritten naar containers die nog ruimte hebben",
+              "Wél: inzicht in welke locaties structureel te krap of te ruim bemeten zijn",
+              "Niet: een storing waardoor de trommel niet opengaat",
+              "Niet: een inworpopening waar een verhuisdoos niet doorheen past",
+              "Niet: grofvuil dat er wordt neergezet omdat de route naar het brengstation te omslachtig is",
+              "Niet: de gewoonte om afval naast een plek te zetten waar al iets staat",
+            ],
+          },
+        ],
+      },
+      {
+        type: "p",
+        tekst: "Dat laatste is het mechanisme dat we eerder beschreven bij <a href=\"/nieuws/afvaldumpingen-almere-meldingen/\">de dumpingen in Almere</a> en <a href=\"/nieuws/afvalmeldingen-hilversum-graadmeter/\">de meldingen in Hilversum</a>: de eerste zak bepaalt of het bij één blijft. Daar helpt geen sensor tegen, wel snel opruimen.",
+      },
+      {
+        type: "h2",
+        tekst: "Wat sensoren wél van u vragen",
+      },
+      {
+        type: "p",
+        tekst: "Een sensor is geen losse gadget maar een onderdeel van uw containerpark, en dat heeft drie gevolgen die vooraf geregeld moeten zijn.",
+      },
+      {
+        type: "stappen",
+        items: [
+          {
+            titel: "U moet weten welke sensor in welke container zit",
+            tekst: "Zonder een sluitende <a href=\"/diensten/containerregistratie/\">containerregistratie</a> is een melding van een defecte sensor een zoekplaatje. Leg per container vast welk apparaat erin zit en sinds wanneer.",
+          },
+          {
+            titel: "U moet de data in uw eigen hand houden",
+            tekst: "Vraag hoe de gegevens uw kant op komen en of dat volgens een open standaard gaat. De standaard <a href=\"/stosag/\">STOSAG</a> beschrijft onder meer de uitwisseling tussen container en backoffice, zodat u bij een wisseling van leverancier niet opnieuw begint.",
+          },
+          {
+            titel: "U moet bepalen wie het signaal afhandelt",
+            tekst: "Een melding die nergens landt, is geen verbetering. Leg vast wie de signalen volgt, binnen welke termijn er wordt gereden en wat er gebeurt als een container tussen twee rondes door vol raakt.",
+          },
+        ],
+      },
+      {
+        type: "p",
+        tekst: "En let op de voeding. Werkt de sensor op een netaansluiting in plaats van een batterij, dan geldt hetzelfde als bij <a href=\"/toegangscontrole-milieupas/\">toegangscontrole</a>: de doorlooptijd van de netbeheerder bepaalt uw planning, niet uw aannemer. In <a href=\"/nieuws/ondergrondse-containers-hoorn-stroomaansluiting/\">Hoorn</a> lagen twee containers daardoor zes weken stil.",
+      },
+      {
+        type: "faq",
+        items: [
+          {
+            vraag: "Wat is een vulgraadsensor?",
+            antwoord:
+              "Een meetapparaat in een afvalcontainer dat met ultrasoon geluid of een laser bepaalt hoeveel ruimte er nog over is. Dat vullingspercentage gaat draadloos naar een systeem waarin de inzamelaar ziet welke containers geleegd moeten worden.",
+          },
+          {
+            vraag: "Wat levert een vulgraadsensor op?",
+            antwoord:
+              "Vooral minder loze ritten. Uit de Amsterdamse proef met circa 1.500 glascontainers blijkt dat veel containers worden geleegd terwijl ze nog lang niet vol zijn. Daarnaast geeft het inzicht in welke locaties structureel te krap of te ruim bemeten zijn.",
+          },
+          {
+            vraag: "Helpen vulgraadsensoren tegen afval naast de container?",
+            antwoord:
+              "Maar gedeeltelijk. Een sensor signaleert een volle container, maar niet een storing, een te kleine inworpopening of grofvuil dat iemand neerzet omdat het brengstation te omslachtig is. De gemeente Amsterdam noemt sensoren dan ook een hulpmiddel en geen oplossing voor alle problemen.",
+          },
+          {
+            vraag: "Heeft een vulgraadsensor stroom nodig?",
+            antwoord:
+              "Dat hangt af van het systeem. Sommige sensoren werken op een batterij, andere op een netaansluiting. Vraag dit vooraf na: een netaansluiting betekent een doorlooptijd bij de netbeheerder, en een batterij betekent een vervangingsritme dat u in het onderhoud moet opnemen.",
+          },
+          {
+            vraag: "Wat kost een vulgraadsensor?",
+            antwoord:
+              "Dat verschilt per systeem en per containertype, en de prijs van het apparaat is maar een deel van het verhaal. Reken ook op montage, een dataverbinding per sensor per jaar, software en het vervangen van defecte sensoren. Beoordeel de besparing per route en niet per container.",
+          },
+        ],
+      },
+      {
+        type: "cta",
+        label: "Aan de slag",
+        kop: "Sensoren overwegen voor uw containerpark?",
+        tekst: "B-Advice helpt gemeenten en afvalinzamelaars bij het beoordelen van zulke keuzes: wat past bij uw containers, wat levert het werkelijk op en wat moet er vooraf geregeld zijn. Neem contact op om te bespreken wat er speelt.",
+      },
+      {
+        type: "p",
+        tekst: "Bron: NH Nieuws, ‘Afvalcontainer vol in Amsterdam? In toekomst slaat een vulgraadsensor mogelijk alarm’, 4 oktober 2026, en de publicatie van de gemeente Amsterdam over slimmere afvalinzameling dankzij vulgraadsensoren.",
+      },
+    ],
+  },
+  {
     slug: "omgekeerd-inzamelen-middelburg-2028",
     samenvatting:
       "Middelburg wil vanaf 2028 omgekeerd inzamelen. Het restafval verhuist naar verzamelcontainers in de buurt — en die locaties moeten er eerst komen.",
