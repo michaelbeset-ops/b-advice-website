@@ -1,0 +1,38 @@
+# B-Advice
+
+> Advies, projectleiding en werkvoorbereiding voor gemeenten en afvalinzamelaars
+> bij projecten rondom ondergrondse afvalcontainers. Landelijk inzetbaar.
+> B-Advice levert zelf geen containers; wij begeleiden het traject van
+> locatiekeuze tot oplevering en beheer.
+
+## Diensten
+
+- [Projectleiding](https://b-advice.info/diensten/projectleiding/): tijdelijke projectleiding en projectbegeleiding, van voorbereiding tot oplevering.
+- [Locatieonderzoek en werkvoorbereiding](https://b-advice.info/diensten/locatieonderzoek/): beoordeling van de ondergrond, kabels en leidingen, inmeten en inrichtingstekeningen.
+- [Ondergrondse container plaatsen](https://b-advice.info/diensten/plaatsing/): voorbereiding en begeleiding van levering en plaatsing.
+- [Beheer en onderhoud](https://b-advice.info/diensten/beheer-onderhoud/): onderhoud, storingen en het beheer van het containerpark.
+- [Containerregistratie](https://b-advice.info/diensten/containerregistratie/): welke gegevens u per container vastlegt en hoe u een registratie opbouwt en bijhoudt.
+- [Aanbesteding en bestek](https://b-advice.info/diensten/aanbesteding/): opstellen en begeleiden van aanbestedingen.
+- [Meerjaren Investeringsplan](https://b-advice.info/diensten/meerjaren-investeringsplan/): vervangingsplanning voor het containerpark.
+- [Bewonersparticipatie](https://b-advice.info/diensten/bewonersparticipatie/): afstemming met bewoners rond containerlocaties.
+
+## Kennis
+
+- [Wat kost een ondergrondse afvalcontainer?](https://b-advice.info/kosten-ondergrondse-afvalcontainer/): de opbouw van de kosten bij aanleg en exploitatie.
+- [STOSAG](https://b-advice.info/stosag/): de open standaard voor gegevensuitwisseling in de afvalinzameling.
+- [KLIC-melding bij containerplaatsing](https://b-advice.info/klic-melding-containerplaatsing/): kabels en leidingen, oriëntatieverzoek en graafmelding.
+- [Toegangscontrole en milieupassen](https://b-advice.info/toegangscontrole-milieupas/): wat een passysteem oplevert en van de locatie vraagt.
+- [Vulgraadsensoren](https://b-advice.info/nieuws/vulgraadsensoren-ondergrondse-containers/): wat ze meten, wat ze opleveren en waar ze niet tegen helpen.
+
+## Over B-Advice
+
+- [Over ons](https://b-advice.info/over-ons/): wie wij zijn en voor wie wij werken.
+- [Nieuws en achtergrond](https://b-advice.info/nieuws/): analyses over ondergrondse afvalcontainers, diftar, PMD, textiel en containerbeheer.
+- [Contact](https://b-advice.info/contact/): info@b-advice.info
+- [Locatieaanvraag](https://b-advice.info/locatieaanvraag/): aanvraagformulier voor een containerlocatie.
+
+## Optioneel
+
+- [B-Organized](https://b-advice.info/b-organized/): software voor containerbeheer, met containerregistratie, taken en kaartweergave.
+- [B-Covered](https://b-advice.info/b-covered/): locatiemeting van containers.
+- [Privacyverklaring](https://b-advice.info/privacy/)

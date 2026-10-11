@@ -6,6 +6,8 @@ import Werkwijze from "../components/Werkwijze.astro";
 import Platform from "../components/Platform.astro";
 import Laatste from "../components/Laatste.astro";
 import CtaBand from "../components/CtaBand.astro";
+import Faq from "../components/Faq.astro";
+import Kader from "../components/Kader.astro";
 import { home } from "../data/site";
 ---
 
@@ -15,5 +17,8 @@ import { home } from "../data/site";
   <Werkwijze />
   <Platform />
   <Laatste />
+  <Kader klasse="pb-6">
+    <Faq vragen={home.faq} />
+  </Kader>
   <CtaBand />
 </Base>

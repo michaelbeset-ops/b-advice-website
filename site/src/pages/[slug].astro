@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import Kader from "../components/Kader.astro";
 import Kruimels from "../components/Kruimels.astro";
+import Faq from "../components/Faq.astro";
 import { tekstPaginas, binnenkortPaginas, hoofdactie } from "../data/site";
 import type { TekstPagina } from "../data/site";
 
@@ -124,6 +125,10 @@ const url = `/${pagina.slug}/`;
                 );
               return <p class="mt-4 text-base text-ink-3">{blok.tekst}</p>;
             })}
+
+            {(pagina as TekstPagina).faq && (
+              <Faq vragen={(pagina as TekstPagina).faq!} />
+            )}
 
             {(pagina as TekstPagina).verwant && (
               <div class="mt-12 border-t border-line-strong pt-6">
