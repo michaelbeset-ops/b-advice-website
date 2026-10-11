@@ -67,6 +67,34 @@ export const home = {
       "Advies, projectleiding en werkvoorbereiding voor gemeenten en " +
       "afvalinzamelaars bij ondergrondse afvalcontainers. Landelijk inzetbaar.",
   },
+  /** Veelgestelde vragen op de homepage. Levert ook het FAQPage-blok op. */
+  faq: [
+    {
+      vraag: "Wat doet B-Advice?",
+      antwoord:
+        "B-Advice ondersteunt gemeenten en afvalinzamelaars bij projecten rondom ondergrondse afvalcontainers: locatieonderzoek, werkvoorbereiding, projectleiding, aanbesteding en beheer. Wij leveren zelf geen containers.",
+    },
+    {
+      vraag: "Voor wie werkt B-Advice?",
+      antwoord:
+        "Voor gemeenten en afvalinzamelaars, landelijk inzetbaar. Onze werkzaamheden kunnen afzonderlijk of als onderdeel van een groter project worden uitgevoerd.",
+    },
+    {
+      vraag: "Wat houdt locatieonderzoek in?",
+      antwoord:
+        "Het beoordelen of een containerlocatie haalbaar is: de ondergrond, kabels en leidingen, inmeten, afstemming met netbeheerders en het opstellen van inrichtingstekeningen. Dat werk bepaalt of een uitrol op de geplande datum draait.",
+    },
+    {
+      vraag: "Kan B-Advice tijdelijk projectleiding leveren?",
+      antwoord:
+        "Ja. Wij bieden tijdelijke projectleiding en projectbegeleiding, van de eerste voorbereidingen tot en met de oplevering.",
+    },
+    {
+      vraag: "Hoe vraagt u een containerlocatie aan?",
+      antwoord:
+        "Via het formulier op de locatieaanvraagpagina. U geeft daarin de situatie ter plaatse door, zoals de beoogde plek, of er al is ingemeten en of er proefsleuven zijn gegraven.",
+    },
+  ],
   hero: {
     // Aangeleverde positioneringstekst, ongewijzigd.
     bovenregel: "Ondergrondse inzamelvoorzieningen",
@@ -930,6 +958,9 @@ export type TekstBlok =
 export interface TekstPagina {
   /** Links onderaan de pagina, bijvoorbeeld naar de andere juridische tekst. */
   verwant?: readonly { label: string; url: string }[];
+  /** Veelgestelde vragen onderaan. Levert ook het FAQPage-blok op, zodat
+   *  zoekmachines en AI-assistenten de vraag-antwoordparen kunnen overnemen. */
+  faq?: readonly { vraag: string; antwoord: string }[];
   slug: string;
   h1: string;
   intro: string;
@@ -940,6 +971,28 @@ export interface TekstPagina {
 export const tekstPaginas: readonly TekstPagina[] = [
   {
     slug: "kosten-ondergrondse-afvalcontainer",
+    faq: [
+      {
+        vraag: "Wat kost een ondergrondse afvalcontainer?",
+        antwoord:
+          "Dat hangt sterk af van de locatie. Naast de container en de betonput bepalen grondwerk, de grondwaterstand, het verleggen van kabels en leidingen, verkeersmaatregelen, de vergunning en een eventuele netaansluiting de uiteindelijke prijs. Een bedrag los van de locatie zegt daarom weinig.",
+      },
+      {
+        vraag: "Welke kostenpost wordt het vaakst onderschat?",
+        antwoord:
+          "Kabels en leidingen. Een locatie die op tekening prima lijkt, kan in werkelijkheid vol liggen, en verleggen kost tijd en geld die zelden in de eerste raming zitten.",
+      },
+      {
+        vraag: "Wat kost een ondergrondse container in beheer?",
+        antwoord:
+          "Over een levensduur van vijftien tot twintig jaar zijn lediging, onderhoud, keuring, reiniging, storingen en het opruimen van bijplaatsingen samen vaak een grotere post dan de aanleg zelf.",
+      },
+      {
+        vraag: "Levert B-Advice ondergrondse containers?",
+        antwoord:
+          "Nee. B-Advice ondersteunt gemeenten en afvalinzamelaars bij het voorbereiden, aanbesteden en begeleiden van deze projecten.",
+      },
+    ],
     verwant: [
       { label: "Meerjaren Investeringsplan", url: "/diensten/meerjaren-investeringsplan/" },
       { label: "Aanbesteding en bestek", url: "/diensten/aanbesteding/" },
@@ -1031,6 +1084,28 @@ export const tekstPaginas: readonly TekstPagina[] = [
   },
   {
     slug: "stosag",
+    faq: [
+      {
+        vraag: "Wat is STOSAG?",
+        antwoord:
+          "STOSAG staat voor Stuurgroep Open Standaarden Afval en Grondstoffen. Het is een open ICT-standaard die beschrijft hoe gegevens rond de inzameling van afval en grondstoffen tussen systemen worden uitgewisseld.",
+      },
+      {
+        vraag: "Wat beschrijft de STOSAG-standaard?",
+        antwoord:
+          "De communicatie tussen chipkaart en ondergrondse container, tussen gechipte minicontainers en de identificatiesystemen op inzamelvoertuigen, tussen containers en de backoffice, en tussen voertuigsystemen en de backoffice.",
+      },
+      {
+        vraag: "Waarom is STOSAG belangrijk voor een gemeente?",
+        antwoord:
+          "Zonder open standaard hoort een toegangspas bij één merk container. Met de standaard is de pas daarvan losgekoppeld, waardoor u niet vastzit aan één leverancier en samenwerking met buurgemeenten eenvoudiger wordt.",
+      },
+      {
+        vraag: "Hoe neemt u STOSAG op in een aanbesteding?",
+        antwoord:
+          "Neem ondersteuning van de standaard op in het programma van eisen en wees concreet over welke berichtstromen u nodig heeft en welke versie u vraagt, zodat u bij oplevering kunt toetsen wat er is geleverd.",
+      },
+    ],
     verwant: [
       { label: "Containerregistratie", url: "/diensten/containerregistratie/" },
       { label: "Aanbesteding en bestek", url: "/diensten/aanbesteding/" },
@@ -1096,6 +1171,28 @@ export const tekstPaginas: readonly TekstPagina[] = [
   },
   {
     slug: "klic-melding-containerplaatsing",
+    faq: [
+      {
+        vraag: "Wat is een KLIC-melding?",
+        antwoord:
+          "Een melding via het Kadaster waarmee u informatie opvraagt over kabels en leidingen op een graaflocatie. Voor mechanisch graven is zo'n graafmelding wettelijk verplicht.",
+      },
+      {
+        vraag: "Wat is het verschil tussen een oriëntatieverzoek en een graafmelding?",
+        antwoord:
+          "Een oriëntatieverzoek gebruikt u in de planfase om te zien wat er in een gebied ligt, zonder concrete graaflocatie. Een graafmelding hoort bij het werk zelf en is verplicht voordat er mechanisch wordt gegraven.",
+      },
+      {
+        vraag: "Is de ligging op de tekening exact?",
+        antwoord:
+          "Nee. De informatie geeft de ligging bij benadering. Zeker bij oudere leidingen en in binnenstedelijk gebied kan de werkelijke ligging afwijken, dus stel die op kritieke punten vast met proefsleuven of door voorzichtig handmatig te ontgraven.",
+      },
+      {
+        vraag: "Wat doet u als er een leiding in de weg ligt?",
+        antwoord:
+          "U kunt de locatie verschuiven, de put anders inpassen of de leiding laten verleggen. Verleggen is de duurste en traagste route, omdat u afhankelijk bent van de planning van de netbeheerder.",
+      },
+    ],
     verwant: [
       { label: "Locatieonderzoek en werkvoorbereiding", url: "/diensten/locatieonderzoek/" },
       { label: "Ondergrondse container plaatsen", url: "/diensten/plaatsing/" },
@@ -1158,6 +1255,28 @@ export const tekstPaginas: readonly TekstPagina[] = [
   },
   {
     slug: "toegangscontrole-milieupas",
+    faq: [
+      {
+        vraag: "Wat is een milieupas?",
+        antwoord:
+          "Een pas waarmee een inwoner een ondergrondse container opent. De zuil herkent de pas, opent de trommel en legt vast dat er is aangeboden.",
+      },
+      {
+        vraag: "Wat levert toegangscontrole een gemeente op?",
+        antwoord:
+          "Alleen eigen inwoners kunnen de container gebruiken, bedrijfsafval is te weren, het aanbod wordt meetbaar voor dimensionering en ledigingsfrequentie, en bij diftar is het de voorwaarde om op gebruik te kunnen afrekenen.",
+      },
+      {
+        vraag: "Heeft toegangscontrole stroom nodig?",
+        antwoord:
+          "Ja. Een passysteem betekent elektronica en dus een netaansluiting. De doorlooptijd daarvan wordt bepaald door de netbeheerder, dus vraag de aansluiting aan zodra een locatie waarschijnlijk is.",
+      },
+      {
+        vraag: "Welke privacyregels gelden bij een passysteem?",
+        antwoord:
+          "Zodra u vastlegt welke pas wanneer welke container opende, verwerkt u gegevens die naar een huishouden herleidbaar zijn. Leg vooraf vast welk doel de registratie dient, hoe lang u bewaart, wie toegang heeft en wat u met inzamelaar en leverancier afspreekt.",
+      },
+    ],
     verwant: [
       { label: "STOSAG", url: "/stosag/" },
       { label: "Containerregistratie", url: "/diensten/containerregistratie/" },
