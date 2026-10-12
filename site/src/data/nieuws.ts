@@ -54,6 +54,194 @@ export const nieuwsPagina = {
 // Nieuwste artikel eerst.
 export const artikelen: Artikel[] = [
   {
+    slug: "bijplaatsingen-kosten-afvalstoffenheffing-zwolle",
+    samenvatting:
+      "Zwolle brengt de opruimkosten van afvaldumpingen voortaan volledig onder in de afvalstoffenheffing. Daarmee wordt bijplaatsing een post op de rekening van elke inwoner.",
+    categorie: "Analyse",
+    datum: "2026-10-12",
+    h1: "Zwolle zet de kosten van bijplaatsingen op de afvalrekening — en maakt daarmee een vliegwiel zichtbaar",
+    lead:
+      "Zwolle brengt de opruimkosten van afvaldumpingen voortaan volledig onder in de afvalstoffenheffing. Daarmee wordt bijplaatsing een post op de rekening van elke inwoner.",
+    meta: {
+      titel: "Zwolle: bijplaatsingen in de afvalrekening",
+      omschrijving:
+        "Zwolle verhoogt de afvalstoffenheffing met 21,6 procent en brengt de kosten van afvaldumpingen volledig onder in die heffing. Wat dat betekent voor containerbeheer.",
+    },
+    blokken: [
+      {
+        type: "p",
+        tekst: "Het college van Zwolle stelt voor om de vaste afvalstoffenheffing in 2027 met <strong>21,6 procent</strong> te verhogen. Voor een meerpersoonshuishouden is dat 58,77 euro per jaar extra, voor een eenpersoonshuishouden 47,01 euro. Ter vergelijking: de meeste andere gemeentelijke tarieven in Zwolle stijgen met 2,9 procent. De gemeenteraad besluit erover op 13 november, bij de behandeling van de begroting.",
+      },
+      {
+        type: "cijfers",
+        label: "Het voorstel in cijfers",
+        sub: "Tarieven uit de Tarievennota 2027, nog vast te stellen door de gemeenteraad.",
+        bron: "Gemeente Zwolle, Tarievennota 2027",
+        items: [
+          { waarde: "+21,6%", label: "vaste afvalstoffenheffing in 2027" },
+          { waarde: "11.998", label: "geregistreerde bijplaatsingen in het eerste halfjaar van 2026" },
+          { waarde: "€3,8 mln", label: "hogere geraamde kosten voor afval en grondstoffen" },
+        ],
+      },
+      {
+        type: "kader",
+        titel: "Wat inwoners gaan betalen",
+        inhoud: [
+          {
+            type: "lijst",
+            items: [
+              "Eenpersoonshuishouden: van € 217,78 naar € 264,79 per jaar",
+              "Twee of meer personen: van € 272,22 naar € 330,99 per jaar",
+              "Restafval 30 liter: van € 0,90 naar € 1,05 per keer",
+              "Restafval 60 liter: van € 1,80 naar € 2,10 per keer",
+              "Restafval 80 liter: van € 2,40 naar € 2,80 per keer",
+              "Grijze container 240 liter: van € 10,80 naar € 12,60 per keer",
+            ],
+          },
+          { type: "p", tekst: "Een gezin dat twintig keer per jaar een zak van 60 liter wegbrengt, is volgens de gemeente in totaal 64,77 euro meer kwijt." },
+        ],
+      },
+      {
+        type: "h2",
+        tekst: "De echte verandering zit niet in het tarief",
+      },
+      {
+        type: "p",
+        tekst: "Wat dit voorstel bijzonder maakt, is niet de hoogte maar de herkomst van een deel van die stijging. Zwolle rekende tot nu toe 30 procent van de kosten voor straatreiniging en zwerfafval toe aan de afvalstoffenheffing; dat wordt 36,5 procent. En de kosten voor het opruimen van afval dat naast containers wordt gedumpt, gaan voortaan <strong>volledig</strong> onder die heffing vallen.",
+      },
+      {
+        type: "p",
+        tekst: "Samen levert dat 555.000 euro aan extra toegerekende kosten op voor stadsreiniging, plus 310.000 euro voor afvalcoaches, toezicht en handhaving. De gemeente schrijft er zelf eerlijk bij dat hierdoor ruimte ontstaat in de algemene begroting; in het coalitieakkoord staat de afspraak om via een andere kostenverdeling een miljoen euro vrij te spelen.",
+      },
+      {
+        type: "p",
+        tekst: "Beleidsmatig is daar iets voor te zeggen: wie veroorzaakt, betaalt. Maar het gevolg is wel dat bijplaatsing verschuift van een post op de algemene begroting naar een post op de rekening van elk huishouden — ook van huishoudens die niets naast de container zetten.",
+      },
+      {
+        type: "h2",
+        tekst: "Het vliegwiel dat hierin zit",
+      },
+      {
+        type: "p",
+        tekst: "Zet de twee bewegingen naast elkaar en er ontstaat een cirkel die gemeenten zich zouden moeten aantrekken. Het variabele tarief per zak stijgt met ongeveer een zesde. Dat vergroot de prikkel om restafval te scheiden, en tegelijk de prikkel om het ergens anders kwijt te raken. Elke kilo die niet in de eigen container gaat, is immers geld.",
+      },
+      {
+        type: "p",
+        tekst: "Wat ernaast belandt, moet worden opgeruimd. Die opruimkosten zitten vanaf 2027 volledig in diezelfde heffing. Meer ontwijking betekent dus een hogere heffing, en een hogere heffing vergroot de prikkel tot ontwijken. Niemand ontwerpt dat zo, maar het zit wel in de constructie.",
+      },
+      {
+        type: "let-op",
+        label: "Let op",
+        tekst: "Dit is geen argument tegen betalen naar gebruik. Het is een argument om de voorzieningen op orde te hebben vóórdat het tarief omhooggaat. De prikkel werkt namelijk twee kanten op, en welke kant wint, hangt af van hoe makkelijk het goede gedrag is gemaakt.",
+      },
+      {
+        type: "h2",
+        tekst: "Wat Zwolle wél en niet weet",
+      },
+      {
+        type: "p",
+        tekst: "In antwoord op vragen van Swollwacht en VVD maakte het college nieuwe cijfers bekend. In het eerste halfjaar van 2026 zijn 11.998 bijplaatsingen geregistreerd, tegen 8.741 in dezelfde periode een jaar eerder: een stijging van ruim 37 procent.",
+      },
+      {
+        type: "p",
+        tekst: "De gemeente plaatst daar zelf meteen een kanttekening bij, en dat verdient waardering: die 37 procent betekent niet automatisch dat er 37 procent meer is gedumpt. Door betere registratie en intensiever toezicht worden méér gevallen vastgelegd, en er kunnen dubbele registraties tussen zitten. Precies het punt dat we eerder maakten bij <a href=\"/nieuws/afvalmeldingen-hilversum-graadmeter/\">de meldingen in Hilversum</a>: een meldingenaantal meet hoe vaak iets wordt waargenomen, niet hoeveel er ligt.",
+      },
+      {
+        type: "p",
+        tekst: "Opvallender is wat de gemeente níét weet. Hoeveel kilo afval er jaarlijks naast containers belandt, wordt niet apart bijgehouden. Wat wel bekend is, zijn de kosten: ROVA bracht in 2025 bovenop de reguliere afspraken 235.219 euro in rekening voor het verwijderen van bijplaatsingen en dumpingen, en een extra handveger plus boa kostten gedurende ongeveer anderhalf jaar zo’n 200.000 euro per jaar.",
+      },
+      {
+        type: "p",
+        tekst: "Daarmee ontstaat een ongemakkelijke situatie: de kosten van bijplaatsing gaan volledig naar de inwoner, terwijl de omvang van het probleem alleen in registraties en niet in kilo’s bekend is. Een gemeente die straks wil laten zien dat de aanpak werkt, kan dat met deze cijfers niet hard maken — een daling van het aantal registraties kan immers ook betekenen dat er minder is geregistreerd.",
+      },
+      {
+        type: "h2",
+        tekst: "Twee derde is grofvuil, en dat verandert de oplossing",
+      },
+      {
+        type: "p",
+        tekst: "Het grootste deel van de geregistreerde bijplaatsingen bestaat uit grofvuil: meubels en andere grote spullen. Ongeveer een derde is gewoon restafval. Dat onderscheid is bepalend, want het zijn twee verschillende problemen met twee verschillende oplossingen.",
+      },
+      {
+        type: "p",
+        tekst: "Restafval naast de container wijst op capaciteit, ledigingsfrequentie, een storing of een te kleine inworpopening. Grofvuil naast de container wijst op de route naar het brengstation of de wachttijd voor een ophaalafspraak. Diezelfde tweedeling kwamen we tegen in <a href=\"/nieuws/afvaldumpingen-almere-meldingen/\">Almere</a>, waar een vuilnisophaler uitlegde dat inwoners drie tot vier weken op een grofvuilafspraak wachten terwijl ze het nú kwijt willen.",
+      },
+      {
+        type: "p",
+        tekst: "Een hogere heffing verandert aan geen van beide iets. Een kortere wachttijd voor grofvuil en een containerpark dat het aanbod aankan, wel.",
+      },
+      {
+        type: "h2",
+        tekst: "Wat wij gemeenten zouden adviseren",
+      },
+      {
+        type: "stappen",
+        items: [
+          {
+            titel: "Meet iets dat niet meebeweegt met uw eigen inzet",
+            tekst: "Registreer naast het aantal meldingen ook het opgeruimde gewicht of het aantal opruimritten per locatie. Anders kunt u na een jaar niet aantonen of de aanpak werkt.",
+          },
+          {
+            titel: "Splits grofvuil en restafval in de registratie",
+            tekst: "Twee derde grofvuil vraagt om een andere maatregel dan een derde restafval. Zonder dat onderscheid stuurt u op een gemiddelde dat niet bestaat.",
+          },
+          {
+            titel: "Controleer de capaciteit vóór de tariefwijziging",
+            tekst: "Kijk op de drukste locaties naar de vulgraad vlak voor lediging. Een container die structureel vol zit, wordt bij een hoger tarief een excuus in plaats van een ongemak.",
+          },
+          {
+            titel: "Leg vast wat waar staat",
+            tekst: "Welke container, welke capaciteit, welk toegangsregime en welke ledigingsfrequentie: zonder <a href=\"/diensten/containerregistratie/\">containerregistratie</a> is elke onderbouwing richting de raad een schatting.",
+          },
+        ],
+      },
+      {
+        type: "p",
+        tekst: "Bij een tariefstijging van deze omvang zullen inwoners vragen waar hun geld heen gaat, en raadsleden zullen willen weten of de extra inzet iets oplevert. Beide vragen zijn alleen te beantwoorden met gegevens per locatie. Dat is geen administratie achteraf, maar de basis onder het besluit.",
+      },
+      {
+        type: "faq",
+        items: [
+          {
+            vraag: "Hoeveel stijgt de afvalstoffenheffing in Zwolle in 2027?",
+            antwoord:
+              "Het college stelt een stijging van 21,6 procent op het vaste tarief voor: van 217,78 naar 264,79 euro voor een eenpersoonshuishouden en van 272,22 naar 330,99 euro voor twee of meer personen. De gemeenteraad besluit op 13 november.",
+          },
+          {
+            vraag: "Waarom stijgt de afvalstoffenheffing zo hard?",
+            antwoord:
+              "Door hogere verwerkingskosten, belastingen, duurdere dienstverlening en tegenvallende opbrengsten van grondstoffen, en doordat Zwolle meer kosten aan deze heffing toerekent: meer straatreiniging, meer btw en voortaan alle kosten voor het opruimen van afvaldumpingen.",
+          },
+          {
+            vraag: "Mag een gemeente opruimkosten van dumpingen in de afvalstoffenheffing stoppen?",
+            antwoord:
+              "Gemeenten bepalen zelf welk deel van de kosten rond afval en reiniging zij aan de afvalstoffenheffing toerekenen, binnen de regel dat de heffing niet meer dan kostendekkend mag zijn. Zwolle verhoogt die toerekening voor straatreiniging van 30 naar 36,5 procent en brengt dumpingen voortaan volledig onder de heffing.",
+          },
+          {
+            vraag: "Wat kost het opruimen van bijplaatsingen een gemeente?",
+            antwoord:
+              "In Zwolle bracht ROVA in 2025 bovenop de reguliere afspraken 235.219 euro in rekening voor het verwijderen van bijplaatsingen en dumpingen. Een extra handveger en boa kostten daarnaast ongeveer 200.000 euro per jaar.",
+          },
+          {
+            vraag: "Helpt een hoger tarief tegen afval naast de container?",
+            antwoord:
+              "Niet vanzelf. Een hoger tarief per zak vergroot zowel de prikkel om te scheiden als de prikkel om afval elders kwijt te raken. Welke kant wint, hangt af van de capaciteit en de inrichting van de containerlocaties en van hoe eenvoudig het is om grofvuil correct aan te bieden.",
+          },
+        ],
+      },
+      {
+        type: "cta",
+        label: "Aan de slag",
+        kop: "Weten wat uw containerlocaties aankunnen",
+        tekst: "B-Advice brengt per locatie in kaart wat capaciteit, toegang en inrichting aankunnen, en wat er vóór een tariefwijziging moet gebeuren. Neem contact op om te bespreken wat er in uw gemeente speelt.",
+      },
+      {
+        type: "p",
+        tekst: "Bron: RTV Focus Zwolle, ‘Afvalbelasting Zwolle schiet omhoog: ook kosten van afvaldumpingen naar inwoners’, 9 oktober 2026, op basis van de Tarievennota 2027 van de gemeente Zwolle.",
+      },
+    ],
+  },
+  {
     slug: "vulgraadsensoren-ondergrondse-containers",
     samenvatting:
       "Amsterdam onderzoekt vulgraadsensoren op al zijn containers. Wat zo'n sensor doet, wat de proef met 1.500 glascontainers leert en waar hij niet tegen helpt.",
