@@ -37,7 +37,10 @@ const { hero } = home;
           {hero.lead}
         </p>
 
-        <div class="mt-5 max-w-[54ch] space-y-4">
+        {/* Op een telefoon blijft deze toelichting weg. De lead erboven
+            vertelt hetzelfde in één zin, en zo staan de knoppen en de
+            cijfers niet pas na een scherm scrollen in beeld. */}
+        <div class="mt-5 hidden max-w-[54ch] space-y-4 sm:block">
           {hero.alineas.map((alinea) => <p class="text-base text-ink-3">{alinea}</p>)}
         </div>
 
@@ -56,26 +59,23 @@ const { hero } = home;
           </a>
         </div>
 
-        <dl class="mt-10 grid gap-x-6 sm:grid-cols-3">
+        <dl class="mt-10 grid grid-cols-3 gap-x-4 sm:gap-x-6">
           {
             hero.feiten.map((feit, i) => (
               <div
-                class:list={[
-                  i > 0 && "mt-4 border-t border-line pt-4",
-                  i > 0 && "sm:mt-0 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0",
-                ]}
+                class:list={[i > 0 && "border-l border-line pl-4 sm:pl-6"]}
               >
                 <dd
                   class:list={[
                     "font-display leading-tight tracking-tight text-ink",
                     "tekstwaarde" in feit && feit.tekstwaarde
-                      ? "text-lg font-bold"
-                      : "text-xl font-extrabold xl:text-2xl",
+                      ? "text-base font-bold sm:text-lg"
+                      : "text-lg font-extrabold sm:text-xl xl:text-2xl",
                   ]}
                 >
                   {feit.waarde}
                 </dd>
-                <dt class="mt-1.5 text-sm leading-snug text-ink-4">{feit.label}</dt>
+                <dt class="mt-1.5 text-xs leading-snug text-ink-4 sm:text-sm">{feit.label}</dt>
               </div>
             ))
           }
