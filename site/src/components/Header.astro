@@ -144,6 +144,20 @@ const dienstActief = pad.startsWith("/diensten/");
   </div>
 </header>
 
+<script is:inline>
+  /* Het schuifmenu is langer dan een telefoonscherm, dus je scrolt erin. De
+     browser onthoudt die positie, waardoor het menu de tweede keer halverwege
+     de lijst opent. Bij elke opening weer naar boven dus. */
+  for (const menu of document.querySelectorAll("details.menu")) {
+    menu.addEventListener("toggle", () => {
+      if (menu.open) {
+        const paneel = menu.querySelector("div");
+        if (paneel) paneel.scrollTop = 0;
+      }
+    });
+  }
+</script>
+
 <style>
   /* Het standaard driehoekje van <summary> weg in alle browsers. */
   .menu > summary::marker,
