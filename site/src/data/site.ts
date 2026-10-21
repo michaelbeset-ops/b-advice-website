@@ -970,6 +970,167 @@ export interface TekstPagina {
 
 export const tekstPaginas: readonly TekstPagina[] = [
   {
+    slug: "bijplaatsingen-voorkomen",
+    verwant: [
+      { label: "Locatieonderzoek en werkvoorbereiding", url: "/diensten/locatieonderzoek/" },
+      { label: "Containerregistratie", url: "/diensten/containerregistratie/" },
+      { label: "Beheer en onderhoud", url: "/diensten/beheer-onderhoud/" },
+    ],
+    h1: "Bijplaatsingen voorkomen bij ondergrondse containers",
+    intro:
+      "Waarom afval naast de container belandt, welke maatregelen blijven werken en welke alleen werken zolang u erbij staat.",
+    meta: {
+      titel: "Bijplaatsingen voorkomen bij containers",
+      omschrijving:
+        "Afval naast ondergrondse containers heeft drie verschillende oorzaken. Welke maatregelen structureel werken, welke tijdelijk, en wat u per locatie uitzoekt.",
+    },
+    faq: [
+      {
+        vraag: "Wat is een bijplaatsing?",
+        antwoord:
+          "Afval dat naast een container wordt neergezet in plaats van erin. Dat kan een zak restafval zijn, een stapel dozen of grofvuil zoals een matras of een bank. In registraties van gemeenten vallen die soorten vaak onder één noemer, terwijl het verschillende problemen zijn.",
+      },
+      {
+        vraag: "Waarom zetten mensen afval naast de container?",
+        antwoord:
+          "Grofweg om drie redenen: de voorziening werkt niet (vol, kapot of een te kleine inworpopening), de drempel om het goed te doen is te hoog (grofvuil met een lange wachttijd, geen auto), of gewoonte en gemak, versterkt doordat er al iets staat.",
+      },
+      {
+        vraag: "Helpt handhaving tegen bijplaatsingen?",
+        antwoord:
+          "Op de plekken en momenten dat er wordt gehandhaafd wel. De gemeente Almere constateert zelf dat dumpingen afnemen zolang haar teams in een gebied aanwezig zijn. Dat maakt handhaving een nuttig instrument, maar geen oplossing voor een locatie die structureel te krap is.",
+      },
+      {
+        vraag: "Wat werkt wel structureel tegen afval naast containers?",
+        antwoord:
+          "Maatregelen die de oorzaak wegnemen en ook werken als niemand kijkt: voldoende capaciteit en ledigingsfrequentie, een inworpopening die past bij wat mensen aanbieden, snelle storingsafhandeling, een korte route voor grofvuil en een locatie waar fysiek weinig ruimte is om iets neer te zetten.",
+      },
+      {
+        vraag: "Waarom is snel opruimen zo belangrijk?",
+        antwoord:
+          "Omdat de eerste zak bepaalt of het bij één blijft. Op een plek waar al iets staat, is de drempel om er iets bij te zetten veel lager. Gemeenten die snel opruimen, voorkomen daarmee dat een incident een vaste plek wordt.",
+      },
+    ],
+    blokken: [
+      {
+        type: "p",
+        tekst:
+          "Afval naast de container is in veel gemeenten de grootste bron van meldingen over de leefomgeving. Het maakt een straat vuil, kost geld om op te ruimen en trekt nieuw afval en ongedierte aan. Wat het hardnekkig maakt, is dat er niet één oorzaak is — en dus ook niet één oplossing.",
+      },
+      { type: "h2", tekst: "Drie oorzaken, drie soorten maatregelen" },
+      {
+        type: "p",
+        tekst:
+          "Wie bijplaatsingen wil terugdringen, moet eerst weten met welk van deze drie hij te maken heeft. Ze lijken op elkaar in de melding, maar vragen om totaal verschillende maatregelen.",
+      },
+      {
+        type: "tabel",
+        koppen: ["Oorzaak", "Hoe u het herkent", "Wat eraan helpt"],
+        rijen: [
+          ["De voorziening werkt niet", "Pieken vlak voor de lediging, of meldingen die samenvallen met storingen", "Capaciteit, ledigingsfrequentie, snellere storingsafhandeling"],
+          ["De drempel is te hoog", "Vooral grofvuil: matrassen, meubels, stapels dozen", "Kortere wachttijd voor ophalen, een inleverpunt dichtbij, een passende inworpopening"],
+          ["Gewoonte en gemak", "Verspreid over de dag, vaak op plekken waar al iets stond", "Snel opruimen, een verzorgde plek, aanspreken en handhaven"],
+        ],
+      },
+      {
+        type: "p",
+        tekst:
+          "Het verschil tussen de eerste twee en de derde is wezenlijk. De eerste twee gaan over iets wat niet werkt; die los je op door het te laten werken. De derde gaat over gedrag, en daar is het effect van een maatregel afhankelijk van hoe lang u hem volhoudt.",
+      },
+      { type: "h2", tekst: "Hoe Almere het aanpakt" },
+      {
+        type: "p",
+        tekst:
+          "De gemeente Almere heeft haar aanpak openbaar beschreven, en die is bruikbaar als voorbeeld omdat alle drie de sporen erin zitten. De stad kiest bewust niet voor één maatregel, met als redenering dat afvaldumpingen verschillende oorzaken hebben.",
+      },
+      { type: "h3", tekst: "1. De basis op orde" },
+      {
+        type: "p",
+        tekst:
+          "Almere vervangt verouderde containers en verbetert de containerplekken. Bovengrondse containers worden waar mogelijk vervangen door ondergrondse met meer capaciteit en een nettere uitstraling. De gemeente benoemt daarbij expliciet dat een volle of kapotte container aanleiding kan zijn om afval ernaast te zetten.",
+      },
+      { type: "h3", tekst: "2. Zichtbaar aanwezig in de wijk" },
+      {
+        type: "p",
+        tekst:
+          "De stad is opgedeeld in tien gebieden. Per gebied zijn afvalcoaches, toezichthouders en handhavers vijf weken lang extra aanwezig: controleren, afval onderzoeken op herleidbare gegevens, in gesprek gaan met bewoners en ondernemers, uitleg geven over de regels, aanspreken op gedrag, en waar het kan boetes opleggen en de opruimkosten verhalen.",
+      },
+      { type: "h3", tekst: "3. Nieuwe maatregelen uitproberen" },
+      {
+        type: "p",
+        tekst:
+          "Daarnaast loopt er een proef met teksten op de stoep bij containers en met kartonsnijders bij papier- en kartoncontainers, op tien plekken waar veel karton naast de container belandt. Bevallen ze, dan gaat de gemeente ermee door.",
+      },
+      { type: "h2", tekst: "De zin die het belangrijkste zegt" },
+      {
+        type: "p",
+        tekst:
+          "In de beschrijving van de tweede stap staat een constatering die eerlijker is dan veel beleidsteksten durven te zijn: de dumpingen nemen af <em>zolang de teams in het gebied aanwezig zijn</em>.",
+      },
+      {
+        type: "p",
+        tekst:
+          "Dat is precies de kern van het probleem met gedragsmaatregelen. Ze werken, maar hun effect verdwijnt met de aandacht. Tien gebieden en vijf weken per gebied betekent dat elk gebied ongeveer één keer per jaar aan de beurt is. Wat er in de tussenliggende maanden gebeurt, hangt af van wat er fysiek is veranderd.",
+      },
+      {
+        type: "p",
+        tekst:
+          "Daarom is de eerste stap uit de Almeerse aanpak de belangrijkste, ook al is die het minst zichtbaar. Een vervangen container met meer capaciteit werkt door als er niemand kijkt. Een gesprek op straat werkt zolang er iemand staat.",
+      },
+      { type: "h2", tekst: "De kartonsnijder als schoolvoorbeeld" },
+      {
+        type: "p",
+        tekst:
+          "Van alle maatregelen in die aanpak is de kartonsnijder de interessantste, juist omdat hij zo klein is. Het probleem is bekend: iemand komt met een verhuisdoos of een stapel karton bij de papiercontainer, de doos past niet door de opening, en de doos blijft ernaast staan.",
+      },
+      {
+        type: "p",
+        tekst:
+          "Dat is geen onwil en geen gemakzucht. Het is een voorziening die niet past bij wat mensen aanbieden. Een mes aan de container neemt die mismatch weg, en dan werkt het ook op een zondagavond zonder toezichthouder in de buurt. Dat is het verschil tussen een maatregel die een oorzaak wegneemt en een maatregel die gedrag bijstuurt.",
+      },
+      { type: "h2", tekst: "Wat u per probleemlocatie uitzoekt" },
+      {
+        type: "p",
+        tekst:
+          "Bijplaatsingen zitten bijna nooit gelijkmatig over een gemeente verdeeld. Een klein deel van de locaties is verantwoordelijk voor een groot deel van de meldingen. Neem die locaties en loop ze langs op het moment dat het misgaat — niet op dinsdagochtend, maar in het weekend.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Hoeveel huishoudens zijn op deze container aangesloten, en hoe vaak wordt er geleegd?",
+          "Hoe vol zit de container op de dag vóór de lediging?",
+          "Past de inworpopening bij wat mensen hier aanbieden?",
+          "Hoe vaak is deze container gestoord geweest, en hoe snel is dat verholpen?",
+          "Is er fysiek ruimte om iets neer te zetten: een stoeprand, een plantvak, een muurtje?",
+          "Ligt de plek in het zicht van woningen, en is er verlichting?",
+          "Gaat het hier om huisvuil of om grofvuil? Dat zijn twee verschillende problemen.",
+          "Hoe lang blijft een bijplaatsing hier liggen voordat hij wordt opgeruimd?",
+        ],
+      },
+      {
+        type: "p",
+        tekst:
+          "Het antwoord op die vragen bepaalt welke maatregel past. Zonder die analyse wordt een stadsbrede campagne ingezet tegen een probleem dat op vijf locaties een capaciteitsvraagstuk is.",
+      },
+      { type: "h2", tekst: "Meet iets dat niet meebeweegt met uw eigen inzet" },
+      {
+        type: "p",
+        tekst:
+          "Tot slot een valkuil die in meerdere gemeenten terugkomt. Het aantal meldingen lijkt de logische graadmeter, maar het meet hoe vaak iets wordt waargenomen en doorgegeven, niet hoeveel afval er ligt. Gaat u intensiever surveilleren, dan stijgen de registraties terwijl het probleem gelijk blijft of zelfs kleiner wordt.",
+      },
+      {
+        type: "p",
+        tekst:
+          "Registreer daarom naast de meldingen ook iets dat los staat van uw eigen inspanning: het opgeruimde gewicht of het aantal opruimritten per locatie. Anders kunt u na een jaar niet onderbouwen of de aanpak heeft gewerkt — en dat is precies de vraag die de raad zal stellen.",
+      },
+      {
+        type: "p",
+        tekst:
+          "Meer over hoe dit in verschillende gemeenten uitpakt, leest u in onze analyses over <a href=\"/nieuws/afvaldumpingen-almere-meldingen/\">de meldingen in Almere</a>, <a href=\"/nieuws/afvalmeldingen-hilversum-graadmeter/\">de stijging in Hilversum</a>, <a href=\"/nieuws/bijplaatsingen-kosten-afvalstoffenheffing-zwolle/\">de kosten die Zwolle doorberekent</a> en <a href=\"/nieuws/afval-naast-ondergrondse-containers/\">de gezamenlijke aanpak van Rd4 en vier Limburgse gemeenten</a>.",
+      },
+    ],
+  },
+  {
     slug: "kosten-ondergrondse-afvalcontainer",
     faq: [
       {

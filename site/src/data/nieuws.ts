@@ -230,6 +230,10 @@ export const artikelen: Artikel[] = [
         ],
       },
       {
+        type: "p",
+        tekst: "Welke maatregelen de oorzaak wegnemen en welke alleen het gedrag bijsturen, leest u op onze pagina over <a href=\"/bijplaatsingen-voorkomen/\">bijplaatsingen voorkomen</a>.",
+      },
+      {
         type: "cta",
         label: "Aan de slag",
         kop: "Weten wat uw containerlocaties aankunnen",
@@ -941,6 +945,10 @@ export const artikelen: Artikel[] = [
         tekst: "Hetzelfde patroon zagen we eerder bij <a href=\"/nieuws/afvalmeldingen-hilversum-graadmeter/\">de stijgende afvalmeldingen in Hilversum</a> en bij <a href=\"/nieuws/afval-naast-ondergrondse-containers/\">de gezamenlijke aanpak van Rd4 en vier Limburgse gemeenten</a>: communicatie en handhaving pakken het ene deel, de inrichting en de capaciteit van de locatie het andere. Welk deel waar overheerst, blijkt pas bij <a href=\"/diensten/locatieonderzoek/\">locatieonderzoek</a> op de plek zelf.",
       },
       {
+        type: "p",
+        tekst: "Welke maatregelen blijven werken als er niemand kijkt, en welke alleen zolang er toezicht is, zetten we op een rij op onze pagina over <a href=\"/bijplaatsingen-voorkomen/\">bijplaatsingen voorkomen</a>.",
+      },
+      {
         type: "cta",
         label: "Aan de slag",
         kop: "Van hotspotlijst naar maatregel per locatie",
@@ -1097,6 +1105,10 @@ export const artikelen: Artikel[] = [
         tekst: "Een deel van de bijplaatsingen is met communicatie en handhaving op te lossen. Een ander deel gaat terug op de inrichting van de locatie zelf — daarover schreven we eerder naar aanleiding van <a href=\"/nieuws/afval-naast-ondergrondse-containers/\">de gezamenlijke aanpak van Rd4 en vier Limburgse gemeenten</a>. Welk deel waar overheerst, is per locatie te bepalen tijdens <a href=\"/diensten/locatieonderzoek/\">locatieonderzoek en werkvoorbereiding</a>.",
       },
       {
+        type: "p",
+        tekst: "Wat er per locatie te onderzoeken valt en welke maatregelen structureel helpen, staat op onze pagina over <a href=\"/bijplaatsingen-voorkomen/\">bijplaatsingen voorkomen</a>.",
+      },
+      {
         type: "cta",
         label: "Aan de slag",
         kop: "Van hotspotlijst naar maatregel per locatie",
@@ -1199,6 +1211,10 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "streep",
+      },
+      {
+        type: "p",
+        tekst: "De drie oorzaken achter afval naast een container, en wat er per oorzaak helpt, staan op onze pagina over <a href=\"/bijplaatsingen-voorkomen/\">bijplaatsingen voorkomen</a>.",
       },
       {
         type: "cta",
