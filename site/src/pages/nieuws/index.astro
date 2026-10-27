@@ -22,6 +22,10 @@ const blogSchema = {
   publisher: { "@id": "https://b-advice.info/#organisatie" },
   blogPost: artikelen.map((artikel) => ({
     "@type": "NewsArticle",
+    // Google vraagt om een afbeelding bij een artikel. Er is nog geen beeld
+    // per artikel, dus staat hier het algemene deelplaatje.
+    image: ["https://b-advice.info/assets/og-image.png"],
+    author: { "@id": "https://b-advice.info/#organisatie" },
     headline: artikel.h1,
     description: artikel.samenvatting,
     datePublished: artikel.datum,

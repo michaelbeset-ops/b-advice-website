@@ -1,0 +1,123 @@
+{
+  "slug": "b-advice",
+  "site": "https://b-advice.info",
+  "base": "",
+  "githubPagesUrl": "https://michaelbeset-ops.github.io/b-advice-website/",
+  "mode": "klant",
+  "language": "nl-NL",
+  "branche": "afvalinfrastructuur",
+  "strategy": [
+    "landelijk",
+    "ai"
+  ],
+  "brandTerms": [
+    "b-advice",
+    "b advice",
+    "b-advice.info"
+  ],
+  "business": {
+    "schemaType": "ProfessionalService",
+    "name": "B-Advice",
+    "legalName": "",
+    "description": "B-Advice ondersteunt gemeenten en afvalinzamelaars bij projecten rondom ondergrondse afvalcontainers: locatieonderzoek, werkvoorbereiding, projectleiding, aanbesteding en beheer.",
+    "kvk": "82797811",
+    "vatID": "",
+    "foundingYear": "",
+    "founder": "",
+    "showAddress": true,
+    "street": "Achterdijk 26",
+    "postalCode": "",
+    "city": "Nieuwland",
+    "region": "Utrecht",
+    "country": "NL",
+    "geo": {},
+    "phone": "+31643125245",
+    "phoneDisplay": "+31 (6) 431 25 245",
+    "whatsapp": "",
+    "email": "info@b-advice.info",
+    "priceRange": "",
+    "openingHours": [],
+    "specialHours": [],
+    "areaServed": [
+      "Nederland"
+    ],
+    "gbpUrl": "",
+    "reviewLink": "",
+    "gbpPrimaryCategory": "",
+    "sameAs": [],
+    "logo": "/assets/b-advice-logo.webp",
+    "image": "/assets/og-image.png",
+    "extra": {}
+  },
+  "services": [
+    {
+      "name": "Projectleiding en projectbegeleiding",
+      "path": "/diensten/projectleiding/",
+      "summary": "",
+      "keywords": []
+    },
+    {
+      "name": "Locatieonderzoek en werkvoorbereiding",
+      "path": "/diensten/locatieonderzoek/",
+      "summary": "",
+      "keywords": []
+    },
+    {
+      "name": "Plaatsen van inzamelmiddelen",
+      "path": "/diensten/plaatsing/",
+      "summary": "",
+      "keywords": []
+    },
+    {
+      "name": "Beheer, onderhoud en refurbish",
+      "path": "/diensten/beheer-onderhoud/",
+      "summary": "",
+      "keywords": []
+    },
+    {
+      "name": "Afvalinzameling en management",
+      "path": "/diensten/afvalinzameling/",
+      "summary": "",
+      "keywords": []
+    },
+    {
+      "name": "Projectmanagement",
+      "path": "/diensten/projectmanagement/",
+      "summary": "",
+      "keywords": []
+    },
+    {
+      "name": "Aanbesteding en bestek",
+      "path": "/diensten/aanbesteding/",
+      "summary": "",
+      "keywords": []
+    },
+    {
+      "name": "Meerjaren Investeringsplan",
+      "path": "/diensten/meerjaren-investeringsplan/",
+      "summary": "",
+      "keywords": []
+    },
+    {
+      "name": "Bewonersparticipatie",
+      "path": "/diensten/bewonersparticipatie/",
+      "summary": "",
+      "keywords": []
+    }
+  ],
+  "llmsPages": [],
+  "ignorePaths": [
+    "/privacy/",
+    "/cookies/",
+    "/rmn-"
+  ],
+  "gscProperty": "sc-domain:b-advice.info",
+  "psiUrls": [
+    "/",
+    "/diensten/locatieonderzoek/",
+    "/contact/"
+  ],
+  "aiCrawlers": {
+    "training": "allow"
+  }
+}

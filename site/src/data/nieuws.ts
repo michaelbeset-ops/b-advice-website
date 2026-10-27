@@ -65,7 +65,7 @@ export const artikelen: Artikel[] = [
     meta: {
       titel: "Containeradoptie: wat het wel en niet doet",
       omschrijving:
-        "Barendrecht zoekt containeradoptanten die hun containerplek schoonhouden. Wat zo'n netwerk oplevert, waar de grens ligt en wat een gemeente ervoor moet regelen.",
+        "Barendrecht zoekt containeradoptanten. Wat zo'n netwerk oplevert, waar de grens ligt en wat een gemeente moet regelen om het werkend te houden.",
     },
     blokken: [
       {
@@ -74,7 +74,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Daarnaast — en dat is het deel dat er het meeste toe doet — meldt een adoptant het bij BAR Afvalbeheer wanneer er grofvuil naast de container staat of wanneer de container een storing heeft. Aanmelden gaat via de afvalcoaches.",
+        tekst: "Daarnaast, en dat is het deel dat er het meeste toe doet, meldt een adoptant het bij BAR Afvalbeheer wanneer er grofvuil naast de container staat of wanneer de container een storing heeft. Aanmelden gaat via de afvalcoaches.",
       },
       {
         type: "h2",
@@ -102,12 +102,12 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Wat wel gevraagd wordt — losse zakken en dozen alsnog in de container doen — is redelijk, maar niet vrijblijvend. Een vrijwilliger pakt daarmee het afval van een ander op, met alles wat daarin kan zitten. Geef adoptanten dus handschoenen en een grijper, en wees duidelijk over wat ze beter kunnen laten liggen en melden: glas, scherp materiaal of iets waarvan ze de herkomst niet vertrouwen.",
+        tekst: "Wat wel gevraagd wordt, losse zakken en dozen alsnog in de container doen, is redelijk, maar niet vrijblijvend. Een vrijwilliger pakt daarmee het afval van een ander op, met alles wat daarin kan zitten. Geef adoptanten dus handschoenen en een grijper, en wees duidelijk over wat ze beter kunnen laten liggen en melden: glas, scherp materiaal of iets waarvan ze de herkomst niet vertrouwen.",
       },
       {
         type: "let-op",
         label: "Let op",
-        tekst: "Adoptie is geen oplossing voor een locatie die structureel te krap is. Zit een container elke week vol voordat de wagen komt, dan is een vrijwilliger een pleister op een capaciteitsprobleem — en de snelste manier om die vrijwilliger kwijt te raken.",
+        tekst: "Adoptie is geen oplossing voor een locatie die structureel te krap is. Zit een container elke week vol voordat de wagen komt, dan is een vrijwilliger een pleister op een capaciteitsprobleem, en de snelste manier om die vrijwilliger kwijt te raken.",
       },
       {
         type: "h2",
@@ -144,7 +144,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Dat maakt het instrument niet minder waardevol, maar wel beperkt in waar het landt. Reken er niet op dat uw tien hotspots zich vanzelf laten adopteren. Daar zult u iets anders moeten doen, en wat dat is, hangt af van de oorzaak ter plekke — zoals we beschrijven op onze pagina over <a href=\"/bijplaatsingen-voorkomen/\">het voorkomen van bijplaatsingen</a>.",
+        tekst: "Dat maakt het instrument niet minder waardevol, maar wel beperkt in waar het landt. Reken er niet op dat uw tien hotspots zich vanzelf laten adopteren. Daar zult u iets anders moeten doen, en wat dat is, hangt af van de oorzaak ter plekke, zoals we beschrijven op onze pagina over <a href=\"/bijplaatsingen-voorkomen/\">het voorkomen van bijplaatsingen</a>.",
       },
       {
         type: "p",
@@ -193,18 +193,22 @@ export const artikelen: Artikel[] = [
       "Zwolle brengt de opruimkosten van afvaldumpingen voortaan volledig onder in de afvalstoffenheffing. Daarmee wordt bijplaatsing een post op de rekening van elke inwoner.",
     categorie: "Analyse",
     datum: "2026-10-12",
-    h1: "Zwolle zet de kosten van bijplaatsingen op de afvalrekening — en maakt daarmee een vliegwiel zichtbaar",
+    h1: "Zwolle zet de kosten van bijplaatsingen op de afvalrekening, en maakt daarmee een vliegwiel zichtbaar",
     lead:
       "Zwolle brengt de opruimkosten van afvaldumpingen voortaan volledig onder in de afvalstoffenheffing. Daarmee wordt bijplaatsing een post op de rekening van elke inwoner.",
     meta: {
       titel: "Zwolle: bijplaatsingen in de afvalrekening",
       omschrijving:
-        "Zwolle verhoogt de afvalstoffenheffing met 21,6 procent en brengt de kosten van afvaldumpingen volledig onder in die heffing. Wat dat betekent voor containerbeheer.",
+        "Zwolle verhoogt de afvalstoffenheffing met 21,6 procent en brengt de kosten van afvaldumpingen onder die heffing. Wat dat betekent voor uw containers.",
     },
     blokken: [
       {
         type: "p",
         tekst: "Het college van Zwolle stelt voor om de vaste afvalstoffenheffing in 2027 met <strong>21,6 procent</strong> te verhogen. Voor een meerpersoonshuishouden is dat 58,77 euro per jaar extra, voor een eenpersoonshuishouden 47,01 euro. Ter vergelijking: de meeste andere gemeentelijke tarieven in Zwolle stijgen met 2,9 procent. De gemeenteraad besluit erover op 13 november, bij de behandeling van de begroting.",
+      },
+      {
+        type: "h2",
+        tekst: "Wat het college voorstelt",
       },
       {
         type: "cijfers",
@@ -249,7 +253,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Beleidsmatig is daar iets voor te zeggen: wie veroorzaakt, betaalt. Maar het gevolg is wel dat bijplaatsing verschuift van een post op de algemene begroting naar een post op de rekening van elk huishouden — ook van huishoudens die niets naast de container zetten.",
+        tekst: "Beleidsmatig is daar iets voor te zeggen: wie veroorzaakt, betaalt. Maar het gevolg is wel dat bijplaatsing verschuift van een post op de algemene begroting naar een post op de rekening van elk huishouden, ook van huishoudens die niets naast de container zetten.",
       },
       {
         type: "h2",
@@ -286,7 +290,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Daarmee ontstaat een ongemakkelijke situatie: de kosten van bijplaatsing gaan volledig naar de inwoner, terwijl de omvang van het probleem alleen in registraties en niet in kilo’s bekend is. Een gemeente die straks wil laten zien dat de aanpak werkt, kan dat met deze cijfers niet hard maken — een daling van het aantal registraties kan immers ook betekenen dat er minder is geregistreerd.",
+        tekst: "Daarmee ontstaat een ongemakkelijke situatie: de kosten van bijplaatsing gaan volledig naar de inwoner, terwijl de omvang van het probleem alleen in registraties en niet in kilo’s bekend is. Een gemeente die straks wil laten zien dat de aanpak werkt, kan dat met deze cijfers niet hard maken, een daling van het aantal registraties kan immers ook betekenen dat er minder is geregistreerd.",
       },
       {
         type: "h2",
@@ -391,7 +395,7 @@ export const artikelen: Artikel[] = [
     meta: {
       titel: "Vulgraadsensoren in ondergrondse containers",
       omschrijving:
-        "Wat een vulgraadsensor doet, wat de Amsterdamse proef met 1.500 glascontainers oplevert, wat er in de business case hoort en waar sensoren niet tegen helpen.",
+        "Wat een vulgraadsensor doet, wat de Amsterdamse proef met 1.500 glascontainers oplevert en waar sensoren juist niet tegen helpen.",
     },
     blokken: [
       {
@@ -424,11 +428,11 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "citaat",
-        tekst: "“Daarmee kan de gemeente steeds beter bepalen wanneer een container daadwerkelijk geleegd moet worden.” — gemeente Amsterdam",
+        tekst: "“Daarmee kan de gemeente steeds beter bepalen wanneer een container daadwerkelijk geleegd moet worden”, aldus de gemeente Amsterdam.",
       },
       {
         type: "p",
-        tekst: "Dat is een belangrijke nuance voor iedereen die sensoren vooral ziet als middel tegen volle containers. De eerste winst zit meestal aan de andere kant: aan de loze ritten die verdwijnen. Minder ritten betekent minder kilometers, minder uren en minder uitstoot — en dat is precies de kant van de business case die te becijferen valt.",
+        tekst: "Dat is een belangrijke nuance voor iedereen die sensoren vooral ziet als middel tegen volle containers. De eerste winst zit meestal aan de andere kant: aan de loze ritten die verdwijnen. Minder ritten betekent minder kilometers, minder uren en minder uitstoot, en dat is precies de kant van de business case die te becijferen valt.",
       },
       {
         type: "h2",
@@ -562,12 +566,12 @@ export const artikelen: Artikel[] = [
   {
     slug: "omgekeerd-inzamelen-middelburg-2028",
     samenvatting:
-      "Middelburg wil vanaf 2028 omgekeerd inzamelen. Het restafval verhuist naar verzamelcontainers in de buurt — en die locaties moeten er eerst komen.",
+      "Middelburg wil vanaf 2028 omgekeerd inzamelen. Het restafval verhuist naar verzamelcontainers in de buurt, en die locaties moeten er eerst komen.",
     categorie: "Analyse",
     datum: "2026-10-05",
     h1: "Middelburg kiest voor omgekeerd inzamelen: de locaties zijn het kritieke pad",
     lead:
-      "Middelburg wil vanaf 2028 omgekeerd inzamelen. Het restafval verhuist naar verzamelcontainers in de buurt — en die locaties moeten er eerst komen.",
+      "Middelburg wil vanaf 2028 omgekeerd inzamelen. Het restafval verhuist naar verzamelcontainers in de buurt, en die locaties moeten er eerst komen.",
     meta: {
       titel: "Middelburg: omgekeerd inzamelen in 2028",
       omschrijving:
@@ -580,7 +584,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "citaat",
-        tekst: "“Met omgekeerd inzamelen maken we het makkelijker om waardevolle grondstoffen goed te scheiden en stimuleren we inwoners om minder restafval over te houden.” — wethouder Jesse Aarnoutse",
+        tekst: "“Met omgekeerd inzamelen maken we het makkelijker om waardevolle grondstoffen goed te scheiden en stimuleren we inwoners om minder restafval over te houden”, aldus wethouder Jesse Aarnoutse.",
       },
       {
         type: "p",
@@ -624,7 +628,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Middelburg houdt vast aan diftar en scherpt het aan. In 2027 wordt al vanaf de eerste aanbieding apart betaald — er zitten dan geen aanbiedingen meer verrekend in het vaste tarief — en in 2028 wordt de financiële prikkel vergroot. De kwijtschelding, de medische regeling en de vrijstelling voor huishoudens met kinderen tot vier jaar blijven bestaan.",
+        tekst: "Middelburg houdt vast aan diftar en scherpt het aan. In 2027 wordt al vanaf de eerste aanbieding apart betaald, er zitten dan geen aanbiedingen meer verrekend in het vaste tarief, en in 2028 wordt de financiële prikkel vergroot. De kwijtschelding, de medische regeling en de vrijstelling voor huishoudens met kinderen tot vier jaar blijven bestaan.",
       },
       {
         type: "p",
@@ -674,7 +678,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Middelburg heeft met 2028 een realistische horizon gekozen. Of die haalbaar is, hangt niet af van de containers maar van hoeveel locaties er in de tussenliggende twee jaar daadwerkelijk rond komen — en dat werk begint bij <a href=\"/diensten/locatieonderzoek/\">locatieonderzoek en werkvoorbereiding</a>.",
+        tekst: "Middelburg heeft met 2028 een realistische horizon gekozen. Of die haalbaar is, hangt niet af van de containers maar van hoeveel locaties er in de tussenliggende twee jaar daadwerkelijk rond komen, en dat werk begint bij <a href=\"/diensten/locatieonderzoek/\">locatieonderzoek en werkvoorbereiding</a>.",
       },
       {
         type: "cta",
@@ -691,12 +695,12 @@ export const artikelen: Artikel[] = [
   {
     slug: "afvalinzameling-houten-rmn-2027",
     samenvatting:
-      "Houten stapt per 1 januari 2027 over naar RMN. Voor inwoners verandert er weinig — onder de motorkap moet er juist veel kloppen.",
+      "Houten stapt per 1 januari 2027 over naar RMN. Voor inwoners verandert er weinig, onder de motorkap moet er juist veel kloppen.",
     categorie: "Analyse",
     datum: "2026-10-01",
     h1: "Houten stapt over naar RMN: wat er bij een wissel van inzamelaar moet kloppen",
     lead:
-      "Houten stapt per 1 januari 2027 over naar RMN. Voor inwoners verandert er weinig — onder de motorkap moet er juist veel kloppen.",
+      "Houten stapt per 1 januari 2027 over naar RMN. Voor inwoners verandert er weinig, onder de motorkap moet er juist veel kloppen.",
     meta: {
       titel: "Houten stapt over naar RMN per 2027",
       omschrijving:
@@ -742,7 +746,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Dit is precies waarom <a href=\"/diensten/containerregistratie/\">containerregistratie</a> geen administratieve bijzaak is. Een gemeente die haar registratie op orde heeft, draagt een bestand over. Een gemeente die dat niet heeft, draagt een probleem over — en betaalt de inventarisatie alsnog, maar dan onder tijdsdruk.",
+        tekst: "Dit is precies waarom <a href=\"/diensten/containerregistratie/\">containerregistratie</a> geen administratieve bijzaak is. Een gemeente die haar registratie op orde heeft, draagt een bestand over. Een gemeente die dat niet heeft, draagt een probleem over, en betaalt de inventarisatie alsnog, maar dan onder tijdsdruk.",
       },
       {
         type: "h2",
@@ -779,7 +783,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Een wissel dwingt tot opruimen. Alles wat jarenlang impliciet bij de uitvoerder zat — welke locaties lastig zijn, welke containers aan vervanging toe zijn, waar de capaciteit niet klopt — moet nu expliciet worden gemaakt. Dat is vervelend werk en tegelijk de beste gelegenheid in jaren om het containerpark echt in beeld te krijgen.",
+        tekst: "Een wissel dwingt tot opruimen. Alles wat jarenlang impliciet bij de uitvoerder zat, welke locaties lastig zijn, welke containers aan vervanging toe zijn, waar de capaciteit niet klopt, moet nu expliciet worden gemaakt. Dat is vervelend werk en tegelijk de beste gelegenheid in jaren om het containerpark echt in beeld te krijgen.",
       },
       {
         type: "p",
@@ -857,7 +861,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Dat is precies wat je in Hoorn ziet: de containers staan er, de put is gemaakt, de bestrating ligt terug — en toch kan er zes weken lang niets in. De fysieke oplevering is klaar, de ingebruikname niet.",
+        tekst: "Dat is precies wat je in Hoorn ziet: de containers staan er, de put is gemaakt, de bestrating ligt terug, en toch kan er zes weken lang niets in. De fysieke oplevering is klaar, de ingebruikname niet.",
       },
       {
         type: "let-op",
@@ -866,7 +870,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "In een planning waarin de aansluiting pas wordt aangevraagd als de locatie definitief is, loopt u die doorlooptijd achteraf tegen het lijf. Vraagt u hem aan zodra de locatie waarschijnlijk is, dan loopt hij mee met de vergunning en de uitvoering. Het risico is dan een aanvraag die u moet corrigeren als de locatie alsnog verschuift — beduidend goedkoper dan een container die er staat maar dicht blijft.",
+        tekst: "In een planning waarin de aansluiting pas wordt aangevraagd als de locatie definitief is, loopt u die doorlooptijd achteraf tegen het lijf. Vraagt u hem aan zodra de locatie waarschijnlijk is, dan loopt hij mee met de vergunning en de uitvoering. Het risico is dan een aanvraag die u moet corrigeren als de locatie alsnog verschuift, beduidend goedkoper dan een container die er staat maar dicht blijft.",
       },
       {
         type: "h2",
@@ -878,7 +882,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Tegelijk verandert het wel iets wezenlijks. Bij de andere locaties staat de cocon op zo’n vijf meter van de container: je gooit je restafval weg en je etensresten in één beweging. Zodra die twee fracties in verschillende straten staan, wordt scheiden een aparte handeling — en dat is precies het moment waarop het scheidingspercentage begint te zakken.",
+        tekst: "Tegelijk verandert het wel iets wezenlijks. Bij de andere locaties staat de cocon op zo’n vijf meter van de container: je gooit je restafval weg en je etensresten in één beweging. Zodra die twee fracties in verschillende straten staan, wordt scheiden een aparte handeling, en dat is precies het moment waarop het scheidingspercentage begint te zakken.",
       },
       {
         type: "kader",
@@ -889,7 +893,7 @@ export const artikelen: Artikel[] = [
             items: [
               "De loopafstand tot de andere fractie: naast elkaar of om de hoek scheelt veel",
               "Of het aanbieden in één gang kan of twee losse ritjes vraagt",
-              "Of duidelijk is wat er wel en niet in mag — bij GFE struikelt iedereen over tuinafval",
+              "Of duidelijk is wat er wel en niet in mag, bij GFE struikelt iedereen over tuinafval",
               "Of de cocon net zo verzorgd oogt als de hoofdcontainer",
               "Of de capaciteit klopt: een volle cocon leert mensen binnen een week hem over te slaan",
             ],
@@ -906,7 +910,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Dat klinkt vanzelfsprekend en is het niet. Een bewoner die voor een dichte container staat en niet weet waar hij dan heen moet, zet zijn zak ernaast — en zoals we eerder schreven naar aanleiding van <a href=\"/nieuws/afvaldumpingen-almere-meldingen/\">de afvaldumpingen in Almere</a> en <a href=\"/nieuws/afvalmeldingen-hilversum-graadmeter/\">de meldingen in Hilversum</a>: de eerste zak bepaalt of het bij één blijft. Een tijdelijke storing die goed wordt gecommuniceerd, kost niets. Dezelfde storing zonder alternatief kost u een hotspot die er daarna niet meer weggaat.",
+        tekst: "Dat klinkt vanzelfsprekend en is het niet. Een bewoner die voor een dichte container staat en niet weet waar hij dan heen moet, zet zijn zak ernaast, en zoals we eerder schreven naar aanleiding van <a href=\"/nieuws/afvaldumpingen-almere-meldingen/\">de afvaldumpingen in Almere</a> en <a href=\"/nieuws/afvalmeldingen-hilversum-graadmeter/\">de meldingen in Hilversum</a>: de eerste zak bepaalt of het bij één blijft. Een tijdelijke storing die goed wordt gecommuniceerd, kost niets. Dezelfde storing zonder alternatief kost u een hotspot die er daarna niet meer weggaat.",
       },
       {
         type: "h2",
@@ -948,12 +952,12 @@ export const artikelen: Artikel[] = [
   {
     slug: "afvaldumpingen-almere-meldingen",
     samenvatting:
-      "Een kwart van alle 65.000 meldingen in Almere gaat over gedumpt afval. De gemeente noemt het een gedragsprobleem — maar haar eigen vuilnisophaler wijst op iets anders.",
+      "Een kwart van alle 65.000 meldingen in Almere gaat over gedumpt afval. De gemeente noemt het een gedragsprobleem, maar haar eigen vuilnisophaler wijst op iets anders.",
     categorie: "Analyse",
     datum: "2026-09-22",
     h1: "Afvaldumpingen in Almere: een gedragsprobleem, of een wachttijd van vier weken?",
     lead:
-      "Een kwart van alle 65.000 meldingen in Almere gaat over gedumpt afval. De gemeente noemt het een gedragsprobleem — maar haar eigen vuilnisophaler wijst op iets anders.",
+      "Een kwart van alle 65.000 meldingen in Almere gaat over gedumpt afval. De gemeente noemt het een gedragsprobleem, maar haar eigen vuilnisophaler wijst op iets anders.",
     meta: {
       titel: "Afvaldumpingen Almere: gedrag of drempel?",
       omschrijving:
@@ -990,11 +994,11 @@ export const artikelen: Artikel[] = [
           {
             type: "lijst",
             items: [
-              "Stedenwijk — 1.108 meldingen",
-              "Filmwijk — 958",
-              "Literatuurwijk — 934",
-              "Homeruskwartier — 916",
-              "Kruidenwijk — 754",
+              "Stedenwijk, 1.108 meldingen",
+              "Filmwijk, 958",
+              "Literatuurwijk, 934",
+              "Homeruskwartier, 916",
+              "Kruidenwijk, 754",
             ],
           },
           { type: "p", tekst: "Op stadsdeelniveau springt Almere Stad eruit, met 5.496 meldingen." },
@@ -1014,7 +1018,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "citaat",
-        tekst: "“Mensen willen het nú kwijt. Dan wordt het ons probleem, en wij ruimen het wel weer op.” — Peter Perez-van Huisstede, vuilnisophaler",
+        tekst: "“Mensen willen het nú kwijt. Dan wordt het ons probleem, en wij ruimen het wel weer op”, aldus vuilnisophaler Peter Perez-van Huisstede.",
       },
       {
         type: "p",
@@ -1027,7 +1031,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "h2",
-        tekst: "Snel opruimen werkt — en dat bevestigt Almere",
+        tekst: "Snel opruimen werkt, en dat bevestigt Almere",
       },
       {
         type: "p",
@@ -1111,7 +1115,7 @@ export const artikelen: Artikel[] = [
     blokken: [
       {
         type: "p",
-        tekst: "In Hilversum nemen de meldingen over afval naast ondergrondse containers en grofvuildumpingen fors toe. In de eerste acht maanden van 2026 kwamen er <strong>1.689 meldingen</strong> binnen — bijna evenveel als in heel 2025. Het college van burgemeester en wethouders noemt de overlast in antwoord op schriftelijke vragen van D66 een ‘groeiend probleem’.",
+        tekst: "In Hilversum nemen de meldingen over afval naast ondergrondse containers en grofvuildumpingen fors toe. In de eerste acht maanden van 2026 kwamen er <strong>1.689 meldingen</strong> binnen, bijna evenveel als in heel 2025. Het college van burgemeester en wethouders noemt de overlast in antwoord op schriftelijke vragen van D66 een ‘groeiend probleem’.",
       },
       {
         type: "cijfers",
@@ -1134,7 +1138,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "D66 vroeg het college hoe het gaat bepalen of de aanpak werkt. Het antwoord: de meldingen en registraties vormen daarvoor de belangrijkste graadmeter. Dat is een begrijpelijke keuze — het is het enige cijfer dat er ligt. Maar het is ook een cijfer dat meebeweegt met de aanpak zelf.",
+        tekst: "D66 vroeg het college hoe het gaat bepalen of de aanpak werkt. Het antwoord: de meldingen en registraties vormen daarvoor de belangrijkste graadmeter. Dat is een begrijpelijke keuze, het is het enige cijfer dat er ligt. Maar het is ook een cijfer dat meebeweegt met de aanpak zelf.",
       },
       {
         type: "p",
@@ -1151,7 +1155,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "De praktische consequentie is niet dat de cijfers waardeloos zijn — ze zijn juist bruikbaar. Maar dan wel als <strong>verdeling over locaties</strong>, niet als totaal. Het totaal vertelt vooral hoe goed er wordt geregistreerd; de verdeling vertelt waar het misgaat.",
+        tekst: "De praktische consequentie is niet dat de cijfers waardeloos zijn, ze zijn juist bruikbaar. Maar dan wel als <strong>verdeling over locaties</strong>, niet als totaal. Het totaal vertelt vooral hoe goed er wordt geregistreerd; de verdeling vertelt waar het misgaat.",
       },
       {
         type: "h2",
@@ -1183,7 +1187,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Een stadsbrede campagne raakt zo’n lijst maar half. Negen locaties zijn te belopen, en per locatie verschilt de oorzaak. Aan de Liebergerweg lagen tapijttegels, een bureaustoel en meerdere matrassen — dat is grofvuil, geen huisvuil dat niet in de zuil paste. Aan de Erfgooierstraat, ook een hotspot, was het tijdens het bezoek van NH Nieuws juist rustig. Dat verschil tussen twee plekken op dezelfde lijst is geen ruis; het is de aanwijzing.",
+        tekst: "Een stadsbrede campagne raakt zo’n lijst maar half. Negen locaties zijn te belopen, en per locatie verschilt de oorzaak. Aan de Liebergerweg lagen tapijttegels, een bureaustoel en meerdere matrassen, dat is grofvuil, geen huisvuil dat niet in de zuil paste. Aan de Erfgooierstraat, ook een hotspot, was het tijdens het bezoek van NH Nieuws juist rustig. Dat verschil tussen twee plekken op dezelfde lijst is geen ruis; het is de aanwijzing.",
       },
       {
         type: "h2",
@@ -1195,7 +1199,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "De tweede verklaring gaat over de drempel om het wél goed te doen. Een man die bij dezelfde containers zijn afval wegbrengt, merkt op dat mensen soms niet weten waar ze ermee heen moeten, en dat het zonder auto lastig is om bepaald afval weg te brengen. Hij oppert vaste ophaalmomenten waarop grofvuil naast de container mag — mits het diezelfde dag wordt opgehaald.",
+        tekst: "De tweede verklaring gaat over de drempel om het wél goed te doen. Een man die bij dezelfde containers zijn afval wegbrengt, merkt op dat mensen soms niet weten waar ze ermee heen moeten, en dat het zonder auto lastig is om bepaald afval weg te brengen. Hij oppert vaste ophaalmomenten waarop grofvuil naast de container mag, mits het diezelfde dag wordt opgehaald.",
       },
       {
         type: "p",
@@ -1203,11 +1207,11 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "citaat",
-        tekst: "“Als er eenmaal iets staat, wordt er makkelijk iets bijgedonderd.” — omwonende van de Minckelersstraat, tegen NH Nieuws",
+        tekst: "“Als er eenmaal iets staat, wordt er makkelijk iets bijgedonderd”, zei een omwonende van de Minckelersstraat tegen NH Nieuws.",
       },
       {
         type: "p",
-        tekst: "Dat mechanisme is het sterkste argument voor het snel opruimen dat Hilversum aankondigt. De eerste dumping verlaagt de drempel voor de tweede. Snel weghalen is daarmee geen cosmetica maar preventie — het is alleen geen oplossing voor de vraag waaróm die eerste dumping er kwam.",
+        tekst: "Dat mechanisme is het sterkste argument voor het snel opruimen dat Hilversum aankondigt. De eerste dumping verlaagt de drempel voor de tweede. Snel weghalen is daarmee geen cosmetica maar preventie, het is alleen geen oplossing voor de vraag waaróm die eerste dumping er kwam.",
       },
       {
         type: "h2",
@@ -1236,7 +1240,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Een deel van de bijplaatsingen is met communicatie en handhaving op te lossen. Een ander deel gaat terug op de inrichting van de locatie zelf — daarover schreven we eerder naar aanleiding van <a href=\"/nieuws/afval-naast-ondergrondse-containers/\">de gezamenlijke aanpak van Rd4 en vier Limburgse gemeenten</a>. Welk deel waar overheerst, is per locatie te bepalen tijdens <a href=\"/diensten/locatieonderzoek/\">locatieonderzoek en werkvoorbereiding</a>.",
+        tekst: "Een deel van de bijplaatsingen is met communicatie en handhaving op te lossen. Een ander deel gaat terug op de inrichting van de locatie zelf, daarover schreven we eerder naar aanleiding van <a href=\"/nieuws/afval-naast-ondergrondse-containers/\">de gezamenlijke aanpak van Rd4 en vier Limburgse gemeenten</a>. Welk deel waar overheerst, is per locatie te bepalen tijdens <a href=\"/diensten/locatieonderzoek/\">locatieonderzoek en werkvoorbereiding</a>.",
       },
       {
         type: "p",
@@ -1256,11 +1260,11 @@ export const artikelen: Artikel[] = [
   },
   {
     slug: "afval-naast-ondergrondse-containers",
-    samenvatting: "Op tien locaties worden containers opgeknapt en krijgen omwonenden uitleg. Een verzorgde plek helpt — maar niet elke bijplaatsing is een kwestie van gedrag.",
+    samenvatting: "Op tien locaties worden containers opgeknapt en krijgen omwonenden uitleg. Een verzorgde plek helpt, maar niet elke bijplaatsing is een kwestie van gedrag.",
     categorie: "Analyse",
     datum: "2026-09-16",
     h1: "Afval naast ondergrondse containers: Rd4 en vier gemeenten pakken bijplaatsingen aan",
-    lead: "Op tien locaties worden containers opgeknapt en krijgen omwonenden uitleg. Een verzorgde plek helpt — maar niet elke bijplaatsing is een kwestie van gedrag.",
+    lead: "Op tien locaties worden containers opgeknapt en krijgen omwonenden uitleg. Een verzorgde plek helpt, maar niet elke bijplaatsing is een kwestie van gedrag.",
     meta: {
       titel: "Afval naast ondergrondse containers aanpakken",
       omschrijving: "Rd4 en vier gemeenten pakken afval naast ondergrondse containers aan. Wat werkt tegen bijplaatsingen, en wat is in de voorbereiding al op te lossen?",
@@ -1276,7 +1280,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "De maatregelen zijn bewust praktisch. De containers worden schoongemaakt en opgeknapt, er komen nieuwe stickers op en bij elke locatie komt een informatiebord te staan. Daarnaast krijgen inwoners uitleg over wat zij kunnen doen wanneer een container vol of defect is — juist op die momenten ontstaan de meeste bijplaatsingen.",
+        tekst: "De maatregelen zijn bewust praktisch. De containers worden schoongemaakt en opgeknapt, er komen nieuwe stickers op en bij elke locatie komt een informatiebord te staan. Daarnaast krijgen inwoners uitleg over wat zij kunnen doen wanneer een container vol of defect is, juist op die momenten ontstaan de meeste bijplaatsingen.",
       },
       {
         type: "p",
@@ -1292,7 +1296,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "citaat",
-        tekst: "“Als een locatie schoon en verzorgd oogt, zijn mensen eerder geneigd om deze ook netjes te houden.” — Rd4",
+        tekst: "“Als een locatie schoon en verzorgd oogt, zijn mensen eerder geneigd om deze ook netjes te houden”, aldus Rd4.",
       },
       {
         type: "p",
@@ -1322,7 +1326,7 @@ export const artikelen: Artikel[] = [
               "Of er fysiek ruimte is om iets naast de zuil neer te zetten",
               "De ligging ten opzichte van looproutes, parkeerplaatsen en de aanrijroute",
               "Zicht vanuit omliggende woningen en verlichting in de avonduren",
-              "Hoe eenvoudig een storing te melden is — en hoe snel die wordt verholpen",
+              "Hoe eenvoudig een storing te melden is, en hoe snel die wordt verholpen",
             ],
           },
         ],
@@ -1367,7 +1371,7 @@ export const artikelen: Artikel[] = [
     categorie: "Analyse",
     datum: "2026-09-10",
     h1: "PMD-verzamelcontainers verdwijnen uit hoogbouw: wat betekent dit voor gemeenten?",
-    lead: "Verpact, VNG en NVRD schrappen vergoeding voor PMD uit openbare verzamelcontainers. Enschede loopt voorop in de discussie — wat de nieuwe afspraken betekenen voor de ondergrondse infrastructuur.",
+    lead: "Verpact, VNG en NVRD schrappen vergoeding voor PMD uit openbare verzamelcontainers. Enschede loopt voorop in de discussie, wat de nieuwe afspraken betekenen voor de ondergrondse infrastructuur.",
     meta: {
       titel: "PMD-containers hoogbouw verdwijnen 2026",
       omschrijving: "Verpact, VNG en NVRD schrappen PMD-verzamelcontainers uit hoogbouw. Wat de nieuwe Samenwerkingsovereenkomst Verpakkingen betekent voor gemeenten en.",
@@ -1395,11 +1399,11 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "De reden is financieel-kwalitatief van aard. Voor PMD dat via openbare verzamelcontainers wordt ingezameld, wordt geen vergoeding meer verstrekt vanwege de hoge mate van vervuiling van deze stroom. Enschede is daarvan een sprekend voorbeeld: vorig jaar werd daar 99 procent van het PMD uit verzamelcontainers afgekeurd. Verzamelcontainers in de openbare ruimte trekken nu eenmaal bijmenging van ander afval aan, wat de kwaliteit — en daarmee de recyclingwaarde — van de stroom sterk verlaagt.",
+        tekst: "De reden is financieel-kwalitatief van aard. Voor PMD dat via openbare verzamelcontainers wordt ingezameld, wordt geen vergoeding meer verstrekt vanwege de hoge mate van vervuiling van deze stroom. Enschede is daarvan een sprekend voorbeeld: vorig jaar werd daar 99 procent van het PMD uit verzamelcontainers afgekeurd. Verzamelcontainers in de openbare ruimte trekken nu eenmaal bijmenging van ander afval aan, wat de kwaliteit, en daarmee de recyclingwaarde, van de stroom sterk verlaagt.",
       },
       {
         type: "citaat",
-        tekst: "Een verzamelcontainer die voor 99 procent wordt afgekeurd, levert geen grondstof meer op — hij levert vooral kosten op.",
+        tekst: "Een verzamelcontainer die voor 99 procent wordt afgekeurd, levert geen grondstof meer op, hij levert vooral kosten op.",
       },
       {
         type: "h2",
@@ -1453,7 +1457,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Welke route het beste past, hangt sterk af van de lokale situatie — vergelijkbaar met de afweging tussen bron- en nascheiding die elders al breed wordt gevoerd. Belangrijk is dat gemeenten deze wijziging niet als losse actie behandelen, maar meenemen in de bredere planning van hun containerpark.",
+        tekst: "Welke route het beste past, hangt sterk af van de lokale situatie, vergelijkbaar met de afweging tussen bron- en nascheiding die elders al breed wordt gevoerd. Belangrijk is dat gemeenten deze wijziging niet als losse actie behandelen, maar meenemen in de bredere planning van hun containerpark.",
       },
       {
         type: "h2",
@@ -1590,7 +1594,7 @@ export const artikelen: Artikel[] = [
     blokken: [
       {
         type: "p",
-        tekst: "Terwijl gemeenten volop bezig zijn met de overstap naar bron- of nascheiding en de gevolgen van de PPWR, kondigde het kabinet een maatregel aan die de financiële urgentie van afvalreductie flink vergroot: een forse verhoging van de <strong>afvalstoffenbelasting</strong>. Voor gemeenten betekent dit dat restafval de komende jaren aanmerkelijk duurder wordt om te verwerken — met directe gevolgen voor de afvalstoffenheffing van inwoners.",
+        tekst: "Terwijl gemeenten volop bezig zijn met de overstap naar bron- of nascheiding en de gevolgen van de PPWR, kondigde het kabinet een maatregel aan die de financiële urgentie van afvalreductie flink vergroot: een forse verhoging van de <strong>afvalstoffenbelasting</strong>. Voor gemeenten betekent dit dat restafval de komende jaren aanmerkelijk duurder wordt om te verwerken, met directe gevolgen voor de afvalstoffenheffing van inwoners.",
       },
       {
         type: "p",
@@ -1602,7 +1606,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Het kabinet verhoogt zowel de afvalstoffenbelasting als de CO2-heffing voor afvalverbrandingsinstallaties. De afvalstoffenbelasting stijgt van €39,71 per 1.000 kilo in 2025 naar €90,21 per 1.000 kilo in 2028 — meer dan een verdubbeling. Vanaf 2035 loopt het tarief verder op naar €113,81 per 1.000 kilo. Samen leveren beide maatregelen de rijksoverheid structureel minimaal €567 miljoen aan belastinginkomsten per jaar op.",
+        tekst: "Het kabinet verhoogt zowel de afvalstoffenbelasting als de CO2-heffing voor afvalverbrandingsinstallaties. De afvalstoffenbelasting stijgt van €39,71 per 1.000 kilo in 2025 naar €90,21 per 1.000 kilo in 2028, meer dan een verdubbeling. Vanaf 2035 loopt het tarief verder op naar €113,81 per 1.000 kilo. Samen leveren beide maatregelen de rijksoverheid structureel minimaal €567 miljoen aan belastinginkomsten per jaar op.",
       },
       {
         type: "citaat",
@@ -1644,7 +1648,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "De maatregel is niet onomstreden. Politieke partijen in de Tweede Kamer hebben kritiek geuit op de manier waarop de lasten van deze belastingverhoging bij de afvalsector en daarmee bij gemeenten en burgers terechtkomen. De zorg is dat een generieke lastenverzwaring niet automatisch tot minder restafval leidt, maar vooral tot hogere woonlasten — tenzij gemeenten hun infrastructuur ook daadwerkelijk aanpassen om restafval te verminderen.",
+        tekst: "De maatregel is niet onomstreden. Politieke partijen in de Tweede Kamer hebben kritiek geuit op de manier waarop de lasten van deze belastingverhoging bij de afvalsector en daarmee bij gemeenten en burgers terechtkomen. De zorg is dat een generieke lastenverzwaring niet automatisch tot minder restafval leidt, maar vooral tot hogere woonlasten, tenzij gemeenten hun infrastructuur ook daadwerkelijk aanpassen om restafval te verminderen.",
       },
       {
         type: "h2",
@@ -1702,7 +1706,7 @@ export const artikelen: Artikel[] = [
     blokken: [
       {
         type: "p",
-        tekst: "Sinds 1 januari 2025 geldt in de hele Europese Unie een verplichting tot gescheiden <strong>textielinzameling</strong>. Kleding, schoenen, gordijnen en beddengoed mogen niet langer bij het restafval, ongeacht de kwaliteit of staat waarin het textiel verkeert. Voor gemeenten is dit geen vrijblijvend advies meer, maar een wettelijke verplichting — en dat raakt direct aan de inrichting van de openbare inzamelinfrastructuur, waaronder ondergrondse containersystemen.",
+        tekst: "Sinds 1 januari 2025 geldt in de hele Europese Unie een verplichting tot gescheiden <strong>textielinzameling</strong>. Kleding, schoenen, gordijnen en beddengoed mogen niet langer bij het restafval, ongeacht de kwaliteit of staat waarin het textiel verkeert. Voor gemeenten is dit geen vrijblijvend advies meer, maar een wettelijke verplichting, en dat raakt direct aan de inrichting van de openbare inzamelinfrastructuur, waaronder ondergrondse containersystemen.",
       },
       {
         type: "p",
@@ -1718,7 +1722,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Voor gemeenten betekent dit dat textiel een volwaardige plek moet krijgen naast de bestaande stromen restafval, PMD, papier, glas en gft — met een eigen inzamelvoorziening, communicatie richting inwoners en verwerkingsroute.",
+        tekst: "Voor gemeenten betekent dit dat textiel een volwaardige plek moet krijgen naast de bestaande stromen restafval, PMD, papier, glas en gft, met een eigen inzamelvoorziening, communicatie richting inwoners en verwerkingsroute.",
       },
       {
         type: "h2",
@@ -1738,7 +1742,7 @@ export const artikelen: Artikel[] = [
               "<strong>Dekkingsgraad.</strong> Niet elke wijk heeft een textielcontainer binnen loopafstand, waardoor inwoners toch teruggrijpen naar de restafvalbak.",
               "<strong>Kwaliteitsverschil met kringloop.</strong> Textiel dat via een ondergrondse container wordt ingezameld, is gemiddeld natter en vervuilder dan textiel dat via kringloopwinkels binnenkomt, wat de recyclingwaarde drukt.",
               "<strong>Diefstal en bijplaatsing.</strong> Volle of overvolle textielcontainers trekken bijplaatsingen aan en zijn gevoelig voor het illegaal legen door derden, die het textiel buiten de officiële keten om verkopen.",
-              "<strong>Beperkte ruimte in de ondergrond.</strong> In dichtbebouwde wijken is er vaak al weinig ruimte voor restafval, PMD, papier en glas — een extra textielvoorziening vraagt om zorgvuldige planning.",
+              "<strong>Beperkte ruimte in de ondergrond.</strong> In dichtbebouwde wijken is er vaak al weinig ruimte voor restafval, PMD, papier en glas, een extra textielvoorziening vraagt om zorgvuldige planning.",
             ],
           },
         ],
@@ -1770,7 +1774,7 @@ export const artikelen: Artikel[] = [
       {
         type: "lijst",
         items: [
-          "Niet elke locatie heeft fysiek ruimte voor een extra ondergrondse bak — soms is een bovengrondse textielzuil of een centrale locatie per buurt een realistischer alternatief.",
+          "Niet elke locatie heeft fysiek ruimte voor een extra ondergrondse bak, soms is een bovengrondse textielzuil of een centrale locatie per buurt een realistischer alternatief.",
           "Een goede locatiekeuze houdt rekening met looproutes, zichtbaarheid en sociale veiligheid, net als bij andere afvalstromen.",
           "Samenwerking met erkende textielinzamelaars en kringloopbedrijven bepaalt mede welk containertype en welke ledigingsfrequentie het beste past.",
         ],
@@ -1810,12 +1814,12 @@ export const artikelen: Artikel[] = [
     lead: "Steeds meer gemeenten kiezen voor nascheiding van PMD. Wat verandert er, wat betekent de nieuwe EU-verpakkingsverordening (PPWR) en welke rol speelt ondergrondse infrastructuur?",
     meta: {
       titel: "Nascheiding PMD 2026: bronscheiding vs. nascheiding",
-      omschrijving: "PMD-nascheiding wint terrein in 2026. Ontdek de verschillen met bronscheiding, wat de nieuwe EU-verpakkingsregels (PPWR) betekenen en welke rol ondergrondse.",
+      omschrijving: "PMD-nascheiding wint terrein in 2026. De verschillen met bronscheiding, wat de EU-verpakkingsregels (PPWR) betekenen en de rol van ondergrondse containers.",
     },
     blokken: [
       {
         type: "p",
-        tekst: "De manier waarop Nederland plastic, metaal en drankkartons (PMD) inzamelt, staat dit jaar volop ter discussie. Terwijl verreweg de meeste gemeenten hun inwoners nog vragen om PMD thuis apart te houden, kiezen steeds meer gemeenten voor <strong>nascheiding</strong>: al het afval gaat samen de container in en de scheiding gebeurt achteraf bij de verwerker. Voor gemeenten, woningcorporaties en projectontwikkelaars die nadenken over hun inzamelinfrastructuur is dit een cruciale keuze — en die keuze raakt direct aan het ontwerp van ondergrondse containersystemen.",
+        tekst: "De manier waarop Nederland plastic, metaal en drankkartons (PMD) inzamelt, staat dit jaar volop ter discussie. Terwijl verreweg de meeste gemeenten hun inwoners nog vragen om PMD thuis apart te houden, kiezen steeds meer gemeenten voor <strong>nascheiding</strong>: al het afval gaat samen de container in en de scheiding gebeurt achteraf bij de verwerker. Voor gemeenten, woningcorporaties en projectontwikkelaars die nadenken over hun inzamelinfrastructuur is dit een cruciale keuze, en die keuze raakt direct aan het ontwerp van ondergrondse containersystemen.",
       },
       {
         type: "p",
@@ -1835,7 +1839,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Een belangrijk misverstand: nascheiding geldt uitsluitend voor PMD. Volgens de brancheorganisatie voor afval- en reinigingsmanagement kan nascheiding alleen worden toegepast op plastic verpakkingen, metalen verpakkingen en drankkartons — papier, glas, gft, textiel en klein chemisch afval moeten altijd aan de bron gescheiden blijven. Nascheiding maakt dus geen einde aan afval scheiden; het verandert alleen wie welke stap uitvoert.",
+        tekst: "Een belangrijk misverstand: nascheiding geldt uitsluitend voor PMD. Volgens de brancheorganisatie voor afval- en reinigingsmanagement kan nascheiding alleen worden toegepast op plastic verpakkingen, metalen verpakkingen en drankkartons, papier, glas, gft, textiel en klein chemisch afval moeten altijd aan de bron gescheiden blijven. Nascheiding maakt dus geen einde aan afval scheiden; het verandert alleen wie welke stap uitvoert.",
       },
       {
         type: "h2",
@@ -1847,7 +1851,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "De regio Gooi en Vechtstreek is een sprekend voorbeeld. Vanaf 1 juli 2026 hoeven inwoners daar hun PMD niet meer apart weg te gooien: PMD en restafval worden samen ingezameld en pas bij de afvalverwerker gescheiden. Het besluit viel nadat het bestaande verwerkingscontract afliep — precies het moment waarop de kosten en baten van beide systemen opnieuw tegen elkaar worden afgewogen.",
+        tekst: "De regio Gooi en Vechtstreek is een sprekend voorbeeld. Vanaf 1 juli 2026 hoeven inwoners daar hun PMD niet meer apart weg te gooien: PMD en restafval worden samen ingezameld en pas bij de afvalverwerker gescheiden. Het besluit viel nadat het bestaande verwerkingscontract afliep, precies het moment waarop de kosten en baten van beide systemen opnieuw tegen elkaar worden afgewogen.",
       },
       {
         type: "p",
@@ -1859,7 +1863,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Er is geen eenduidig antwoord — en dat is precies waarom de discussie zo lang aanhoudt. Uit een feitenonderzoek naar bron- en nascheiding bleek dat het gemiddelde ketenrendement van beide methoden in 2023 dicht bij elkaar lag, met slechts een marginaal verschil. Welke aanpak beter uitpakt, hangt sterk af van de lokale situatie.",
+        tekst: "Er is geen eenduidig antwoord, en dat is precies waarom de discussie zo lang aanhoudt. Uit een feitenonderzoek naar bron- en nascheiding bleek dat het gemiddelde ketenrendement van beide methoden in 2023 dicht bij elkaar lag, met slechts een marginaal verschil. Welke aanpak beter uitpakt, hangt sterk af van de lokale situatie.",
       },
       {
         type: "kader",
@@ -1890,7 +1894,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "De eerste concrete verplichtingen gaan in op 12 augustus 2026. Anders dan de oude verpakkingsrichtlijn is de PPWR een verordening: dezelfde regels gelden rechtstreeks in de hele Europese Unie, zonder nationale uitzonderingen. De verordening bevat een tijdlijn met steeds strengere eisen — zo moeten vanaf 2030 alle verpakkingen recyclebaar zijn en gelden er verplichte percentages gerecycled kunststof.",
+        tekst: "De eerste concrete verplichtingen gaan in op 12 augustus 2026. Anders dan de oude verpakkingsrichtlijn is de PPWR een verordening: dezelfde regels gelden rechtstreeks in de hele Europese Unie, zonder nationale uitzonderingen. De verordening bevat een tijdlijn met steeds strengere eisen, zo moeten vanaf 2030 alle verpakkingen recyclebaar zijn en gelden er verplichte percentages gerecycled kunststof.",
       },
       {
         type: "p",
@@ -1910,7 +1914,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Bij nascheiding verandert de voorkant van het proces: PMD en restafval gaan samen in één stroom. Dat kan het aantal benodigde containers per locatie verlagen. Belangrijk om te benadrukken: de capaciteit die een wijk aan afval produceert blijft in beide gevallen gelijk. De keuze tussen bron- en nascheiding is dan ook geen reden om minder containers te plaatsen — het gaat om het slim verdelen van de stromen.",
+        tekst: "Bij nascheiding verandert de voorkant van het proces: PMD en restafval gaan samen in één stroom. Dat kan het aantal benodigde containers per locatie verlagen. Belangrijk om te benadrukken: de capaciteit die een wijk aan afval produceert blijft in beide gevallen gelijk. De keuze tussen bron- en nascheiding is dan ook geen reden om minder containers te plaatsen, het gaat om het slim verdelen van de stromen.",
       },
       {
         type: "p",
@@ -1918,7 +1922,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Ook technologie speelt een groeiende rol. Ondergrondse containers worden in toenemende mate uitgerust met vulgraadsensoren, zodat inzamelwagens alleen rijden wanneer een container daadwerkelijk vol is. Dat scheelt ritten, brandstof en kosten — ongeacht of een gemeente voor bron- of nascheiding kiest.",
+        tekst: "Ook technologie speelt een groeiende rol. Ondergrondse containers worden in toenemende mate uitgerust met vulgraadsensoren, zodat inzamelwagens alleen rijden wanneer een container daadwerkelijk vol is. Dat scheelt ritten, brandstof en kosten, ongeacht of een gemeente voor bron- of nascheiding kiest.",
       },
       {
         type: "h2",
@@ -1954,7 +1958,7 @@ export const artikelen: Artikel[] = [
       {
         type: "cta",
         kop: "Advies over uw scheidingsstrategie en containersysteem",
-        tekst: "B-Advice adviseert over de technische voorbereiding en inpassing van ondergrondse containersystemen — afgestemd op uw scheidingsstrategie en de lokale situatie.",
+        tekst: "B-Advice adviseert over de technische voorbereiding en inpassing van ondergrondse containersystemen, afgestemd op uw scheidingsstrategie en de lokale situatie.",
       },
     ],
   },
