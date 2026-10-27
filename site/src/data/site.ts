@@ -327,7 +327,7 @@ export const diensten: readonly Dienst[] = [
     meta: {
       titel: "Containerregistratie ondergrondse containers | B-Advice",
       omschrijving:
-        "Containerregistratie opzetten en bijhouden: welke gegevens u per ondergrondse container vastlegt, hoe u inventariseert en waarom een losse Excel het zelden volhoudt.",
+        "Containerregistratie opzetten: welke gegevens u per ondergrondse container vastlegt, hoe u inventariseert en waarom een losse Excel het zelden volhoudt.",
     },
     actie: "Bespreek uw containerregistratie",
     soort: "Containerregistratie en containerbeheer",
@@ -982,7 +982,7 @@ export const tekstPaginas: readonly TekstPagina[] = [
     meta: {
       titel: "Bijplaatsingen voorkomen bij containers",
       omschrijving:
-        "Afval naast ondergrondse containers heeft drie verschillende oorzaken. Welke maatregelen structureel werken, welke tijdelijk, en wat u per locatie uitzoekt.",
+        "Afval naast ondergrondse containers heeft drie oorzaken. Welke maatregelen structureel werken, welke tijdelijk, en wat u per locatie uitzoekt.",
     },
     faq: [
       {
@@ -1015,7 +1015,7 @@ export const tekstPaginas: readonly TekstPagina[] = [
       {
         type: "p",
         tekst:
-          "Afval naast de container is in veel gemeenten de grootste bron van meldingen over de leefomgeving. Het maakt een straat vuil, kost geld om op te ruimen en trekt nieuw afval en ongedierte aan. Wat het hardnekkig maakt, is dat er niet één oorzaak is — en dus ook niet één oplossing.",
+          "Afval naast de container is in veel gemeenten de grootste bron van meldingen over de leefomgeving. Het maakt een straat vuil, kost geld om op te ruimen en trekt nieuw afval en ongedierte aan. Wat het hardnekkig maakt, is dat er niet één oorzaak is, en dus ook niet één oplossing.",
       },
       { type: "h2", tekst: "Drie oorzaken, drie soorten maatregelen" },
       {
@@ -1092,7 +1092,7 @@ export const tekstPaginas: readonly TekstPagina[] = [
       {
         type: "p",
         tekst:
-          "Bijplaatsingen zitten bijna nooit gelijkmatig over een gemeente verdeeld. Een klein deel van de locaties is verantwoordelijk voor een groot deel van de meldingen. Neem die locaties en loop ze langs op het moment dat het misgaat — niet op dinsdagochtend, maar in het weekend.",
+          "Bijplaatsingen zitten bijna nooit gelijkmatig over een gemeente verdeeld. Een klein deel van de locaties is verantwoordelijk voor een groot deel van de meldingen. Neem die locaties en loop ze langs op het moment dat het misgaat, niet op dinsdagochtend, maar in het weekend.",
       },
       {
         type: "ul",
@@ -1121,7 +1121,7 @@ export const tekstPaginas: readonly TekstPagina[] = [
       {
         type: "p",
         tekst:
-          "Registreer daarom naast de meldingen ook iets dat los staat van uw eigen inspanning: het opgeruimde gewicht of het aantal opruimritten per locatie. Anders kunt u na een jaar niet onderbouwen of de aanpak heeft gewerkt — en dat is precies de vraag die de raad zal stellen.",
+          "Registreer daarom naast de meldingen ook iets dat los staat van uw eigen inspanning: het opgeruimde gewicht of het aantal opruimritten per locatie. Anders kunt u na een jaar niet onderbouwen of de aanpak heeft gewerkt, en dat is precies de vraag die de raad zal stellen.",
       },
       {
         type: "p",
@@ -1449,7 +1449,7 @@ export const tekstPaginas: readonly TekstPagina[] = [
     meta: {
       titel: "Toegangscontrole en milieupas containers | B-Advice",
       omschrijving:
-        "Toegangscontrole met een milieupas bij ondergrondse containers: wat het oplevert, welke eisen het aan de locatie stelt en hoe het samenhangt met registratie.",
+        "Toegangscontrole met een milieupas bij ondergrondse containers: wat het oplevert, wat het van de locatie vraagt en hoe het samenhangt met registratie.",
     },
     blokken: [
       {
@@ -1729,8 +1729,8 @@ export const overOns = {
   meta: {
     titel: "Over B-Advice | Specialist afvalinfrastructuur",
     omschrijving:
-      "B-Advice ondersteunt gemeenten en afvalinzamelaars met ruim twee decennia " +
-      "ervaring in ondergrondse afvalinfrastructuur. Ons verhaal, ons team en onze aanpak.",
+      "B-Advice ondersteunt gemeenten en afvalinzamelaars in ondergrondse " +
+      "afvalinfrastructuur. Ons verhaal, onze aanpak en waar onze ervaring vandaan komt.",
   },
   bovenregel: "Sinds 2013",
   h1: "Specialisten in afvalinzameling",

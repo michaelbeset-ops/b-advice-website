@@ -1,0 +1,1733 @@
+{
+  "meta": {
+    "pages_total": 70,
+    "indexable": 44,
+    "sitemap_urls": 46,
+    "schema_types": [
+      "AboutPage",
+      "Answer",
+      "Audience",
+      "Blog",
+      "BreadcrumbList",
+      "ContactPage",
+      "Country",
+      "FAQPage",
+      "HowTo",
+      "HowToStep",
+      "ItemList",
+      "ListItem",
+      "LocalBusiness",
+      "NewsArticle",
+      "Organization",
+      "Person",
+      "PostalAddress",
+      "ProfessionalService",
+      "Question",
+      "Service",
+      "WebPage",
+      "WebSite"
+    ],
+    "demo": false,
+    "strategy": [
+      "ai",
+      "landelijk"
+    ]
+  },
+  "total": 98,
+  "scores": {
+    "Techniek": 97,
+    "On-page": 100,
+    "Links": 100,
+    "Structured data": 96,
+    "Lokaal": 100,
+    "AI-gereedheid": 98,
+    "Content": 95
+  },
+  "counts": {
+    "Laag": 186,
+    "Middel": 2,
+    "Info": 22
+  },
+  "issues": [
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/b-covered/",
+      "fix": ""
+    },
+    {
+      "sev": "Middel",
+      "cat": "Content",
+      "code": "thin",
+      "msg": "Weinig tekst (183 woorden): risico op dunne content.",
+      "page": "/b-covered/",
+      "fix": "Voeg echte, specifieke inhoud toe (werkwijze, prijsindicatie, werkgebied, vragen, projecten)."
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/b-organized/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/bijplaatsingen-voorkomen/",
+      "fix": ""
+    },
+    {
+      "sev": "Info",
+      "cat": "Structured data",
+      "code": "faq",
+      "msg": "FAQPage-markup: geen rich result meer sinds mei 2026. Mag blijven als de vragen zichtbaar op de pagina staan.",
+      "page": "/bijplaatsingen-voorkomen/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/contact/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "client-load",
+      "msg": "1 island(s) met client:load: laadt JavaScript direct (INP/snelheid).",
+      "page": "/contact/",
+      "fix": "Gebruik client:visible of client:idle tenzij het element meteen interactief moet zijn."
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/cookies/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/diensten/aanbesteding/",
+      "fix": ""
+    },
+    {
+      "sev": "Info",
+      "cat": "Structured data",
+      "code": "faq",
+      "msg": "FAQPage-markup: geen rich result meer sinds mei 2026. Mag blijven als de vragen zichtbaar op de pagina staan.",
+      "page": "/diensten/aanbesteding/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/diensten/afvalinzameling/",
+      "fix": ""
+    },
+    {
+      "sev": "Info",
+      "cat": "Structured data",
+      "code": "faq",
+      "msg": "FAQPage-markup: geen rich result meer sinds mei 2026. Mag blijven als de vragen zichtbaar op de pagina staan.",
+      "page": "/diensten/afvalinzameling/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/diensten/beheer-onderhoud/",
+      "fix": ""
+    },
+    {
+      "sev": "Info",
+      "cat": "Structured data",
+      "code": "faq",
+      "msg": "FAQPage-markup: geen rich result meer sinds mei 2026. Mag blijven als de vragen zichtbaar op de pagina staan.",
+      "page": "/diensten/beheer-onderhoud/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/diensten/bewonersparticipatie/",
+      "fix": ""
+    },
+    {
+      "sev": "Info",
+      "cat": "Structured data",
+      "code": "faq",
+      "msg": "FAQPage-markup: geen rich result meer sinds mei 2026. Mag blijven als de vragen zichtbaar op de pagina staan.",
+      "page": "/diensten/bewonersparticipatie/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/diensten/containerregistratie/",
+      "fix": ""
+    },
+    {
+      "sev": "Info",
+      "cat": "Structured data",
+      "code": "faq",
+      "msg": "FAQPage-markup: geen rich result meer sinds mei 2026. Mag blijven als de vragen zichtbaar op de pagina staan.",
+      "page": "/diensten/containerregistratie/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/diensten/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/diensten/locatieonderzoek/",
+      "fix": ""
+    },
+    {
+      "sev": "Info",
+      "cat": "Structured data",
+      "code": "faq",
+      "msg": "FAQPage-markup: geen rich result meer sinds mei 2026. Mag blijven als de vragen zichtbaar op de pagina staan.",
+      "page": "/diensten/locatieonderzoek/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/diensten/meerjaren-investeringsplan/",
+      "fix": ""
+    },
+    {
+      "sev": "Info",
+      "cat": "Structured data",
+      "code": "faq",
+      "msg": "FAQPage-markup: geen rich result meer sinds mei 2026. Mag blijven als de vragen zichtbaar op de pagina staan.",
+      "page": "/diensten/meerjaren-investeringsplan/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/diensten/plaatsing/",
+      "fix": ""
+    },
+    {
+      "sev": "Info",
+      "cat": "Structured data",
+      "code": "faq",
+      "msg": "FAQPage-markup: geen rich result meer sinds mei 2026. Mag blijven als de vragen zichtbaar op de pagina staan.",
+      "page": "/diensten/plaatsing/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/diensten/projectleiding/",
+      "fix": ""
+    },
+    {
+      "sev": "Info",
+      "cat": "Structured data",
+      "code": "faq",
+      "msg": "FAQPage-markup: geen rich result meer sinds mei 2026. Mag blijven als de vragen zichtbaar op de pagina staan.",
+      "page": "/diensten/projectleiding/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/diensten/projectmanagement/",
+      "fix": ""
+    },
+    {
+      "sev": "Info",
+      "cat": "Structured data",
+      "code": "faq",
+      "msg": "FAQPage-markup: geen rich result meer sinds mei 2026. Mag blijven als de vragen zichtbaar op de pagina staan.",
+      "page": "/diensten/projectmanagement/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/",
+      "fix": ""
+    },
+    {
+      "sev": "Info",
+      "cat": "Structured data",
+      "code": "faq",
+      "msg": "FAQPage-markup: geen rich result meer sinds mei 2026. Mag blijven als de vragen zichtbaar op de pagina staan.",
+      "page": "/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/klic-melding-containerplaatsing/",
+      "fix": ""
+    },
+    {
+      "sev": "Info",
+      "cat": "Structured data",
+      "code": "faq",
+      "msg": "FAQPage-markup: geen rich result meer sinds mei 2026. Mag blijven als de vragen zichtbaar op de pagina staan.",
+      "page": "/klic-melding-containerplaatsing/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/kosten-ondergrondse-afvalcontainer/",
+      "fix": ""
+    },
+    {
+      "sev": "Info",
+      "cat": "Structured data",
+      "code": "faq",
+      "msg": "FAQPage-markup: geen rich result meer sinds mei 2026. Mag blijven als de vragen zichtbaar op de pagina staan.",
+      "page": "/kosten-ondergrondse-afvalcontainer/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/locatieaanvraag/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "client-load",
+      "msg": "1 island(s) met client:load: laadt JavaScript direct (INP/snelheid).",
+      "page": "/locatieaanvraag/",
+      "fix": "Gebruik client:visible of client:idle tenzij het element meteen interactief moet zijn."
+    },
+    {
+      "sev": "Info",
+      "cat": "Structured data",
+      "code": "howto",
+      "msg": "HowTo-markup levert al sinds 2023 geen rich result meer.",
+      "page": "/locatieaanvraag/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/nieuws/afval-naast-ondergrondse-containers/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/nieuws/afvaldumpingen-almere-meldingen/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/nieuws/afvalinzameling-houten-rmn-2027/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/nieuws/afvalmeldingen-hilversum-graadmeter/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/nieuws/afvalstoffenbelasting-verhoging-2028-gemeenten/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/nieuws/batterijbranden-afvalinzameling/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/nieuws/bijplaatsingen-kosten-afvalstoffenheffing-zwolle/",
+      "fix": ""
+    },
+    {
+      "sev": "Info",
+      "cat": "Structured data",
+      "code": "faq",
+      "msg": "FAQPage-markup: geen rich result meer sinds mei 2026. Mag blijven als de vragen zichtbaar op de pagina staan.",
+      "page": "/nieuws/bijplaatsingen-kosten-afvalstoffenheffing-zwolle/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/nieuws/bronscheiding-nascheiding-pmd-2026/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/nieuws/containeradoptie-ondergrondse-containers/",
+      "fix": ""
+    },
+    {
+      "sev": "Info",
+      "cat": "Structured data",
+      "code": "faq",
+      "msg": "FAQPage-markup: geen rich result meer sinds mei 2026. Mag blijven als de vragen zichtbaar op de pagina staan.",
+      "page": "/nieuws/containeradoptie-ondergrondse-containers/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/nieuws/diftar-betalen-naar-gebruik/",
+      "fix": ""
+    },
+    {
+      "sev": "Info",
+      "cat": "Structured data",
+      "code": "faq",
+      "msg": "FAQPage-markup: geen rich result meer sinds mei 2026. Mag blijven als de vragen zichtbaar op de pagina staan.",
+      "page": "/nieuws/diftar-betalen-naar-gebruik/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/nieuws/hitteprotocol-afvalinzameling-hittegolf-2026/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/nieuws/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/nieuws/kantelpunt-2026/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/nieuws/omgekeerd-inzamelen/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/nieuws/omgekeerd-inzamelen-middelburg-2028/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/nieuws/ondergrondse-containers-hoorn-stroomaansluiting/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/nieuws/pmd-ketenovereenkomst-2026-gemeenten/",
+      "fix": ""
+    },
+    {
+      "sev": "Info",
+      "cat": "Structured data",
+      "code": "faq",
+      "msg": "FAQPage-markup: geen rich result meer sinds mei 2026. Mag blijven als de vragen zichtbaar op de pagina staan.",
+      "page": "/nieuws/pmd-ketenovereenkomst-2026-gemeenten/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/nieuws/pmd-verzamelcontainers-hoogbouw-verpact-2026/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/nieuws/qr-code-pilot/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/nieuws/textielinzameling-ondergrondse-containers-2026/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/nieuws/vulgraadsensoren-ondergrondse-containers/",
+      "fix": ""
+    },
+    {
+      "sev": "Info",
+      "cat": "Structured data",
+      "code": "faq",
+      "msg": "FAQPage-markup: geen rich result meer sinds mei 2026. Mag blijven als de vragen zichtbaar op de pagina staan.",
+      "page": "/nieuws/vulgraadsensoren-ondergrondse-containers/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/over-ons/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/privacy/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/producten/",
+      "fix": ""
+    },
+    {
+      "sev": "Middel",
+      "cat": "Content",
+      "code": "thin",
+      "msg": "Weinig tekst (184 woorden): risico op dunne content.",
+      "page": "/producten/",
+      "fix": "Voeg echte, specifieke inhoud toe (werkwijze, prijsindicatie, werkgebied, vragen, projecten)."
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/stosag/",
+      "fix": ""
+    },
+    {
+      "sev": "Info",
+      "cat": "Structured data",
+      "code": "faq",
+      "msg": "FAQPage-markup: geen rich result meer sinds mei 2026. Mag blijven als de vragen zichtbaar op de pagina staan.",
+      "page": "/stosag/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Techniek",
+      "code": "lcp-priority",
+      "msg": "Eerste afbeelding zonder fetchpriority=\"high\" (als dit de hero is: <Image priority />).",
+      "page": "/toegangscontrole-milieupas/",
+      "fix": ""
+    },
+    {
+      "sev": "Info",
+      "cat": "Structured data",
+      "code": "faq",
+      "msg": "FAQPage-markup: geen rich result meer sinds mei 2026. Mag blijven als de vragen zichtbaar op de pagina staan.",
+      "page": "/toegangscontrole-milieupas/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/b-covered/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/b-covered/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/b-covered/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/b-organized/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/b-organized/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/b-organized/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/bijplaatsingen-voorkomen/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/bijplaatsingen-voorkomen/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/bijplaatsingen-voorkomen/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/contact/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/contact/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/contact/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/cookies/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/cookies/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/cookies/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/diensten/aanbesteding/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/diensten/aanbesteding/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/diensten/aanbesteding/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/diensten/afvalinzameling/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/diensten/afvalinzameling/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/diensten/afvalinzameling/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/diensten/beheer-onderhoud/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/diensten/beheer-onderhoud/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/diensten/beheer-onderhoud/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/diensten/bewonersparticipatie/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/diensten/bewonersparticipatie/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/diensten/bewonersparticipatie/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/diensten/containerregistratie/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/diensten/containerregistratie/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/diensten/containerregistratie/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/diensten/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/diensten/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/diensten/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/diensten/locatieonderzoek/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/diensten/locatieonderzoek/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/diensten/locatieonderzoek/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/diensten/meerjaren-investeringsplan/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/diensten/meerjaren-investeringsplan/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/diensten/meerjaren-investeringsplan/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/diensten/plaatsing/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/diensten/plaatsing/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/diensten/plaatsing/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/diensten/projectleiding/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/diensten/projectleiding/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/diensten/projectleiding/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/diensten/projectmanagement/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/diensten/projectmanagement/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/diensten/projectmanagement/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/klic-melding-containerplaatsing/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/klic-melding-containerplaatsing/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/klic-melding-containerplaatsing/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/kosten-ondergrondse-afvalcontainer/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/kosten-ondergrondse-afvalcontainer/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/kosten-ondergrondse-afvalcontainer/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/locatieaanvraag/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/locatieaanvraag/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/locatieaanvraag/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/nieuws/afval-naast-ondergrondse-containers/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/nieuws/afval-naast-ondergrondse-containers/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/nieuws/afval-naast-ondergrondse-containers/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/nieuws/afvaldumpingen-almere-meldingen/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/nieuws/afvaldumpingen-almere-meldingen/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/nieuws/afvaldumpingen-almere-meldingen/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/nieuws/afvalinzameling-houten-rmn-2027/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/nieuws/afvalinzameling-houten-rmn-2027/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/nieuws/afvalinzameling-houten-rmn-2027/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/nieuws/afvalmeldingen-hilversum-graadmeter/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/nieuws/afvalmeldingen-hilversum-graadmeter/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/nieuws/afvalmeldingen-hilversum-graadmeter/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/nieuws/afvalstoffenbelasting-verhoging-2028-gemeenten/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/nieuws/afvalstoffenbelasting-verhoging-2028-gemeenten/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/nieuws/afvalstoffenbelasting-verhoging-2028-gemeenten/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/nieuws/batterijbranden-afvalinzameling/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/nieuws/batterijbranden-afvalinzameling/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/nieuws/batterijbranden-afvalinzameling/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/nieuws/bijplaatsingen-kosten-afvalstoffenheffing-zwolle/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/nieuws/bijplaatsingen-kosten-afvalstoffenheffing-zwolle/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/nieuws/bijplaatsingen-kosten-afvalstoffenheffing-zwolle/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/nieuws/bronscheiding-nascheiding-pmd-2026/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/nieuws/bronscheiding-nascheiding-pmd-2026/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/nieuws/bronscheiding-nascheiding-pmd-2026/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/nieuws/containeradoptie-ondergrondse-containers/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/nieuws/containeradoptie-ondergrondse-containers/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/nieuws/containeradoptie-ondergrondse-containers/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/nieuws/diftar-betalen-naar-gebruik/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/nieuws/diftar-betalen-naar-gebruik/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/nieuws/diftar-betalen-naar-gebruik/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/nieuws/hitteprotocol-afvalinzameling-hittegolf-2026/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/nieuws/hitteprotocol-afvalinzameling-hittegolf-2026/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/nieuws/hitteprotocol-afvalinzameling-hittegolf-2026/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/nieuws/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/nieuws/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/nieuws/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/nieuws/kantelpunt-2026/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/nieuws/kantelpunt-2026/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/nieuws/kantelpunt-2026/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/nieuws/omgekeerd-inzamelen/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/nieuws/omgekeerd-inzamelen/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/nieuws/omgekeerd-inzamelen/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/nieuws/omgekeerd-inzamelen-middelburg-2028/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/nieuws/omgekeerd-inzamelen-middelburg-2028/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/nieuws/omgekeerd-inzamelen-middelburg-2028/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/nieuws/ondergrondse-containers-hoorn-stroomaansluiting/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/nieuws/ondergrondse-containers-hoorn-stroomaansluiting/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/nieuws/ondergrondse-containers-hoorn-stroomaansluiting/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/nieuws/pmd-ketenovereenkomst-2026-gemeenten/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/nieuws/pmd-ketenovereenkomst-2026-gemeenten/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/nieuws/pmd-ketenovereenkomst-2026-gemeenten/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/nieuws/pmd-verzamelcontainers-hoogbouw-verpact-2026/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/nieuws/pmd-verzamelcontainers-hoogbouw-verpact-2026/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/nieuws/pmd-verzamelcontainers-hoogbouw-verpact-2026/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/nieuws/qr-code-pilot/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/nieuws/qr-code-pilot/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/nieuws/qr-code-pilot/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/nieuws/textielinzameling-ondergrondse-containers-2026/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/nieuws/textielinzameling-ondergrondse-containers-2026/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/nieuws/textielinzameling-ondergrondse-containers-2026/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/nieuws/vulgraadsensoren-ondergrondse-containers/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/nieuws/vulgraadsensoren-ondergrondse-containers/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/nieuws/vulgraadsensoren-ondergrondse-containers/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/over-ons/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/over-ons/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/over-ons/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/privacy/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/privacy/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/privacy/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/producten/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/producten/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/producten/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/stosag/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/stosag/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/stosag/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-rec",
+      "msg": "LocalBusiness mist aanbevolen 'openingHoursSpecification'.",
+      "page": "/toegangscontrole-milieupas/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "Structured data",
+      "code": "lb-geo",
+      "msg": "LocalBusiness zonder geo-coördinaten.",
+      "page": "/toegangscontrole-milieupas/",
+      "fix": ""
+    },
+    {
+      "sev": "Laag",
+      "cat": "AI-gereedheid",
+      "code": "sameas",
+      "msg": "Entiteit zonder sameAs (GBP, socials, KvK-pagina): minder herkenbaar voor Google en AI.",
+      "page": "/toegangscontrole-milieupas/",
+      "fix": ""
+    }
+  ]
+}

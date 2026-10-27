@@ -7,6 +7,8 @@
  * Dit is CSS, geen carousel-script: geen bibliotheek, het werkt zonder
  * JavaScript en het volgt vanzelf de systeeminstelling voor minder beweging.
  * De rij is focusbaar, zodat hij ook met het toetsenbord te bedienen is.
+ * Geen role="region" erop: die rol overschrijft de lijstsemantiek, waardoor
+ * schermlezers de li's niet meer als lijst aankondigen.
  */
 interface Props {
   /** ul voor een opsomming, ol als de volgorde betekenis heeft. */
@@ -28,7 +30,6 @@ const { als: Tag = "ul", label, kolommen = 3, klasse = "" } = Astro.props;
     klasse,
   ]}
   tabindex="0"
-  role="region"
   aria-label={`${label}, horizontaal schuifbaar`}
 >
   <slot />
