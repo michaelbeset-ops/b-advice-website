@@ -13,4 +13,6 @@ Thumbs.db
 # Python-cache
 __pycache__/
 *.pyc
-.seo/out/
+
+# Rapporten van de SEO-ronde. Deze repo is publiek, dus die blijven lokaal.
+**/.seo/out/
