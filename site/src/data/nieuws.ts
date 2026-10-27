@@ -54,6 +54,140 @@ export const nieuwsPagina = {
 // Nieuwste artikel eerst.
 export const artikelen: Artikel[] = [
   {
+    slug: "containeradoptie-ondergrondse-containers",
+    samenvatting:
+      "Barendrecht zoekt containeradoptanten. De grootste winst zit niet in het opruimen, maar in de meldingen die uren in plaats van dagen op zich laten wachten.",
+    categorie: "Analyse",
+    datum: "2026-10-27",
+    h1: "Containeradoptie: wat een adoptant wél en niet kan oplossen",
+    lead:
+      "Barendrecht zoekt containeradoptanten. De grootste winst zit niet in het opruimen, maar in de meldingen die uren in plaats van dagen op zich laten wachten.",
+    meta: {
+      titel: "Containeradoptie: wat het wel en niet doet",
+      omschrijving:
+        "Barendrecht zoekt containeradoptanten die hun containerplek schoonhouden. Wat zo'n netwerk oplevert, waar de grens ligt en wat een gemeente ervoor moet regelen.",
+    },
+    blokken: [
+      {
+        type: "p",
+        tekst: "De gemeente Barendrecht en BAR Afvalbeheer roepen inwoners op om een container te adopteren, alleen of samen met de buren. Een <strong>containeradoptant</strong> houdt de directe omgeving van een ondergrondse of bovengrondse container schoon: zwerfafval opruimen, en zakken of dozen die ernaast staan alsnog in de container doen.",
+      },
+      {
+        type: "p",
+        tekst: "Daarnaast — en dat is het deel dat er het meeste toe doet — meldt een adoptant het bij BAR Afvalbeheer wanneer er grofvuil naast de container staat of wanneer de container een storing heeft. Aanmelden gaat via de afvalcoaches.",
+      },
+      {
+        type: "h2",
+        tekst: "De echte winst zit in de meldingen",
+      },
+      {
+        type: "p",
+        tekst: "Op het eerste gezicht lijkt dit een opruimregeling: vrijwilligers die doen wat de gemeente anders betaald laat doen. Maar de waarde van zo'n netwerk zit ergens anders, en daar is Barendrecht slim in geweest door het meldingsdeel expliciet te benoemen.",
+      },
+      {
+        type: "p",
+        tekst: "Een storing aan een container wordt normaal gesproken pas ontdekt als iemand er tegenaan loopt en de moeite neemt om dat door te geven. Dat kan dagen duren. In die dagen gebeurt precies wat je niet wilt: mensen komen met hun zak, de trommel gaat niet open, en de zak blijft staan. Wat erbij komt te staan, komt er niet meer vanzelf weg.",
+      },
+      {
+        type: "p",
+        tekst: "Een adoptant woont ernaast en ziet het dezelfde dag. Daarmee verandert de reactietijd op storingen van dagen naar uren, en dat is de goedkoopste manier om bijplaatsingen te voorkomen die er bestaat. Niet omdat er iemand opruimt, maar omdat de voorziening weer werkt voordat de eerste zak er staat.",
+      },
+      {
+        type: "h2",
+        tekst: "Waar de grens van zo'n regeling ligt",
+      },
+      {
+        type: "p",
+        tekst: "Barendrecht legt die grens verstandig: grofvuil hoeft een adoptant niet op te ruimen, dat moet hij melden. Dat lijkt een detail, maar het is het verschil tussen een werkbare afspraak en een die binnen een maand doodbloedt. Niemand sleept de bank van een ander weg, en je kunt het ook niet vragen.",
+      },
+      {
+        type: "p",
+        tekst: "Wat wel gevraagd wordt — losse zakken en dozen alsnog in de container doen — is redelijk, maar niet vrijblijvend. Een vrijwilliger pakt daarmee het afval van een ander op, met alles wat daarin kan zitten. Geef adoptanten dus handschoenen en een grijper, en wees duidelijk over wat ze beter kunnen laten liggen en melden: glas, scherp materiaal of iets waarvan ze de herkomst niet vertrouwen.",
+      },
+      {
+        type: "let-op",
+        label: "Let op",
+        tekst: "Adoptie is geen oplossing voor een locatie die structureel te krap is. Zit een container elke week vol voordat de wagen komt, dan is een vrijwilliger een pleister op een capaciteitsprobleem — en de snelste manier om die vrijwilliger kwijt te raken.",
+      },
+      {
+        type: "h2",
+        tekst: "Vier dingen die bepalen of het blijft werken",
+      },
+      {
+        type: "stappen",
+        items: [
+          {
+            titel: "Koppel terug op elke melding",
+            tekst: "Een adoptant die drie keer een storing meldt en nooit hoort wat ermee gebeurde, meldt een vierde keer niet meer. Dit is veruit de belangrijkste: het netwerk valt of staat met het gevoel dat de melding ergens landt.",
+          },
+          {
+            titel: "Geef ze één aanspreekpunt",
+            tekst: "Barendrecht kiest de afvalcoaches, en dat is een logische keuze. Eén adres dat terugbelt, werkt beter dan een algemeen meldformulier waar de melding tussen duizend andere verdwijnt.",
+          },
+          {
+            titel: "Leg vast welke container is geadopteerd",
+            tekst: "Noteer per container wie hem heeft geadopteerd en sinds wanneer. Zonder die <a href=\"/diensten/containerregistratie/\">registratie</a> weet niemand welke locaties gedekt zijn, en kunt u na een jaar niet zien of het iets heeft uitgehaald.",
+          },
+          {
+            titel: "Los de structurele gevallen zelf op",
+            tekst: "Komt er van één locatie elke week een melding, dan is dat geen adoptieonderwerp maar een signaal. Behandel die locatie als probleemlocatie en zoek uit wat er mis is.",
+          },
+        ],
+      },
+      {
+        type: "h2",
+        tekst: "Het ongemakkelijke punt: de dekking",
+      },
+      {
+        type: "p",
+        tekst: "Er is één beperking die zelden hardop wordt benoemd. Adoptanten melden zich vooral in straten waar de betrokkenheid toch al hoog is: mensen die hun buurt netjes vinden en er wat voor over hebben. Dat zijn zelden de locaties met de meeste bijplaatsingen.",
+      },
+      {
+        type: "p",
+        tekst: "Dat maakt het instrument niet minder waardevol, maar wel beperkt in waar het landt. Reken er niet op dat uw tien hotspots zich vanzelf laten adopteren. Daar zult u iets anders moeten doen, en wat dat is, hangt af van de oorzaak ter plekke — zoals we beschrijven op onze pagina over <a href=\"/bijplaatsingen-voorkomen/\">het voorkomen van bijplaatsingen</a>.",
+      },
+      {
+        type: "p",
+        tekst: "Zet containeradoptie daarom in als wat het is: een fijnmazig oog in de wijk dat storingen en beginnende hotspots vroeg signaleert, en een manier om bewoners te betrekken bij hun eigen straat. Niet als vervanging van capaciteit, onderhoud of een snelle opruimdienst.",
+      },
+      {
+        type: "faq",
+        items: [
+          {
+            vraag: "Wat is een containeradoptant?",
+            antwoord:
+              "Een inwoner die vrijwillig de omgeving van een ondergrondse of bovengrondse container schoon en toegankelijk houdt, en die storingen en gedumpt grofvuil doorgeeft aan de afvalinzamelaar of de gemeente.",
+          },
+          {
+            vraag: "Wat doet een containeradoptant precies?",
+            antwoord:
+              "Zwerfafval rond de container opruimen, losse zakken en dozen alsnog in de container doen, en melding maken van storingen of grofvuil dat ernaast is gezet. Grofvuil zelf opruimen hoort er niet bij.",
+          },
+          {
+            vraag: "Helpt containeradoptie tegen bijplaatsingen?",
+            antwoord:
+              "Op de geadopteerde locaties helpt het, vooral doordat storingen sneller worden gemeld en beginnende hotspots eerder worden opgemerkt. Het lost geen capaciteitsprobleem op en bereikt zelden de locaties met de meeste dumpingen.",
+          },
+          {
+            vraag: "Wat moet een gemeente regelen voor containeradoptie?",
+            antwoord:
+              "Terugkoppeling op meldingen, één vast aanspreekpunt, materiaal zoals handschoenen en een grijper, duidelijkheid over wat een adoptant beter laat liggen, en een registratie van welke container door wie is geadopteerd.",
+          },
+        ],
+      },
+      {
+        type: "cta",
+        label: "Aan de slag",
+        kop: "Bewoners betrekken bij hun containerplek",
+        tekst: "B-Advice ondersteunt gemeenten bij bewonersparticipatie rond containerlocaties en bij het aanpakken van probleemlocaties. Neem contact op om te bespreken wat er in uw gemeente speelt.",
+      },
+      {
+        type: "p",
+        tekst: "Bron: Gemeente Barendrecht en BAR Afvalbeheer, ‘Word containeradoptant en help uw straat netjes te houden’, 22 oktober 2026.",
+      },
+    ],
+  },
+  {
     slug: "bijplaatsingen-kosten-afvalstoffenheffing-zwolle",
     samenvatting:
       "Zwolle brengt de opruimkosten van afvaldumpingen voortaan volledig onder in de afvalstoffenheffing. Daarmee wordt bijplaatsing een post op de rekening van elke inwoner.",
