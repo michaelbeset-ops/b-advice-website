@@ -1778,6 +1778,7 @@ export const overOns = {
         naam: "Ricardo Beset",
         rol: "Directeur en senior projectmanager",
         foto: "/assets/team/ric.webp",
+        linkedin: "https://www.linkedin.com/in/ricardo-beset-4104a8177/",
         tekst:
           "Meer dan 20 jaar ervaring in afvalinzameling, van bedrijfsafval tot complexe " +
           "gemeentelijke infrastructuurprojecten. Oprichter van B-Advice en drijvende " +
