@@ -33,7 +33,14 @@ const { soort, pagina } = Astro.props as Props;
 const url = `/${pagina.slug}/`;
 ---
 
-<Base titel={pagina.meta.titel} omschrijving={pagina.meta.omschrijving}>
+{/* Een pagina in voorbereiding heeft nog te weinig inhoud om in Google te
+    staan; dunne pagina's drukken de kwaliteit van de hele site. Zodra er
+    echte inhoud is en de pagina een tekstpagina wordt, gaat dit vanzelf weg. */}
+<Base
+  titel={pagina.meta.titel}
+  omschrijving={pagina.meta.omschrijving}
+  nietIndexeren={soort === "binnenkort"}
+>
   <Kader>
     <Kruimels spoor={[{ label: "Home", url: "/" }, { label: pagina.h1, url }]} />
   </Kader>

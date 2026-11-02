@@ -4,6 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import vue from "@astrojs/vue";
 import { artikelen } from "./src/data/nieuws";
+import { binnenkortPaginas } from "./src/data/site";
 
 export default defineConfig({
   site: "https://b-advice.info",
@@ -48,6 +49,9 @@ export default defineConfig({
   // beeld. Pagina's zonder island laden geen enkel scriptbestand.
   integrations: [
     sitemap({
+      // Pagina's in voorbereiding staan op noindex en horen dus niet in de
+      // sitemap. Haal ze hier weg zodra ze echte inhoud hebben.
+      filter: (pagina) => !binnenkortPaginas.some((b) => pagina.endsWith(`/${b.slug}/`)),
       // Een artikel krijgt zijn publicatiedatum mee, de overige pagina's de
       // datum van de build. Zonder lastmod weet een zoekmachine niet of het
       // zin heeft om opnieuw te komen kijken.
