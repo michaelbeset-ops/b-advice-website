@@ -26,6 +26,8 @@ const overSchema = {
       jobTitle: lid.rol,
       image: `https://b-advice.info${lid.foto}`,
       worksFor: { "@id": "https://b-advice.info/#organisatie" },
+      ...("linkedin" in lid ? { sameAs: [lid.linkedin] } : {}),
+      ...(lid.naam === "Ricardo Beset" ? { "@id": "https://b-advice.info/#ricardo-beset" } : {}),
     })),
   },
 };
@@ -117,6 +119,16 @@ const overSchema = {
             <h3 class="mt-5 font-display text-lg font-bold tracking-tight text-ink">{lid.naam}</h3>
             <p class="mt-1 text-sm font-semibold text-accent">{lid.rol}</p>
             <p class="mt-3 text-sm leading-relaxed text-ink-3">{lid.tekst}</p>
+            {"linkedin" in lid && (
+              <a
+                href={lid.linkedin}
+                rel="me noopener"
+                target="_blank"
+                class="mt-3 inline-block text-sm font-semibold text-accent underline-offset-4 hover:underline"
+              >
+                {lid.naam.split(" ")[0]} op LinkedIn
+              </a>
+            )}
           </li>
         ))
       }
