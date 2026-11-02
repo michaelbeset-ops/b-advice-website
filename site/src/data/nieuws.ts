@@ -54,6 +54,166 @@ export const nieuwsPagina = {
 // Nieuwste artikel eerst.
 export const artikelen: Artikel[] = [
   {
+    slug: "open-containers-zonder-afvalpas-venlo",
+    samenvatting:
+      "Venlo wil de afvalpas van de containers in de Geresstraat halen om dumpingen terug te dringen. Dat is het omgekeerde van wat gemeenten meestal doen.",
+    categorie: "Analyse",
+    datum: "2026-11-02",
+    h1: "Venlo haalt de afvalpas eraf: openstellen als middel tegen dumpingen",
+    lead:
+      "Venlo wil de afvalpas van de containers in de Geresstraat halen om dumpingen terug te dringen. Dat is het omgekeerde van wat gemeenten meestal doen.",
+    meta: {
+      titel: "Venlo haalt de afvalpas van de containers",
+      omschrijving:
+        "Venlo start een pilot waarbij ondergrondse containers in Blerick zonder afvalpas toegankelijk worden. Wanneer openstellen helpt en wat het u kost.",
+    },
+    blokken: [
+      {
+        type: "p",
+        tekst: "De gemeente Venlo wil een pilot starten waarbij de ondergrondse containers in de Geresstraat in Blerick worden <strong>opengesteld</strong>. Bewoners kunnen hun afval er dan zonder afvalpas in gooien. Daarnaast wordt grofvuil dat bewoners niet zelf naar de milieustraat kunnen brengen per woonblok centraal ingezameld.",
+      },
+      {
+        type: "p",
+        tekst: "De pilot begint niet meteen. Het streven is begin volgend jaar, en daaraan vooraf gaat gerichte voorlichting: persoonlijke huis-aan-huisgesprekken en meertalige communicatiemiddelen.",
+      },
+      {
+        type: "citaat",
+        tekst: "“Het is nu een zooitje in de Geresstraat. Er zijn veel afvaldumpingen naast de ondergrondse containers en in de omgeving”, aldus Truus van Tankeren van het Blerickse wijkoverleg.",
+      },
+      {
+        type: "h2",
+        tekst: "Dit is het omgekeerde van de landelijke beweging",
+      },
+      {
+        type: "p",
+        tekst: "Vrijwel overal gaat de beweging de andere kant op. Gemeenten voeren <a href=\"/toegangscontrole-milieupas/\">toegangscontrole met een milieupas</a> juist in: om bedrijfsafval te weren, om te meten hoeveel er wordt aangeboden en om bij diftar te kunnen afrekenen. Venlo haalt die pas er in één straat juist af.",
+      },
+      {
+        type: "p",
+        tekst: "Dat lijkt tegenstrijdig, maar het volgt een logica die wij herkennen. Een pas is een drempel. Werkt die drempel zoals bedoeld, dan houdt hij ongewenst gebruik tegen. Werkt hij niet, dan houdt hij ook het gewenste gebruik tegen, en dan belandt het afval ernaast in plaats van erin.",
+      },
+      {
+        type: "p",
+        tekst: "In een straat waar de pas om wat voor reden dan ook niet bij iedereen werkt of niet bij iedereen bekend is, verandert het slot van beschermingsmiddel in obstakel. Dat is precies de tweede oorzaak uit onze analyse over <a href=\"/bijplaatsingen-voorkomen/\">het voorkomen van bijplaatsingen</a>: niet onwil, maar een drempel die te hoog ligt.",
+      },
+      {
+        type: "h2",
+        tekst: "Twee drempels tegelijk weggehaald",
+      },
+      {
+        type: "p",
+        tekst: "Het sterkste aan deze pilot is dat de gemeente niet één maar twee drempels aanpakt. De pas gaat eraf, en het grofvuil dat bewoners niet zelf naar de milieustraat kunnen brengen wordt per woonblok opgehaald.",
+      },
+      {
+        type: "p",
+        tekst: "Die tweede is minstens zo belangrijk. In vrijwel elke gemeente waar wij naar meldingen kijken, bestaat het grootste deel van de bijplaatsingen uit grofvuil, niet uit huisvuil. Wie geen auto heeft, kan een matras niet naar de milieustraat brengen. Een centrale inzameling per woonblok neemt die onmogelijkheid weg, en dat is iets anders dan iemand erop aanspreken.",
+      },
+      {
+        type: "let-op",
+        label: "Let op",
+        tekst: "Let op het woord meertalig in de aankondiging. Dat is geen franje: een regel die niemand kan lezen, is geen regel. In wijken met veel talen is voorlichting in één taal een van de stilste oorzaken van verkeerd aangeboden afval.",
+      },
+      {
+        type: "h2",
+        tekst: "Het probleem dat niemand verwacht: openbreken",
+      },
+      {
+        type: "p",
+        tekst: "Het wijkoverleg noemt nog een reden om de containers open te stellen, en die is verrassend. Nu worden containers opengemaakt door mensen die er bruikbare spullen uit willen halen. Zakken worden ter plekke opengetrokken en wat onbruikbaar blijkt, blijft liggen.",
+      },
+      {
+        type: "p",
+        tekst: "Eén opengetrokken zak levert meer rommel op dan tien bijplaatsingen, want de inhoud waait uit over de hele omgeving. De gedachte erachter is dat er minder reden is om een container te forceren als hij gewoon opengaat. Of dat klopt, moet de pilot uitwijzen, maar het is een mechanisme dat in beleidsstukken zelden wordt meegewogen.",
+      },
+      {
+        type: "h2",
+        tekst: "Wat het kost om de pas eraf te halen",
+      },
+      {
+        type: "p",
+        tekst: "Openstellen is geen gratis maatregel, en het is goed dat Venlo het als pilot in één straat doet. Wat u inlevert:",
+      },
+      {
+        type: "lijst",
+        items: [
+          "Het aanbod is niet langer te meten, dus u weet niet meer hoeveel er per huishouden wordt aangeboden.",
+          "Afrekenen op gebruik kan niet meer; bij diftar is een open container geen optie.",
+          "Iedereen kan hem gebruiken, ook mensen van buiten de straat of de gemeente.",
+          "Bedrijfsafval is niet meer te weren, terwijl ondernemers een eigen contract horen te hebben.",
+          "Meer gebruikers bij gelijke capaciteit betekent sneller vol, dus controleer de ledigingsfrequentie vóór de pilot begint.",
+        ],
+      },
+      {
+        type: "p",
+        tekst: "Dat laatste is het punt waarop zo'n pilot in de praktijk sneuvelt. Een container die door het openstellen twee keer zo snel vol zit en daarna niet vaker wordt geleegd, levert binnen een maand precies de bijplaatsingen op die de maatregel moest voorkomen.",
+      },
+      {
+        type: "h2",
+        tekst: "Wat wij zouden meegeven",
+      },
+      {
+        type: "stappen",
+        items: [
+          {
+            titel: "Meet vooraf iets dat niet meebeweegt",
+            tekst: "Leg vóór de start vast hoeveel er wordt opgeruimd in kilo's of ritten, niet alleen hoeveel meldingen er binnenkomen. Anders is na afloop niet te zeggen of de pilot heeft gewerkt.",
+          },
+          {
+            titel: "Verhoog de ledigingsfrequentie vanaf dag één",
+            tekst: "Ga ervan uit dat het aanbod stijgt en stel pas bij als blijkt dat het meevalt. Andersom kost u de pilot.",
+          },
+          {
+            titel: "Kijk ook naar de straten eromheen",
+            tekst: "Het wijkoverleg vraagt hier zelf om. Een maatregel in één straat kan het probleem verplaatsen in plaats van oplossen, en dat ziet u alleen als u de omliggende locaties meetelt.",
+          },
+          {
+            titel: "Bepaal vooraf wanneer u stopt",
+            tekst: "Spreek af welke uitkomst 'geslaagd' betekent en welke 'terugdraaien'. Een pilot zonder eindcriterium wordt vanzelf permanent.",
+          },
+        ],
+      },
+      {
+        type: "p",
+        tekst: "Welke maatregel bij welke locatie past, blijkt uit wat er op die plek werkelijk misgaat. Dat is het werk dat in <a href=\"/diensten/locatieonderzoek/\">locatieonderzoek</a> gebeurt, en wat er per container aan capaciteit, toegang en storingen bekend is, komt uit uw <a href=\"/diensten/containerregistratie/\">containerregistratie</a>.",
+      },
+      {
+        type: "faq",
+        items: [
+          {
+            vraag: "Waarom stelt Venlo ondergrondse containers open?",
+            antwoord:
+              "Om het afvalprobleem in de Geresstraat in Blerick terug te dringen. Bewoners kunnen hun afval er dan zonder afvalpas in gooien, en grofvuil dat zij niet zelf naar de milieustraat kunnen brengen wordt per woonblok centraal ingezameld.",
+          },
+          {
+            vraag: "Helpt een container zonder pas tegen bijplaatsingen?",
+            antwoord:
+              "Het kan helpen waar de pas zelf de drempel is: als mensen er niet in kunnen, belandt het afval ernaast. Het werkt niet als de oorzaak capaciteit of grofvuil is, en u levert er het meten en het afrekenen op gebruik mee in.",
+          },
+          {
+            vraag: "Wat levert u in als u de afvalpas eraf haalt?",
+            antwoord:
+              "Het aanbod is niet meer te meten, afrekenen op gebruik kan niet meer, iedereen kan de container gebruiken en bedrijfsafval is niet meer te weren. Daarnaast raakt een open container sneller vol bij gelijke ledigingsfrequentie.",
+          },
+          {
+            vraag: "Wanneer begint de pilot in Blerick?",
+            antwoord:
+              "Niet direct. De gemeente streeft naar het begin van het nieuwe jaar en informeert bewoners daaraan voorafgaand met huis-aan-huisvoorlichting en meertalige communicatiemiddelen.",
+          },
+        ],
+      },
+      {
+        type: "cta",
+        label: "Aan de slag",
+        kop: "Een pilot die iets bewijst",
+        tekst: "B-Advice helpt gemeenten bij het inrichten en beoordelen van dit soort maatregelen: wat er per locatie misgaat, wat een maatregel oplevert en hoe u dat meetbaar maakt. Neem contact op om te bespreken wat er speelt.",
+      },
+      {
+        type: "p",
+        tekst: "Bron: Omroep Venlo, ‘Proef met open containers moet afvalprobleem Geresstraat terugdringen’, Thijs Brouwers, oktober 2026.",
+      },
+    ],
+  },
+  {
     slug: "containeradoptie-ondergrondse-containers",
     samenvatting:
       "Barendrecht zoekt containeradoptanten. De grootste winst zit niet in het opruimen, maar in de meldingen die uren in plaats van dagen op zich laten wachten.",
@@ -393,9 +553,9 @@ export const artikelen: Artikel[] = [
     lead:
       "Amsterdam onderzoekt vulgraadsensoren op al zijn containers. Wat zo'n sensor doet, wat de proef met 1.500 glascontainers leert en waar hij niet tegen helpt.",
     meta: {
-      titel: "Vulgraadsensoren in ondergrondse containers",
+      titel: "Vulgraadsensor in afvalcontainers: wat hij doet",
       omschrijving:
-        "Wat een vulgraadsensor doet, wat de Amsterdamse proef met 1.500 glascontainers oplevert en waar sensoren juist niet tegen helpen.",
+        "Wat een vulgraadsensor in afvalcontainers meet, wat de Amsterdamse proef met 1.500 glascontainers oplevert en waar sensoren niet tegen helpen.",
     },
     blokken: [
       {
@@ -787,7 +947,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Gebruik dat moment dan ook breder dan voor de overdracht alleen. Een actuele registratie is de basis voor een meerjaren investeringsplan, voor de volgende aanbesteding en voor het onderbouwen van capaciteit per locatie. Wie die slag toch maakt, kan hem beter in één keer goed maken.",
+        tekst: "Laat iemand dat traject bewaken van de eerste inventarisatie tot de overdracht; daar is onze <a href=\"/diensten/projectleiding/\">projectleiding</a> voor bedoeld. Gebruik dat moment dan ook breder dan voor de overdracht alleen. Een actuele registratie is de basis voor een meerjaren investeringsplan, voor de volgende aanbesteding en voor het onderbouwen van capaciteit per locatie. Wie die slag toch maakt, kan hem beter in één keer goed maken.",
       },
       {
         type: "stappen",
@@ -935,7 +1095,7 @@ export const artikelen: Artikel[] = [
       },
       {
         type: "p",
-        tekst: "Deze afwegingen horen thuis in de fase vóór de schop de grond in gaat. Wat er in <a href=\"/diensten/locatieonderzoek/\">locatieonderzoek en werkvoorbereiding</a> wordt vastgelegd, bepaalt of een uitrol op de geplande datum draait of zes weken later.",
+        tekst: "Deze afwegingen horen thuis in de fase vóór de schop de grond in gaat. Wat er in <a href=\"/diensten/locatieonderzoek/\">locatieonderzoek en werkvoorbereiding</a> wordt vastgelegd, bepaalt of een uitrol op de geplande datum draait of zes weken later. Datzelfde geldt voor de voorbereiding van de levering en het <a href=\"/diensten/plaatsing/\">plaatsen van de inzamelmiddelen</a> zelf.",
       },
       {
         type: "cta",

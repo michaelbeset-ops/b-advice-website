@@ -52,13 +52,16 @@ export default defineConfig({
       // Pagina's in voorbereiding staan op noindex en horen dus niet in de
       // sitemap. Haal ze hier weg zodra ze echte inhoud hebben.
       filter: (pagina) => !binnenkortPaginas.some((b) => pagina.endsWith(`/${b.slug}/`)),
-      // Een artikel krijgt zijn publicatiedatum mee, de overige pagina's de
-      // datum van de build. Zonder lastmod weet een zoekmachine niet of het
-      // zin heeft om opnieuw te komen kijken.
+      // Alleen een artikel krijgt een lastmod, namelijk zijn publicatiedatum.
+      // De overige pagina's krijgen er geen: zij kregen eerder de datum van de
+      // build mee, waardoor de lastmod bij elke uitrol veranderde terwijl er
+      // niets was gewijzigd. Een zoekmachine leert zo'n signaal te negeren, en
+      // dan is het minder waard dan geen signaal.
       serialize(item) {
         const slug = item.url.match(/\/nieuws\/([^/]+)\//)?.[1];
         const artikel = artikelen.find((a) => a.slug === slug);
-        item.lastmod = artikel ? `${artikel.datum}T00:00:00+00:00` : new Date().toISOString();
+        if (artikel) item.lastmod = `${artikel.datum}T00:00:00+00:00`;
+        else delete item.lastmod;
         return item;
       },
     }),
