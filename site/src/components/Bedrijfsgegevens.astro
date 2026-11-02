@@ -33,7 +33,12 @@ const gegevens = {
       },
       telephone: "+31643125245",
       email: bedrijf.email,
-      taxID: bedrijf.kvk,
+      // KvK-nummer is geen belastingnummer; schema.org kent het als identifier.
+      identifier: {
+        "@type": "PropertyValue",
+        propertyID: "KvK",
+        value: bedrijf.kvk,
+      },
       areaServed: { "@type": "Country", name: "Nederland" },
       knowsAbout: [
         "ondergrondse afvalcontainers",

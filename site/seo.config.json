@@ -109,7 +109,9 @@
   "ignorePaths": [
     "/privacy/",
     "/cookies/",
-    "/rmn-"
+    "/rmn-",
+    "/b-covered/",
+    "/producten/"
   ],
   "gscProperty": "sc-domain:b-advice.info",
   "psiUrls": [

@@ -34,5 +34,4 @@
 ## Optioneel
 
 - [B-Organized](https://b-advice.info/b-organized/): software voor containerbeheer, met containerregistratie, taken en kaartweergave.
-- [B-Covered](https://b-advice.info/b-covered/): locatiemeting van containers.
 - [Privacyverklaring](https://b-advice.info/privacy/)
