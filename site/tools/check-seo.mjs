@@ -42,7 +42,10 @@ for (const rel of bestanden) {
   if (!s.includes('<link rel="canonical"')) meld("geen canonical");
   if (!s.includes('property="og:image"')) meld("geen og:image");
   if (u === "/404.html" && !s.includes("noindex")) meld("404 zonder noindex");
-  if (!inSitemap.has(u) && u !== "/404.html") meld("niet in de sitemap");
+  // Een pagina op noindex hoort niet in de sitemap; dat is geen fout maar de
+  // bedoeling. Alleen indexeerbare pagina's worden hierop gecontroleerd.
+  if (!inSitemap.has(u) && u !== "/404.html" && !s.includes("noindex"))
+    meld("niet in de sitemap");
 
   for (const [tag] of s.matchAll(/<img[^>]*>/g)) {
     if (!tag.includes("alt=")) meld(`img zonder alt: ${tag.slice(0, 60)}`);

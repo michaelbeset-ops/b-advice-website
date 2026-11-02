@@ -15,6 +15,9 @@ const gegevens = {
       "@type": ["Organization", "ProfessionalService", "LocalBusiness"],
       "@id": "https://b-advice.info/#organisatie",
       name: bedrijf.naam,
+      // Schrijfwijzen die mensen intypen, zodat zoekmachines en AI-assistenten
+      // die varianten aan hetzelfde bedrijf koppelen.
+      alternateName: ["B Advice", "BAdvice"],
       url: "https://b-advice.info/",
       logo: "https://b-advice.info/assets/b-advice-logo.webp",
       image: "https://b-advice.info/assets/og-image.png",
@@ -40,6 +43,17 @@ const gegevens = {
         value: bedrijf.kvk,
       },
       areaServed: { "@type": "Country", name: "Nederland" },
+      // Oprichter en jaar staan op de Over ons-pagina. Het LinkedIn-profiel van
+      // de oprichter helpt Google en AI om het bedrijf aan een echt persoon te
+      // koppelen.
+      foundingDate: "2013",
+      founder: {
+        "@type": "Person",
+        "@id": "https://b-advice.info/#ricardo-beset",
+        name: "Ricardo Beset",
+        jobTitle: "Directeur en senior projectmanager",
+        sameAs: ["https://www.linkedin.com/in/ricardo-beset-4104a8177/"],
+      },
       knowsAbout: [
         "ondergrondse afvalcontainers",
         "ondergrondse inzamelvoorzieningen",

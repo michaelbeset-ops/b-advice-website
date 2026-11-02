@@ -26,6 +26,7 @@ export const navigatie = {
     { url: "/diensten/locatieonderzoek/", label: "Locatieonderzoek en werkvoorbereiding" },
     { url: "/diensten/plaatsing/", label: "Plaatsen van inzamelmiddelen" },
     { url: "/diensten/beheer-onderhoud/", label: "Beheer, onderhoud en refurbish" },
+    { url: "/diensten/containerregistratie/", label: "Containerregistratie" },
     { url: "/diensten/afvalinzameling/", label: "Afvalinzameling en management" },
     { url: "/diensten/projectmanagement/", label: "Projectmanagement" },
     { url: "/diensten/aanbesteding/", label: "Aanbesteding en bestek" },
@@ -100,7 +101,7 @@ export const home = {
     bovenregel: "Ondergrondse inzamelvoorzieningen",
     kop: "Specialist in ondergrondse afvalcontainers",
     kopAccent: "Specialist",
-    lead: "Advies, projectleiding en werkvoorbereiding voor gemeenten en afvalinzamelaars.",
+    lead: "B-Advice levert advies, projectleiding en werkvoorbereiding voor gemeenten en afvalinzamelaars.",
     alineas: [
       "B-Advice ondersteunt gemeenten en afvalinzamelaars bij de voorbereiding, " +
         "organisatie en uitvoering van projecten rondom ondergrondse " +
@@ -1159,11 +1160,11 @@ export const tekstPaginas: readonly TekstPagina[] = [
       { label: "Aanbesteding en bestek", url: "/diensten/aanbesteding/" },
       { label: "Locatieonderzoek", url: "/diensten/locatieonderzoek/" },
     ],
-    h1: "Wat kost een ondergrondse afvalcontainer?",
+    h1: "Kosten van een ondergrondse afvalcontainer",
     intro:
-      "Waarom de prijs van de container zelf maar een deel van het verhaal is, en welke posten de uitkomst bepalen.",
+      "Wat een ondergrondse afvalcontainer kost, hangt af van de locatie. Dit zijn de posten bij aanleg en in beheer, en wat de verschillen veroorzaakt.",
     meta: {
-      titel: "Wat kost een ondergrondse afvalcontainer? | B-Advice",
+      titel: "Ondergrondse containers kosten: de posten | B-Advice",
       omschrijving:
         "De kosten van een ondergrondse afvalcontainer zitten in meer dan de container: grondwerk, kabels en leidingen, aansluiting en beheer. De posten op een rij.",
     },
@@ -1777,6 +1778,7 @@ export const overOns = {
         naam: "Ricardo Beset",
         rol: "Directeur en senior projectmanager",
         foto: "/assets/team/ric.webp",
+        linkedin: "https://www.linkedin.com/in/ricardo-beset-4104a8177/",
         tekst:
           "Meer dan 20 jaar ervaring in afvalinzameling, van bedrijfsafval tot complexe " +
           "gemeentelijke infrastructuurprojecten. Oprichter van B-Advice en drijvende " +
