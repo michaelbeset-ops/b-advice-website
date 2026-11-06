@@ -1,19 +1,23 @@
 ---
 /**
- * Verborgen pagina over het TTC-platform (powered by B-Advice).
+ * Verborgen pagina over het platform van B-Advice x TTC.
  *
  * Deze pagina is alleen bereikbaar via de link en de QR-code op de flyer.
  * Daarom staat hij op noindex, hangt hij nergens in het menu, de footer of
  * het nieuwsoverzicht, en is hij in astro.config.mjs uit de sitemap gefilterd.
  * Let op, verborgen is niet beveiligd. Wie de link heeft, kan hem openen.
  *
+ * Wie de QR scant, komt voor de video. Die staat daarom direct bovenaan.
+ * De tekst eronder vult de flyer aan en herhaalt hem niet.
+ *
  * Video toevoegen: zet het bestand in public/assets/ttc/ (mp4, H.264) en vul
- * hieronder bij `video` de bestandsnaam in. Zolang die leeg is, toont de pagina
- * een screenshot van het platform.
+ * hieronder bij `video` het pad in. Zolang dat leeg is, toont de pagina een
+ * screenshot van het platform.
  */
 import Base from "../layouts/Base.astro";
 import Kader from "../components/Kader.astro";
 import Veegrij from "../components/Veegrij.astro";
+import Faq from "../components/Faq.astro";
 import { hoofdactie } from "../data/site";
 
 const video = ""; // bijvoorbeeld "/assets/ttc/demo.mp4"
@@ -24,52 +28,53 @@ const kerncijfers = [
   { waarde: "Alles", tekst: "wordt geregistreerd, dus volledige controle" },
 ];
 
-const projecten = [
-  { titel: "Eén overzicht van gemeente tot container", tekst: "Elke gemeente heeft een eigen bord met wijken en locaties. Per locatie staan coördinaten, containers, tekeningen, KLIC-meldingen, foto's en opmerkingen bij elkaar." },
-  { titel: "Kosten tot op locatieniveau", tekst: "Prijzen uit de vaste prijslijst vullen zich vanzelf in. Werkelijke kosten volgen pas na de factuur, zodat het overzicht altijd klopt." },
-  { titel: "Alle locaties op de kaart", tekst: "In één oogopslag ziet u waar alle containers staan, met gegevens uit de officiële registers." },
-  { titel: "Taken, checklists en productbladen", tekst: "Verdeel het werk per locatie en maak met één klik een productblad met alle gegevens." },
+const voorWie = [
+  { titel: "Gemeenten", tekst: "Eén overzicht van alle containerlocaties, projecten, kosten en het beheer in de wijken." },
+  { titel: "Afvalinzamelaars", tekst: "Meldingen, keuringen en wasrondes per container, met de historie erbij." },
+  { titel: "Adviseurs en projectleiders", tekst: "Alle stukken per locatie bij elkaar, van locatieonderzoek tot oplevering." },
+  { titel: "Aannemers, leveranciers en monteurs", tekst: "Alleen de locaties en taken waar zij aan werken, op telefoon of tablet." },
+];
+
+const niveaus = [
+  { titel: "Lezen", tekst: "Locaties, containers en bestanden bekijken." },
+  { titel: "Veld", tekst: "QR-codes scannen, keuringen invullen en meldingen maken met foto's." },
+  { titel: "Project", tekst: "Locaties en containers bijwerken, bestanden en opmerkingen toevoegen." },
+  { titel: "Beheer", tekst: "Kosten, budgetten, facturen, rapportages en de planning." },
 ];
 
 const stappen = [
-  { titel: "Signaal", tekst: "Een melding, keuring of mail komt binnen." },
-  { titel: "Werkbon", tekst: "Elk signaal wordt een werkbon." },
-  { titel: "Planning", tekst: "Werkbonnen en rondes in één planning." },
-  { titel: "Uitvoering", tekst: "De monteur werkt via QR-code en foto's." },
-  { titel: "Controle", tekst: "Kantoor controleert en keurt goed." },
+  { titel: "Kennismaken", tekst: "We laten het platform zien aan de hand van uw eigen situatie." },
+  { titel: "Inrichten", tekst: "B-Advice zet uw gemeente, wijken en locaties klaar en zet bestaande gegevens over." },
+  { titel: "Aan de slag", tekst: "Iedere gebruiker krijgt een eigen account met precies de rechten die hij nodig heeft." },
 ];
 
-const beheer = [
-  { titel: "Elke container een eigen dossier", tekst: "Fractie, merk, type, bouwjaar en betonput, met de volledige historie van meldingen, onderhoud en keuringen." },
-  { titel: "Melden vanaf locatie", tekst: "Via de QR-code op de container staat de monteur direct op de juiste plek. Urgentie, omschrijving en foto's vooraf en achteraf." },
-  { titel: "Keuringen en wasrondes op tijd", tekst: "Per container ziet u wat verlopen is of binnen 30 dagen moet." },
-  { titel: "Beheeroverzicht", tekst: "Open meldingen, keuringen, afgekeurd werk en reparatiekosten per gemeente en wijk." },
+const vragen = [
+  { vraag: "Werkt het platform ook op een telefoon?", antwoord: "Ja. Op kantoor werkt u op de pc, in het veld op telefoon of tablet. U kunt het platform op uw telefoon ook als app op het beginscherm zetten." },
+  { vraag: "Kunnen we onze bestaande gegevens overzetten?", antwoord: "Ja. Bestaande locaties, containers en bestanden zetten we bij de start voor u in het platform." },
+  { vraag: "Wie kan onze gegevens zien?", antwoord: "Alleen de mensen die de beheerder toegang geeft. Per gebruiker bepaalt u welke gemeentes en onderdelen zichtbaar zijn, van meldingen tot financiële rapporten." },
+  { vraag: "Is te zien wie wat heeft gedaan?", antwoord: "Ja. Elke wijziging wordt vastgelegd, zodat u altijd kunt nagaan wie wat heeft gedaan en wanneer." },
+  { vraag: "Hoe vragen we een demo aan?", antwoord: "Neem contact op met B-Advice via info@b-advice.info of +31 (6) 431 25 245. We plannen dan een demo in." },
 ];
 ---
 
 <Base
-  titel="TTC-platform voor ondergrondse containers | B-Advice"
-  omschrijving="Het TTC-platform, powered by B-Advice. De hele keten in één tool, van containerproject tot beheer en onderhoud."
+  titel="B-Advice x TTC: platform voor ondergrondse containers"
+  omschrijving="Het platform van B-Advice x TTC voor ondergrondse containers. De hele keten in één tool, van containerproject tot beheer en onderhoud."
   nietIndexeren
 >
   <Kader als="section" id="inhoud" klasse="pt-10 lg:pt-14">
-    <img src="/assets/ttc/ttc-logo.svg" alt="TTC Nederland" width="116" height="67" loading="eager" class="h-14 w-auto" />
-    <p class="mt-8 text-xs font-semibold uppercase tracking-[0.1em] text-accent">Platform voor ondergrondse containers · powered by B-Advice</p>
-    <h1 class="mt-4 max-w-[22ch] text-3xl font-extrabold text-ink">De hele keten in één tool, van project tot beheer</h1>
-    <p class="mt-5 max-w-[56ch] text-xl font-medium text-ink-2">
-      Gemeente, adviseur, aannemer, leverancier en monteur werken in hetzelfde overzicht. Geen losse Excel-lijsten en mailwisselingen meer.
-    </p>
-    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-      <a href={hoofdactie.url} class="rounded-base bg-accent px-7 py-4 text-center text-base font-semibold text-wit transition-colors hover:bg-accent-deep sm:py-3.5">
-        Vraag een demo aan
-      </a>
-      <a href="tel:+31643125245" class="rounded-base border border-line-strong px-7 py-4 text-center text-base font-medium text-ink-2 transition-colors hover:border-ink-3 sm:py-3.5">
-        Bel +31 (6) 431 25 245
-      </a>
+    <div class="flex items-center gap-4 sm:gap-5">
+      <img src="/assets/b-advice-logo.webp" alt="B-Advice" width="137" height="40" loading="eager" class="h-10 w-auto sm:h-12" />
+      <span class="font-display text-2xl font-bold text-ink-4" aria-label="en">×</span>
+      <img src="/assets/ttc/ttc-logo.svg" alt="TTC Nederland" width="116" height="67" loading="eager" class="h-11 w-auto sm:h-13" />
     </div>
+    <h1 class="mt-8 max-w-[24ch] text-3xl font-extrabold text-ink">Bekijk in de video hoe het platform werkt</h1>
+    <p class="mt-4 max-w-[56ch] text-lg font-medium text-ink-2">
+      De hele keten in één tool, van containerproject tot beheer en onderhoud.
+    </p>
   </Kader>
 
-  <Kader klasse="mt-12">
+  <Kader klasse="mt-8">
     {
       video ? (
         <video
@@ -83,7 +88,7 @@ const beheer = [
       ) : (
         <img
           src="/assets/ttc/platform-bord.webp"
-          alt="Projectbord in het TTC-platform met locaties per wijk"
+          alt="Projectbord in het platform met locaties per wijk"
           width="1385"
           height="689"
           loading="eager"
@@ -95,7 +100,7 @@ const beheer = [
     }
   </Kader>
 
-  <Kader klasse="mt-10">
+  <Kader klasse="mt-8">
     <ul class="grid gap-px overflow-hidden rounded-kaart border border-line bg-line sm:grid-cols-3">
       {
         kerncijfers.map((k) => (
@@ -108,19 +113,16 @@ const beheer = [
     </ul>
   </Kader>
 
-  <section class="mt-20 bg-ink text-op-donker">
-    <Kader klasse="py-20 lg:py-24">
-      <p class="text-xs font-semibold uppercase tracking-[0.1em] text-merk">Projecten</p>
-      <h2 class="mt-4 max-w-[28ch] text-2xl font-extrabold text-wit">Al uw containerprojecten op één plek</h2>
-      <p class="mt-5 max-w-[56ch] text-base text-op-donker-sterk">
-        Van eerste locatieonderzoek tot oplevering, per gemeente en per wijk.
-      </p>
-      <ul class="mt-12 grid gap-x-12 gap-y-8 sm:grid-cols-2">
+  <section class="py-20 lg:py-24">
+    <Kader>
+      <p class="text-xs font-semibold uppercase tracking-[0.1em] text-accent">Voor wie</p>
+      <h2 class="mt-4 max-w-[28ch] text-2xl font-extrabold text-ink">Iedereen in de keten werkt in hetzelfde overzicht</h2>
+      <ul class="mt-10 grid gap-x-12 gap-y-8 sm:grid-cols-2">
         {
-          projecten.map((f) => (
-            <li class="border-t border-wit/15 pt-5">
-              <h3 class="font-display text-lg font-bold tracking-tight text-wit">{f.titel}</h3>
-              <p class="mt-2 text-sm leading-relaxed text-op-donker-sterk">{f.tekst}</p>
+          voorWie.map((f) => (
+            <li class="border-t border-line pt-5">
+              <h3 class="font-display text-lg font-bold tracking-tight text-ink">{f.titel}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink-3">{f.tekst}</p>
             </li>
           ))
         }
@@ -128,19 +130,37 @@ const beheer = [
     </Kader>
   </section>
 
+  <section class="bg-ink text-op-donker">
+    <Kader klasse="py-20 lg:py-24">
+      <p class="text-xs font-semibold uppercase tracking-[0.1em] text-merk">Toegang</p>
+      <h2 class="mt-4 max-w-[28ch] text-2xl font-extrabold text-wit">U bepaalt wie wat ziet en doet</h2>
+      <p class="mt-5 max-w-[60ch] text-base text-op-donker-sterk">
+        Informatie is alleen zichtbaar als de beheerder dat wil. Per gebruiker kiest u welke gemeentes zichtbaar zijn en wat iemand mag doen. Elk niveau bevat alles van het niveau ervoor.
+      </p>
+      <ol class="mt-12 grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          niveaus.map((n, i) => (
+            <li class="border-t border-wit/15 pt-5">
+              <span class="font-display text-sm font-bold text-merk">{String(i + 1).padStart(2, "0")}</span>
+              <h3 class="mt-2 font-display text-lg font-bold tracking-tight text-wit">{n.titel}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-op-donker-sterk">{n.tekst}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </Kader>
+  </section>
+
   <section class="py-20 lg:py-24">
     <Kader>
-      <p class="text-xs font-semibold uppercase tracking-[0.1em] text-accent">Beheer &amp; Onderhoud</p>
-      <h2 class="mt-4 max-w-[28ch] text-2xl font-extrabold text-ink">Grip op elke container in de straat</h2>
-      <p class="mt-4 max-w-[56ch] text-base text-ink-3">
-        Meldingen, keuringen, wasrondes en reparaties in één overzicht. De monteur legt alles vast op locatie en kantoor ziet direct wat er speelt.
-      </p>
+      <p class="text-xs font-semibold uppercase tracking-[0.1em] text-accent">Starten</p>
+      <h2 class="mt-4 max-w-[28ch] text-2xl font-extrabold text-ink">In drie stappen aan de slag</h2>
     </Kader>
 
-    <Veegrij als="ol" label="Zo loopt het werk" kolommen={5} klasse="mt-12">
+    <Veegrij als="ol" label="In drie stappen aan de slag" klasse="mt-10">
       {
         stappen.map((stap, i) => (
-          <li class="w-[78vw] max-w-[16rem] shrink-0 snap-start border-t-2 border-accent/25 pt-5 sm:w-auto sm:max-w-none">
+          <li class="w-[78vw] max-w-[20rem] shrink-0 snap-start border-t-2 border-accent/25 pt-5 sm:w-auto sm:max-w-none">
             <span class="font-display text-sm font-bold text-accent">{String(i + 1).padStart(2, "0")}</span>
             <h3 class="mt-2 font-display text-lg font-bold tracking-tight text-ink">{stap.titel}</h3>
             <p class="mt-2 text-sm leading-relaxed text-ink-3">{stap.tekst}</p>
@@ -150,20 +170,7 @@ const beheer = [
     </Veegrij>
 
     <Kader>
-      <ul class="mt-14 grid gap-x-12 gap-y-8 sm:grid-cols-2">
-        {
-          beheer.map((f) => (
-            <li class="border-t border-line pt-5">
-              <h3 class="font-display text-lg font-bold tracking-tight text-ink">{f.titel}</h3>
-              <p class="mt-2 text-sm leading-relaxed text-ink-3">{f.tekst}</p>
-            </li>
-          ))
-        }
-      </ul>
-
-      <p class="mt-14 max-w-[60ch] border-l-2 border-accent pl-5 text-base font-medium text-ink-2">
-        U bepaalt wie wat ziet. Informatie is alleen zichtbaar als de beheerder dat wil, van meldingen tot financiële rapporten. En alles wordt geregistreerd, zodat u altijd weet wie wat heeft gedaan en wanneer.
-      </p>
+      <Faq vragen={vragen} />
     </Kader>
   </section>
 
