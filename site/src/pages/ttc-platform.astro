@@ -1,184 +1,132 @@
 ---
 /**
- * Verborgen pagina over het TTC-platform (powered by B-Advice).
+ * Verborgen pagina over het platform van B-Advice x TTC.
  *
  * Deze pagina is alleen bereikbaar via de link en de QR-code op de flyer.
  * Daarom staat hij op noindex, hangt hij nergens in het menu, de footer of
  * het nieuwsoverzicht, en is hij in astro.config.mjs uit de sitemap gefilterd.
  * Let op, verborgen is niet beveiligd. Wie de link heeft, kan hem openen.
  *
- * Video toevoegen: zet het bestand in public/assets/ttc/ (mp4, H.264) en vul
- * hieronder bij `video` de bestandsnaam in. Zolang die leeg is, toont de pagina
- * een screenshot van het platform.
+ * Wie de QR scant, wil de video zien. Die staat daarom op een telefoon als
+ * eerste in beeld, en zo groot dat hij zonder scrollen op het scherm past.
+ * Daaronder staat bewust maar weinig tekst. De rest staat op de flyer.
+ *
+ * Video vervangen: zet het nieuwe bestand in public/assets/ttc/ (mp4, H.264,
+ * staand 9:16) en pas hieronder `video` en `poster` aan.
  */
 import Base from "../layouts/Base.astro";
 import Kader from "../components/Kader.astro";
-import Veegrij from "../components/Veegrij.astro";
+import Kop from "../components/Kop.astro";
 import { hoofdactie } from "../data/site";
 
-const video = ""; // bijvoorbeeld "/assets/ttc/demo.mp4"
+const video = "/assets/ttc/ttc-verkoopspot.mp4";
+const poster = "/assets/ttc/ttc-verkoopspot-poster.webp";
 
 const kerncijfers = [
-  { waarde: "18 uur", tekst: "tijdwinst per locatie in ontwikkeling en voorbereiding" },
-  { waarde: "1 tool", tekst: "voor de hele keten, van project tot beheer" },
-  { waarde: "Alles", tekst: "wordt geregistreerd, dus volledige controle" },
+  { waarde: "18 uur", label: "tijdwinst per locatie in ontwikkeling en voorbereiding" },
+  { waarde: "1 tool", label: "voor de hele keten, van project tot beheer" },
+  { waarde: "Alles", label: "wordt geregistreerd, dus volledige controle" },
 ];
 
-const projecten = [
-  { titel: "Eén overzicht van gemeente tot container", tekst: "Elke gemeente heeft een eigen bord met wijken en locaties. Per locatie staan coördinaten, containers, tekeningen, KLIC-meldingen, foto's en opmerkingen bij elkaar." },
-  { titel: "Kosten tot op locatieniveau", tekst: "Prijzen uit de vaste prijslijst vullen zich vanzelf in. Werkelijke kosten volgen pas na de factuur, zodat het overzicht altijd klopt." },
-  { titel: "Alle locaties op de kaart", tekst: "In één oogopslag ziet u waar alle containers staan, met gegevens uit de officiële registers." },
-  { titel: "Taken, checklists en productbladen", tekst: "Verdeel het werk per locatie en maak met één klik een productblad met alle gegevens." },
-];
-
-const stappen = [
-  { titel: "Signaal", tekst: "Een melding, keuring of mail komt binnen." },
-  { titel: "Werkbon", tekst: "Elk signaal wordt een werkbon." },
-  { titel: "Planning", tekst: "Werkbonnen en rondes in één planning." },
-  { titel: "Uitvoering", tekst: "De monteur werkt via QR-code en foto's." },
-  { titel: "Controle", tekst: "Kantoor controleert en keurt goed." },
-];
-
-const beheer = [
-  { titel: "Elke container een eigen dossier", tekst: "Fractie, merk, type, bouwjaar en betonput, met de volledige historie van meldingen, onderhoud en keuringen." },
-  { titel: "Melden vanaf locatie", tekst: "Via de QR-code op de container staat de monteur direct op de juiste plek. Urgentie, omschrijving en foto's vooraf en achteraf." },
-  { titel: "Keuringen en wasrondes op tijd", tekst: "Per container ziet u wat verlopen is of binnen 30 dagen moet." },
-  { titel: "Beheeroverzicht", tekst: "Open meldingen, keuringen, afgekeurd werk en reparatiekosten per gemeente en wijk." },
+const punten = [
+  "Alles op één plek, van gemeente tot container",
+  "Kosten tot op locatieniveau inzichtelijk",
+  "U bepaalt wie wat ziet",
+  "Werkt op pc, telefoon en tablet",
 ];
 ---
 
 <Base
-  titel="TTC-platform voor ondergrondse containers | B-Advice"
-  omschrijving="Het TTC-platform, powered by B-Advice. De hele keten in één tool, van containerproject tot beheer en onderhoud."
+  titel="B-Advice x TTC: platform voor ondergrondse containers"
+  omschrijving="Het platform van B-Advice x TTC voor ondergrondse containers. De hele keten in één tool, van containerproject tot beheer en onderhoud."
   nietIndexeren
 >
-  <Kader als="section" id="inhoud" klasse="pt-10 lg:pt-14">
-    <img src="/assets/ttc/ttc-logo.svg" alt="TTC Nederland" width="116" height="67" loading="eager" class="h-14 w-auto" />
-    <p class="mt-8 text-xs font-semibold uppercase tracking-[0.1em] text-accent">Platform voor ondergrondse containers · powered by B-Advice</p>
-    <h1 class="mt-4 max-w-[22ch] text-3xl font-extrabold text-ink">De hele keten in één tool, van project tot beheer</h1>
-    <p class="mt-5 max-w-[56ch] text-xl font-medium text-ink-2">
-      Gemeente, adviseur, aannemer, leverancier en monteur werken in hetzelfde overzicht. Geen losse Excel-lijsten en mailwisselingen meer.
-    </p>
-    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-      <a href={hoofdactie.url} class="rounded-base bg-accent px-7 py-4 text-center text-base font-semibold text-wit transition-colors hover:bg-accent-deep sm:py-3.5">
-        Vraag een demo aan
-      </a>
-      <a href="tel:+31643125245" class="rounded-base border border-line-strong px-7 py-4 text-center text-base font-medium text-ink-2 transition-colors hover:border-ink-3 sm:py-3.5">
-        Bel +31 (6) 431 25 245
-      </a>
-    </div>
-  </Kader>
-
-  <Kader klasse="mt-12">
-    {
-      video ? (
-        <video
-          src={video}
-          poster="/assets/ttc/platform-bord.webp"
-          controls
-          playsinline
-          preload="metadata"
-          class="w-full rounded-kaart border border-line bg-paper-2"
-        />
-      ) : (
-        <img
-          src="/assets/ttc/platform-bord.webp"
-          alt="Projectbord in het TTC-platform met locaties per wijk"
-          width="1385"
-          height="689"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-          class="w-full rounded-kaart border border-line"
-        />
-      )
-    }
-  </Kader>
-
-  <Kader klasse="mt-10">
-    <ul class="grid gap-px overflow-hidden rounded-kaart border border-line bg-line sm:grid-cols-3">
-      {
-        kerncijfers.map((k) => (
-          <li class="bg-paper-2 px-6 py-6">
-            <span class="block font-display text-3xl font-extrabold text-accent">{k.waarde}</span>
-            <span class="mt-1 block text-sm text-ink-3">{k.tekst}</span>
-          </li>
-        ))
-      }
-    </ul>
-  </Kader>
-
-  <section class="mt-20 bg-ink text-op-donker">
-    <Kader klasse="py-20 lg:py-24">
-      <p class="text-xs font-semibold uppercase tracking-[0.1em] text-merk">Projecten</p>
-      <h2 class="mt-4 max-w-[28ch] text-2xl font-extrabold text-wit">Al uw containerprojecten op één plek</h2>
-      <p class="mt-5 max-w-[56ch] text-base text-op-donker-sterk">
-        Van eerste locatieonderzoek tot oplevering, per gemeente en per wijk.
-      </p>
-      <ul class="mt-12 grid gap-x-12 gap-y-8 sm:grid-cols-2">
-        {
-          projecten.map((f) => (
-            <li class="border-t border-wit/15 pt-5">
-              <h3 class="font-display text-lg font-bold tracking-tight text-wit">{f.titel}</h3>
-              <p class="mt-2 text-sm leading-relaxed text-op-donker-sterk">{f.tekst}</p>
-            </li>
-          ))
-        }
-      </ul>
-    </Kader>
-  </section>
-
-  <section class="py-20 lg:py-24">
-    <Kader>
-      <p class="text-xs font-semibold uppercase tracking-[0.1em] text-accent">Beheer &amp; Onderhoud</p>
-      <h2 class="mt-4 max-w-[28ch] text-2xl font-extrabold text-ink">Grip op elke container in de straat</h2>
-      <p class="mt-4 max-w-[56ch] text-base text-ink-3">
-        Meldingen, keuringen, wasrondes en reparaties in één overzicht. De monteur legt alles vast op locatie en kantoor ziet direct wat er speelt.
-      </p>
-    </Kader>
-
-    <Veegrij als="ol" label="Zo loopt het werk" kolommen={5} klasse="mt-12">
-      {
-        stappen.map((stap, i) => (
-          <li class="w-[78vw] max-w-[16rem] shrink-0 snap-start border-t-2 border-accent/25 pt-5 sm:w-auto sm:max-w-none">
-            <span class="font-display text-sm font-bold text-accent">{String(i + 1).padStart(2, "0")}</span>
-            <h3 class="mt-2 font-display text-lg font-bold tracking-tight text-ink">{stap.titel}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-ink-3">{stap.tekst}</p>
-          </li>
-        ))
-      }
-    </Veegrij>
-
-    <Kader>
-      <ul class="mt-14 grid gap-x-12 gap-y-8 sm:grid-cols-2">
-        {
-          beheer.map((f) => (
-            <li class="border-t border-line pt-5">
-              <h3 class="font-display text-lg font-bold tracking-tight text-ink">{f.titel}</h3>
-              <p class="mt-2 text-sm leading-relaxed text-ink-3">{f.tekst}</p>
-            </li>
-          ))
-        }
-      </ul>
-
-      <p class="mt-14 max-w-[60ch] border-l-2 border-accent pl-5 text-base font-medium text-ink-2">
-        U bepaalt wie wat ziet. Informatie is alleen zichtbaar als de beheerder dat wil, van meldingen tot financiële rapporten. En alles wordt geregistreerd, zodat u altijd weet wie wat heeft gedaan en wanneer.
-      </p>
-    </Kader>
-  </section>
-
-  <section class="bg-accent">
-    <Kader klasse="py-12 lg:py-20">
-      <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-        <div>
-          <h2 class="max-w-[26ch] text-2xl font-extrabold text-wit">Benieuwd wat het platform voor uw gemeente doet?</h2>
-          <p class="mt-3 max-w-[56ch] text-base text-wit/90">
-            Neem contact op met B-Advice via <a href="mailto:info@b-advice.info" class="underline">info@b-advice.info</a> of <a href="tel:+31643125245" class="underline">+31 (6) 431 25 245</a>.
-          </p>
+  <section class="bg-paper-2">
+    <Kader als="div" id="inhoud" klasse="pt-5 pb-14 sm:pt-10 lg:pt-16 lg:pb-24">
+      <div class="grid gap-y-8 lg:grid-cols-[1fr_22rem] lg:items-center lg:gap-x-20 xl:grid-cols-[1fr_24rem]">
+        <!-- Video. Op een telefoon het eerste wat je ziet, en nooit hoger dan
+             het scherm, zodat hij in één keer in beeld staat. -->
+        <div class="lg:col-start-2 lg:row-start-1">
+          <div class="mb-4 flex items-center justify-center gap-3 lg:hidden">
+            <img src="/assets/b-advice-logo.webp" alt="B-Advice" width="137" height="40" loading="eager" class="h-7 w-auto" />
+            <span class="font-display text-base font-bold text-ink-4" aria-hidden="true">×</span>
+            <img src="/assets/ttc/ttc-logo.svg" alt="TTC Nederland" width="116" height="67" loading="eager" class="h-8 w-auto" />
+          </div>
+          <div class="mx-auto w-full max-w-[min(100%,calc(70svh*9/16))] lg:max-w-none">
+            <div class="rounded-[1.75rem] bg-ink p-1.5 shadow-[0_24px_64px_rgb(18_33_26/0.22)] sm:p-2">
+              <video
+                src={video}
+                poster={poster}
+                controls
+                playsinline
+                preload="metadata"
+                width="1080"
+                height="1920"
+                class="block aspect-[9/16] w-full rounded-[1.45rem] bg-ink object-cover"
+              >
+                <a href={video}>Bekijk de video</a>
+              </video>
+            </div>
+          </div>
         </div>
-        <a href={hoofdactie.url} class="shrink-0 rounded-base bg-wit px-7 py-4 text-center text-base font-semibold text-accent transition-colors hover:bg-paper-2 sm:py-3.5">
-          Vraag een demo aan
-        </a>
+
+        <div class="min-w-0 lg:col-start-1 lg:row-start-1">
+          <div class="hidden items-center gap-4 rounded-kaart border border-line bg-wit px-5 py-3 lg:inline-flex">
+            <img src="/assets/b-advice-logo.webp" alt="B-Advice" width="137" height="40" loading="eager" class="h-9 w-auto" />
+            <span class="font-display text-xl font-bold text-ink-4" aria-hidden="true">×</span>
+            <img src="/assets/ttc/ttc-logo.svg" alt="TTC Nederland" width="116" height="67" loading="eager" class="h-10 w-auto" />
+          </div>
+          <Kop
+            als="h1"
+            tekst="De hele keten in één tool"
+            accent="één tool"
+            klasse="max-w-[14ch] text-2xl font-extrabold text-ink lg:mt-8 lg:text-3xl xl:text-display"
+          />
+          <p class="mt-4 max-w-[44ch] text-lg font-medium text-ink-2">
+            Van containerproject tot beheer en onderhoud. Gemeente, adviseur, aannemer en monteur werken in hetzelfde overzicht.
+          </p>
+
+          <dl class="mt-8 grid gap-y-5 border-t border-line pt-6 sm:grid-cols-3 sm:gap-x-6">
+            {
+              kerncijfers.map((k, i) => (
+                <div class:list={[i > 0 && "sm:border-l sm:border-line sm:pl-6"]}>
+                  <dd class="font-display text-2xl font-extrabold tracking-tight text-ink">{k.waarde}</dd>
+                  <dt class="mt-1 max-w-[26ch] text-sm leading-snug text-ink-4">{k.label}</dt>
+                </div>
+              ))
+            }
+          </dl>
+
+          <ul class="mt-8 grid gap-3 sm:grid-cols-2">
+            {
+              punten.map((punt) => (
+                <li class="flex items-start gap-3 text-base text-ink-2">
+                  <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/10">
+                    <svg viewBox="0 0 12 12" class="h-2.5 w-2.5 text-accent" aria-hidden="true">
+                      <polyline points="2,6 5,9 10,3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                  {punt}
+                </li>
+              ))
+            }
+          </ul>
+
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a
+              href={hoofdactie.url}
+              class="rounded-base bg-accent px-7 py-4 text-center text-base font-semibold text-wit transition-colors hover:bg-accent-deep sm:py-3.5"
+            >
+              Vraag een demo aan
+            </a>
+            <a
+              href="tel:+31643125245"
+              class="rounded-base border border-line-strong px-7 py-4 text-center text-base font-medium text-ink-2 transition-colors hover:border-ink-3 sm:py-3.5"
+            >
+              Bel +31 (6) 431 25 245
+            </a>
+          </div>
+        </div>
       </div>
     </Kader>
   </section>
