@@ -51,7 +51,11 @@ export default defineConfig({
     sitemap({
       // Pagina's in voorbereiding staan op noindex en horen dus niet in de
       // sitemap. Haal ze hier weg zodra ze echte inhoud hebben.
-      filter: (pagina) => !binnenkortPaginas.some((b) => pagina.endsWith(`/${b.slug}/`)),
+      // De TTC-pagina is alleen bedoeld voor wie de link of QR-code van de
+      // flyer heeft, dus die staat ook niet in de sitemap.
+      filter: (pagina) =>
+        !binnenkortPaginas.some((b) => pagina.endsWith(`/${b.slug}/`)) &&
+        !pagina.endsWith("/ttc-platform/"),
       // Alleen een artikel krijgt een lastmod, namelijk zijn publicatiedatum.
       // De overige pagina's krijgen er geen: zij kregen eerder de datum van de
       // build mee, waardoor de lastmod bij elke uitrol veranderde terwijl er
