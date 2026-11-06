@@ -10,29 +10,52 @@
  * Wie de QR scant, komt voor de video. Die staat daarom direct bovenaan.
  * De tekst eronder vult de flyer aan en herhaalt hem niet.
  *
- * Video toevoegen: zet het bestand in public/assets/ttc/ (mp4, H.264) en vul
- * hieronder bij `video` het pad in. Zolang dat leeg is, toont de pagina een
- * screenshot van het platform.
+ * Video vervangen: zet het nieuwe bestand in public/assets/ttc/ (mp4, H.264,
+ * staand 9:16) en pas hieronder `video` en `poster` aan.
  */
 import Base from "../layouts/Base.astro";
 import Kader from "../components/Kader.astro";
-import Veegrij from "../components/Veegrij.astro";
+import Kop from "../components/Kop.astro";
 import Faq from "../components/Faq.astro";
 import { hoofdactie } from "../data/site";
 
-const video = ""; // bijvoorbeeld "/assets/ttc/demo.mp4"
+const video = "/assets/ttc/ttc-verkoopspot.mp4";
+const poster = "/assets/ttc/ttc-verkoopspot-poster.webp";
 
 const kerncijfers = [
-  { waarde: "18 uur", tekst: "tijdwinst per locatie in ontwikkeling en voorbereiding" },
-  { waarde: "1 tool", tekst: "voor de hele keten, van project tot beheer" },
-  { waarde: "Alles", tekst: "wordt geregistreerd, dus volledige controle" },
+  { waarde: "18 uur", label: "tijdwinst per locatie in ontwikkeling en voorbereiding" },
+  { waarde: "1 tool", label: "voor de hele keten, van project tot beheer" },
+  { waarde: "Alles", label: "wordt geregistreerd, dus volledige controle" },
 ];
 
 const voorWie = [
-  { titel: "Gemeenten", tekst: "Eén overzicht van alle containerlocaties, projecten, kosten en het beheer in de wijken." },
-  { titel: "Afvalinzamelaars", tekst: "Meldingen, keuringen en wasrondes per container, met de historie erbij." },
-  { titel: "Adviseurs en projectleiders", tekst: "Alle stukken per locatie bij elkaar, van locatieonderzoek tot oplevering." },
-  { titel: "Aannemers, leveranciers en monteurs", tekst: "Alleen de locaties en taken waar zij aan werken, op telefoon of tablet." },
+  {
+    titel: "Gemeenten",
+    tekst: "Eén overzicht van alle containerlocaties, projecten, kosten en het beheer in de wijken.",
+    icoon: '<path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/>',
+  },
+  {
+    titel: "Afvalinzamelaars",
+    tekst: "Meldingen, keuringen en wasrondes per container, met de volledige historie erbij.",
+    icoon: '<path d="M3 7h11v10H3z"/><path d="M14 10h4l3 3v4h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/>',
+  },
+  {
+    titel: "Projectleiders en adviseurs",
+    tekst: "Alle stukken per locatie bij elkaar, van locatieonderzoek tot oplevering.",
+    icoon: '<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9z"/><path d="M9 12h6"/><path d="M9 16h4"/>',
+  },
+  {
+    titel: "Aannemers en monteurs",
+    tekst: "Alleen de locaties en taken waar zij aan werken, op telefoon of tablet.",
+    icoon: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/>',
+  },
+];
+
+const toegang = [
+  "Informatie is alleen zichtbaar als de beheerder dat wil",
+  "Per gebruiker kiest u welke gemeentes zichtbaar zijn",
+  "Van meldingen tot financiële rapporten",
+  "Elke wijziging wordt vastgelegd",
 ];
 
 const niveaus = [
@@ -43,7 +66,7 @@ const niveaus = [
 ];
 
 const stappen = [
-  { titel: "Kennismaken", tekst: "We laten het platform zien aan de hand van uw eigen situatie." },
+  { titel: "Kennismaken", tekst: "We laten het platform zien aan de hand van uw eigen situatie en projecten." },
   { titel: "Inrichten", tekst: "B-Advice zet uw gemeente, wijken en locaties klaar en zet bestaande gegevens over." },
   { titel: "Aan de slag", tekst: "Iedere gebruiker krijgt een eigen account met precies de rechten die hij nodig heeft." },
 ];
@@ -62,67 +85,95 @@ const vragen = [
   omschrijving="Het platform van B-Advice x TTC voor ondergrondse containers. De hele keten in één tool, van containerproject tot beheer en onderhoud."
   nietIndexeren
 >
-  <Kader als="section" id="inhoud" klasse="pt-10 lg:pt-14">
-    <div class="flex items-center gap-4 sm:gap-5">
-      <img src="/assets/b-advice-logo.webp" alt="B-Advice" width="137" height="40" loading="eager" class="h-10 w-auto sm:h-12" />
-      <span class="font-display text-2xl font-bold text-ink-4" aria-label="en">×</span>
-      <img src="/assets/ttc/ttc-logo.svg" alt="TTC Nederland" width="116" height="67" loading="eager" class="h-11 w-auto sm:h-13" />
-    </div>
-    <h1 class="mt-8 max-w-[24ch] text-3xl font-extrabold text-ink">Bekijk in de video hoe het platform werkt</h1>
-    <p class="mt-4 max-w-[56ch] text-lg font-medium text-ink-2">
-      De hele keten in één tool, van containerproject tot beheer en onderhoud.
-    </p>
-  </Kader>
+  <!-- Kop en video. Wie de QR scant, komt hiervoor, dus de video staat
+       zonder omwegen bovenaan. De video is staand: op een telefoon komt hij
+       direct onder de kop, op een groot scherm staat hij naast de tekst. -->
+  <section class="border-b border-line bg-paper-2">
+    <Kader als="div" id="inhoud" klasse="pt-10 pb-14 lg:pt-16 lg:pb-20">
+      <div class="grid gap-y-10 lg:grid-cols-[1fr_22rem] lg:gap-x-20 xl:grid-cols-[1fr_24rem]">
+        <div class="min-w-0 lg:col-start-1 lg:row-start-1 lg:self-end">
+          <div class="inline-flex items-center gap-4 rounded-kaart border border-line bg-wit px-5 py-3">
+            <img src="/assets/b-advice-logo.webp" alt="B-Advice" width="137" height="40" loading="eager" class="h-9 w-auto" />
+            <span class="font-display text-xl font-bold text-ink-4" aria-hidden="true">×</span>
+            <img src="/assets/ttc/ttc-logo.svg" alt="TTC Nederland" width="116" height="67" loading="eager" class="h-10 w-auto" />
+          </div>
+          <Kop
+            als="h1"
+            tekst="Bekijk hoe het platform werkt"
+            accent="platform"
+            klasse="mt-8 max-w-[14ch] text-3xl font-extrabold text-ink xl:text-display"
+          />
+          <p class="mt-5 max-w-[42ch] text-xl font-medium text-ink-2">
+            De hele keten in één tool, van containerproject tot beheer en onderhoud.
+          </p>
+        </div>
 
-  <Kader klasse="mt-8">
-    {
-      video ? (
-        <video
-          src={video}
-          poster="/assets/ttc/platform-bord.webp"
-          controls
-          playsinline
-          preload="metadata"
-          class="w-full rounded-kaart border border-line bg-paper-2"
-        />
-      ) : (
-        <img
-          src="/assets/ttc/platform-bord.webp"
-          alt="Projectbord in het platform met locaties per wijk"
-          width="1385"
-          height="689"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-          class="w-full rounded-kaart border border-line"
-        />
-      )
-    }
-  </Kader>
+        <div class="mx-auto w-full max-w-[22rem] lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:max-w-none">
+          <div class="rounded-[1.75rem] bg-ink p-2 shadow-[0_24px_64px_rgb(18_33_26/0.22)]">
+            <video
+              src={video}
+              poster={poster}
+              controls
+              playsinline
+              preload="metadata"
+              width="1080"
+              height="1920"
+              class="block aspect-[9/16] w-full rounded-[1.35rem] bg-ink object-cover"
+            >
+              <a href={video}>Bekijk de video</a>
+            </video>
+          </div>
+          <p class="mt-3 text-center text-sm text-ink-4">Korte video · 1 minuut</p>
+        </div>
 
-  <Kader klasse="mt-8">
-    <ul class="grid gap-px overflow-hidden rounded-kaart border border-line bg-line sm:grid-cols-3">
-      {
-        kerncijfers.map((k) => (
-          <li class="bg-paper-2 px-6 py-6">
-            <span class="block font-display text-3xl font-extrabold text-accent">{k.waarde}</span>
-            <span class="mt-1 block text-sm text-ink-3">{k.tekst}</span>
-          </li>
-        ))
-      }
-    </ul>
-  </Kader>
+        <div class="min-w-0 lg:col-start-1 lg:row-start-2 lg:self-start">
+          <dl class="grid gap-y-5 border-t border-line pt-6 sm:grid-cols-3 sm:gap-x-6">
+            {
+              kerncijfers.map((k, i) => (
+                <div class:list={[i > 0 && "sm:border-l sm:border-line sm:pl-6"]}>
+                  <dd class="font-display text-2xl font-extrabold tracking-tight text-ink">{k.waarde}</dd>
+                  <dt class="mt-1.5 max-w-[26ch] text-sm leading-snug text-ink-4">{k.label}</dt>
+                </div>
+              ))
+            }
+          </dl>
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a
+              href={hoofdactie.url}
+              class="rounded-base bg-accent px-7 py-4 text-center text-base font-semibold text-wit transition-colors hover:bg-accent-deep sm:py-3.5"
+            >
+              Vraag een demo aan
+            </a>
+            <a
+              href="tel:+31643125245"
+              class="rounded-base border border-line-strong px-7 py-4 text-center text-base font-medium text-ink-2 transition-colors hover:border-ink-3 sm:py-3.5"
+            >
+              Bel +31 (6) 431 25 245
+            </a>
+          </div>
+        </div>
+      </div>
+    </Kader>
+  </section>
 
-  <section class="py-20 lg:py-24">
+  <!-- Voor wie -->
+  <section class="py-14 lg:py-24">
     <Kader>
       <p class="text-xs font-semibold uppercase tracking-[0.1em] text-accent">Voor wie</p>
-      <h2 class="mt-4 max-w-[28ch] text-2xl font-extrabold text-ink">Iedereen in de keten werkt in hetzelfde overzicht</h2>
-      <ul class="mt-10 grid gap-x-12 gap-y-8 sm:grid-cols-2">
+      <Kop
+        tekst="Iedereen in de keten werkt in hetzelfde overzicht"
+        accent="hetzelfde overzicht"
+        klasse="mt-4 max-w-[22ch] text-2xl font-extrabold text-ink"
+      />
+      <ul class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {
           voorWie.map((f) => (
-            <li class="border-t border-line pt-5">
-              <h3 class="font-display text-lg font-bold tracking-tight text-ink">{f.titel}</h3>
-              <p class="mt-2 text-sm leading-relaxed text-ink-3">{f.tekst}</p>
+            <li class="flex flex-col gap-4 rounded-kaart border border-line bg-wit p-6 sm:p-7">
+              <span class="flex h-12 w-12 items-center justify-center rounded-base bg-accent/10 text-accent">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" aria-hidden="true" set:html={f.icoon} />
+              </span>
+              <h3 class="font-display text-lg font-bold leading-snug tracking-tight text-ink">{f.titel}</h3>
+              <p class="text-sm text-ink-3">{f.tekst}</p>
             </li>
           ))
         }
@@ -130,47 +181,78 @@ const vragen = [
     </Kader>
   </section>
 
+  <!-- Toegang -->
   <section class="bg-ink text-op-donker">
-    <Kader klasse="py-20 lg:py-24">
-      <p class="text-xs font-semibold uppercase tracking-[0.1em] text-merk">Toegang</p>
-      <h2 class="mt-4 max-w-[28ch] text-2xl font-extrabold text-wit">U bepaalt wie wat ziet en doet</h2>
-      <p class="mt-5 max-w-[60ch] text-base text-op-donker-sterk">
-        Informatie is alleen zichtbaar als de beheerder dat wil. Per gebruiker kiest u welke gemeentes zichtbaar zijn en wat iemand mag doen. Elk niveau bevat alles van het niveau ervoor.
-      </p>
-      <ol class="mt-12 grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
+    <Kader klasse="py-14 lg:py-24">
+      <div class="grid items-start gap-x-16 gap-y-12 lg:grid-cols-2">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.1em] text-merk">Toegang</p>
+          <Kop
+            tekst="U bepaalt wie wat ziet en doet"
+            accent="wie wat ziet"
+            opDonker
+            klasse="mt-4 max-w-[16ch] text-2xl font-extrabold text-wit"
+          />
+          <ul class="mt-8 space-y-3.5">
+            {
+              toegang.map((punt) => (
+                <li class="flex items-start gap-3 text-base text-op-donker-sterk">
+                  <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-merk/20">
+                    <svg viewBox="0 0 12 12" class="h-2.5 w-2.5 text-merk" aria-hidden="true">
+                      <polyline points="2,6 5,9 10,3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                  {punt}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div>
+          <p class="text-sm text-op-donker">Vier niveaus. Elk niveau bevat alles van het niveau ervoor.</p>
+          <ol class="mt-4 overflow-hidden rounded-kaart border border-wit/10">
+            {
+              niveaus.map((n, i) => (
+                <li class:list={["flex gap-5 px-6 py-5", i > 0 && "border-t border-wit/10"]}>
+                  <span class="font-display text-sm font-bold text-merk">{String(i + 1).padStart(2, "0")}</span>
+                  <div>
+                    <h3 class="font-display text-lg font-bold tracking-tight text-wit">{n.titel}</h3>
+                    <p class="mt-1 text-sm leading-relaxed text-op-donker-sterk">{n.tekst}</p>
+                  </div>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+      </div>
+    </Kader>
+  </section>
+
+  <!-- Starten -->
+  <section class="py-14 lg:py-24">
+    <Kader>
+      <p class="text-xs font-semibold uppercase tracking-[0.1em] text-accent">Starten</p>
+      <Kop
+        tekst="In drie stappen aan de slag"
+        accent="drie stappen"
+        klasse="mt-4 max-w-[20ch] text-2xl font-extrabold text-ink"
+      />
+      <ol class="mt-10 grid gap-x-8 gap-y-10 sm:grid-cols-3">
         {
-          niveaus.map((n, i) => (
-            <li class="border-t border-wit/15 pt-5">
-              <span class="font-display text-sm font-bold text-merk">{String(i + 1).padStart(2, "0")}</span>
-              <h3 class="mt-2 font-display text-lg font-bold tracking-tight text-wit">{n.titel}</h3>
-              <p class="mt-2 text-sm leading-relaxed text-op-donker-sterk">{n.tekst}</p>
+          stappen.map((stap, i) => (
+            <li class="border-t border-line-strong pt-5">
+              <span class="font-display text-sm font-bold text-accent">{String(i + 1).padStart(2, "0")}</span>
+              <h3 class="mt-2 font-display text-lg font-bold tracking-tight text-ink">{stap.titel}</h3>
+              <p class="mt-2 max-w-[34ch] text-sm leading-relaxed text-ink-3">{stap.tekst}</p>
             </li>
           ))
         }
       </ol>
-    </Kader>
-  </section>
 
-  <section class="py-20 lg:py-24">
-    <Kader>
-      <p class="text-xs font-semibold uppercase tracking-[0.1em] text-accent">Starten</p>
-      <h2 class="mt-4 max-w-[28ch] text-2xl font-extrabold text-ink">In drie stappen aan de slag</h2>
-    </Kader>
-
-    <Veegrij als="ol" label="In drie stappen aan de slag" klasse="mt-10">
-      {
-        stappen.map((stap, i) => (
-          <li class="w-[78vw] max-w-[20rem] shrink-0 snap-start border-t-2 border-accent/25 pt-5 sm:w-auto sm:max-w-none">
-            <span class="font-display text-sm font-bold text-accent">{String(i + 1).padStart(2, "0")}</span>
-            <h3 class="mt-2 font-display text-lg font-bold tracking-tight text-ink">{stap.titel}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-ink-3">{stap.tekst}</p>
-          </li>
-        ))
-      }
-    </Veegrij>
-
-    <Kader>
-      <Faq vragen={vragen} />
+      <div class="max-w-[52rem]">
+        <Faq vragen={vragen} />
+      </div>
     </Kader>
   </section>
 
@@ -180,7 +262,7 @@ const vragen = [
         <div>
           <h2 class="max-w-[26ch] text-2xl font-extrabold text-wit">Benieuwd wat het platform voor uw gemeente doet?</h2>
           <p class="mt-3 max-w-[56ch] text-base text-wit/90">
-            Neem contact op met B-Advice via <a href="mailto:info@b-advice.info" class="underline">info@b-advice.info</a> of <a href="tel:+31643125245" class="underline">+31 (6) 431 25 245</a>.
+            Neem contact op met B-Advice via <a href="mailto:info@b-advice.info" class="underline">info@b-advice.info</a> of <a href="tel:+31643125245" class="whitespace-nowrap underline">+31 (6) 431 25 245</a>.
           </p>
         </div>
         <a href={hoofdactie.url} class="shrink-0 rounded-base bg-wit px-7 py-4 text-center text-base font-semibold text-accent transition-colors hover:bg-paper-2 sm:py-3.5">
