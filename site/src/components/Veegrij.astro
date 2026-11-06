@@ -16,7 +16,7 @@ interface Props {
   /** Wat er in de rij staat, voor schermlezers. */
   label: string;
   /** Aantal kolommen vanaf de grote breekpunten. */
-  kolommen?: 3 | 4;
+  kolommen?: 3 | 4 | 5;
   klasse?: string;
 }
 const { als: Tag = "ul", label, kolommen = 3, klasse = "" } = Astro.props;
@@ -26,7 +26,7 @@ const { als: Tag = "ul", label, kolommen = 3, klasse = "" } = Astro.props;
   class:list={[
     "veegrij kaderrand flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2",
     "sm:grid sm:snap-none sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 sm:overflow-visible sm:pb-0",
-    kolommen === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3",
+    kolommen === 5 ? "lg:grid-cols-5" : kolommen === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3",
     klasse,
   ]}
   tabindex="0"
