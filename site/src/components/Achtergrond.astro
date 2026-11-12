@@ -1,0 +1,36 @@
+---
+/**
+ * Artikelen die naar deze pagina linken. Staat onder de tekst van een dienst
+ * of kennispagina, zodat bezoeker en zoekmachine van het onderwerp naar de
+ * verdieping kunnen, en artikelen niet alleen via het nieuwsoverzicht
+ * bereikbaar zijn.
+ */
+import { artikelenOver } from "../lib/verband";
+import { datumNL } from "../lib/datum";
+
+interface Props {
+  url: string;
+}
+const lijst = artikelenOver(Astro.props.url);
+---
+
+{
+  lijst.length > 0 && (
+    <div class="mt-14 border-t border-line-strong pt-6">
+      <h2 class="text-xs font-bold uppercase tracking-[0.1em] text-ink-4">Achtergrond bij dit onderwerp</h2>
+      <ul class="mt-4 space-y-4">
+        {lijst.map((a) => (
+          <li>
+            <a
+              href={`/nieuws/${a.slug}/`}
+              class="text-base font-medium text-accent underline decoration-accent/30 underline-offset-2 transition-colors hover:decoration-current"
+            >
+              {a.h1}
+            </a>
+            <p class="mt-0.5 text-sm text-ink-4">{datumNL(a.datum)}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}

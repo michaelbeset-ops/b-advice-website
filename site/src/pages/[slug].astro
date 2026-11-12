@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import Kader from "../components/Kader.astro";
 import Kruimels from "../components/Kruimels.astro";
 import Faq from "../components/Faq.astro";
+import Achtergrond from "../components/Achtergrond.astro";
 import { tekstPaginas, binnenkortPaginas, hoofdactie } from "../data/site";
 import type { TekstPagina } from "../data/site";
 
@@ -154,6 +155,8 @@ const url = `/${pagina.slug}/`;
                 </ul>
               </div>
             )}
+
+            <Achtergrond url={url} />
           </div>
         </Kader>
       </>
