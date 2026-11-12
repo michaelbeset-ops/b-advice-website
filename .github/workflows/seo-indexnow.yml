@@ -1,0 +1,53 @@
+# SEO IndexNow (sitefront-seo 1.1)
+# Na elke geslaagde uitrol: nieuwe en gewijzigde pagina's melden bij Bing (en daarmee
+# Copilot en deels ChatGPT search), Yandex, Seznam, Naver en Yep via IndexNow. Zo staat
+# een nieuw artikel binnen een dag in Bing in plaats van na weken.
+# De key is publiek (hij staat ook als bestand op de site), daarom mag hij hier staan.
+# Een repository-variabele INDEXNOW_KEY gaat voor als die er is.
+# De staat (welke pagina's al gemeld zijn) staat in de Actions-cache.
+name: SEO IndexNow
+
+on:
+  workflow_run:
+    workflows: ["Site bouwen en uitrollen"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  indexnow:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
+    env:
+      INDEXNOW_KEY: ${{ vars.INDEXNOW_KEY || '4adce37a07f5a37dfbdcb9eb0f612705' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - run: npm ci
+      - run: npm run build
+      - name: Vorige staat ophalen
+        uses: actions/cache/restore@v4
+        with:
+          path: site/.indexnow-state.json
+          key: indexnow-${{ github.run_id }}
+          restore-keys: indexnow-
+      - name: Gewijzigde URL's insturen
+        run: python3 .seo/indexnow.py --key "$INDEXNOW_KEY" --wait-live
+      - name: Nieuwe staat bewaren
+        if: success() && hashFiles('site/.indexnow-state.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: site/.indexnow-state.json
+          key: indexnow-${{ github.run_id }}

@@ -6,6 +6,7 @@ import Bovenregel from "../../components/Bovenregel.astro";
 import DienstNav from "../../components/DienstNav.astro";
 import Faq from "../../components/Faq.astro";
 import CtaBand from "../../components/CtaBand.astro";
+import Achtergrond from "../../components/Achtergrond.astro";
 import { diensten, navigatie } from "../../data/site";
 import type { Dienst } from "../../data/site";
 
@@ -107,6 +108,8 @@ const dienstSchema = {
             </div>
           )
         }
+
+        <Achtergrond url={url} />
 
         {dienst.faq && <Faq vragen={dienst.faq} />}
       </div>

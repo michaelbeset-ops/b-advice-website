@@ -8,15 +8,16 @@ import type { Artikel } from "../../data/nieuws";
 import { bedrijf, hoofdactie } from "../../data/site";
 import { datumNL } from "../../lib/datum";
 import { leestijd, inhoudsopgave } from "../../lib/artikel";
+import { onderwerpenVan, onderwerp, verderLezen } from "../../lib/verband";
 
 export function getStaticPaths() {
-  return artikelen.map((artikel, i) => ({
+  return artikelen.map((artikel) => ({
     params: { slug: artikel.slug },
-    // Onderaan het artikel staan de drie eerstvolgende artikelen. Die lijst
-    // wordt hier al bepaald, zodat de pagina zelf niets hoeft te rekenen.
+    // Onderaan staan drie artikelen over hetzelfde onderwerp (zelfde dienst of
+    // kennispagina in de tekst), aangevuld met de eerstvolgende artikelen.
     props: {
       artikel,
-      verder: [...artikelen.slice(i + 1), ...artikelen.slice(0, i)].slice(0, 3),
+      verder: verderLezen(artikel),
     },
   }));
 }
@@ -27,6 +28,10 @@ interface Props {
 }
 const { artikel, verder } = Astro.props;
 const url = `https://b-advice.info/nieuws/${artikel.slug}/`;
+
+// De diensten en kennispagina's waar dit artikel over gaat, voor het blok
+// onder de tekst.
+const bijOnderwerp = onderwerpenVan(artikel).map(onderwerp).filter((o) => o !== undefined).slice(0, 4);
 
 const vragen = artikel.blokken.flatMap((b) => (b.type === "faq" ? b.items : []));
 
@@ -387,6 +392,28 @@ if (vragen.length) {
       </div>
     </div>
   </Kader>
+
+  {
+    bijOnderwerp.length > 0 && (
+      <Kader klasse="-mt-6 pb-12 lg:-mt-10 lg:pb-16">
+        <div class="grid gap-x-16 lg:grid-cols-12"><div class="border-t border-line-strong pt-6 lg:col-span-7">
+          <h2 class="text-xs font-bold uppercase tracking-[0.1em] text-ink-4">Waar B-Advice bij helpt</h2>
+          <ul class="mt-4 space-y-2">
+            {bijOnderwerp.map((o) => (
+              <li>
+                <a
+                  href={o.url}
+                  class="text-base font-medium text-accent underline decoration-accent/30 underline-offset-2 transition-colors hover:decoration-current"
+                >
+                  {o.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div></div>
+      </Kader>
+    )
+  }
 
   <section class="border-t border-line bg-paper-2 py-11 lg:py-16">
     <Kader>

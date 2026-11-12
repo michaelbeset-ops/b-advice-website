@@ -16,3 +16,6 @@ __pycache__/
 
 # Rapporten van de SEO-ronde. Deze repo is publiek, dus die blijven lokaal.
 **/.seo/out/
+
+# IndexNow-staat (welke pagina's al gemeld zijn), staat in de Actions-cache
+.indexnow-state.json

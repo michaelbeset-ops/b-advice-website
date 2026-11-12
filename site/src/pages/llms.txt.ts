@@ -1,0 +1,19 @@
+import type { APIRoute } from "astro";
+import { artikelen } from "../data/nieuws";
+
+/**
+ * llms.txt voor AI-assistenten. De vaste delen staan hieronder als tekst; de
+ * lijst met analyses komt uit de artikelen, zodat elk nieuw artikel er
+ * vanzelf in staat.
+ */
+const VOOR = "# B-Advice\n\n> Advies, projectleiding en werkvoorbereiding voor gemeenten en afvalinzamelaars\n> bij projecten rondom ondergrondse afvalcontainers. Landelijk inzetbaar.\n> B-Advice levert zelf geen containers; wij begeleiden het traject van\n> locatiekeuze tot oplevering en beheer.\n\n## Diensten\n\n- [Projectleiding](https://b-advice.info/diensten/projectleiding/): tijdelijke projectleiding en projectbegeleiding, van voorbereiding tot oplevering.\n- [Locatieonderzoek en werkvoorbereiding](https://b-advice.info/diensten/locatieonderzoek/): beoordeling van de ondergrond, kabels en leidingen, inmeten en inrichtingstekeningen.\n- [Ondergrondse container plaatsen](https://b-advice.info/diensten/plaatsing/): voorbereiding en begeleiding van levering en plaatsing.\n- [Beheer en onderhoud](https://b-advice.info/diensten/beheer-onderhoud/): onderhoud, storingen en het beheer van het containerpark.\n- [Containerregistratie](https://b-advice.info/diensten/containerregistratie/): welke gegevens u per container vastlegt en hoe u een registratie opbouwt en bijhoudt.\n- [Aanbesteding en bestek](https://b-advice.info/diensten/aanbesteding/): opstellen en begeleiden van aanbestedingen.\n- [Meerjaren Investeringsplan](https://b-advice.info/diensten/meerjaren-investeringsplan/): vervangingsplanning voor het containerpark.\n- [Bewonersparticipatie](https://b-advice.info/diensten/bewonersparticipatie/): afstemming met bewoners rond containerlocaties.\n\n## Kennis\n\n- [Wat kost een ondergrondse afvalcontainer?](https://b-advice.info/kosten-ondergrondse-afvalcontainer/): de opbouw van de kosten bij aanleg en exploitatie.\n- [STOSAG](https://b-advice.info/stosag/): de open standaard voor gegevensuitwisseling in de afvalinzameling.\n- [KLIC-melding bij containerplaatsing](https://b-advice.info/klic-melding-containerplaatsing/): kabels en leidingen, ori\u00ebntatieverzoek en graafmelding.\n- [Toegangscontrole en milieupassen](https://b-advice.info/toegangscontrole-milieupas/): wat een passysteem oplevert en van de locatie vraagt.\n- [Vulgraadsensoren](https://b-advice.info/nieuws/vulgraadsensoren-ondergrondse-containers/): wat ze meten, wat ze opleveren en waar ze niet tegen helpen.\n- [Semi-ondergrondse of ondergrondse container](https://b-advice.info/semi-ondergrondse-container/): het verschil tussen een semi-ondergrondse, ondergrondse en bovengrondse container, en welke factoren per locatie bepalen wat past.\n- [Bijplaatsingen voorkomen](https://b-advice.info/bijplaatsingen-voorkomen/): de drie oorzaken van afval naast ondergrondse containers en welke maatregelen structureel werken.\n\n";
+
+const NA = "\n\n- [Over ons](https://b-advice.info/over-ons/): wie wij zijn en voor wie wij werken.\n- [Nieuws en achtergrond](https://b-advice.info/nieuws/): analyses over ondergrondse afvalcontainers, diftar, PMD, textiel en containerbeheer.\n- [Contact](https://b-advice.info/contact/): info@b-advice.info\n- [Locatieaanvraag](https://b-advice.info/locatieaanvraag/): aanvraagformulier voor een containerlocatie.\n\n## Optioneel\n\n- [B-Organized](https://b-advice.info/b-organized/): software voor containerbeheer, met containerregistratie, taken en kaartweergave.\n- [Privacyverklaring](https://b-advice.info/privacy/)\n";
+
+export const GET: APIRoute = () => {
+  const analyses = artikelen
+    .map((a) => `- [${a.h1}](https://b-advice.info/nieuws/${a.slug}/): ${a.meta.omschrijving}`)
+    .join("\n");
+  const tekst = `${VOOR}## Analyses en achtergrond\n\n${analyses}\n\n## Over B-Advice${NA}`;
+  return new Response(tekst, { headers: { "Content-Type": "text/plain; charset=utf-8" } });
+};
