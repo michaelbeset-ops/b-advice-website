@@ -622,6 +622,7 @@ export const diensten: readonly Dienst[] = [
       { type: "p", tekst: "De meeste vertraging bij plaatsingen ontstaat in de ondergrond en in de besluitvorming: een obstakel dat niet op tekening stond, of bezwaren van omwonenden die pas tijdens de uitvoering boven tafel komen. Beide zijn in de voorbereiding op te vangen, niet tijdens het graven." },
     ],
     verwant: [
+      { label: "Semi-ondergronds of ondergronds?", url: "/semi-ondergrondse-container/" },
       { label: "KLIC-melding en kabels en leidingen", url: "/klic-melding-containerplaatsing/" },
       { label: "Locatieonderzoek en werkvoorbereiding", url: "/diensten/locatieonderzoek/" },
       { label: "Projectleiding en projectbegeleiding", url: "/diensten/projectleiding/" },
@@ -971,6 +972,144 @@ export interface TekstPagina {
 
 export const tekstPaginas: readonly TekstPagina[] = [
   {
+    slug: "semi-ondergrondse-container",
+    verwant: [
+      { label: "Ondergrondse container plaatsen", url: "/diensten/plaatsing/" },
+      { label: "Locatieonderzoek en werkvoorbereiding", url: "/diensten/locatieonderzoek/" },
+      { label: "Kosten van een ondergrondse afvalcontainer", url: "/kosten-ondergrondse-afvalcontainer/" },
+    ],
+    h1: "Semi-ondergrondse of ondergrondse container: wat kiest u waar?",
+    intro:
+      "De verschillen tussen ondergronds, semi-ondergronds en bovengronds, en welke factoren op een locatie de doorslag geven.",
+    meta: {
+      titel: "Semi-ondergrondse container of ondergronds?",
+      omschrijving:
+        "Het verschil tussen een semi-ondergrondse, ondergrondse en bovengrondse container, en welke factoren per locatie bepalen wat past.",
+    },
+    faq: [
+      {
+        vraag: "Wat is een semi-ondergrondse container?",
+        antwoord:
+          "Een container die voor een deel in de grond zit en voor een deel zichtbaar boven het maaiveld uitsteekt. De inhoud zit in een binnenzak of binnenbak die bij het legen met een kraan wordt opgetild en boven de wagen wordt geopend.",
+      },
+      {
+        vraag: "Wat is het verschil met een ondergrondse container?",
+        antwoord:
+          "Een ondergrondse container zit volledig in de grond, in een betonnen put; alleen de inwerpzuil staat boven het maaiveld. Dat vraagt diepere ontgraving en meer civiel werk, maar levert het rustigste straatbeeld op.",
+      },
+      {
+        vraag: "Wat is goedkoper, semi-ondergronds of ondergronds?",
+        antwoord:
+          "Semi-ondergronds vraagt minder diep graafwerk en geen betonnen put met hefinstallatie, dus de aanleg is doorgaans eenvoudiger en goedkoper. Of dat voor uw locatie ook zo uitpakt, hangt af van de ondergrond, de bestrating en wat er aan kabels en leidingen ligt.",
+      },
+      {
+        vraag: "Wanneer kiest u een semi-ondergrondse container?",
+        antwoord:
+          "Vooral waar diep graven lastig of duur is: een hoge grondwaterstand, veel kabels en leidingen, of een ondergrond die bemaling vraagt. Ook in buitengebied en op bedrijventerreinen, waar het zichtbare deel minder bezwaarlijk is.",
+      },
+      {
+        vraag: "Kan er toegangscontrole op een semi-ondergrondse container?",
+        antwoord:
+          "Ja, een pasherkenning is ook op een semi-ondergrondse uitvoering mogelijk. Houd er rekening mee dat elektronica een stroomvoorziening vraagt, en dat de doorlooptijd van een netaansluiting door de netbeheerder wordt bepaald.",
+      },
+    ],
+    blokken: [
+      {
+        type: "p",
+        tekst:
+          "Bij nieuwe inzamelvoorzieningen valt de keuze meestal tussen drie uitvoeringen: volledig ondergronds, semi-ondergronds (ook wel halfondergronds) en bovengronds. Die keuze wordt vaak als smaakkwestie behandeld, maar in de praktijk bepaalt de locatie hem grotendeels. Wat eronder zit, weegt zwaarder dan wat erboven staat.",
+      },
+      { type: "h2", tekst: "De drie uitvoeringen in het kort" },
+      {
+        type: "h3", tekst: "Ondergronds",
+      },
+      {
+        type: "p",
+        tekst:
+          "De container zit volledig in de grond, in een betonnen put. Boven het maaiveld staat alleen de inwerpzuil. Legen gebeurt met een kraanwagen die de container uit de put tilt. Dit is de rustigste oplossing in het straatbeeld en daarmee de gebruikelijke keuze in woonwijken en binnenstedelijk gebied.",
+      },
+      {
+        type: "h3", tekst: "Semi-ondergronds",
+      },
+      {
+        type: "p",
+        tekst:
+          "Een deel van de container zit in de grond, een deel steekt zichtbaar boven het maaiveld uit. De inhoud zit in een binnenzak of binnenbak die bij het legen wordt opgehesen en boven de wagen wordt geopend. Er is minder diep graafwerk nodig en geen put met hefinstallatie.",
+      },
+      {
+        type: "h3", tekst: "Bovengronds",
+      },
+      {
+        type: "p",
+        tekst:
+          "De container staat volledig op het maaiveld. Er is geen graafwerk nodig, wat de aanleg eenvoudig maakt en verplaatsen mogelijk. Daar staat tegenover dat hij het meest in het zicht staat en het meeste ruimte op straat inneemt.",
+      },
+      { type: "h2", tekst: "Waarop ze van elkaar verschillen" },
+      {
+        type: "tabel",
+        koppen: ["Punt", "Ondergronds", "Semi-ondergronds", "Bovengronds"],
+        rijen: [
+          ["Graafwerk", "Diep, betonnen put", "Ondieper", "Geen"],
+          ["Zichtbaar boven maaiveld", "Alleen de zuil", "Een deel van de container", "De hele container"],
+          ["Gevoeligheid voor kabels en leidingen", "Groot", "Kleiner", "Vrijwel geen"],
+          ["Gevoeligheid voor grondwater", "Groot, bemaling kan nodig zijn", "Kleiner", "Geen"],
+          ["Verplaatsen achteraf", "Ingrijpend", "Beperkt mogelijk", "Eenvoudig"],
+          ["Geur bij warm weer", "Het laagst, de bodem koelt", "Daartussenin", "Het hoogst"],
+          ["Aanleg", "Het zwaarst", "Daartussenin", "Het lichtst"],
+        ],
+      },
+      {
+        type: "p",
+        tekst:
+          "Deze tabel geeft de verhoudingen weer, geen absolute waarden. Wat een uitvoering op úw locatie kost en vraagt, hangt af van de ondergrond, de bestrating, de bereikbaarheid voor de inzamelwagen en van wat er aan kabels en leidingen ligt. Hoe die posten zich tot elkaar verhouden, staat op onze pagina over de <a href=\"/kosten-ondergrondse-afvalcontainer/\">kosten van een ondergrondse afvalcontainer</a>.",
+      },
+      { type: "h2", tekst: "Wat op een locatie de doorslag geeft" },
+      {
+        type: "p",
+        tekst:
+          "In de praktijk komt de keuze zelden voort uit een voorkeur en bijna altijd uit een beperking. Dit zijn de factoren die wij in de werkvoorbereiding het vaakst de doorslag zien geven:",
+      },
+      {
+        type: "ul",
+        items: [
+          "De grondwaterstand. Staat het water hoog, dan wordt een diepe put een bemalingsproject, en dan wint semi-ondergronds vaak op kosten en doorlooptijd.",
+          "Kabels en leidingen. Hoe dieper u moet, hoe groter de kans dat u iets raakt of moet laten verleggen. Ondieper graven verkleint dat risico.",
+          "Beeldkwaliteit. In een historische binnenstad of een net opgeknapte straat weegt het zichtbare deel zwaar; daar is ondergronds meestal de enige acceptabele uitvoering.",
+          "Ruimte op maaiveld. Een semi-ondergrondse of bovengrondse container neemt zichtbaar plek in, en die is in een smalle straat soms simpelweg niet beschikbaar.",
+          "Bereikbaarheid voor de kraanwagen. Elke uitvoering moet geleegd kunnen worden; de vrije hoogte en de opstelplaats bepalen mede wat kan.",
+          "De wens om later te kunnen verplaatsen. Bij tijdelijke situaties of gebieden in ontwikkeling is dat een serieus argument.",
+        ],
+      },
+      {
+        type: "p",
+        tekst:
+          "Deze punten komen allemaal aan bod in het <a href=\"/diensten/locatieonderzoek/\">locatieonderzoek</a>, voordat de locatie definitief wordt. Dat is ook het moment waarop de keuze nog iets kost: ligt de put er eenmaal, dan is een andere uitvoering geen aanpassing meer maar een nieuw project.",
+      },
+      { type: "h2", tekst: "Een veelgemaakte denkfout" },
+      {
+        type: "p",
+        tekst:
+          "Gemeenten kiezen soms één uitvoering voor de hele gemeente, omdat dat eenduidig oogt en het beheer vereenvoudigt. Dat is begrijpelijk, maar het leidt ertoe dat op sommige locaties onnodig duur wordt gegraven en op andere een container staat die er niet hoort te staan.",
+      },
+      {
+        type: "p",
+        tekst:
+          "Het alternatief hoeft geen rommeltje te worden. Leg een afwegingskader vast: welke uitvoering is de standaard, en bij welke omstandigheden wijkt u daarvan af. Dan is elke afwijking uitlegbaar aan bewoners en aan de raad, en blijft het beheer overzichtelijk.",
+      },
+      {
+        type: "p",
+        tekst:
+          "Leg daarbij per locatie vast wat er staat en waarom. Welke uitvoering, welke capaciteit, welk toegangsregime: dat is de <a href=\"/diensten/containerregistratie/\">containerregistratie</a> waarop u later uw vervangingsplanning en uw aanbesteding baseert.",
+      },
+      { type: "h2", tekst: "En de toegangscontrole?" },
+      {
+        type: "p",
+        tekst:
+          "Een pasherkenning is op alle drie de uitvoeringen mogelijk, dus dat hoeft de keuze niet te sturen. Wel geldt voor alle drie hetzelfde: elektronica vraagt stroom, en de doorlooptijd van een netaansluiting bepaalt de netbeheerder en niet uw aannemer. Meer daarover staat op onze pagina over <a href=\"/toegangscontrole-milieupas/\">toegangscontrole en milieupassen</a>.",
+      },
+    ],
+  },
+  {
     slug: "bijplaatsingen-voorkomen",
     verwant: [
       { label: "Locatieonderzoek en werkvoorbereiding", url: "/diensten/locatieonderzoek/" },
@@ -1156,6 +1295,7 @@ export const tekstPaginas: readonly TekstPagina[] = [
       },
     ],
     verwant: [
+      { label: "Semi-ondergronds of ondergronds?", url: "/semi-ondergrondse-container/" },
       { label: "Meerjaren Investeringsplan", url: "/diensten/meerjaren-investeringsplan/" },
       { label: "Aanbesteding en bestek", url: "/diensten/aanbesteding/" },
       { label: "Locatieonderzoek", url: "/diensten/locatieonderzoek/" },
