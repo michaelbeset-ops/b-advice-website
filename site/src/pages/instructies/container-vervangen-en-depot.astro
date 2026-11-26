@@ -1,0 +1,90 @@
+---
+/**
+ * Verborgen instructiepagina voor B-Organized: container vervangen en depot.
+ *
+ * Bedoeld voor collega's van B-Advice en de gemeente. De link staat in het
+ * nieuwsbericht in B-Organized en in de mail. Daarom staat hij op noindex,
+ * hangt hij nergens in het menu, de footer of het nieuwsoverzicht, en is hij
+ * in astro.config.mjs uit de sitemap gefilterd. Let op, verborgen is niet
+ * beveiligd. Wie de link heeft, kan hem openen.
+ *
+ * Video vervangen: zet het nieuwe bestand in public/assets/instructies/
+ * (mp4, H.264, liggend 16:9) en pas hieronder `video` en `poster` aan.
+ */
+import Base from "../../layouts/Base.astro";
+import Kader from "../../components/Kader.astro";
+import Kop from "../../components/Kop.astro";
+
+const video = "/assets/instructies/b-organized-container-vervangen-en-depot.mp4";
+const poster = "/assets/instructies/b-organized-container-vervangen-en-depot-poster.webp";
+
+const stappen = [
+  "Open de container en klik rechts op Vervangen.",
+  "Kies een depot of maak een nieuw depot aan, en vul de datum en eventueel een reden in.",
+  "Komt er een nieuwe container voor in de plaats, dan vul je die direct daarna in. Anders blijft de locatie leeg.",
+  "Containers op een depot staan op het bord helemaal rechts in de oranje kolom Depot.",
+  "Met Verplaatsen zet je een container vanaf het depot weer op een locatie, ook in een andere gemeente.",
+  "Afkeuren staat los van de plek. Een container blijft afgekeurd tot iemand op Verhelpen klikt.",
+];
+---
+
+<Base
+  titel="Instructie B-Organized: container vervangen en depot | B-Advice"
+  omschrijving="Korte instructievideo voor B-Organized. Zo vervang je een container, zet je hem op een depot en plaats je hem weer terug."
+  nietIndexeren
+>
+  <section class="bg-paper-2">
+    <Kader als="div" id="inhoud" klasse="pt-8 pb-14 sm:pt-12 lg:pt-16 lg:pb-24">
+      <p class="text-sm font-semibold uppercase tracking-wide text-ink-4">Instructie B-Organized</p>
+      <Kop
+        als="h1"
+        tekst="Container vervangen en depot"
+        accent="depot"
+        klasse="mt-2 text-2xl font-extrabold text-ink lg:text-3xl"
+      />
+      <p class="mt-3 max-w-[60ch] text-lg font-medium text-ink-2">
+        In twee minuten zie je hoe je een container vervangt, naar een depot zet, afkeurt en weer op een locatie plaatst.
+      </p>
+
+      <div class="mt-8 rounded-[1.25rem] bg-ink p-1.5 shadow-[0_24px_64px_rgb(18_33_26/0.22)] sm:p-2">
+        <video
+          src={video}
+          poster={poster}
+          controls
+          playsinline
+          preload="metadata"
+          width="1920"
+          height="1080"
+          class="block aspect-video w-full rounded-[1rem] bg-ink"
+        >
+          <a href={video}>Bekijk de video</a>
+        </video>
+      </div>
+
+      <div class="mt-10 grid gap-8 lg:grid-cols-[1fr_20rem] lg:gap-x-16">
+        <div>
+          <h2 class="font-display text-xl font-bold text-ink">De stappen</h2>
+          <ol class="mt-4 grid gap-3">
+            {
+              stappen.map((stap, i) => (
+                <li class="flex items-start gap-3 text-base text-ink-2">
+                  <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/10 text-sm font-semibold text-accent">
+                    {i + 1}
+                  </span>
+                  {stap}
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+        <div class="rounded-kaart border border-line bg-wit p-5">
+          <h2 class="font-display text-base font-bold text-ink">Zo kom je hier</h2>
+          <p class="mt-2 text-base text-ink-2">Dashboard → gemeente → locatie → container → Vervangen</p>
+          <p class="mt-4 text-sm text-ink-4">
+            Alles wordt bijgehouden. Op de container zie je bij Reis waar hij is geweest, en op de locatie onder Containergeschiedenis welke containers er hebben gestaan.
+          </p>
+        </div>
+      </div>
+    </Kader>
+  </section>
+</Base>
