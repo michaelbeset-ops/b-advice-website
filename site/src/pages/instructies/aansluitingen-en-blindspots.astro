@@ -1,0 +1,90 @@
+---
+/**
+ * Verborgen instructiepagina voor B-Organized: aansluitingen en blindspots.
+ *
+ * Bedoeld voor collega's van B-Advice en de gemeente. De link staat in het
+ * nieuwsbericht in B-Organized en in de mail. Daarom staat hij op noindex,
+ * hangt hij nergens in het menu, de footer of het nieuwsoverzicht, en is hij
+ * in astro.config.mjs uit de sitemap gefilterd. Let op, verborgen is niet
+ * beveiligd. Wie de link heeft, kan hem openen.
+ *
+ * Video vervangen: zet het nieuwe bestand in public/assets/instructies/
+ * (mp4, H.264, liggend 16:9) en pas hieronder `video` en `poster` aan.
+ */
+import Base from "../../layouts/Base.astro";
+import Kader from "../../components/Kader.astro";
+import Kop from "../../components/Kop.astro";
+
+const video = "/assets/instructies/b-organized-aansluitingen-en-blindspots.mp4";
+const poster = "/assets/instructies/b-organized-aansluitingen-en-blindspots-poster.webp";
+
+const stappen = [
+  "Open je gemeente, klik bovenaan op Kaart en kies de weergave Aansluitingen.",
+  "De gekleurde bollen zijn containers. De kleur laat de fractie zien. De kleine stippen zijn woningen.",
+  "Klik op een container. Je ziet lijnen naar alle aangesloten woningen en links de adressen per straat.",
+  "Klik op een woning om te zien aan welke containers die hangt, met de afstand erbij.",
+  "In de legenda zet je fracties aan of uit. Links onder \"Wat opvalt\" zie je bijvoorbeeld containers zonder adressen.",
+  "Is het bronbestand van de gemeente ingelezen, dan zie je ook blindspots. Rood hoort gekoppeld te zijn maar heeft geen pas. Oranje heeft een pas maar hangt nog aan geen container.",
+];
+---
+
+<Base
+  titel="Instructie B-Organized: aansluitingen en blindspots | B-Advice"
+  omschrijving="Korte instructievideo voor B-Organized. Zo zie je op de kaart welke woningen op welke container zijn aangesloten, en waar de blindspots zitten."
+  nietIndexeren
+>
+  <section class="bg-paper-2">
+    <Kader als="div" id="inhoud" klasse="pt-8 pb-14 sm:pt-12 lg:pt-16 lg:pb-24">
+      <p class="text-sm font-semibold uppercase tracking-wide text-ink-4">Instructie B-Organized</p>
+      <Kop
+        als="h1"
+        tekst="Aansluitingen en blindspots"
+        accent="blindspots"
+        klasse="mt-2 text-2xl font-extrabold text-ink lg:text-3xl"
+      />
+      <p class="mt-3 max-w-[60ch] text-lg font-medium text-ink-2">
+        In twee minuten zie je op de kaart welke woningen op welke container zijn aangesloten, en waar nog gaten zitten.
+      </p>
+
+      <div class="mt-8 rounded-[1.25rem] bg-ink p-1.5 shadow-[0_24px_64px_rgb(18_33_26/0.22)] sm:p-2">
+        <video
+          src={video}
+          poster={poster}
+          controls
+          playsinline
+          preload="metadata"
+          width="1920"
+          height="1080"
+          class="block aspect-video w-full rounded-[1rem] bg-ink"
+        >
+          <a href={video}>Bekijk de video</a>
+        </video>
+      </div>
+
+      <div class="mt-10 grid gap-8 lg:grid-cols-[1fr_20rem] lg:gap-x-16">
+        <div>
+          <h2 class="font-display text-xl font-bold text-ink">De stappen</h2>
+          <ol class="mt-4 grid gap-3">
+            {
+              stappen.map((stap, i) => (
+                <li class="flex items-start gap-3 text-base text-ink-2">
+                  <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/10 text-sm font-semibold text-accent">
+                    {i + 1}
+                  </span>
+                  {stap}
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+        <div class="rounded-kaart border border-line bg-wit p-5">
+          <h2 class="font-display text-base font-bold text-ink">Zo kom je hier</h2>
+          <p class="mt-2 text-base text-ink-2">Dashboard → gemeente → Kaart → Aansluitingen</p>
+          <p class="mt-4 text-sm text-ink-4">
+            Adressen koppelen doe je met het sjabloon en de knop "Aansluitingen importeren" onderaan de kaart. Je ziet eerst een proef, en er verandert pas iets als je bevestigt.
+          </p>
+        </div>
+      </div>
+    </Kader>
+  </section>
+</Base>
