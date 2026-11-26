@@ -55,7 +55,10 @@ export default defineConfig({
       // flyer heeft, dus die staat ook niet in de sitemap.
       filter: (pagina) =>
         !binnenkortPaginas.some((b) => pagina.endsWith(`/${b.slug}/`)) &&
-        !pagina.endsWith("/ttc-platform/"),
+        !pagina.endsWith("/ttc-platform/") &&
+        // Instructievideo's voor B-Organized zijn alleen voor wie de link
+        // uit het nieuwsbericht of de mail heeft.
+        !pagina.includes("/instructies/"),
       // Alleen een artikel krijgt een lastmod, namelijk zijn publicatiedatum.
       // De overige pagina's krijgen er geen: zij kregen eerder de datum van de
       // build mee, waardoor de lastmod bij elke uitrol veranderde terwijl er
